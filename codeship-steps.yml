@@ -1,0 +1,11 @@
+- type: parallel
+  steps:
+    - name: Audit
+      service: web
+      command: bundle exec bundle-audit check --update
+    - name: Rspec
+      service: web
+      command: bash -c './bin/rails db:setup && ./bin/rspec'
+    - name: Spinach
+      service: web
+      command: bash -c './bin/rails db:setup && ./bin/spinach'

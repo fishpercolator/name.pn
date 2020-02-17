@@ -1,0 +1,10 @@
+- if flash[:notice] || flash[:alert]
+  %section#messages{data: {controller: 'messages'}}
+    - if flash[:notice]
+      .notification.is-info.is-radiusless
+        %button.delete{data: {action: 'messages#close'}}
+        = flash[:notice]
+    - if flash[:alert]
+      .notification.is-danger.is-radiusless
+        %button.delete{data: {action: 'messages#close'}}
+        = flash[:alert]

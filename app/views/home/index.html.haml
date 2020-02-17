@@ -1,0 +1,8 @@
+%section.hero.is-light
+  .hero-body
+    .container
+      %h1.title= title t('.title')
+%section.section
+  .container
+    %article.message.is-primary#hello{data: {controller: 'hello'}}
+      .message-body{data: {target: 'hello.output'}}

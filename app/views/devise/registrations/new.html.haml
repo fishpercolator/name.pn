@@ -1,0 +1,10 @@
+%section.section
+  .container
+    %h2.title= title t('.title')
+    .box
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.input :email, autofocus: true
+        = f.input :password
+        = f.input :password_confirmation
+        = f.button :submit, t('.submit'), class: 'is-link'
+    = render "devise/shared/links"

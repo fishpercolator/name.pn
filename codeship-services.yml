@@ -1,0 +1,10 @@
+db:
+  image: healthcheck/postgres:alpine
+  ports:
+    - "5432"
+web:
+  build:
+    dockerfile: Dockerfile.test
+  cached: true
+  depends_on:
+    - db

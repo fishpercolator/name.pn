@@ -1,0 +1,24 @@
+FROM ruby:2.6.5
+
+COPY vendor/prepare-env.sh /tmp
+RUN /tmp/prepare-env.sh 1001
+
+ENV APP /usr/src/app
+RUN mkdir $APP
+WORKDIR $APP
+
+RUN bundle config build.nokogiri --use-system-libraries
+ENV DEFAULT_DOMAIN localhost
+ENV RAILS_ENV test
+
+COPY Gemfile Gemfile.lock $APP/
+RUN bundle install
+COPY package.json yarn.lock $APP/
+RUN yarn
+RUN chown rails:rails $APP/
+COPY --chown=rails:rails . $APP/
+USER rails
+RUN ./bin/webpack
+
+ENTRYPOINT ["vendor/docker-entrypoint.sh"]
+CMD ["bash"]

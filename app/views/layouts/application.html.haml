@@ -1,0 +1,16 @@
+!!!
+%html{lang: 'en'}
+  %head
+    = display_meta_tags site: t('product_name'), reverse: true, viewport: 'width=device-width, initial-scale=1.0', 'theme-color' => '#3d9970'
+    = csrf_meta_tags
+    = csp_meta_tag
+    = favicon_link_tag
+    = favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
+    = tag 'link', rel: 'manifest', href: manifest_path(format: :json)
+    = javascript_pack_tag 'application'
+    = stylesheet_pack_tag 'application', media: 'all'
+  %body
+    %header
+      = render 'layouts/navbar'
+      = render 'layouts/messages'
+    %main= yield

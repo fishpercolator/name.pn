@@ -1,0 +1,2 @@
+web: bundle exec rails server -b 0.0.0.0 -p 3000
+webpacker: env WEBPACKER_DEV_SERVER_HOST=0.0.0.0 ./bin/webpack-dev-server

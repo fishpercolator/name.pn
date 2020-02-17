@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432"
+  web:
+    build:
+      context: .
+      args:
+        UID: ${UID:-1001}
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+      - "3035:3035"
+    depends_on:
+      - db
+    user: rails
