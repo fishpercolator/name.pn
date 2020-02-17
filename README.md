@@ -1,4 +1,4 @@
-# Name pn
+# Name.pn
 
 This is the documentation for maintainers and developers of the Name pn web app.
 
