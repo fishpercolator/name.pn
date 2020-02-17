@@ -1,3 +1,5 @@
+require 'devise/mailer'
+
 ActionMailer::Base.default_url_options = {
   host: ENV['DOMAIN_IN_EMAIL_LINKS'] || ENV['DOMAIN_NAME'] || 'changeme.example.com',
   protocol: 'https'
