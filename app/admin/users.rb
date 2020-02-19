@@ -1,6 +1,12 @@
 ActiveAdmin.register User do
   permit_params :email, :role, :password, :full_name, :personal_name, :formal_name, :envelope_name, :phonetic, :pronoun_set_ids => []
 
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
+
   index do
     selectable_column
     id_column
