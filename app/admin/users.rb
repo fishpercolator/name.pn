@@ -1,10 +1,11 @@
 ActiveAdmin.register User do
-  permit_params :email, :role, :password
+  permit_params :email, :role, :password, :full_name, :personal_name, :formal_name, :envelope_name, :phonetic, :pronoun_set_ids => []
 
   index do
     selectable_column
     id_column
     column :email
+    column :full_name
     column :role
     actions
   end
@@ -17,6 +18,12 @@ ActiveAdmin.register User do
       f.input :email
       f.input :password
       f.input :role, as: :select
+      f.input :full_name
+      f.input :personal_name
+      f.input :formal_name
+      f.input :envelope_name
+      f.input :phonetic
+      f.input :pronoun_sets
     end
     f.actions
   end
@@ -26,6 +33,12 @@ ActiveAdmin.register User do
       row :id
       row :email
       row :role
+      row :full_name
+      row :personal_name
+      row :formal_name
+      row :envelope_name
+      row :phonetic
+      row :pronoun_sets
       row :created_at
       row :updated_at
       row :current_sign_in_at

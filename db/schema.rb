@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_203848) do
+ActiveRecord::Schema.define(version: 2020_02_19_210159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,11 @@ ActiveRecord::Schema.define(version: 2020_02_19_203848) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "pronoun_sets_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "pronoun_set_id", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,6 +57,11 @@ ActiveRecord::Schema.define(version: 2020_02_19_203848) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.enum "role", default: "user", null: false, as: "user_role"
+    t.string "full_name"
+    t.string "personal_name"
+    t.string "formal_name"
+    t.string "envelope_name"
+    t.string "phonetic"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
