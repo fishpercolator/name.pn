@@ -5,6 +5,7 @@ en:
   layouts:
     navbar:
       admin: Admin
+      my_profile: My profile
   home:
     index:
       title: Home page
