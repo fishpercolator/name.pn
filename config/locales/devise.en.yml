@@ -6,6 +6,9 @@ en:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      new:
+        title: Resend confirmation instructions
+        submit: Resend confirmation instructions
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
@@ -36,6 +39,14 @@ en:
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
+      new:
+        title: Forgot your password?
+        submit: Send me password reset instructions
+      edit:
+        title: Change your password
+        new_password: New password
+        confirm_new_password: Confirm new password
+        submit: Change my password
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
@@ -45,10 +56,26 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
+      new:
+        title: Sign up
+        password_help: "(%{min} characters minimum)"
+        submit: Submit
+      edit:
+        title: My account
+        password_hint: leave blank if you don't want to change it
+        current_password_hint: we need your current password to confirm your changes
+        save: Save
+        cancel: Cancel your account
+        cancel_confirm: Are you sure you want to cancel your account?
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+      new:
+        title: Log in
+        submit: Log in
+      destroy:
+        title: Log out
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."

@@ -1,0 +1,44 @@
+body.user-profile {
+  background-color: $dark;
+}
+
+.user-profile__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 3rem 0;
+}
+
+.napc {
+  background-color: $red;
+  color: $white;
+  box-sizing: border-box;
+  width: calc(100vw - 2rem);
+  max-width: 80ch;
+  padding: 2rem;
+  text-align: center;
+  border-radius: $radius-large;
+}
+.napc__text-box {
+  background-color: $white;
+  color: $black;
+  border-radius: $radius-large;
+  padding: 1rem 2rem;
+  font-family: $family-handwriting;
+  font-size: 3rem;
+}
+.napc__text-box--larger {
+  font-size: 5rem;
+}
+.napc__greeting {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+}
+.napc__heading {
+  font-size: 2rem;
+  font-weight: normal;
+  font-style: italic;
+  margin: 0.5rem 0;
+}

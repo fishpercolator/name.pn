@@ -1,0 +1,9 @@
+.napc
+  %h1.napc__greeting= t('.hello')
+  %h2.napc__heading= t('.my_name_is')
+  .napc__text-box.napc__text-box--larger
+    %p= @user.personal_name
+  %h2.napc__heading= t('.my_pronouns_are')
+  .napc__text-box
+    - @user.pronoun_sets.each do |ps|
+      %p= ps.to_s

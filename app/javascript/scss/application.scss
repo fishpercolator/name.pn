@@ -1,10 +1,14 @@
 // Config goes here
 $primary: #ABC8C7;
+$red: #FF4136;
+$family-sans-serif: 'Raleway';
+$family-handwriting: 'Patrick Hand';
 
 // Add the pieces of Bulma that your project uses here
 @import "~bulma/sass/utilities/_all";
 @import "~bulma/sass/base/_all";
 
+@import "~bulma/sass/components/card";
 @import "~bulma/sass/components/message";
 @import "~bulma/sass/components/navbar";
 
@@ -12,6 +16,7 @@ $primary: #ABC8C7;
 @import "~bulma/sass/elements/button";
 @import "~bulma/sass/elements/notification";
 @import "~bulma/sass/elements/other";
+@import "~bulma/sass/elements/table";
 @import "~bulma/sass/elements/title";
 
 @import "~bulma/sass/form/_all";
@@ -20,3 +25,5 @@ $primary: #ABC8C7;
 @import "~bulma/sass/layout/section";
 
 // Import your own styles here
+@import "layout";
+@import "user_profile";
