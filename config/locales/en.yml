@@ -1,4 +1,4 @@
 en:
-  product_name: Name.pn
+  product_name: name.pn
   errors:
     not_admin: Please sign is as an admin user
