@@ -1,4 +1,5 @@
-= display_meta_tags site: t('product_name'), reverse: true, viewport: 'width=device-width, initial-scale=1.0', 'theme-color' => '#ABC8C7'
+- theme ||= '#ABC8C7'
+= display_meta_tags site: t('product_name'), reverse: true, viewport: 'width=device-width, initial-scale=1.0', 'theme-color' => theme
 = csrf_meta_tags
 = csp_meta_tag
 = favicon_link_tag
