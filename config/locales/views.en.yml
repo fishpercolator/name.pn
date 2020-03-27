@@ -7,7 +7,12 @@ en:
     index:
       title: Home page
   users:
+    show:
+      blurb: Get your own name.pn
     name_and_pronoun_card:
       hello: Hello
       my_name_is: my name is
       my_pronouns_are: my pronouns are
+    formal_name_card:
+      my_formal_name: My formal name
+      dear: Dear %{name},

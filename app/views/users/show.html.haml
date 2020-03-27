@@ -1,3 +1,7 @@
 - title @user.full_name
 .user-profile__container
   = render 'name_and_pronoun_card', user: @user
+  = render 'full_name_card', user: @user
+  = render 'formal_name_card', user: @user
+.blurb
+  = link_to t('.blurb'), root_path

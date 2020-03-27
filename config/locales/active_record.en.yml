@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        full_name: My full name
+        phonetic: "It's pronounced"
+        envelope_name: On an envelope
+        formal_name: Opening words

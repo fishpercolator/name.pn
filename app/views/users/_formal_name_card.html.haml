@@ -1,0 +1,11 @@
+.formal-name.card.card--profile
+  .card-header
+    %p.card-header-title= t('.my_formal_name')
+  .card-content
+    %dl.card__list
+      %dt= User.human_attribute_name(:envelope_name)
+      %dd= user.envelope_name
+      %dt= User.human_attribute_name(:formal_name)
+      %dd
+        - if user.formal_name?
+          = t('.dear', name: user.formal_name)

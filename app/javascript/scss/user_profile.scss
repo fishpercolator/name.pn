@@ -3,18 +3,53 @@ body.user-profile {
 }
 
 .user-profile__container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 3rem 0;
+  display: grid;
+  padding: 2rem;
+  grid-row-gap: 2rem;
+  grid-column-gap: 2rem;
+  
+  
+  grid-template-columns: auto;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: 
+    "nap" 
+    "fullname" 
+    "formal"
+    ;
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+      "nap fullname" 
+      "nap formal"
+      ;
+  }
+  
+  .napc {
+    grid-area: nap;
+  }
+  .full-name {
+    grid-area: fullname;
+  }
+  .formal-name {
+    grid-area: formal;
+  }
+  
+  // display: flex;
+  // flex-direction: column;
+  // flex-wrap: wrap;
+  // justify-content: center;
+  // padding: 3rem 0;
+  // width: calc(100vw - 2rem);
+  // max-width: 80ch;
+  // margin: 0 auto;
 }
 
 .napc {
   background-color: $red;
   color: $white;
   box-sizing: border-box;
-  width: calc(100vw - 2rem);
-  max-width: 80ch;
+  width: 100%;
   padding: 2rem;
   text-align: center;
   border-radius: $radius-large;
@@ -41,4 +76,43 @@ body.user-profile {
   font-weight: normal;
   font-style: italic;
   margin: 0.5rem 0;
+}
+
+.card--profile {
+  border-radius: $radius-large;
+  font-size: 1.5rem;
+}
+
+.card__list {
+  dt {
+    @include tablet {
+      display: inline-block;
+    }
+    font-weight: bold;
+    min-width: 14ch;
+    &:after {
+      content: ':';
+    }
+  }
+  dd {
+    @include tablet {
+      display: inline;
+    }
+    @include mobile {
+      margin-left: 1.5ch;
+    }
+    &:after {
+      content: '\a';
+      white-space: pre-wrap;
+    }
+  }
+}
+
+.blurb {
+  text-align: center;
+  padding: 1rem;
+  a {
+    color: $light;
+    text-decoration: underline;
+  }
 }

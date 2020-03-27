@@ -1,0 +1,6 @@
+.full-name.card.card--profile
+  .card-content
+    %dl.card__list
+      - %i[full_name phonetic].each do |att|
+        %dt= User.human_attribute_name(att)
+        %dd= user.public_send att
