@@ -26,9 +26,27 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'activeadmin', '~> 2.6'
+gem 'devise', '~> 4.7'
 gem 'friendly_id', '~> 5.3'
+gem 'haml', '~> 5.1'
+gem 'meta-tags', '~> 2.13'
+gem 'activerecord-pg_enum', '~> 1.1'
+gem 'pundit', '~> 2.1'
+gem 'serviceworker-rails', '~> 0.6.0'
+gem 'simple_form', '~> 5.0'
+gem 'wicked', '~> 1.3'
 
 group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'pry-rails'
+  gem 'pry-rescue'
+  gem 'binding_of_caller'
+  gem 'rspec-rails'
+  gem 'rspec'
+  gem 'bundler-audit'
+  gem 'spinach-rails'
+  gem 'spinach'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -40,31 +58,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen'
-end
-
-
-
-gem 'activeadmin', '~> 2.6'
-gem 'devise', '~> 4.7'
-gem 'haml', '~> 5.1'
-gem 'meta-tags', '~> 2.13'
-gem 'activerecord-pg_enum', '~> 1.1'
-gem 'pundit', '~> 2.1'
-gem 'serviceworker-rails', '~> 0.6.0'
-gem 'simple_form', '~> 5.0'
-group :development, :test do
-  gem 'factory_bot_rails'
-  gem 'pry-rails'
-  gem 'pry-rescue'
-  gem 'binding_of_caller'
-  gem 'rspec-rails'
-  gem 'rspec'
-  gem 'bundler-audit'
-  gem 'spinach-rails'
-  gem 'spinach'
-end
-
-group :development do
   gem 'spring-commands-rspec'
   gem 'better_errors'
   gem 'foreman'

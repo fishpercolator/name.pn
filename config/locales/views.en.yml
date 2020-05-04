@@ -6,6 +6,13 @@ en:
   home:
     index:
       title: Home page
+  profile:
+    steps:
+      personal_name: Your name
+      pronouns: Your pronouns
+      formal_name: Formal name
+      pronunciation: Pronunciation
+      slug: Your URL
   users:
     show:
       blurb: Get your own name.pn

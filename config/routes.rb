@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   
+  resources :profile
+  
   get "/*id", to: 'users#show', constraints: { id: %r{[^/]+} }, as: :user
   
   root to: 'home#index'

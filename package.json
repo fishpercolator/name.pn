@@ -2,10 +2,12 @@
   "name": "name_pn",
   "private": true,
   "dependencies": {
+    "@mdi/font": "^5.1.45",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.0.1",
     "bulma": "^0.8.0",
+    "bulma-o-steps": "^1.0.9",
     "rails-ujs": "^5.2.4-1",
     "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0"

@@ -8,7 +8,7 @@
   .navbar-menu{data: {target: 'navbar.menu'}}
     .navbar-start
       - if user_signed_in?
-        = link_to t('.my_profile'), user_path(current_user), class: 'navbar-item'
+        = link_to t('.my_profile'), profile_index_path, class: 'navbar-item'
     .navbar-end
       - if user_signed_in?
         - if current_user.role_admin?

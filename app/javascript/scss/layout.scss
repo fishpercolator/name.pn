@@ -4,3 +4,9 @@ html {
 body {
   min-height: 100%;
 }
+
+.checkbox {
+  input:first-child {
+    margin-right: 0.5rem;
+  }
+}

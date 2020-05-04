@@ -14,6 +14,8 @@ $family-handwriting: 'Patrick Hand';
 
 @import "~bulma/sass/elements/box";
 @import "~bulma/sass/elements/button";
+@import "~bulma/sass/elements/container";
+@import "~bulma/sass/elements/content";
 @import "~bulma/sass/elements/notification";
 @import "~bulma/sass/elements/other";
 @import "~bulma/sass/elements/table";
@@ -23,6 +25,11 @@ $family-handwriting: 'Patrick Hand';
 
 @import "~bulma/sass/layout/hero";
 @import "~bulma/sass/layout/section";
+
+@import "~bulma-o-steps/bulma-steps";
+
+$mdi-font-path: "~@mdi/font/fonts";
+@import "~@mdi/font/scss/materialdesignicons";
 
 // Import your own styles here
 @import "layout";

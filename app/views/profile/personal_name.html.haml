@@ -1,0 +1,7 @@
+%section.section
+  .container
+    = render 'header'
+    = simple_form_for @user, url: wizard_path, method: :patch do |f|
+      = f.input :full_name
+      = f.input :personal_name
+      = render 'buttons', f: f
