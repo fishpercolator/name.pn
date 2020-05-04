@@ -3,10 +3,14 @@ en:
     navbar:
       admin: Admin
       my_profile: My profile
+      view_my_profile: View
   home:
     index:
-      title: Home page
+      title: 'Name.pn: pronouns + pronounce'
+      sign_up_free: Sign up free
   profile:
+    show:
+      title: Edit my profile
     steps:
       personal_name: Your name
       pronouns: Your pronouns

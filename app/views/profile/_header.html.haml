@@ -1,3 +1,4 @@
+%h1.title= t('profile.show.title')
 %ul.steps.has-content-centered
   - wizard_steps.each.with_index do |each_step|
     %li.steps-segment{class: ('is-active' if each_step == step)}

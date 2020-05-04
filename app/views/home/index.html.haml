@@ -4,5 +4,7 @@
       %h1.title= title t('.title')
 %section.section
   .container
-    %article.message.is-primary#hello{data: {controller: 'hello'}}
-      .message-body{data: {target: 'hello.output'}}
+    - if user_signed_in?
+      %p= link_to t('profile.show.title'), profile_index_path, class: 'button is-link is-large'
+    - else
+      %p= link_to t('.sign_up_free'), new_user_registration_path, class: 'button is-link is-large'

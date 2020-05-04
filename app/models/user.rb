@@ -13,4 +13,11 @@ class User < ApplicationRecord
   def to_s
     full_name.present? ? full_name : email
   end
+  
+  # To have a complete profile you must have entered a full name,
+  # a personal name and at least one pronoun
+  def profile_complete?
+    full_name.present? && personal_name.present? && pronoun_sets.any?
+  end
+  
 end
