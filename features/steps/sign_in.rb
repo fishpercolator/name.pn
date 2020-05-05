@@ -14,7 +14,7 @@ class Spinach::Features::SignIn < Spinach::FeatureSteps
   end
 
   step 'I fill in my email address' do
-    fill_in 'Email', with: test_user.email
+    fill_in 'Your email address', with: test_user.email
   end
 
   step 'I fill in my password' do
