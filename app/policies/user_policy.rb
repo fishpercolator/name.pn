@@ -1,6 +1,6 @@
 class UserPolicy < ApplicationPolicy
   def show?
-    true
+    record.profile_complete?
   end
   
   # All profile wizard actions are 'update'
