@@ -18,6 +18,9 @@ class ProfileController < ApplicationController
   
   def update
     @user.update_attributes(permitted_attributes @user)
+    if @user.valid? && params[:button] == 'finish'
+      jump_to Wicked::FINISH_STEP
+    end
     render_wizard @user
   end
   

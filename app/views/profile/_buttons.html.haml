@@ -16,7 +16,7 @@
               %span.icon
                 %i.mdi.mdi-chevron-right
         .control
-          = f.button :button, class: (next_step == Wicked::FINISH_STEP ? 'is-primary' : 'is-primary is-outlined') do
+          = f.button :button, value: 'finish', class: (next_step == Wicked::FINISH_STEP ? 'is-primary' : 'is-primary is-outlined') do
             %span= t('.finish')
             %span.icon
               %i.mdi.mdi-page-last
