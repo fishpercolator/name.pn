@@ -1,22 +1,24 @@
 %nav.navbar.is-primary{role: 'navigation', aria: {label: 'navigation'}, data: {controller: 'navbar'}}
-  .navbar-brand
-    = link_to root_path, class: 'navbar-item' do
-      %b= t('product_name')
-    %a.navbar-burger{role: 'button', aria: {label: 'menu', expanded: 'false'}, data: {target: 'navbar.burger', action: 'navbar#toggleMenu'}}
-      - 3.times do
-        %span{aria_hidden: true}
-  .navbar-menu{data: {target: 'navbar.menu'}}
-    .navbar-start
-      - if user_signed_in?
-        = link_to t('.my_profile'), profile_index_path, class: 'navbar-item'
-        - if policy(current_user).show?
-          = link_to t('.view_my_profile'), user_path(current_user), class: 'navbar-item', target: '_blank'
-    .navbar-end
-      - if user_signed_in?
-        - if current_user.role_admin?
-          = link_to t('.admin'), admin_root_path, class: 'navbar-item', data: {turbolinks: false}
-        = link_to t('devise.registrations.edit.title'), edit_user_registration_path, class: 'navbar-item'
-        = link_to t('devise.sessions.destroy.title'), destroy_user_session_path, class: 'navbar-item', method: :delete
-      - else
-        = link_to t('devise.sessions.new.title'), new_user_session_path, class: 'navbar-item'
-        = link_to t('devise.registrations.new.title'), new_user_registration_path, class: 'navbar-item'
+  .container
+    .navbar-brand
+      = link_to root_path, class: 'navbar-item' do
+        %b= t('product_name')
+      %a.navbar-burger{role: 'button', aria: {label: 'menu', expanded: 'false'}, data: {target: 'navbar.burger', action: 'navbar#toggleMenu'}}
+        - 3.times do
+          %span{aria_hidden: true}
+    .navbar-menu{data: {target: 'navbar.menu'}}
+      .navbar-start
+        = link_to t('.home'), root_path, class: 'navbar-item'
+        - if user_signed_in?
+          = link_to t('.my_profile'), profile_index_path, class: 'navbar-item'
+          - if policy(current_user).show?
+            = link_to t('.view_my_profile'), user_path(current_user), class: 'navbar-item', target: '_blank'
+      .navbar-end
+        - if user_signed_in?
+          - if current_user.role_admin?
+            = link_to t('.admin'), admin_root_path, class: 'navbar-item', data: {turbolinks: false}
+          = link_to t('devise.registrations.edit.title'), edit_user_registration_path, class: 'navbar-item'
+          = link_to t('devise.sessions.destroy.title'), destroy_user_session_path, class: 'navbar-item', method: :delete
+        - else
+          = link_to t('devise.sessions.new.title'), new_user_session_path, class: 'navbar-item'
+          = link_to t('devise.registrations.new.title'), new_user_registration_path, class: 'navbar-item'

@@ -1,0 +1,11 @@
+.tile.is-child.card.is-pronouns
+  .card-header
+    .card-header-title= t('.title')
+    .card-header-icon
+      = link_to profile_path(:pronouns), class: 'icon', title: t('actions.edit') do
+        %i.mdi.mdi-pencil
+  .card-content
+    - if current_user.pronoun_sets.any?
+      = render partial: 'pronoun_sets/table', collection: current_user.pronoun_sets, as: :pronoun_set
+    - else
+      %p= you_must

@@ -1,0 +1,13 @@
+.tile.is-child.card.is-formal-name
+  .card-header
+    .card-header-title= t('.title')
+    .card-header-icon
+      = link_to profile_path(:formal_name), class: 'icon', title: t('actions.edit') do
+        %i.mdi.mdi-pencil
+  .card-content
+    .content
+      %dl
+        %dt= User.human_attribute_name(:formal_name)
+        %dd= current_user.formal_name? ? current_user.formal_name : not_set
+        %dt= User.human_attribute_name(:envelope_name)
+        %dd= current_user.envelope_name? ? current_user.envelope_name : not_set

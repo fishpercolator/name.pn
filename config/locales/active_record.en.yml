@@ -2,6 +2,7 @@ en:
   activerecord:
     attributes:
       user:
+        email: Your email address
         full_name: My full name
         phonetic: "It's pronounced"
         envelope_name: On an envelope

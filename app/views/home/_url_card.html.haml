@@ -1,0 +1,20 @@
+.tile.is-child.card.is-url
+  .card-header
+    .card-header-title= t('.title')
+    .card-header-icon
+      = link_to profile_path(:slug), class: 'icon', title: t('actions.edit') do
+        %i.mdi.mdi-pencil
+  .card-content
+    %p
+      - if current_user.slug.present?
+        %span= user_url(current_user, only_path: false)
+      - else
+        = you_must
+      - if current_user.profile_complete?
+        = link_to user_url(current_user), class: 'button is-link', title: t('.view_your_page'), target: '_blank' do
+          %span.icon
+            %i.mdi.mdi-open-in-new
+      - else
+        %button.button.is-link{disabled: true, title: t('.you_must_complete')}
+          %span.icon
+            %i.mdi.mdi-open-in-new

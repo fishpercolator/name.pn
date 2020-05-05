@@ -1,5 +1,7 @@
 en:
   product_name: name.pn
+  actions:
+    edit: Edit
   errors:
     not_admin: Please sign is as an admin user
     not_authorized: Sorry - you are not permitted to do that

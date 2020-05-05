@@ -1,6 +1,15 @@
 // Config goes here
-$primary: #ABC8C7;
-$red: #FF4136;
+$red:       #C33C54;
+$orange:    #EF8354;
+$yellow:    #FFD972;
+$green:     #A7E8BD;
+$turquoise: #C7EAE4;
+$cyan:      #6DD3CE;
+$blue:      #4A6FA5;
+$purple:    #820263;
+$primary:   change-color($green, $lightness: 60%);
+$warning:   $orange;
+
 $family-sans-serif: 'Raleway';
 $family-handwriting: 'Patrick Hand';
 
@@ -16,12 +25,15 @@ $family-handwriting: 'Patrick Hand';
 @import "~bulma/sass/elements/button";
 @import "~bulma/sass/elements/container";
 @import "~bulma/sass/elements/content";
+@import "~bulma/sass/elements/icon";
 @import "~bulma/sass/elements/notification";
 @import "~bulma/sass/elements/other";
 @import "~bulma/sass/elements/table";
 @import "~bulma/sass/elements/title";
 
 @import "~bulma/sass/form/_all";
+
+@import "~bulma/sass/grid/_all";
 
 @import "~bulma/sass/layout/hero";
 @import "~bulma/sass/layout/section";
@@ -33,4 +45,5 @@ $mdi-font-path: "~@mdi/font/fonts";
 
 // Import your own styles here
 @import "layout";
+@import "theme";
 @import "user_profile";

@@ -1,0 +1,25 @@
+$personal-name: change-color($purple, $lightness: 93%);
+$formal-name: change-color($cyan, $lightness: 90%);
+$pronouns: change-color($orange, $lightness: 90%);
+$pronunciation: change-color($blue, $lightness: 90%);
+$url: change-color($yellow, $lightness: 90%);
+$account: change-color($red, $lightness: 90%);
+
+.is-personal-name {
+  background-color: $personal-name;
+}
+.is-formal-name {
+  background-color: $formal-name;
+}
+.is-pronouns {
+  background-color: $pronouns;
+}
+.is-pronunciation {
+  background-color: $pronunciation;
+}
+.is-url {
+  background-color: $url;
+}
+.is-account {
+  background-color: $account;
+}

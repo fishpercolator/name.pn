@@ -1,0 +1,8 @@
+.tile.is-child.card.is-pronunciation
+  .card-header
+    .card-header-title= t('.title')
+    .card-header-icon
+      = link_to profile_path(:pronunciation), class: 'icon', title: t('actions.edit') do
+        %i.mdi.mdi-pencil
+  .card-content
+    %p= current_user.phonetic? ? current_user.phonetic : not_set  

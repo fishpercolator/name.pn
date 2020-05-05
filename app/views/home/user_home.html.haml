@@ -1,0 +1,24 @@
+%section.section
+  .container
+    %h1.title= title t('.title')
+    .content.is-size-5.has-text-grey
+      %p= t('.page_description1')
+      %p= t('.page_description2')
+%section.section
+  .container
+    .tile.is-ancestor
+      .tile.is-6.is-vertical
+        .tile.is-parent
+          = render 'name_card'
+        .tile.is-parent
+          = render 'formal_name_card'
+      .tile.is-6.is-vertical
+        .tile.is-parent
+          = render 'pronunciation_card'
+        .tile.is-parent
+          = render 'pronouns_card'
+    .tile.is-ancestor
+      .tile.is-6.is-parent
+        = render 'url_card'
+      .tile.is-6.is-parent
+        = render 'account_card'

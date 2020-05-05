@@ -1,0 +1,6 @@
+%table.table.is-bordered.is-striped
+  %tbody
+    - %i[nominative oblique possessive_determiner possessive reflexive copula].each do |inflex|
+      %tr
+        %th= PronounSet.human_attribute_name(inflex)
+        %td= pronoun_set.public_send(inflex)

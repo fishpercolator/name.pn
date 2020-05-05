@@ -9,15 +9,14 @@
               %span.icon
                 %i.mdi.mdi-chevron-left
               %span= t('.previous')
-        - if next_step == Wicked::FINISH_STEP
-          .control
-            = f.button :button, class: 'is-primary' do
-              %span= t('.finish')
-              %span.icon
-                %i.mdi.mdi-last-page
-        - else
+        - unless next_step == Wicked::FINISH_STEP
           .control
             = f.button :button, class: 'is-link' do
               %span= t('.next')
               %span.icon
                 %i.mdi.mdi-chevron-right
+        .control
+          = f.button :button, class: (next_step == Wicked::FINISH_STEP ? 'is-primary' : 'is-primary is-outlined') do
+            %span= t('.finish')
+            %span.icon
+              %i.mdi.mdi-page-last

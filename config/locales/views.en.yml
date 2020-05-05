@@ -2,12 +2,33 @@ en:
   layouts:
     navbar:
       admin: Admin
+      home: Home
       my_profile: My profile
       view_my_profile: View
   home:
-    index:
+    anon_home:
       title: 'Name.pn: pronouns + pronounce'
       sign_up_free: Sign up free
+    user_home:
+      title: Your personal name page
+      page_description1: Here you can create a page that describes the different ways you would like to be addressed in English.
+      page_description2: Once you're happy with the page, you can share it with people and put it in your email signature so that everyone knows.
+      you_must: You must set this before you can share your page
+      not_set: Not set
+    name_card:
+      title: Your name
+    formal_name_card:
+      title: Formal name
+    pronunciation_card:
+      title: How to pronounce your name
+    pronouns_card:
+      title: Your pronouns
+    url_card:
+      title: Your unique URL
+      view_your_page: View your page
+      you_must_complete: You must complete the highlighted parts before you can preview your page
+    account_card:
+      title: Your account details
   profile:
     show:
       title: Edit my profile
@@ -17,6 +38,10 @@ en:
       formal_name: Formal name
       pronunciation: Pronunciation
       slug: Your URL
+    buttons:
+      previous: Previous step
+      next: Next step
+      finish: Finish
   users:
     show:
       blurb: Get your own name.pn

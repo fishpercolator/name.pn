@@ -5,8 +5,17 @@ body {
   min-height: 100%;
 }
 
+// Bulma tweaks
 .checkbox {
   input:first-child {
     margin-right: 0.5rem;
+  }
+}
+.content {
+  dt {
+    font-weight: bold;
+    &:after {
+      content: ':'
+    }
   }
 }
