@@ -19,3 +19,8 @@ body {
     }
   }
 }
+
+// Needed to work around regression with flex-basis: 0 in Chrome 84
+.tile {
+  flex-basis: auto;
+}

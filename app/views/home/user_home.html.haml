@@ -7,18 +7,16 @@
 %section.section
   .container
     .tile.is-ancestor
-      .tile.is-6.is-vertical
-        .tile.is-parent
-          = render 'name_card'
-        .tile.is-parent
-          = render 'formal_name_card'
-      .tile.is-6.is-vertical
-        .tile.is-parent
-          = render 'pronunciation_card'
-        .tile.is-parent
-          = render 'pronouns_card'
-    .tile.is-ancestor
-      .tile.is-6.is-parent
-        = render 'url_card'
-      .tile.is-6.is-parent
-        = render 'account_card'
+      .tile.is-vertical
+        .tile
+          .tile.is-6.is-vertical.is-parent
+            = render 'name_card'
+            = render 'formal_name_card'
+          .tile.is-6.is-vertical.is-parent
+            = render 'pronunciation_card'
+            = render 'pronouns_card'
+        .tile
+          .tile.is-6.is-parent
+            = render 'url_card'
+          .tile.is-6.is-parent
+            = render 'account_card'

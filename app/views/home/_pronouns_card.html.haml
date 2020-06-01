@@ -6,6 +6,6 @@
         %i.mdi.mdi-pencil
   .card-content
     - if current_user.pronoun_sets.any?
-      = render partial: 'pronoun_sets/table', collection: current_user.pronoun_sets, as: :pronoun_set
+      = render 'pronoun_sets/table', pronoun_sets: current_user.pronoun_sets
     - else
       %p= you_must
