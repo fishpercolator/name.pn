@@ -1,7 +1,8 @@
-%h1.title= t('profile.show.title')
-%ul.steps.has-content-centered
-  - wizard_steps.each.with_index do |each_step|
-    %li.steps-segment{class: ('is-active' if each_step == step)}
-      = link_to '', wizard_path(each_step), class: 'steps-marker'
-      .steps-content
-        %p= t(each_step, scope: 'profile.steps')
+%section.section
+  .container
+    %ul.steps.has-content-centered.is-small
+      - wizard_steps.each.with_index do |each_step|
+        %li.steps-segment{class: ('is-active' if each_step == step)}
+          = link_to '', wizard_path(each_step), class: 'steps-marker'
+          .steps-content
+            %p.is-size-6= t("profile.#{each_step}.title")

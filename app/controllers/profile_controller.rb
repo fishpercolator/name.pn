@@ -7,7 +7,7 @@ class ProfileController < ApplicationController
   # The index is only used for redirecting in Wicked
   skip_after_action :verify_policy_scoped
   
-  steps :personal_name, :pronouns, :formal_name, :pronunciation, :slug
+  steps :personal_name, :formal_name, :pronunciation, :pronouns, :slug
   
   # Wicked methods needed in views
   helper_method :next_step, :previous_step

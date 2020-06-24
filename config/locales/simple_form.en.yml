@@ -5,11 +5,23 @@ en:
     required:
       text: 'required'
       mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    labels:
+      user:
+        full_name: Your "full" name
+        personal_name: Your personal name
+        envelope_name: Your envelope name
+        formal_name: Your formal name
+        phonetic: "Phonetic pronunciation of '%{name}'"
+    hints:
+      user:
+        full_name: This is the name you would typically use to represent yourself on a list of names. For example, "Abby Yates". Don't include middle names or initials here unless you normally use them when identifying yourself.
+        personal_name: This is the name you want people to use to get your attention, or to refer to you in a conversation where you've already been introduced. For example, "Abby".
+        envelope_name: How would you like your name to appear on the envelope when someone you don't know contacts you? For example, "Dr Abigail L Yates" or "Dr. A. Yates"
+        formal_name: How would you like your name to appear following the word "Dear" at the start of a formal letter? For example, "Dr Yates".
+        phonetic: Spell out your name using English sounds, with a hyphen (-) between each syllable. In each word, type the syllable with the most stress using CAPITALS. For example, if your name is "Abby Yates", you could write "AH-bee YAYTS".
+        slug: Your URL must be at least two words, separated by hyphens (-), and it must not already belong to another user. For example, "abby-yates"
     # Examples
     # labels:
     #   defaults:

@@ -8,11 +8,6 @@
           %span{aria_hidden: true}
     .navbar-menu{data: {target: 'navbar.menu'}}
       .navbar-start
-        = link_to t('.home'), root_path, class: 'navbar-item'
-        - if user_signed_in?
-          = link_to t('.my_profile'), profile_index_path, class: 'navbar-item'
-          - if policy(current_user).show?
-            = link_to t('.view_my_profile'), user_path(current_user), class: 'navbar-item', target: '_blank'
       .navbar-end
         - if user_signed_in?
           - if current_user.role_admin?

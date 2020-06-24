@@ -1,6 +1,10 @@
+= render 'header'
 %section.section
   .container
-    = render 'header'
-    = simple_form_for @user, url: wizard_path, method: :patch do |f|
-      = f.association :pronoun_sets, as: :check_boxes
-      = render 'buttons', f: f
+    .columns.is-centered
+      .column.is-half
+        .box.profile-form.is-pronouns
+          %h1.title= t('.title')
+          = simple_form_for @user, url: wizard_path, method: :patch do |f|
+            = f.association :pronoun_sets, as: :check_boxes
+            = render 'buttons', f: f

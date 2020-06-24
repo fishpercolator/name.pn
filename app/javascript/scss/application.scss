@@ -19,6 +19,7 @@ $family-handwriting: 'Patrick Hand';
 @import "~bulma/sass/helpers/_all";
 
 @import "~bulma/sass/components/card";
+@import "~bulma/sass/components/level";
 @import "~bulma/sass/components/message";
 @import "~bulma/sass/components/navbar";
 
@@ -47,4 +48,5 @@ $mdi-font-path: "~@mdi/font/fonts";
 // Import your own styles here
 @import "layout";
 @import "theme";
+@import "profile";
 @import "user_profile";

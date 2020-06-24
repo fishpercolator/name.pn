@@ -1,22 +1,24 @@
-%nav.level
+%nav.level.mt-6
   .level-left
+    - if previous_step != step
+      .field
+        .control
+          = link_to previous_wizard_path, class: 'button' do
+            %span.icon
+              %i.mdi.mdi-chevron-left
+            %span= t('.previous')
   .level-right
     .level-item
       .field.is-grouped
-        - if previous_step != step
+        - if next_step == Wicked::FINISH_STEP
           .control
-            = link_to previous_wizard_path, class: 'button' do
-              %span.icon
-                %i.mdi.mdi-chevron-left
-              %span= t('.previous')
-        - unless next_step == Wicked::FINISH_STEP
+          = f.button :button, value: 'finish', class: 'is-primary' do
+            %span= t('.finish')
+            %span.icon
+              %i.mdi.mdi-page-last
+        - else next_step == Wicked::FINISH_STEP
           .control
             = f.button :button, class: 'is-link' do
               %span= t('.next')
               %span.icon
                 %i.mdi.mdi-chevron-right
-        .control
-          = f.button :button, value: 'finish', class: (next_step == Wicked::FINISH_STEP ? 'is-primary' : 'is-primary is-outlined') do
-            %span= t('.finish')
-            %span.icon
-              %i.mdi.mdi-page-last

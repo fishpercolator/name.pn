@@ -3,8 +3,6 @@ en:
     navbar:
       admin: Admin
       home: Home
-      my_profile: My profile
-      view_my_profile: View
   home:
     anon_home:
       title: 'Name.pn: pronouns + pronounce'
@@ -32,16 +30,26 @@ en:
   profile:
     show:
       title: Edit my profile
-    steps:
-      personal_name: Your name
-      pronouns: Your pronouns
-      formal_name: Formal name
-      pronunciation: Pronunciation
-      slug: Your URL
+      you_must_complete: You must complete this section before you can share your page.
+      optional_section: This section is optional; you can leave it blank.
+    personal_name:
+      title: Your name
+      blurb: This section refers to the most common names you use for yourself when communicating with English speakers.
+    formal_name:
+      title: Formal name
+      blurb: This is how you would like to be addressed by someone you don't know. For example, in a letter, or on your bank cards.
+    pronunciation:
+      title: Pronunciation
+      blurb: This section is concerned with how you would like English speakers to say your name out loud.
+    pronouns: 
+      title: Your pronouns
+    slug:
+      title: Your URL
+      blurb: 'Last thing: you need to pick a URL for your public profile.'
     buttons:
-      previous: Previous step
+      previous: Go back
       next: Next step
-      finish: Finish
+      finish: Finish my profile
   users:
     show:
       blurb: Get your own name.pn

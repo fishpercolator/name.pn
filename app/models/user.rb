@@ -10,7 +10,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  validates :slug, format: { with: /\A[-\w]+-[-\w]+\Z/, allow_blank: true }
+  validates :slug, format: { with: /\A[-\w]+-[-\w]+\Z/, allow_blank: true }, uniqueness: true
   
   def to_s
     full_name.present? ? full_name : email
