@@ -1,7 +1,7 @@
 json.name             t('product_name')
 json.short_name       t('product_name')
 json.start_url        '/'
-json.theme_color      '#3d9970'
+json.theme_color      '#218380'
 json.background_color '#ffffff'
 json.display          'browser'
 json.orientation      'portrait'

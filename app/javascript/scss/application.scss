@@ -7,7 +7,7 @@ $turquoise: #C7EAE4;
 $cyan:      #6DD3CE;
 $blue:      #4A6FA5;
 $purple:    #820263;
-$primary:   change-color($green, $lightness: 60%);
+$primary:   #218380;
 $warning:   $orange;
 
 $family-sans-serif: 'Raleway';
@@ -16,6 +16,7 @@ $family-handwriting: 'Patrick Hand';
 // Add the pieces of Bulma that your project uses here
 @import "~bulma/sass/utilities/_all";
 @import "~bulma/sass/base/_all";
+@import "~bulma/sass/helpers/_all";
 
 @import "~bulma/sass/components/card";
 @import "~bulma/sass/components/message";
