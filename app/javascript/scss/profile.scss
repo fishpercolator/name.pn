@@ -11,3 +11,19 @@
     margin-bottom: 0;
   }
 }
+
+.profile-pronouns {
+  .checkbox {
+    display: block;
+    margin-bottom: 1rem;
+    label {
+      font-size: $size-5;
+      line-height: $size-5;
+      > input {
+        height: $size-5;
+        width: $size-5;
+        vertical-align: middle;
+      }
+    }
+  }
+}

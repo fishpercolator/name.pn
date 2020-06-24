@@ -43,6 +43,11 @@ en:
       blurb: This section is concerned with how you would like English speakers to say your name out loud.
     pronouns: 
       title: Your pronouns
+      blurb: 
+        - To address you properly in English, people don't need to know your gender, but they do need to know your personal pronouns.
+        - This is especially important for people who are trans and gender-nonconforming, and for people with unusual or gender-neutral names. We ask everyone to provide this information so as not to make some users feel like the odd one out.
+        - Most people will need to select only one item below. Please choose the pronouns that feel most natural for talking about you. The option to select multiple pronouns is available for people who typically use more than one.
+      get_in_touch: If you don't see your pronouns here, please get in touch.
     slug:
       title: Your URL
       blurb: 'Last thing: you need to pick a URL for your public profile.'
