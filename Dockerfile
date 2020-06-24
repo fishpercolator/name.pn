@@ -1,4 +1,4 @@
-FROM ruby:2.6.5
+FROM ruby:2.6.6
 
 ARG UID=1001
 COPY vendor/prepare-env.sh /tmp
