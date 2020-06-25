@@ -15,14 +15,20 @@
 .profile-pronouns {
   .checkbox {
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     label {
       font-size: $size-5;
       line-height: $size-5;
+      font-weight: bold;
       > input {
         height: $size-5;
         width: $size-5;
         vertical-align: middle;
+      }
+      .help {
+        font-weight: normal;
+        font-size: 1rem;
+        padding-left: 1.75rem;
       }
     }
   }

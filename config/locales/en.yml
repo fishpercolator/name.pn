@@ -5,3 +5,4 @@ en:
   errors:
     not_admin: Please sign is as an admin user
     not_authorized: Sorry - you are not permitted to do that
+  pronoun_set_hint: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
