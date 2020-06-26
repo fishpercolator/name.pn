@@ -1,6 +1,6 @@
 require 'devise/mailer'
 
-if ActionMailer::Base.default_url_options.blank?
+if ActionMailer::Base.default_url_options&.dig(:host).blank?
   ActionMailer::Base.default_url_options = {
     host: ENV['DOMAIN_IN_EMAIL_LINKS'] || ENV['DOMAIN_NAME'] || 'changeme.example.com',
     protocol: 'https'
