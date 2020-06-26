@@ -55,6 +55,8 @@ en:
       previous: Go back
       next: Next step
       finish: Finish my profile
+    header:
+      save_and_exit: Save and exit
   users:
     show:
       blurb: Get your own name.pn
