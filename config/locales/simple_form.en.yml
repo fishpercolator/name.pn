@@ -14,6 +14,7 @@ en:
         envelope_name: Your envelope name
         formal_name: Your formal name
         phonetic: "Phonetic pronunciation of '%{name}'"
+        slug: Your personal URL
     hints:
       user:
         full_name: This is the name you would typically use to represent yourself on a list of names. For example, "Abby Yates". Don't include middle names or initials here unless you normally use them when identifying yourself.

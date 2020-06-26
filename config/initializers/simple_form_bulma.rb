@@ -10,6 +10,17 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: :span, class: 'help is-danger' }
     b.use :hint,  wrap_with: { tag: :span, class: 'help' }
   end
+  config.wrappers :bulma_slug, class: 'field field-slug' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :readonly
+    b.use :label, class: :'is-hidden'
+    b.wrapper :input_wrapper, tag: 'div', class: :input do |bb|
+      bb.use :input, error_class: 'is-danger'
+    end
+    b.use :error, wrap_with: { tag: :span, class: 'help is-danger' }
+    b.use :hint,  wrap_with: { tag: :span, class: 'help' }
+  end
   config.wrappers :bulma_boolean, class: :field do |b|
     b.use :html5
     b.optional :readonly
@@ -55,5 +66,6 @@ SimpleForm.setup do |config|
     password: :bulma_string,
     select: :bulma_select,
     enum: :bulma_select,
+    slug: :bulma_slug
   }
 end

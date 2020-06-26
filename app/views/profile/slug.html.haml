@@ -1,5 +1,5 @@
 = render 'header'
-%section.section
+%section.section.is-collapsed
   .container
     .columns.is-centered
       .column.is-half
@@ -8,5 +8,5 @@
           %p.mb-3.has-text-grey= t('.blurb')
           %p.mb-5.has-text-grey= t('profile.show.you_must_complete')
           = simple_form_for @user, url: wizard_path, method: :patch do |f|
-            = f.input :slug, label: false
+            = f.input :slug, as: :slug
             = render 'buttons', f: f
