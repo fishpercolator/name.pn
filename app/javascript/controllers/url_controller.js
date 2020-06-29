@@ -1,5 +1,7 @@
 import { Controller } from "stimulus"
 
+import micron from 'webkul-micron'
+
 export default class extends Controller {
   static targets = ['url', 'copyButton']
   
@@ -13,7 +15,8 @@ export default class extends Controller {
     navigator.permissions.query({name: 'clipboard-write'}).then(result => {
       if (result.state == "granted" || result.status == "prompt") {
         navigator.clipboard.writeText(this.url).then(() => {
-          this.copyButtonTarget.classList.add('copy-button--copied')
+          micron.getEle('#copyButton').interaction('bounce')
+          this.copyButtonTarget.classList.add('copy-button--copied', 'animate__animated', 'animate__bounceIn')
         })
       }
     })
