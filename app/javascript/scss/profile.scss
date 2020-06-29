@@ -58,3 +58,16 @@
     box-shadow: $input-focus-box-shadow-size bulmaRgba($danger, 0.25);
   }
 }
+
+.copy-button {
+  &.copy-button--copied {
+    .copy-button__initial {
+      display: none;
+    }
+  }
+  &:not(.copy-button--copied) {
+    .copy-button__after {
+      display: none;
+    }
+  }
+}

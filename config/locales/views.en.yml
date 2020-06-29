@@ -8,7 +8,7 @@ en:
       title: 'Name.pn: pronouns + pronounce'
       sign_up_free: Sign up free
     user_home:
-      title: Your personal name page
+      title: Your name dashboard
       page_description1: Here you can create a page that describes the different ways you would like to be addressed in English.
       page_description2: Once you're happy with the page, you can share it with people and put it in your email signature so that everyone knows.
       you_must: You must set this before you can share your page
@@ -23,7 +23,9 @@ en:
       title: Your pronouns
     url_card:
       title: Your unique URL
-      view_your_page: View your page
+      view_your_page: View
+      copy_to_clipboard: Copy
+      copied: Copied!
       you_must_complete: You must complete the highlighted parts before you can preview your page
     account_card:
       title: Your account details

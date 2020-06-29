@@ -1,20 +1,35 @@
-.tile.is-child.card.is-url
+.tile.is-child.card.is-url{data: {controller: 'url'}}
   .card-header
     .card-header-title= t('.title')
-    .card-header-icon
-      = link_to profile_path(:slug), class: 'icon', title: t('actions.edit') do
-        %i.mdi.mdi-pencil
   .card-content
-    %p
+    %p.is-size-4.has-text-centered
       - if current_user.slug.present?
-        %span= user_url(current_user, only_path: false)
+        %span{data: {target: 'url.url'}}= user_url(current_user, only_path: false)
       - else
         = you_must
-      - if current_user.profile_complete?
-        = link_to user_url(current_user), class: 'button is-link', title: t('.view_your_page'), target: '_blank' do
-          %span.icon
-            %i.mdi.mdi-open-in-new
-      - else
-        %button.button.is-link{disabled: true, title: t('.you_must_complete')}
-          %span.icon
-            %i.mdi.mdi-open-in-new
+  .card-footer
+    = link_to profile_path(:slug),  class: 'button card-footer-item' do
+      %span.icon
+        %i.mdi.mdi-pencil
+      %span= t('actions.edit')
+    - if current_user.profile_complete?
+      = link_to user_url(current_user), class: 'button card-footer-item', target: '_blank' do
+        %span.icon
+          %i.mdi.mdi-open-in-new
+        %span= t('.view_your_page')
+      %button.button.card-footer-item.copy-button{data: {target: 'url.copyButton', action: 'url#copy'}}
+        %span.icon.copy-button__initial
+          %i.mdi.mdi-clipboard-outline
+        %span.copy-button__initial= t('.copy_to_clipboard')
+        %span.icon.copy-button__after
+          %i.mdi.mdi-clipboard-check-outline
+        %span.copy-button__after= t('.copied')
+    - else
+      %button.button.card-footer-item{disabled: true, title: t('.you_must_complete')}
+        %span.icon
+          %i.mdi.mdi-open-in-new
+        %span= t('.view_your_page')
+      %button.button.card-footer-item{disabled: true, title: t('.you_must_complete')}
+        %span.icon
+          %i.mdi.mdi-clipboard-outline
+        %span= t('.copy_to_clipboard')

@@ -8,6 +8,8 @@
   .container
     .tile.is-ancestor
       .tile.is-vertical
+        .tile.is-12.is-parent
+          = render 'url_card'
         .tile
           .tile.is-6.is-vertical.is-parent
             = render 'name_card'
@@ -15,8 +17,3 @@
           .tile.is-6.is-vertical.is-parent
             = render 'pronunciation_card'
             = render 'pronouns_card'
-        .tile
-          .tile.is-6.is-parent
-            = render 'url_card'
-          .tile.is-6.is-parent
-            = render 'account_card'
