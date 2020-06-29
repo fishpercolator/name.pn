@@ -10,13 +10,13 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: :span, class: 'help is-danger' }
     b.use :hint,  wrap_with: { tag: :span, class: 'help' }
   end
-  config.wrappers :bulma_slug, class: 'field field-slug' do |b|
+  config.wrappers :bulma_slug, class: 'field field-slug', error_class: 'field-slug--error' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :readonly
     b.use :label, class: :'is-hidden'
     b.wrapper :input_wrapper, tag: 'div', class: :input do |bb|
-      bb.use :input, error_class: 'is-danger'
+      bb.use :input
     end
     b.use :error, wrap_with: { tag: :span, class: 'help is-danger' }
     b.use :hint,  wrap_with: { tag: :span, class: 'help' }

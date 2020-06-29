@@ -7,3 +7,9 @@ en:
         phonetic: "It's pronounced"
         envelope_name: On an envelope
         formal_name: Opening words
+    errors:
+      models:
+        user:
+          attributes:
+            slug:
+              unavailable: That URL is already in use. Here is a suggestion for an alternative!

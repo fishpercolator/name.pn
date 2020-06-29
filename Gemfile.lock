@@ -80,6 +80,7 @@ GEM
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
+    bindata (2.4.7)
     bindex (0.8.1)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
@@ -322,6 +323,8 @@ GEM
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    spicy-proton (2.1.7)
+      bindata (~> 2.3)
     spinach (0.11.0)
       colorize
       gherkin-ruby (>= 0.3.2)
@@ -414,6 +417,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   serviceworker-rails (~> 0.6.0)
   simple_form (~> 5.0)
+  spicy-proton (~> 2.1)
   spinach
   spinach-rails
   spring

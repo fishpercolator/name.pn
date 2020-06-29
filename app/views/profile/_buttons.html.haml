@@ -16,7 +16,7 @@
             %span= t('.finish')
             %span.icon
               %i.mdi.mdi-page-last
-        - else next_step == Wicked::FINISH_STEP
+        - else
           .control
             = f.button :button, class: 'is-link' do
               %span= t('.next')

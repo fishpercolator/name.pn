@@ -35,6 +35,7 @@ gem 'activerecord-pg_enum', '~> 1.1'
 gem 'pundit', '~> 2.1'
 gem 'serviceworker-rails', '~> 0.6.0'
 gem 'simple_form', '~> 5.0'
+gem 'spicy-proton', '~> 2.1'
 gem 'wicked', '~> 1.3'
 
 group :development, :test do
