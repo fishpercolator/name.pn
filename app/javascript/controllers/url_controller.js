@@ -1,7 +1,5 @@
 import { Controller } from "stimulus"
 
-import micron from 'webkul-micron'
-
 export default class extends Controller {
   static targets = ['url', 'copyButton']
   
