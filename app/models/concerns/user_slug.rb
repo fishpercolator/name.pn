@@ -8,7 +8,7 @@ module UserSlug
     friendly_id :slug_candidates, use: :slugged
 
     # Valid slugs start with a letter, contain at least one - and have letters/numbers on either side of that -
-    validates :slug, format: { with: /\A[a-z][a-z\d]*-[a-z\d][-a-z\d]+\Z/i, allow_blank: true }
+    validates :slug, format: { with: /\A[a-z][a-z\d]*-[a-z\d][-a-z\d]*\Z/i, allow_blank: true }
     validate :slug_uniqueness
     
     def slug_uniqueness
