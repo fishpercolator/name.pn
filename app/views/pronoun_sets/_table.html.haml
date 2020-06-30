@@ -1,7 +1,11 @@
 %table.table.is-bordered.is-striped
+  %thead
+    %tr
+      - pronoun_sets.each do |pronoun_set|
+        %th= t('.header', pronoun: pronoun_set.to_s)
   %tbody
-    - %i[nominative oblique possessive_determiner possessive reflexive copula].each do |inflex|
+    - %i[name nominative oblique possessive_determiner possessive reflexive].each do |inflex|
       %tr
-        %th= PronounSet.human_attribute_name(inflex)
         - pronoun_sets.each do |pronoun_set|
-          %td= pronoun_set.public_send(inflex)
+          - pronoun = (inflex == :name ? current_user.personal_name : pronoun_set.public_send(inflex))
+          %td= raw(t "pronoun_examples.cooking.#{inflex}", pronoun: pronoun, pronoun_initial: pronoun.capitalize, nominative_initial: pronoun_set.nominative.capitalize, copula: pronoun_set.copula)

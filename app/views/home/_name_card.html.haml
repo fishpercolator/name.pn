@@ -5,6 +5,7 @@
       = link_to profile_path(:personal_name), class: 'icon', title: t('actions.edit') do
         %i.mdi.mdi-pencil
   .card-content
+    %p.mb-4.has-text-grey= t('profile.personal_name.blurb')
     .content
       %dl
         %dt= User.human_attribute_name(:personal_name)

@@ -6,3 +6,11 @@ en:
     not_admin: Please sign is as an admin user
     not_authorized: Sorry - you are not permitted to do that
   pronoun_set_hint: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
+  pronoun_examples:
+    cooking:
+      name: '<b>%{pronoun}</b> is a great cook.'
+      nominative: '<b>%{pronoun_initial}</b> %{copula} really good at cooking.'
+      oblique: 'Cooking comes really naturally to <b>%{pronoun}</b>.'
+      possessive_determiner: 'Cooking is one of <b>%{pronoun}</b> best skills.'
+      possessive: 'I think this cookbook is <b>%{pronoun}</b>.'
+      reflexive: '%{nominative_initial} came up with this recipe <b>%{pronoun}</b>.'

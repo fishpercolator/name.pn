@@ -1,14 +1,13 @@
 .tile.is-child.card.is-url{data: {controller: 'url'}}
   .card-header
     .card-header-title= t('.title')
+    .card-header-icon
+      = link_to profile_path(:slug), class: 'icon', title: t('actions.edit') do
+        %i.mdi.mdi-pencil
   .card-content
-    %p.is-size-4.has-text-centered
-      - if current_user.slug.present?
-        %span{data: {target: 'url.url'}}= user_url(current_user, only_path: false)
-      - else
-        = you_must
+    %p.mb-4= t('.blurb')
   .card-footer
-    = link_to profile_path(:slug),  class: 'button card-footer-item' do
+    = link_to profile_path(:slug),  class: 'button card-footer-item has-text-link' do
       %span.icon
         %i.mdi.mdi-pencil
       %span= t('actions.edit')

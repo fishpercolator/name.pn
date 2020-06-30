@@ -3,10 +3,10 @@ en:
     attributes:
       user:
         email: Your email address
-        full_name: My full name
+        full_name: Full name
         phonetic: "It's pronounced"
-        envelope_name: On an envelope
-        formal_name: Opening words
+        envelope_name: Envelope name
+        formal_name: Formal name
     errors:
       models:
         user:
