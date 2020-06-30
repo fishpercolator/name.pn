@@ -18,7 +18,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should see a box with the full name' do
-    expect(page).to have_css('.card.full-name', text: 'My full name Audrey')
+    expect(page).to have_css('.card.full-name', text: 'Full name Audrey Horne')
   end
 
   step 'I should not see a box for the formal name' do
@@ -42,7 +42,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should see a box for the formal name' do
-    expect(page).to have_css('.card.formal-name', text: "My formal name\nOn an envelope Ms A. H. Horne Opening words Dear Ms Horne,")
+    expect(page).to have_css('.card.formal-name', text: "My formal name\nEnvelope name Ms A. H. Horne Formal name Dear Ms Horne,")
   end
 
   step 'the user has multiple pronoun sets' do
