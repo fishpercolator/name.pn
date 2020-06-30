@@ -5,7 +5,11 @@
       = link_to profile_path(:slug), class: 'icon', title: t('actions.edit') do
         %i.mdi.mdi-pencil
   .card-content
-    %p.mb-4= t('.blurb')
+    %p.is-size-4.has-text-centered
+      - if current_user.slug.present?
+        %span{data: {target: 'url.url'}}= user_url(current_user, only_path: false)
+      - else
+        = you_must
   .card-footer
     = link_to profile_path(:slug),  class: 'button card-footer-item has-text-link' do
       %span.icon
