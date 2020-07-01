@@ -29,6 +29,8 @@ end
 
 Spinach.hooks.before_scenario do
   include RSpec::Mocks::ExampleMethods
+  # Make sure the seed data (pronouns) are loaded before every test
+  Rails.application.load_seed
 end
 
 Spinach.hooks.after_run do
