@@ -9,6 +9,10 @@ module CommonSteps
     step 'I am signed in' do
       sign_in_as test_user
     end
+    
+    step 'I am signed in as a user with a complete profile' do
+      sign_in_as create(:user, :test, :full_profile)
+    end
 
     def sign_in_as(user)
       visit new_user_session_path
