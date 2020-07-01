@@ -54,46 +54,61 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'my profile should be completed successfully' do
-    pending 'step not implemented'
+    user = User.find_by(email: 'loglady@example.com')
+    expect(user.personal_name).to eq('Margaret')
+    expect(user.full_name).to eq('Log Lady')
+    expect(user.formal_name).to eq('Mrs Lanterman')
+    expect(user.envelope_name).to eq('Mrs M. Lanterman')
+    expect(user.phonetic).to eq('LOG LAY-dee')
+    expect(user.pronoun_sets.map(&:to_s)).to eq(['she/her'])
+    expect(user.slug).to eq('log-lady')
   end
 
   step 'an Audrey Horne profile already exists' do
-    pending 'step not implemented'
+    create :user, full_name: 'Audrey Horne'
   end
 
   step 'I fill in audrey-horne as a slug' do
-    pending 'step not implemented'
+    fill_in id: 'user_slug', with: 'audrey-horne'
   end
 
   step 'I should still be on the slug-editing page' do
-    pending 'step not implemented'
+    expect(page).to have_css('h1', text: 'Your URL')
   end
 
   step 'I should see a message telling me there was a conflict' do
-    pending 'step not implemented'
+    expect(page).to have_content('That URL is already in use. Here is a suggestion for an alternative!')
   end
 
   step 'I should see a suggested alternative name prefilled' do
-    pending 'step not implemented'
+    expect(page).to have_css('input[value="log-lady"]')
   end
 
   step 'I click to save and exit' do
-    pending 'step not implemented'
+    click_button 'Save and exit'
   end
 
   step 'my profile should be partially completed' do
-    pending 'step not implemented'
+    user = User.find_by(email: 'loglady@example.com')
+    expect(user.personal_name).to eq('Margaret')
+    expect(user.full_name).to eq('Log Lady')
+    expect(user.formal_name).to eq('Mrs Lanterman')
+    expect(user.envelope_name).to eq('Mrs M. Lanterman')
+    expect(user.phonetic).to be nil
+    expect(user.pronoun_sets).to be_empty
   end
 
   step 'I visit the dashboard' do
-    pending 'step not implemented'
+    visit '/'
   end
 
   step 'I click the edit button in the pronouns box' do
-    pending 'step not implemented'
+    within '.card.is-pronouns' do
+      click_on 'Edit'
+    end
   end
 
   step 'I should be on the pronouns page of the profile editor' do
-    pending 'step not implemented'
+    expect(page).to have_css('h1', text: 'Your pronouns')
   end
 end
