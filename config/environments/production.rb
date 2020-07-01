@@ -105,4 +105,8 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  
+  # Use SES in production
+  Aws::Rails.add_action_mailer_delivery_method(:ses)
+  config.action_mailer.delivery_method = :ses
 end
