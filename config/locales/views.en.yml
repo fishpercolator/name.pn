@@ -71,6 +71,7 @@ en:
       my_name_is: my name is
       my_pronouns_are: my pronouns are
     name_details_card:
+      how_to_use_my_name: How to use my name
       headings:
         full_name: My full name
         phonetic: "'%{name}' is pronounced"
@@ -84,4 +85,5 @@ en:
         formal_name: I use this name in formal contexts. For example, a letter addressed to me might start 'Dear %{value}'.
         envelope_name: Please use this name when adding my name to an address in a formal context.
     pronouns_card:
+      how_to_use_my_pronouns: How to use my pronouns
       pronoun_hint: To speak about a person in English, you don't need to know their gender but you do need to know which pronouns to use. This information can't be determined from a person's name or what they look like, so we include it on everyone's page.
