@@ -19,10 +19,17 @@ body.user-profile {
   border-radius: $radius-large;
   padding: 1rem 2rem;
   font-family: $family-handwriting;
-  font-size: 3rem;
+  font-size: 3rem;  
 }
-.napc__text-box--larger {
+.fit {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: top;
+}
+.napc__text-box--name {
   font-size: 5rem;
+  line-height: 7.5rem; // fix it at 1.5 of the original size
+  height: 9.5rem; // fix it at line-height + 1rem padding at top and bottom
 }
 .napc__greeting {
   font-size: 4rem;
