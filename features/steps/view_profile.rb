@@ -2,7 +2,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   include CommonSteps::Auth
 
   step 'a user exists with a basic profile' do
-    create :user, :basic_profile    
+    create :user, :basic_profile
   end
 
   step 'I visit the path that is that user\'s slug' do
@@ -18,15 +18,15 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should see a box with the full name' do
-    expect(page).to have_css('.card.full-name', text: 'Full name Audrey Horne')
+    expect(page).to have_css('.profile-card', text: "My full name\nAudrey Horne\n")
   end
 
-  step 'I should not see a box for the formal name' do
-    expect(page).not_to have_css('.card.formal-name')
+  step 'I should not see the formal name' do
+    expect(page).not_to have_content('Formal name')
   end
 
   step 'I should not see a pronunciation guide' do
-    expect(page).not_to have_content("It's pronounced")
+    expect(page).not_to have_content('is pronounced')
   end
 
   step 'I should see a link to the main site' do
@@ -38,19 +38,31 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should see a pronunciation guide' do
-    expect(page).to have_content("It's pronounced AWD-ree HORN")
+    expect(page).to have_content("'Audrey Horne' is pronounced\nAWD-ree HORN\n")
   end
 
-  step 'I should see a box for the formal name' do
-    expect(page).to have_css('.card.formal-name', text: "My formal name\nEnvelope name Ms A. H. Horne Formal name Dear Ms Horne,")
+  step 'I should see the formal name' do
+    expect(page).to have_content("Formal name\nMs Horne\n")
+    expect(page).to have_content("On an envelope\nMs A. H. Horne\n")
   end
 
   step 'the user has multiple pronoun sets' do
     User.last.pronoun_sets << create(:pronoun_set, :they)
   end
-
+  
   step 'I should see all the pronoun sets on one line each' do
-    expect(page).to have_content("she/her\nthey/them")
+    expect(page).to have_css('.napc', text: "she/her\nthey/them")
+  end
+  
+  step 'I should see a usage guide for one set of pronouns' do
+    expect(page).to have_css('.profile-card__pronoun', count: 1)
+    expect(page).to have_content("Audrey is a great cook.\nShe is really good at cooking.\nCooking comes really naturally to her.\n")
+  end
+
+  step 'I should see usage guides for all sets of pronouns' do
+    expect(page).to have_css('.profile-card__pronoun', count: 2)
+    expect(page).to have_content("Audrey is a great cook.\nShe is really good at cooking.\nCooking comes really naturally to her.\n")
+    expect(page).to have_content("Audrey is a great cook.\nThey are really good at cooking.\nCooking comes really naturally to them.\n")
   end
 
   step 'a user exists who has not completed their profile' do

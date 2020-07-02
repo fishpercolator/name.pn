@@ -1,8 +1,0 @@
-.full-name.card.card--profile
-  .card-content
-    %dl.card__list
-      %dt= User.human_attribute_name(:full_name)
-      %dd= user.full_name
-      - if user.phonetic?
-        %dt= User.human_attribute_name(:phonetic)
-        %dd= user.phonetic
