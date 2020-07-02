@@ -4,6 +4,7 @@ $pronouns: change-color($orange, $lightness: 93%);
 $pronunciation: change-color($blue, $lightness: 90%);
 $url: change-color($yellow, $lightness: 90%);
 $account: change-color($red, $lightness: 90%);
+$primary-bg: change-color($primary, $lightness: 90%);
 
 .is-personal-name {
   background-color: $personal-name;

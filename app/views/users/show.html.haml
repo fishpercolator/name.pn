@@ -1,7 +1,10 @@
 - title @user.full_name
-.user-profile__container
-  = render 'name_and_pronoun_card', user: @user
-  = render 'full_name_card', user: @user
-  = render 'formal_name_card', user: @user
+%section.section
+  .container
+    .columns.is-centered
+      .column.is-half
+        = render 'name_and_pronoun_card', user: @user
+        = render 'name_details_card', user: @user
+        = render 'pronouns_card', user: @user
 .blurb
   = link_to t('.blurb'), root_path

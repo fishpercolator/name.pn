@@ -1,0 +1,11 @@
+.card.profile-card.mt-6
+  .card-header.profile-card__header
+    .card-header-title= t('.how_to_use_my_pronouns')
+  .card-content
+    .profile-card__hint= t('.pronoun_hint')
+    - user.pronoun_sets.each do |pronoun_set|
+      .profile-card__pronoun
+        %h2.profile-card__heading= pronoun_set.to_s
+        - %i[name nominative oblique possessive_determiner possessive reflexive].each do |inflex|
+          - pronoun = (inflex == :name ? current_user.personal_name : pronoun_set.public_send(inflex))
+          %p.profile-card__example= raw(t "pronoun_examples.cooking.#{inflex}", pronoun: pronoun, pronoun_initial: pronoun.capitalize, nominative_initial: pronoun_set.nominative.capitalize, copula: pronoun_set.copula)

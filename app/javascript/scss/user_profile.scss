@@ -1,50 +1,9 @@
 body.user-profile {
-  background-color: $dark;
+  background-image: linear-gradient( 180.3deg,  rgba(221,221,221,1) 5.5%, rgba(110,136,161,1) 90.2% );
+  background-attachment: fixed;
 }
 
-.user-profile__container {
-  display: grid;
-  padding: 2rem;
-  grid-row-gap: 2rem;
-  grid-column-gap: 2rem;
-  
-  
-  grid-template-columns: auto;
-  grid-template-rows: repeat(3, auto);
-  grid-template-areas: 
-    "nap" 
-    "fullname" 
-    "formal"
-    ;
-  @include tablet {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: 
-      "nap fullname" 
-      "nap formal"
-      ;
-  }
-  
-  .napc {
-    grid-area: nap;
-  }
-  .full-name {
-    grid-area: fullname;
-  }
-  .formal-name {
-    grid-area: formal;
-  }
-  
-  // display: flex;
-  // flex-direction: column;
-  // flex-wrap: wrap;
-  // justify-content: center;
-  // padding: 3rem 0;
-  // width: calc(100vw - 2rem);
-  // max-width: 80ch;
-  // margin: 0 auto;
-}
-
+// Styles for the name-and-pronoun-card
 .napc {
   background-color: $red;
   color: $white;
@@ -78,34 +37,37 @@ body.user-profile {
   margin: 0.5rem 0;
 }
 
-.card--profile {
+.profile-card {
   border-radius: $radius-large;
   font-size: 1.5rem;
 }
-
-.card__list {
-  dt {
-    @include tablet {
-      display: inline-block;
-    }
-    font-weight: bold;
-    min-width: 14ch;
-    &:after {
-      content: ':';
-    }
+.profile-card__header {
+  border-radius: $radius-large $radius-large 0 0;
+  background-color: $primary;
+  > .card-header-title {
+    color: $white;
   }
-  dd {
-    @include tablet {
-      display: inline;
-    }
-    @include mobile {
-      margin-left: 1.5ch;
-    }
-    &:after {
-      content: '\a';
-      white-space: pre-wrap;
-    }
+}
+.profile-card__heading {
+  color: $primary;
+  font-weight: normal;
+  &:not(:first-child) {
+    margin-top: 3rem;
   }
+}
+.profile-card__name {
+  font-weight: bold;
+}
+.profile-card__hint {
+  color: $grey;
+  font-size: 1rem;
+}
+.profile-card__pronoun {
+  margin-top: 2rem;
+}
+.profile-card__example {
+  font-size: 1.25rem;
+  margin-top: 0.75rem;
 }
 
 .blurb {

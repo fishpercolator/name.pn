@@ -1,0 +1,10 @@
+.card.profile-card.mt-6
+  .card-header.profile-card__header
+    .card-header-title= t('.how_to_use_my_name')
+  .card-content
+    - %i[full_name phonetic personal_name formal_name envelope_name].each do |att|
+      - val = user.public_send(att)
+      - if val.present?
+        %h2.profile-card__heading= t(".headings.#{att}", name: user.full_name, value: val)
+        .profile-card__name= val
+        .profile-card__hint= t(".hints.#{att}", name: user.full_name, value: val)

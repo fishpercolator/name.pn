@@ -70,6 +70,18 @@ en:
       hello: Hello
       my_name_is: my name is
       my_pronouns_are: my pronouns are
-    formal_name_card:
-      my_formal_name: My formal name
-      dear: Dear %{name},
+    name_details_card:
+      headings:
+        full_name: My full name
+        phonetic: "'%{name}' is pronounced"
+        personal_name: Personal name
+        formal_name: Formal name
+        envelope_name: On an envelope
+      hints:
+        full_name: If you're adding me to a list of names, please use this name.
+        phonetic: This is how I pronounce my own name when speaking English.
+        personal_name: This is the name I want to be addressed by during a conversation.
+        formal_name: I use this name in formal contexts. For example, a letter addressed to me might start 'Dear %{value}'.
+        envelope_name: Please use this name when adding my name to an address in a formal context.
+    pronouns_card:
+      pronoun_hint: To speak about a person in English, you don't need to know their gender but you do need to know which pronouns to use. This information can't be determined from a person's name or what they look like, so we include it on everyone's page.
