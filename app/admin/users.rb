@@ -18,11 +18,14 @@ ActiveAdmin.register User do
 
   filter :email
   filter :role
+  filter :slug
+  filter :full_name
 
   form do |f|
     f.inputs do
       f.input :email
       f.input :password
+      f.input :slug
       f.input :role, as: :select
       f.input :full_name
       f.input :personal_name
@@ -38,6 +41,7 @@ ActiveAdmin.register User do
     attributes_table do
       row :id
       row :email
+      row(:slug) {|u| link_to u.slug, user_url(u)}
       row :role
       row :full_name
       row :personal_name
