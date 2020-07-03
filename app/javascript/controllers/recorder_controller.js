@@ -1,5 +1,7 @@
 import { Controller } from "stimulus"
 
+import { RecordRTCPromisesHandler } from 'recordrtc'
+
 export default class extends Controller {
   static targets = ['player']
   
@@ -9,9 +11,7 @@ export default class extends Controller {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
         this.chunks = []
-        this.recorder = new MediaRecorder(stream, { type: 'audio/webm' })
-        this.recorder.addEventListener('dataavailable', e => this.newChunk(e))
-        this.recorder.addEventListener('stop', () => this.saveRecording())
+        this.recorder = new RecordRTCPromisesHandler(stream, { type: 'audio' })
       } catch {
         console.log('Permission denied')
       }
@@ -19,28 +19,15 @@ export default class extends Controller {
     }
   }
   
-  async start (e) {
+  start (e) {
     e.preventDefault()
-    if (this.recorder.state === 'inactive') {
-      this.chunks = []
-      this.recorder.start()
-    }
+    this.recorder.startRecording()
   }
   
-  stop (e) {
+  async stop (e) {
     e.preventDefault()
-    this.recorder.stop()
-  }
-  
-  newChunk (e) {
-    if (typeof e.data === 'undefined') return
-    if (e.data.size === 0) return
-    this.chunks.push(e.data)
-    console.log(this.chunks)
-  }
-  
-  saveRecording () {
-    const recording = new Blob(this.chunks, { type: 'audio/webm' })
+    await this.recorder.stopRecording()
+    const recording = await this.recorder.getBlob()
     const url = URL.createObjectURL(recording)
     this.playerTarget.setAttribute('src', url)
     this.playerTarget.setAttribute('controls', 'controls')

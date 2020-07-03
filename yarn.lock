@@ -6127,6 +6127,11 @@ readdirp@~3.4.0:
   dependencies:
     picomatch "^2.2.1"
 
+recordrtc@^5.6.1:
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/recordrtc/-/recordrtc-5.6.1.tgz#da876700fa149bbb230df7591a020e2c43de01c8"
+  integrity sha512-UU7Fd9IIuz60TPq4GgL1qtgo2mzEZWzPxEraNe32eo4/ndjKmuj715HB7W1k63G09teM1dXJYubPEmLkQ/lq5Q==
+
 redent@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/redent/-/redent-1.0.0.tgz#cf916ab1fd5f1f16dfb20822dd6ec7f730c2afde"
