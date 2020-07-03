@@ -1,0 +1,9 @@
+.recorder{data: {controller: 'recorder'}}
+  = f.fields_for :pronunciation do |pf|
+    = pf.hidden_field :data, data: {target: 'recorder.field'}, value: nil
+  %button.button.is-danger.is-large.is-fullwidth.recorder__button{type: 'button', data: {target: 'recorder.button', action: 'mousedown->recorder#start mouseup->recorder#stop'}}
+    %span.icon
+      %i.mdi.mdi-record-circle
+    %span.recorder__button-text-idle= t('.record')
+    %span.recorder__button-text-active= t('.recording')
+  %audio{data: {target: 'recorder.player'}}

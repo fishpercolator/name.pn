@@ -9,10 +9,6 @@
             %p.mb-3.has-text-grey= t('.blurb')
             %p.mb-5.has-text-grey= t('profile.show.optional_section')
             = f.input :phonetic, label: t('simple_form.labels.user.phonetic', name: @user.full_name)
-            .recorder{data: {controller: 'recorder'}}
-              = f.fields_for :pronunciation do |pf|
-                = pf.hidden_field :data, data: {target: 'recorder.field'}, value: nil
-              %button{type: 'button', data: {action: 'mousedown->recorder#start mouseup->recorder#stop'}} Record
-              %audio{data: {target: 'recorder.player'}}
+            = render 'recorder', f: f
             = render 'buttons', f: f
             

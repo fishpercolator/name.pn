@@ -20,6 +20,9 @@ en:
     pronunciation_card:
       title: How to pronounce your name
       name_is_pronounced: '%{name} is pronounced'
+    recorder:
+      record: Record
+      recording: Recording
     pronouns_card:
       title: Your pronouns
     url_card:

@@ -72,6 +72,26 @@
   }
 }
 
+@keyframes blink {
+  0%{opacity: 0;}
+  50%{opacity: 1;}
+  100%{opacity: 0;}
+}
+
 .recorder {
   display: none;
+  .is-active {
+    > .icon {
+      animation: blink 1s linear infinite;
+    }
+    
+    .recorder__button-text-idle {
+      display: none;
+    }
+  }
+  :not(.is-active) {
+    .recorder__button-text-active {
+      display: none;
+    }
+  }
 }
