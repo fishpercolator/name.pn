@@ -47,3 +47,29 @@ body {
 .section.is-collapsed {
   margin-top: -3rem;
 }
+
+.home__columns {
+  .column .box {
+    height: 100%;
+  }
+}
+
+.home__title {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "name pn" ". examples";
+}
+.home__title__name { 
+  grid-area: name; 
+  text-align: right;
+}
+.home__title__pn { 
+  grid-area: pn; 
+  text-align: left;
+}
+.home__title__examples { 
+  grid-area: examples; 
+  text-align: left;
+}

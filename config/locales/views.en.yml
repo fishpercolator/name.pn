@@ -5,8 +5,20 @@ en:
       home: Home
   home:
     anon_home:
-      title: 'Name.pn: pronouns + pronounce'
-      sign_up_free: Sign up free
+      title:
+        namedot: name.
+        pn: pn
+        pronouns: pronouns
+        pronounce: pronunciation
+      subtitle: Your name – your rules
+      sign_up_free: Sign up – it's free
+      get_your_name_right: People should get your name right
+      name_right_blurb: Your own page, telling people which version of your name and titles you wish they would use.
+      pronunciation: And pronounce it correctly
+      pronunciation_blurb: Let people hear you saying your name out loud in your own voice.
+      pronouns: An end to wrong pronouns
+      pronouns_blurb: You can't guess someone's pronouns from their name. Proudly display yours with automatic usage examples.
+      warning: 'Note: name.pn is pre-alpha software and is changing all the time. Feel free to use it but expects changes and bugs!'
     user_home:
       title: Your name dashboard
       page_description1: Here you can create a page that describes the different ways you would like to be addressed in English.

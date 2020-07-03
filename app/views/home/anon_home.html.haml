@@ -1,7 +1,30 @@
 %section.hero.is-light
   .hero-body
-    .container
-      %h1.title= title t('.title')
+    .container.has-text-centered
+      %h1.title.is-1.home__title
+        .home__title__name= t('.title.namedot')
+        .home__title__pn= t('.title.pn')
+        .home__title__examples.has-text-primary.is-size-5
+          = t('.title.pronouns')
+          %br
+          = t('.title.pronounce')
+      %h2.subtitle.is-3.has-text-primary= t('.subtitle')
 %section.section
   .container
+    .columns.is-multiline.is-centered.home__columns
+      .column
+        .box.is-personal-name
+          %h1.title.is-5.has-text-centered= t('.get_your_name_right')
+          %p.mt-5= t('.name_right_blurb')
+      .column
+        .box.is-pronunciation
+          %h1.title.is-5.has-text-centered= t('.pronunciation')
+          %p.mt-5= t('.pronunciation_blurb')
+      .column
+        .box.is-pronouns
+          %h1.title.is-5.has-text-centered= t('.pronouns')
+          %p.mt-5= t('.pronouns_blurb')
+%section.section
+  .container.has-text-centered
     %p= link_to t('.sign_up_free'), new_user_registration_path, class: 'button is-link is-large'
+    %p.has-text-grey.is-6.mt-5= t('.warning')
