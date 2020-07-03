@@ -86,9 +86,13 @@
   flex-wrap: wrap;
   margin: -0.2rem;
   > * {
-    flex-grow: 1;
-    flex-basis: 0;
+    flex: 1 0 30%;
     margin: 0.2rem;
+    user-select: none;
+    justify-content: center;
+    @include mobile {
+      flex-basis: 100%;
+    }
   }
 }
 .recorder__button.is-active {
