@@ -21,6 +21,9 @@ class ProfileController < ApplicationController
       @next_step = Wicked::FINISH_STEP
     end
     @user.assign_attributes(permitted_attributes @user)
+    if params.dig(:user, :pronunciation).present?
+      @user.pronunciation.attach(data: params.dig(:user, :pronunciation, :data), filename: 'pronunciation.webm', content_type: 'audio/webm', identify: false)
+    end
     render_wizard @user
   end
     

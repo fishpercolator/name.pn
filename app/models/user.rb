@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include UserSlug
+  include ActiveStorageSupport::SupportForBase64
     
   has_and_belongs_to_many :pronoun_sets
   
@@ -10,6 +11,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
            
   validates :personal_name, :full_name, presence: true, unless: :new_record?
+  
+  has_one_base64_attached :pronunciation
   
   def to_s
     full_name.present? ? full_name : email

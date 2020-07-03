@@ -3,7 +3,7 @@ import { Controller } from "stimulus"
 import { RecordRTCPromisesHandler } from 'recordrtc'
 
 export default class extends Controller {
-  static targets = ['player']
+  static targets = ['player', 'field']
   
   async connect () {
     // Recorder is hidden in CSS - show it if we detect the browser supports it
@@ -19,6 +19,7 @@ export default class extends Controller {
     }
   }
   
+  // FIXME: Catch user holding record button for too long etc
   start (e) {
     e.preventDefault()
     this.recorder.startRecording()
@@ -28,8 +29,13 @@ export default class extends Controller {
     e.preventDefault()
     await this.recorder.stopRecording()
     const recording = await this.recorder.getBlob()
+    const reader = new FileReader()
+    reader.readAsDataURL(recording)
+    reader.onload = () => {this.fieldTarget.value = reader.result}
     const url = URL.createObjectURL(recording)
     this.playerTarget.setAttribute('src', url)
     this.playerTarget.setAttribute('controls', 'controls')
+    
+    this.fieldTarget.value = recording
   }
 }

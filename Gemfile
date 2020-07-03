@@ -28,6 +28,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'activeadmin', '~> 2.6'
 gem 'activeadmin_sortable_table', '~> 1.3'
+gem 'active_storage_base64', '~> 1.1'
 gem 'acts_as_list', '~> 1.0'
 gem 'devise', '~> 4.7'
 gem 'friendly_id', '~> 5.3'
