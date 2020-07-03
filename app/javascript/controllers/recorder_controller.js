@@ -3,18 +3,26 @@ import { Controller } from "stimulus"
 import { RecordRTCPromisesHandler } from 'recordrtc'
 
 export default class extends Controller {
-  static targets = ['player', 'field', 'button']
+  static targets = ['media', 'field', 'button', 'play', 'delete', 'deleteFlag']
   
   connect () {
+    this.recording = false
+    
     // Recorder is hidden in CSS - show it if we detect the browser supports it
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       this.element.style.display = 'block'
+    }
+    // If there is audio attached, enable the play button
+    if (this.mediaTarget.src) {
+      this.playTarget.disabled = false
+      this.deleteTarget.disabled = false
     }
   }
   
   // FIXME: Catch user holding record button for too long etc
   async start (e) {
     e.preventDefault()
+    this.recording = true
     try {
       this.stream = await navigator.mediaDevices.getUserMedia({ audio: true })
       this.chunks = []
@@ -22,8 +30,14 @@ export default class extends Controller {
         type: 'audio',
         numberOfAudioChannels: 1
       })
-      this.recorder.startRecording()
-      this.buttonTarget.classList.add('is-active')
+      if (this.recording) {
+        // Check to see if we haven't already fired a stop event!
+        this.recorder.startRecording()
+        this.buttonTarget.classList.add('is-active')
+      } else {
+        // Fire the stop event one more time to clear up anything we raced into existence
+        this.stop()
+      }
     } catch {
       console.log('Permission denied')
     }
@@ -31,17 +45,36 @@ export default class extends Controller {
   
   async stop (e) {
     e.preventDefault()
-    await this.recorder.stopRecording()
-    this.stream.getTracks().forEach(t => t.stop())
+    this.recording = false
     this.buttonTarget.classList.remove('is-active')
-    const recording = await this.recorder.getBlob()
-    const reader = new FileReader()
-    reader.readAsDataURL(recording)
-    reader.onload = () => {this.fieldTarget.value = reader.result}
-    const url = URL.createObjectURL(recording)
-    this.playerTarget.setAttribute('src', url)
-    this.playerTarget.setAttribute('controls', 'controls')
-    
-    this.fieldTarget.value = recording
+    if (this.stream) {
+      this.stream.getTracks().forEach(t => t.stop())
+    }
+    if (this.recorder) {
+      await this.recorder.stopRecording()
+      const recording = await this.recorder.getBlob()
+      const reader = new FileReader()
+      reader.readAsDataURL(recording)
+      reader.onload = () => {this.fieldTarget.value = reader.result}
+      const url = URL.createObjectURL(recording)
+      this.mediaTarget.setAttribute('src', url)
+      this.playTarget.disabled = false
+      this.deleteTarget.disabled = false
+      this.deleteFlagTarget.value = ''
+      this.fieldTarget.value = recording
+    }
+    this.recorder = null
+    this.stream = null
+  }
+  
+  play () {
+    this.mediaTarget.play()
+  }
+  
+  delete () {
+    this.deleteFlagTarget.value = '1'
+    this.mediaTarget.removeAttribute('src')
+    this.playTarget.disabled = true
+    this.deleteTarget.disabled = true
   }
 }

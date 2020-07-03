@@ -64,6 +64,12 @@ body.user-profile {
 }
 .profile-card__name {
   font-weight: bold;
+  > * {
+    display: inline-block;
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
 }
 .profile-card__hint {
   color: $grey;

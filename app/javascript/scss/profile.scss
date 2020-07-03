@@ -80,18 +80,27 @@
 
 .recorder {
   display: none;
-  .is-active {
-    > .icon {
-      animation: blink 1s linear infinite;
-    }
-    
-    .recorder__button-text-idle {
-      display: none;
-    }
+}
+.recorder__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.2rem;
+  > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 0.2rem;
   }
-  :not(.is-active) {
-    .recorder__button-text-active {
-      display: none;
-    }
+}
+.recorder__button.is-active {
+  > .icon {
+    animation: blink 1s linear infinite;
+  }
+  .recorder__button-text-idle {
+    display: none;
+  }
+}
+.recorder__button:not(.is-active) {
+  .recorder__button-text-active {
+    display: none;
   }
 }

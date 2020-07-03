@@ -1,0 +1,6 @@
+.player.my-1{data: {controller: 'player'}}
+  %audio{src: url_for(user.pronunciation), data: {target: 'player.media'}}
+  %button.button.is-success{type: 'button', data: {target: 'player.play', action: 'player#play'}}
+    %span.icon
+      %i.mdi.mdi-play
+    %span= t('.listen')

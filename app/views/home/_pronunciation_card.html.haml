@@ -10,7 +10,9 @@
       %dl
         %dt= t('.name_is_pronounced', name: current_user.full_name)
         %dd= current_user.phonetic? ? current_user.phonetic : not_set
-        - if current_user.pronunciation.attached?
-          %dt= t('.audio_clip')
-          %dd
-            %audio{controls: true, src: url_for(current_user.pronunciation)}
+        %dt= t('.audio_clip', name: current_user.full_name)
+        %dd
+          - if current_user.pronunciation.attached?
+            = render 'users/player', user: current_user
+          - else
+            = not_set

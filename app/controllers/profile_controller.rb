@@ -21,8 +21,10 @@ class ProfileController < ApplicationController
       @next_step = Wicked::FINISH_STEP
     end
     @user.assign_attributes(permitted_attributes @user)
-    if pronunciation_data.present?
-      @user.pronunciation.attach(data: pronunciation_data, filename: 'pronunciation.webm', content_type: 'audio/webm', identify: false)
+    if pronunciation[:delete].present?
+      @user.pronunciation.purge
+    elsif pronunciation[:data].present?
+      @user.pronunciation.attach(data: pronunciation[:data], filename: 'pronunciation.webm', content_type: 'audio/webm', identify: false)
     end
     render_wizard @user
   end
@@ -42,8 +44,8 @@ class ProfileController < ApplicationController
     authorize @user, :update?
   end
   
-  def pronunciation_data
-    params.dig(:user, :pronunciation, :data)
+  def pronunciation
+    params.dig(:user, :pronunciation) || {}
   end
   
 end
