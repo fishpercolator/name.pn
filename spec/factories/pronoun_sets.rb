@@ -6,7 +6,7 @@ FactoryBot.define do
     possessive { "theirs" }
     reflexive { "themself" }
     copula { "are" }
-    initialize_with { PronounSet.find_or_create_by(nominative: nominative) }
+    initialize_with { PronounSet.find_or_initialize_by(nominative: nominative) }
     trait :they
     trait :he do
       nominative { "he" }
