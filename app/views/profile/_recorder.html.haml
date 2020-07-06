@@ -1,21 +1,26 @@
 .recorder{data: {controller: 'recorder'}}
-  %label.label= t('.label', name: f.object.full_name)
-  %audio{data: {target: 'recorder.media'}, src: f.object.pronunciation.attached? ? url_for(f.object.pronunciation) : nil}
-  = f.fields_for :pronunciation do |pf|
-    = pf.hidden_field :data, data: {target: 'recorder.field'}, value: nil
-    = pf.hidden_field :delete, data: {target: 'recorder.deleteFlag'}, value: ''
-  .recorder__buttons
-    %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {target: 'recorder.button', action: 'pointerdown->recorder#start pointerup->recorder#stop'}}
-      %span.icon
-        %i.mdi.mdi-record-circle
-      %span.recorder__button-text-idle= t('.record')
-      %span.recorder__button-text-active= t('.recording')
-    %button.button.is-success.is-medium{type: 'button', disabled: true, data: {target: 'recorder.play', action: 'recorder#play'}}
-      %span.icon
-        %i.mdi.mdi-play
-      %span= t('.play')
-    %button.button.is-link.is-medium{type: 'button', disabled: true, data: {target: 'recorder.delete', action: 'recorder#delete'}}
-      %span.icon
-        %i.mdi.mdi-delete
-      %span= t('.delete_audio')
-  %p.help= t('.hint')
+  .recorder__available
+    %audio{data: {target: 'recorder.media'}, src: f.object.pronunciation.attached? ? url_for(f.object.pronunciation) : nil}
+    = f.fields_for :pronunciation do |pf|
+      = pf.hidden_field :data, data: {target: 'recorder.field'}, value: nil
+      = pf.hidden_field :delete, data: {target: 'recorder.deleteFlag'}, value: ''
+    .recorder__buttons
+      %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {target: 'recorder.button', action: 'pointerdown->recorder#start pointerup->recorder#stop'}}
+        %span.icon
+          %i.mdi.mdi-record-circle
+        %span.recorder__button-text-idle= t('.record')
+        %span.recorder__button-text-active= t('.recording')
+      %button.button.is-success.is-medium{type: 'button', disabled: true, data: {target: 'recorder.play', action: 'recorder#play'}}
+        %span.icon
+          %i.mdi.mdi-play
+        %span= t('.play')
+      %button.button.is-link.is-medium{type: 'button', disabled: true, data: {target: 'recorder.delete', action: 'recorder#delete'}}
+        %span.icon
+          %i.mdi.mdi-delete
+        %span= t('.delete_audio')
+    %p.help= t('.hint')
+  .recorder__unavailable.mt-3
+    %article.notification.is-warning
+      %span.icon.is-medium
+        %i.mdi.mdi-24px.mdi-alert
+      %span= t('.recorder_unavailable')

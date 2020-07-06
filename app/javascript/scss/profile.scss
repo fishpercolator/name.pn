@@ -79,20 +79,28 @@
 }
 
 .recorder {
-  display: none;
+  &:not(.recorder--enabled) {
+    .recorder__available {
+      display: none;
+    }
+  }
+  &.recorder--enabled {
+    .recorder__unavailable {
+      display: none;
+    }
+  }
 }
 .recorder__buttons {
   display: flex;
-  flex-wrap: wrap;
   margin: -0.2rem;
+  @include mobile {
+    flex-direction: column;
+  }
   > * {
-    flex: 1 0 30%;
+    flex: 1;
     margin: 0.2rem;
     user-select: none;
     justify-content: center;
-    @include mobile {
-      flex-basis: 100%;
-    }
   }
 }
 .recorder__button.is-active {

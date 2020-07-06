@@ -10,7 +10,7 @@ export default class extends Controller {
     
     // Recorder is hidden in CSS - show it if we detect the browser supports it
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      this.element.style.display = 'block'
+      this.element.classList.add('recorder--enabled')
     }
     // If there is audio attached, enable the play button
     if (this.mediaTarget.src) {

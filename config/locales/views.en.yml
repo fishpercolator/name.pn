@@ -57,6 +57,7 @@ en:
     pronunciation:
       title: Pronunciation
       blurb: This section is concerned with how you would like English speakers to say your name out loud.
+      record: Record yourself saying '%{name}'
     pronouns: 
       title: Your pronouns
       blurb: 
@@ -74,12 +75,12 @@ en:
     header:
       save_and_exit: Save and exit
     recorder:
-      label: Record yourself saying '%{name}'
       record: Hold to record
       recording: Recording
       play: Play
       delete_audio: Delete audio
       hint: If you like, you can record audio of yourself saying your name here. Hold the Record button while you're speaking and release it when you're done. You can preview the sound with the Play buton until you're happy with it or delete the sound if you want to proceed without it.
+      recorder_unavailable: It looks like recording audio is not currently available in your browser. Please try using the latest version of Google Chrome, Mozilla Firefox or Microsoft Edge.
   pronoun_sets:
     table:
       header: 'Pronouns: %{pronoun}'
