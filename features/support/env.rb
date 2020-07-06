@@ -6,6 +6,7 @@ require 'email_spec/spinach'
 require 'capybara-screenshot/spinach'
 require 'spinach/rspec/mocks'
 require 'capybara/cuprite'
+require './spec/support/fixtures'
 
 DatabaseCleaner.strategy = :truncation
 Spinach.hooks.before_scenario { DatabaseCleaner.clean }

@@ -13,6 +13,10 @@ module CommonSteps
     step 'I am signed in as a user with a complete profile' do
       sign_in_as create(:user, :test, :full_profile)
     end
+    
+    step 'I am signed in as a user with no profile' do
+      sign_in_as create(:user, :test)
+    end
 
     def sign_in_as(user)
       visit new_user_session_path
@@ -23,7 +27,7 @@ module CommonSteps
     end
 
     def test_user
-      User.find_by(email: 'testuser@example.com') || create(:user, :test)
+      User.find_by(email: 'testuser@example.com') || create(:user, :test, :basic_profile)
     end
   end
 end
