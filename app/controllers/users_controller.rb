@@ -30,8 +30,7 @@ class UsersController < ApplicationController
         card: 'summary',
         site: Rails.configuration.x.twitter_app_id,
         title: t('.hello_my_name_is', name: @user.full_name),
-        description: t('.my_pronouns_are', pronouns: pronouns),
-        image: image
+        description: t('.my_pronouns_are', pronouns: pronouns)
       }
     })
     
