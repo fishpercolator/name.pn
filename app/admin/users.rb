@@ -10,6 +10,7 @@ ActiveAdmin.register User do
   index do
     selectable_column
     id_column
+    column(:slug) {|u| u.slug.present? ? link_to(u.slug, user_url(u)) : '-'}
     column :email
     column :full_name
     column :role
@@ -41,7 +42,7 @@ ActiveAdmin.register User do
     attributes_table do
       row :id
       row :email
-      row(:slug) {|u| link_to u.slug, user_url(u)}
+      row(:slug) {|u| u.slug.present? ? link_to(u.slug, user_url(u)) : '-'}
       row :role
       row :full_name
       row :personal_name

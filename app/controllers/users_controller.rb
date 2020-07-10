@@ -19,8 +19,8 @@ class UsersController < ApplicationController
         description: t('.my_pronouns_are', pronouns: pronouns),
         image: {
           _: image,
-          width: 512,
-          height: 512
+          width: 527,
+          height: 352
         }
       },
       fb: {
