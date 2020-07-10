@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     authorize @user
     
     pronouns = @user.pronoun_sets.map(&:to_s).join(', ')
-    image = view_context.image_url('logo.png', only_path: false)
+    image = view_context.image_url('hello.png', only_path: false)
     
     set_meta_tags({
       title: @user.full_name,
@@ -30,7 +30,8 @@ class UsersController < ApplicationController
         card: 'summary',
         site: Rails.configuration.x.twitter_app_id,
         title: t('.hello_my_name_is', name: @user.full_name),
-        description: t('.my_pronouns_are', pronouns: pronouns)
+        description: t('.my_pronouns_are', pronouns: pronouns),
+        image: image
       }
     })
     
