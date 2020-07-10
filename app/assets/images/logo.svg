@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="86.400002"
+   inkscape:export-xdpi="86.400002"
+   inkscape:export-filename="/home/fishpercolator/git/name.pn/public/apple-touch-icon-precomposed.png"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 52.916665 52.916668"
+   height="200"
+   width="200">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="34"
+     inkscape:window-x="0"
+     inkscape:window-height="1014"
+     inkscape:window-width="1920"
+     units="px"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="text835"
+     inkscape:document-units="mm"
+     inkscape:cy="173.95275"
+     inkscape:cx="-88.221339"
+     inkscape:zoom="1.4"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.8px;line-height:1.25;font-family:oxygen;-inkscape-font-specification:'oxygen Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       id="text835"
+       aria-label="n">
+      <path
+         id="path837"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.8px;font-family:Raleway;-inkscape-font-specification:'Raleway Bold';fill:#218380;fill-opacity:1;stroke-width:0.435472"
+         d="M 46.817562,48.74061 H 35.613716 V 24.159036 q 0,-5.267478 -1.839438,-7.692192 -1.839437,-2.424713 -5.100258,-2.424713 -1.672216,0 -3.428042,0.668886 -1.755827,0.668887 -3.344432,1.923048 -1.504994,1.170552 -2.759156,2.842768 -1.254162,1.672215 -1.839438,3.678874 V 48.74061 H 6.0991049 V 4.9285542 H 16.216012 v 8.1102478 q 2.424714,-4.1805405 7.023307,-6.5216429 4.598594,-2.341102 10.367738,-2.341102 4.096929,0 6.688864,1.5049942 2.591934,1.5049942 4.013317,3.9297072 1.421384,2.4247135 1.923048,5.5183135 0.585276,3.093599 0.585276,6.270809 z" />
+    </g>
+  </g>
+</svg>
