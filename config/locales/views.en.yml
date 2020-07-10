@@ -3,6 +3,7 @@ en:
     navbar:
       admin: Admin
       home: Home
+      about: About
   home:
     anon_home:
       title:
@@ -18,7 +19,8 @@ en:
       pronunciation_blurb: Let people hear you saying your name out loud in your own voice.
       pronouns: An end to wrong pronouns
       pronouns_blurb: You can't guess someone's pronouns from their name. Proudly display yours with automatic usage examples.
-      warning: 'Note: name.pn is pre-alpha software and is changing all the time. Feel free to use it but expects changes and bugs!'
+      warning: 'Note: name.pn is pre-alpha software and is changing all the time. Feel free to use it but expect changes and bugs!'
+      learn_more: Learn more about name.pn
     user_home:
       title: Your name dashboard
       page_description1: Here you can create a page that describes the different ways you would like to be addressed in English.

@@ -28,3 +28,4 @@
   .container.has-text-centered
     %p= link_to t('.sign_up_free'), new_user_registration_path, class: 'button is-link is-large'
     %p.has-text-grey.is-6.mt-5= t('.warning')
+    %p.is-6.mt-5= link_to t('.learn_more'), page_path('about')

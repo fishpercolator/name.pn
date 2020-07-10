@@ -8,6 +8,7 @@
           %span{aria_hidden: true}
     .navbar-menu{data: {target: 'navbar.menu'}}
       .navbar-start
+        = link_to t('.about'), page_path('about'), class: 'navbar-item'
       .navbar-end
         - if user_signed_in?
           - if current_user.role_admin?
