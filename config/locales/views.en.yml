@@ -89,6 +89,9 @@ en:
   users:
     show:
       blurb: Get your own name.pn
+      description: "Hello! My name is %{name}. My pronouns are %{pronouns}."
+      hello_my_name_is: "Hello! My name is %{name}"
+      my_pronouns_are: "My pronouns are %{pronouns}"
     name_and_pronoun_card:
       hello: Hello
       my_name_is: my name is

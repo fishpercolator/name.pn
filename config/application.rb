@@ -35,6 +35,9 @@ module NamePn
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    
+    config.x.fb_app_id = '301537654370477'
+    config.x.twitter_app_id = '@namedotpn'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
