@@ -10,8 +10,8 @@ $purple:    #820263;
 $primary:   #218380;
 $warning:   $orange;
 
-$family-sans-serif: 'Raleway';
-$family-handwriting: 'Patrick Hand';
+$family-sans-serif: Raleway, sans-serif;
+$family-handwriting: 'Patrick Hand', cursive;
 
 // Add the pieces of Bulma that your project uses here
 @import "~bulma/sass/utilities/_all";
