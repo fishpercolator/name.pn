@@ -37,14 +37,14 @@ en:
       audio_clip: Audio clip of '%{name}'
     pronouns_card:
       title: Your pronouns
+    likeness_card:
+      title: What you look like      
     url_card:
       title: Your unique URL
       view_your_page: View
       copy_to_clipboard: Copy
       copied: Copied!
       you_must_complete: You must complete the highlighted parts before you can preview your page
-    account_card:
-      title: Your account details
   profile:
     show:
       title: Edit my profile
@@ -67,6 +67,9 @@ en:
         - This is especially important for people who are trans and gender-nonconforming, and for people with unusual or gender-neutral names. We ask everyone to provide this information so as not to make some users feel like the odd one out.
         - Most people will need to select only one item below. Please choose the pronouns that feel most natural for talking about you. The option to select multiple pronouns is available for people who use multiple pronouns.
       get_in_touch: If you don't see your pronouns here, please get in touch.
+    likeness:
+      title: What you look like
+      blurb: To help people "put a face to the name", you have the option to add a picture of your face.
     slug:
       title: Your URL
       blurb: 'Last thing: you need to pick a URL for your public profile.'
@@ -83,6 +86,9 @@ en:
       delete_audio: Delete audio
       hint: If you like, you can record audio of yourself saying your name here. Hold the Record button while you're speaking and release it when you're done. You can preview the sound with the Play buton until you're happy with it or delete the sound if you want to proceed without it.
       recorder_unavailable: It looks like recording audio is not currently available in your browser. Please try using the latest version of Google Chrome, Mozilla Firefox or Microsoft Edge.
+    likeness_uploader:
+      upload_button: Set image
+      delete_button: Delete
   pronoun_sets:
     table:
       header: 'Pronouns: %{pronoun}'
@@ -110,6 +116,8 @@ en:
         personal_name: This is the name I want to be addressed by during a conversation.
         formal_name: I use this name in formal contexts. For example, a letter addressed to me might start 'Dear %{value}'.
         envelope_name: Please use this name when adding my name to an address in a formal context.
+    likeness_card:
+      what_i_look_like: What I look like
     pronouns_card:
       how_to_use_my_pronouns: How to use my pronouns
       pronoun_hint: To speak about a person in English, you don't need to know their gender but you do need to know which pronouns to use. This information can't be determined from a person's name or what they look like, so we include it on everyone's page.

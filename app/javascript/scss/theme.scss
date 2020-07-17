@@ -3,7 +3,7 @@ $formal-name: change-color($cyan, $lightness: 93%);
 $pronouns: change-color($orange, $lightness: 93%);
 $pronunciation: change-color($blue, $lightness: 90%);
 $url: change-color($yellow, $lightness: 90%);
-$account: change-color($red, $lightness: 90%);
+$likeness: change-color($red, $lightness: 93%);
 $primary-bg: change-color($primary, $lightness: 90%);
 
 .is-personal-name {
@@ -21,6 +21,6 @@ $primary-bg: change-color($primary, $lightness: 90%);
 .is-url {
   background-color: $url;
 }
-.is-account {
-  background-color: $account;
+.is-likeness {
+  background-color: $likeness;
 }

@@ -5,6 +5,7 @@
       .column.is-half
         = render 'name_and_pronoun_card', user: @user
         = render 'name_details_card', user: @user
+        = render 'likeness_card', user: @user
         = render 'pronouns_card', user: @user
 .blurb
   = link_to t('.blurb'), root_path

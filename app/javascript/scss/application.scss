@@ -47,6 +47,9 @@ $mdi-font-path: "~@mdi/font/fonts";
 
 @import "~animate.css";
 
+@import "uppload/dist/uppload.css";
+@import "uppload/dist/themes/light.css";
+
 // Import your own styles here
 @import "layout";
 @import "theme";

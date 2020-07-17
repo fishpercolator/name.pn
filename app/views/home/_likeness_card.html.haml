@@ -1,0 +1,13 @@
+.tile.is-child.card.is-likeness
+  .card-header
+    .card-header-title= t('.title')
+    .card-header-icon
+      = link_to profile_path(:likeness), class: 'icon', title: t('actions.edit') do
+        %i.mdi.mdi-pencil
+  .card-content
+    %p.mb-4.has-text-grey= t('profile.likeness.blurb')
+    .content
+      - if current_user.likeness.attached?
+        .likeness= image_tag current_user.likeness.variant(resize_to_limit: [300, 300])
+      - else
+        = not_set

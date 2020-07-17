@@ -13,7 +13,8 @@
     "rails-ujs": "^5.2.4-1",
     "recordrtc": "^5.6.1",
     "stimulus": "^1.1.1",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "uppload": "^3.2.1"
   },
   "version": "0.1.0",
   "devDependencies": {

@@ -195,6 +195,9 @@ GEM
     htmlentities (4.3.4)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
+    image_processing (1.11.0)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     inherited_resources (1.11.0)
       actionpack (>= 5.0, < 6.1)
       has_scope (~> 0.6)
@@ -237,6 +240,7 @@ GEM
       actionpack (>= 3.2.0, < 6.1)
     method_source (1.0.0)
     mimemagic (0.3.5)
+    mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
@@ -335,6 +339,8 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.3)
+    ruby-vips (2.0.17)
+      ffi (~> 1.9)
     ruby_parser (3.14.2)
       sexp_processor (~> 4.9)
     sass-rails (6.0.0)
@@ -438,9 +444,11 @@ DEPENDENCIES
   haml (~> 5.1)
   haml-rails
   high_voltage (~> 3.1)
+  image_processing (~> 1.11)
   jbuilder (~> 2.7)
   listen
   meta-tags (~> 2.13)
+  mini_magick (~> 4.10)
   pg (>= 0.18, < 2.0)
   pry-rails
   pry-rescue

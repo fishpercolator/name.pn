@@ -11,7 +11,7 @@ class UserPolicy < ApplicationPolicy
   def permitted_attributes
     [
       :full_name, :personal_name, :formal_name, :envelope_name,
-      :phonetic, :slug, :pronoun_set_ids => []
+      :phonetic, :slug, :likeness, :pronoun_set_ids => []
     ]
   end
     

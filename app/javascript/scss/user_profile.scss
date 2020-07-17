@@ -91,3 +91,13 @@ body.user-profile {
     text-decoration: underline;
   }
 }
+
+.likeness {
+  img {
+    border-radius: 50%;
+  }
+}
+.likeness--centered {
+  display: flex;
+  justify-content: center;
+}
