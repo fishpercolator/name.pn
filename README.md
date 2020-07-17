@@ -15,6 +15,7 @@ Variables that can be used to configure the app are:
 * **DOMAIN_IN_EMAIL_LINKS**: Override the above for email links specifically (e.g. if you need to add a port number or email links have a short domain name). Leave unset to use DOMAIN_NAME.
 * **EMAIL_FROM**: The name and email address that will be used for 'From' in emails sent by this platform. Make sure the DKIM & SPF settings are correct for this domain with respect to your email sending service (e.g. SendGrid; see below).
 * **AWS_ACCESS_KEY_ID** / **AWS_SECRET_ACCESS_KEY** / **AWS_REGION** / **S3_BUCKET**: Creds for a user who has SES access to send mail and S3 permission to read/write the given bucket.
+* **GA_ID**: Google Analytics ID
 
 ## Getting a development environment
 
