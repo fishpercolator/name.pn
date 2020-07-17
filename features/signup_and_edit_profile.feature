@@ -21,6 +21,8 @@ Scenario: Complete profile editing
   And I go to the next stage
   And I select my pronouns as she/her
   And I go to the next stage
+  # FIXME: Add likeness
+  And I go to the next stage
   And I click to finish
   Then I should be on the dashboard
   And my profile should be completed successfully
@@ -38,6 +40,7 @@ Scenario: My slug is already taken
   And I fill in my pronunciation
   And I go to the next stage
   And I select my pronouns as she/her
+  And I go to the next stage
   And I go to the next stage
   And I fill in audrey-horne as a slug
   And I click to finish
