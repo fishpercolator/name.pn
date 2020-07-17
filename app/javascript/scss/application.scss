@@ -50,6 +50,8 @@ $mdi-font-path: "~@mdi/font/fonts";
 @import "uppload/dist/uppload.css";
 @import "uppload/dist/themes/light.css";
 
+@import "luminous-lightbox/dist/luminous-basic";
+
 // Import your own styles here
 @import "layout";
 @import "theme";
