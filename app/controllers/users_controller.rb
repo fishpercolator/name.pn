@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
   def show
+    
+    # If the user has entered an uppercase version of the name, try all lowercase
+    if /[A-Z]/.match? params[:id]
+      skip_authorization
+      return redirect_to user_path(params[:id].downcase)
+    end
+    
     @user = User.friendly.find(params[:id])
     authorize @user
     
