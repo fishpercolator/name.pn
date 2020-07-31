@@ -20,6 +20,10 @@ export default class extends Controller {
       this.recorder.onstart = () => { this.buttonTarget.classList.add('is-active') }
       this.recorder.onstop = () => { this.buttonTarget.classList.remove('is-active') }
       this.recorder.ondataavailable = (arrayBuffer) => { this.processNewAudioData(arrayBuffer) }
+      
+      if (this.playerTarget.dataset['playerUrl']) {
+        this.deleteTarget.disabled = false
+      }
     }
   }
   
@@ -40,15 +44,25 @@ export default class extends Controller {
   
   processNewAudioData (recording) {
     this.fieldTarget.value = this.dataUrl(recording)
-    this.initializePlayer(recording)
+    const rec_blob = new Blob([recording])
+    this.setPlayerUrl(URL.createObjectURL(rec_blob))
     this.deleteFlagTarget.value = ''
   }
   
   delete () {
     this.deleteFlagTarget.value = '1'
-    this.mediaTarget.removeAttribute('src')
-    this.playTarget.disabled = true
     this.deleteTarget.disabled = true
+    this.setPlayerUrl(null)
+  }
+  
+  setPlayerUrl (url) {
+    if (url === null) {
+      delete this.playerTarget.dataset.playerUrl
+    } else {
+      this.playerTarget.dataset.playerUrl = url
+    }
+    const event = new CustomEvent('new-url')
+    this.playerTarget.dispatchEvent(event)
   }
   
   // Get a dataURL for the given arrayBuffer
