@@ -8,6 +8,16 @@ export default class extends Controller {
       'ended',
       () => { this.playTarget.disabled = false }
     )
+    this.setupAudio()
+  }
+  
+  setupAudio () {
+    let url = this.data.get('url')
+    if (url) {
+      // FIXME: Make this the transcode
+      this.mediaTarget.setAttribute('src', this.data.get('url'))
+      this.playTarget.disabled = false
+    }
   }
   
   play () {

@@ -121,3 +121,5 @@ en:
     pronouns_card:
       how_to_use_my_pronouns: How to use my pronouns
       pronoun_hint: To speak about a person in English, you don't need to know their gender but you do need to know which pronouns to use. This information can't be determined from a person's name or what they look like, so we include it on everyone's page.
+    player:
+      listen: Listen

@@ -101,6 +101,10 @@
     margin: 0.2rem;
     user-select: none;
     justify-content: center;
+    > .button {
+      width: 100%;
+      justify-content: center;
+    }
   }
 }
 .recorder__button.is-active {

@@ -1,74 +1,47 @@
 import { Controller } from "stimulus"
 
-import { RecordRTCPromisesHandler } from 'recordrtc'
+import Recorder from 'opus-recorder'
+import encoderPath from 'opus-recorder/dist/encoderWorker.min.js'
 
 export default class extends Controller {
-  static targets = ['media', 'field', 'button', 'play', 'delete', 'deleteFlag']
+  static targets = [
+    'field', 'button', 'player', 
+    'delete', 'deleteFlag'
+  ]
   
-  connect () {
-    this.recording = false
-    
+  connect () {    
     // Recorder is hidden in CSS - show it if we detect the browser supports it
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    if (Recorder.isRecordingSupported()) {
       this.element.classList.add('recorder--enabled')
-    }
-    // If there is audio attached, enable the play button
-    if (this.mediaTarget.src) {
-      this.playTarget.disabled = false
-      this.deleteTarget.disabled = false
+      
+      this.recorder = new Recorder({
+        encoderPath
+      })
+      this.recorder.onstart = () => { this.buttonTarget.classList.add('is-active') }
+      this.recorder.onstop = () => { this.buttonTarget.classList.remove('is-active') }
+      this.recorder.ondataavailable = (arrayBuffer) => { this.processNewAudioData(arrayBuffer) }
     }
   }
   
   // FIXME: Catch user holding record button for too long etc
-  async start (e) {
+  start (e) {
     e.preventDefault()
-    this.recording = true
     try {
-      this.stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-      this.chunks = []
-      this.recorder = new RecordRTCPromisesHandler(this.stream, { 
-        type: 'audio',
-        numberOfAudioChannels: 1
-      })
-      if (this.recording) {
-        // Check to see if we haven't already fired a stop event!
-        this.recorder.startRecording()
-        this.buttonTarget.classList.add('is-active')
-      } else {
-        // Fire the stop event one more time to clear up anything we raced into existence
-        this.stop()
-      }
-    } catch {
-      console.log('Permission denied')
+      this.recorder.start()
+    } catch(e) {
+      console.log('Error: ' + e.message)
     }
   }
   
-  async stop (e) {
+  stop (e) {
     e.preventDefault()
-    this.recording = false
-    this.buttonTarget.classList.remove('is-active')
-    if (this.stream) {
-      this.stream.getTracks().forEach(t => t.stop())
-    }
-    if (this.recorder) {
-      await this.recorder.stopRecording()
-      const recording = await this.recorder.getBlob()
-      const reader = new FileReader()
-      reader.readAsDataURL(recording)
-      reader.onload = () => {this.fieldTarget.value = reader.result}
-      const url = URL.createObjectURL(recording)
-      this.mediaTarget.setAttribute('src', url)
-      this.playTarget.disabled = false
-      this.deleteTarget.disabled = false
-      this.deleteFlagTarget.value = ''
-      this.fieldTarget.value = recording
-    }
-    this.recorder = null
-    this.stream = null
+    this.recorder.stop()
   }
   
-  play () {
-    this.mediaTarget.play()
+  processNewAudioData (recording) {
+    this.fieldTarget.value = this.dataUrl(recording)
+    this.initializePlayer(recording)
+    this.deleteFlagTarget.value = ''
   }
   
   delete () {
@@ -76,5 +49,10 @@ export default class extends Controller {
     this.mediaTarget.removeAttribute('src')
     this.playTarget.disabled = true
     this.deleteTarget.disabled = true
+  }
+  
+  // Get a dataURL for the given arrayBuffer
+  dataUrl(buf) {
+    return 'data:audio/webm;codecs=opus;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(buf)))
   }
 }
