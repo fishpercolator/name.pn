@@ -15,7 +15,11 @@ export default class extends Controller {
       this.element.classList.add('recorder--enabled')
       
       this.recorder = new Recorder({
-        encoderPath
+        encoderPath,
+        encoderApplication: 2048,
+        encoderSampleRate: 48000,
+        encoderComplexity: 8,
+        streamPages: false
       })
       this.recorder.onstart = () => { this.buttonTarget.classList.add('is-active') }
       this.recorder.onstop = () => { this.buttonTarget.classList.remove('is-active') }
@@ -45,7 +49,8 @@ export default class extends Controller {
   processNewAudioData (recording) {
     this.fieldTarget.value = this.dataUrl(recording)
     const rec_blob = new Blob([recording])
-    this.setPlayerUrl(URL.createObjectURL(rec_blob))
+    const rec_url = URL.createObjectURL(rec_blob)
+    this.setPlayerUrl(rec_url)
     this.deleteFlagTarget.value = ''
   }
   
@@ -67,6 +72,6 @@ export default class extends Controller {
   
   // Get a dataURL for the given arrayBuffer
   dataUrl(buf) {
-    return 'data:audio/webm;codecs=opus;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(buf)))
+    return 'data:audio/ogg;codecs=opus;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(buf)))
   }
 }

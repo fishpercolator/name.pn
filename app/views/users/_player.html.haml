@@ -1,7 +1,7 @@
 - data ||= {}
 - button_class ||= 'is-success'
 .player.my-1{data: data.merge({controller: 'player'})}
-  %audio{data: {target: 'player.media'}}
+  .player__audio{data: {target: 'player.media'}}
   %button.button{class: button_class, type: 'button', data: {target: 'player.play', action: 'player#play'}, disabled: true}
     %span.icon
       %i.mdi.mdi-play

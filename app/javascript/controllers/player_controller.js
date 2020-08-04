@@ -1,38 +1,32 @@
 import { Controller } from "stimulus"
 
+let ogv = require('ogv')
+ogv.OGVLoader.base = '/ogv'
+
 export default class extends Controller {
   static targets = ['media', 'play']
   
   connect () {
-    this.element.addEventListener(
-      'new-url',
-      () => { this.refresh() }
-    )
-    this.mediaTarget.addEventListener(
-      'ended',
-      () => { this.playTarget.disabled = false }
-    )
-    this.setupAudio()
+    this.element.addEventListener('new-url', () => { this.refresh() })
+    this.player = new ogv.OGVPlayer()
+    this.player.addEventListener('ended', () => { this.playTarget.disabled = false })
+    this.mediaTarget.appendChild(this.player)
+    this.refresh()
   }
   
   refresh () {
-    this.setupAudio()
-  }
-  
-  setupAudio () {
     let url = this.data.get('url')
     if (url) {
-      // FIXME: Make this the transcode
-      this.mediaTarget.setAttribute('src', this.data.get('url'))
+      this.player.src = url
       this.playTarget.disabled = false
     } else {
-      this.mediaTarget.removeAttribute('src')
+      this.player.removeAttribute('src')
       this.playTarget.disabled = true
     }
   }
   
   play () {
-    this.mediaTarget.play()
+    this.player.play()
     this.playTarget.disabled = true
   }
 }
