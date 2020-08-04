@@ -8,7 +8,8 @@ module UserSlug
     friendly_id :slug_candidates, use: :slugged
 
     # Valid slugs start with a letter, contain at least one - and have letters/numbers on either side of that -
-    validates :slug, format: { with: /\A[a-z][a-z\d]*-[a-z\d][-a-z\d]*\Z/i, allow_blank: true }
+    SLUG_REGEX = /\A[a-z][a-z\d]*-[a-z\d][-a-z\d]*\Z/i
+    validates :slug, format: { with: SLUG_REGEX, allow_blank: true }
     validate :slug_uniqueness
     
     def slug_uniqueness
@@ -27,10 +28,17 @@ module UserSlug
     
     def slug_candidates
       if full_name.present?
-        [
-          :full_name,
-          [:full_name, :spicy_proton]
-        ]
+        # If the full name normalized matches the regex, allow it in candidates
+        if SLUG_REGEX =~ normalize_friendly_id(full_name)
+          [
+            :full_name,
+            [:full_name, :spicy_proton]
+          ]
+        else
+          [
+            [:full_name, :spicy_proton]
+          ]
+        end
       end
     end
     

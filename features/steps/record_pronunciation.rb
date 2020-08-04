@@ -18,7 +18,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'the play button and delete button should be disabled' do
-    expect(page).to have_css('button[disabled]', text: 'Play')
+    expect(page).to have_css('button[disabled]', text: 'Listen')
     expect(page).to have_css('button[disabled]', text: 'Delete audio')
   end
 
@@ -27,7 +27,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'the play button and delete button should be available' do
-    expect(page).to have_css('button:not([disabled])', text: 'Play')
+    expect(page).to have_css('button:not([disabled])', text: 'Listen')
     expect(page).to have_css('button:not([disabled])', text: 'Delete audio')
   end
 
@@ -57,7 +57,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
 
   step 'I should see a player, and it should be attached to a valid audio element' do
     expect(page).to have_css('button', text: 'Listen')
-    expect(page).to have_css('audio[src]', visible: false)
+    expect(page).to have_css('ogvjs[src]', visible: false)
   end
 
   step 'a user exists without recorded audio' do

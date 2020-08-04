@@ -60,6 +60,9 @@ body {
   grid-template-rows: 1fr 1fr;
   gap: 1px 1px;
   grid-template-areas: "name pn" ". examples";
+  > * {
+    white-space: nowrap;
+  }
 }
 .home__title__name { 
   grid-area: name; 

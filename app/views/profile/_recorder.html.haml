@@ -9,7 +9,7 @@
           %i.mdi.mdi-record-circle
         %span.recorder__button-text-idle= t('.record')
         %span.recorder__button-text-active= t('.recording')
-      = render 'users/player', data: {target: 'recorder.player', player: {url: url_for(f.object.pronunciation)}}, button_class: 'is-success is-medium'
+      = render 'users/player', data: {target: 'recorder.player', player: {url: (url_for(f.object.pronunciation) if f.object.pronunciation.attached?)}}, button_class: 'is-success is-medium'
       %button.button.is-link.is-medium{type: 'button', disabled: true, data: {target: 'recorder.delete', action: 'recorder#delete'}}
         %span.icon
           %i.mdi.mdi-delete
