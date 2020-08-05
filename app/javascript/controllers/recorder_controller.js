@@ -1,7 +1,6 @@
 import { Controller } from "stimulus"
 
 import Recorder from 'opus-recorder'
-import encoderPath from 'opus-recorder/dist/encoderWorker.min.js'
 
 export default class extends Controller {
   static targets = [
@@ -14,20 +13,31 @@ export default class extends Controller {
     if (Recorder.isRecordingSupported()) {
       this.element.classList.add('recorder--enabled')
       
-      this.recorder = new Recorder({
-        encoderPath,
-        encoderApplication: 2048,
-        encoderSampleRate: 48000,
-        encoderComplexity: 8,
-        streamPages: false
-      })
-      this.recorder.onstart = () => { this.buttonTarget.classList.add('is-active') }
-      this.recorder.onstop = () => { this.buttonTarget.classList.remove('is-active') }
-      this.recorder.ondataavailable = (arrayBuffer) => { this.processNewAudioData(arrayBuffer) }
-      
+      this.initializeRecorder()
+      this.initializeFileReader()
+            
       if (this.playerTarget.dataset['playerUrl']) {
         this.deleteTarget.disabled = false
       }
+    }
+  }
+  
+  initializeRecorder () {
+    this.recorder = new Recorder({
+      encoderPath: '/workers/waveWorker.min.js',
+      streamPages: false,
+      numberOfChannels: 1,
+      wavBitDepth: 16
+    })
+    this.recorder.onstart = () => { this.buttonTarget.classList.add('is-active') }
+    this.recorder.onstop = () => { this.buttonTarget.classList.remove('is-active') }
+    this.recorder.ondataavailable = (arrayBuffer) => { this.processNewAudioData(arrayBuffer) }
+  }
+  
+  initializeFileReader () {
+    this.reader = new FileReader ()
+    this.reader.onload = (e) => {
+      this.fieldTarget.value = this.reader.result
     }
   }
   
@@ -47,11 +57,18 @@ export default class extends Controller {
   }
   
   processNewAudioData (recording) {
-    this.fieldTarget.value = this.dataUrl(recording)
     const rec_blob = new Blob([recording])
+    
+    // This sets the file for upload
+    this.reader.readAsDataURL(rec_blob)
+    
+    // This uses a blob locally for the preview player
     const rec_url = URL.createObjectURL(rec_blob)
     this.setPlayerUrl(rec_url)
+    
+    // And finally, make sure the delete button is active
     this.deleteFlagTarget.value = ''
+    this.deleteTarget.disabled = true
   }
   
   delete () {
