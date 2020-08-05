@@ -23,7 +23,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'my user has audio recorded already' do
-    test_user.update(pronunciation: fixture_file_upload(fixture 'pronunciation.webm'))
+    test_user.update(pronunciation: fixture_file_upload(fixture 'pronunciation.wav'))
   end
 
   step 'the play button and delete button should be available' do
@@ -48,7 +48,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'a user exists with recorded audio' do
-    example_user.update(pronunciation: fixture_file_upload(fixture 'pronunciation.webm'))
+    example_user.update(pronunciation: fixture_file_upload(fixture 'pronunciation.wav'))
   end
 
   step 'I visit that user\'s public URL' do
@@ -57,7 +57,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
 
   step 'I should see a player, and it should be attached to a valid audio element' do
     expect(page).to have_css('button', text: 'Listen')
-    expect(page).to have_css('ogvjs[src]', visible: false)
+    expect(page).to have_css('audio[src]', visible: false)
   end
 
   step 'a user exists without recorded audio' do
