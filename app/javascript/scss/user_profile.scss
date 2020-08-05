@@ -19,7 +19,8 @@ body.user-profile {
   border-radius: $radius-large;
   padding: 1rem 2rem;
   font-family: $family-handwriting;
-  font-size: 3rem;  
+  font-size: 3rem;
+  line-height: 4.5rem; // fix it at 1.5 of the original size
 }
 .fit {
   display: inline-block;

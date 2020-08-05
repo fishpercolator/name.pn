@@ -6,6 +6,9 @@ export default class extends Controller {
   static targets = ['fit']
   
   connect() {
-    this.fitTargets.forEach(el => fitty(el, {maxSize: 120}))
+    this.fitTargets.forEach(el => {
+      const maxSize = parseInt(el.dataset.maxSize) || 48
+      fitty(el, {maxSize})
+    })
   }
 }
