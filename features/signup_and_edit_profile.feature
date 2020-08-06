@@ -8,6 +8,7 @@ Scenario: Sign up takes user to profile editor
   Then I should be on the first page of the profile editor
   And my account should have been created on the backend
   
+@javascript
 Scenario: Complete profile editing
   Given I am signed out
   When I visit the sign up page
@@ -22,11 +23,14 @@ Scenario: Complete profile editing
   And I select my pronouns as she/her
   And I select the running example
   And I go to the next stage
-  # FIXME: Add likeness
+  And I click to add an image
+  And I attach my likeness
+  And I accept the defaults in the image editor
   And I go to the next stage
   And I click to finish
   Then I should be on the dashboard
   And my profile should be completed successfully
+  And my likeness should be cropped and converted
 
 Scenario: My slug is already taken
   Given I am signed out

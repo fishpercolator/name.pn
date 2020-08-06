@@ -22,7 +22,7 @@
     .columns
       .column.is-three-fifths.is-offset-one-fifth
         %h2.title.is-4 Get in touch
-        .content.mt-5.is-size-5
+        .content.is-size-5
           %p Having problems with the site or want to chat about a feature idea?
           %p.has-text-centered
             = link_to 'mailto:support@name.pn', class: 'button is-link is-outlined is-medium' do
@@ -34,14 +34,16 @@
     .columns
       .column.is-three-fifths.is-offset-one-fifth
         %h2.title.is-4 On the roadmap
-        .content.mt-5.is-size-5
+        .content.is-size-5
           %p There are lots of ideas on the roadmap. Things we want to add in the near-term include:
           %ul
-            %li More options for pronoun usage examples (not everyone wants to advertise their cooking skills!).
-            %li An optional headshot so people can see what you look like.
             %li Onward links to your socials or other website so you don't feel like you're using up your "one link" on Twitter/Instagram.
-            %li Support to record your voice on more devices like iPhone (currently works on Chrome, Firefox, Edge and Android).
             %li Sign up & sign in using Twitter or Facebook instead of a password.
             %li A list of nicknames and shortened names that you like, and ones you don't like!
             %li More advanced pronoun options, like being able to order them or specify that you use no pronouns.
             %li Context-sensitive pages &mdash; maybe you use a different name at work and at home, for example.
+        %h2.title.is-4.mt-5 Known issues
+        .content.is-size-5
+          %ul
+            %li Support for recording and playing audio on Safari and iOS devices isn't working. This is due to some complex nuance of modern web tech and it's proving difficult to fix without access to Apple hardware. The fix is really important to me so stay tuned!
+            %li There are some issues with the picture uploading, especially on mobile. We use a very new third-party service called Uppload for this, and it's constantly being updated so hopefully there will be a fix in the future. In the meantime, please use a desktop browser to upload your likeness if you are having issues.

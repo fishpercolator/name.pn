@@ -116,4 +116,25 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   step 'I should be on the pronouns page of the profile editor' do
     expect(page).to have_css('h1', text: 'Your pronouns')
   end
+  
+  step 'I click to add an image' do
+    click_button 'Set image'
+  end
+
+  step 'I attach my likeness' do
+    find('.alternate-input input[type="file"]').set(fixture 'leeds.png')
+  end
+
+  step 'I accept the defaults in the image editor' do
+    expect(page).to have_css('button', text: 'Upload')
+    click_button 'Upload'
+  end
+
+  step 'my likeness should be cropped and converted' do
+    user = User.find_by(email: 'loglady@example.com')
+    expect(user.likeness).to be_attached
+    blob = user.likeness.attachment.blob
+    expect(blob.content_type).to eq('image/jpeg')
+    expect(blob.metadata['width']).to eq(blob.metadata['height'])
+  end
 end

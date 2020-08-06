@@ -1,7 +1,3 @@
-FactoryBot::SyntaxRunner.class_eval do
-  include ActionDispatch::TestProcess
-end
-
 module FixtureHelpers
   def fixture(name)
     Rails.root.join('spec', 'fixtures', name)
@@ -16,6 +12,11 @@ RSpec.configure do |config|
 end
 
 class Spinach::FeatureSteps
+  include ActionDispatch::TestProcess
+  include FixtureHelpers
+end
+
+FactoryBot::SyntaxRunner.class_eval do
   include ActionDispatch::TestProcess
   include FixtureHelpers
 end

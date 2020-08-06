@@ -10,6 +10,7 @@ Scenario: Basic profile
   And I should see a usage guide for one set of pronouns
   And I should not see the formal name
   And I should not see a pronunciation guide
+  And I should not see a section for the user's likeness
   And I should see a link to the main site
 
 Scenario: Profile URLs are case-insensitive
@@ -27,8 +28,10 @@ Scenario: Profile with text features filled out
   And I should see a 'hello' card with the user's personal name and pronouns
   And I should see a box with the full name
   And I should see a pronunciation guide
+  And I should see the audio player
   And I should see the formal name
   And I should see a link to the main site
+  And I should see the user's likeness
   
 Scenario: Profile with multiple pronouns
   Given I am signed out

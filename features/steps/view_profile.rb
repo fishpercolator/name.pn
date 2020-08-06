@@ -86,5 +86,18 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
     expect(page).to have_css('.profile-card__pronoun', count: 1)
     expect(page).to have_content("Audrey likes to run.\nShe is running a half-marathon.\nI saw her running just yesterday.\nToday she is trying to beat her personal best.\n")
   end
+  
+  step 'I should not see a section for the user\'s likeness' do
+    expect(page).not_to have_content('What I look like')
+  end
+
+  step 'I should see the audio player' do
+    expect(page).to have_css('button', text: 'Listen')
+  end
+
+  step 'I should see the user\'s likeness' do
+    expect(page).to have_content('What I look like')
+    expect(page).to have_css('a img[src$="likeness.png"]')
+  end
 
 end
