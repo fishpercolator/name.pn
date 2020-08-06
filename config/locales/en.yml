@@ -6,6 +6,11 @@ en:
     not_admin: Please sign is as an admin user
     not_authorized: Sorry - you are not permitted to do that
   pronoun_set_hint: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
+  pronoun_example_headings:
+    cooking: Cooking
+    dancing: Dancing
+    reading: Reading
+    running: Running
   pronoun_examples:
     cooking:
       name: '<b>%{pronoun}</b> is a great cook.'
@@ -14,3 +19,24 @@ en:
       possessive_determiner: 'Cooking is one of <b>%{pronoun}</b> best skills.'
       possessive: 'I think this cookbook is <b>%{pronoun}</b>.'
       reflexive: '%{nominative_initial} came up with this recipe <b>%{pronoun}</b>.'
+    dancing:
+      name: '<b>%{pronoun}</b> is often found on the dance floor.'
+      nominative: '<b>%{pronoun_initial}</b> %{copula} dancing right now.'
+      oblique: 'You should see <b>%{pronoun}</b> dance!'
+      possessive_determiner: 'Dancing is one of <b>%{pronoun}</b> passions.'
+      possessive: 'The dance trophy should have been <b>%{pronoun}</b>!'
+      reflexive: '%{nominative_initial} invented this dance move <b>%{pronoun}</b>.'
+    reading:
+      name: '<b>%{pronoun}</b> is a book-lover.'
+      nominative: '<b>%{pronoun_initial}</b> %{copula} about to finish reading a book.'
+      oblique: 'Books are a good gift for <b>%{pronoun}</b>.'
+      possessive_determiner: 'That is <b>%{pronoun}</b> third book this month!'
+      possessive: 'Your book collection is smaller than <b>%{pronoun}</b>.'
+      reflexive: '%{nominative_initial} %{copula} taking some time for <b>%{pronoun}</b> to read.'
+    running:
+      name: '<b>%{pronoun}</b> likes to run.'
+      nominative: '<b>%{pronoun_initial}</b> %{copula} running a half-marathon.'
+      oblique: 'I saw <b>%{pronoun}</b> running just yesterday.'
+      possessive_determiner: 'Today %{nominative} %{copula} trying to beat <b>%{pronoun}</b> personal best.'
+      possessive: 'These running shoes are <b>%{pronoun}</b>.'
+      reflexive: '%{nominative_initial} %{copula} only competing against <b>%{pronoun}</b>.'

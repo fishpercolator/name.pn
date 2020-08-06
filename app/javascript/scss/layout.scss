@@ -76,3 +76,9 @@ body {
   grid-area: examples; 
   text-align: left;
 }
+
+.select:not(.is-multiple):not(.is-loading) {
+  &::after {
+    border-color: $input-arrow;
+  }
+}

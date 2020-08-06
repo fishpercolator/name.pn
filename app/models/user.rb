@@ -5,6 +5,14 @@ class User < ApplicationRecord
   has_and_belongs_to_many :pronoun_sets
   
   enum role: {user: 'user', admin: 'admin'}, _prefix: true
+  
+  enum pronoun_example: {
+    cooking: 'cooking', 
+    dancing: 'dancing',
+    reading: 'reading',
+    running: 'running'
+  }, _prefix: true
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

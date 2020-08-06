@@ -11,4 +11,5 @@
             %p.mb-5.has-text-grey= t('profile.show.you_must_complete')
             = f.association :pronoun_sets, as: :pronouns, label: false, item_wrapper_tag: 'div', wrapper_class: 'profile-pronouns'
             %p.my-3.has-text-grey= t('.get_in_touch')
+            = f.input :pronoun_example, as: :select, collection: User.pronoun_examples.keys.map {|pe| [t(pe, scope: 'pronoun_example_headings'), pe]}, include_blank: false, wrapper_class: 'mt-5'
             = render 'buttons', f: f

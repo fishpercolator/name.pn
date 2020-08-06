@@ -23,6 +23,7 @@ en:
         formal_name: How would you like your name to appear at the start of a formal letter (after the word "Dear")? For example, "Dr Yates".
         phonetic: Spell out your name using English sounds, with a hyphen (-) between each syllable. In each word, type the syllable with the most stress using CAPITALS. For example, if your name is "Abby Yates", you could write "A-bee YAYTS".
         slug: Your URL must be at least two words, separated by hyphens (-), and it must not already belong to another user. For example, "abby-yates"
+        pronoun_example: We'll use this activity as a reference to show people how to use your pronouns. Pick the one that best fits your personality.
     placeholders:
       user:
         full_name: Abby Yates
