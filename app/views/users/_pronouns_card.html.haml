@@ -8,4 +8,4 @@
         %h2.profile-card__heading= pronoun_set.to_s
         - %i[name nominative oblique possessive_determiner possessive reflexive].each do |inflex|
           - pronoun = (inflex == :name ? user.personal_name : pronoun_set.public_send(inflex))
-          %p.profile-card__example= raw(t "pronoun_examples.cooking.#{inflex}", pronoun: pronoun, pronoun_initial: pronoun.capitalize, nominative: pronoun.nominative, nominative_initial: pronoun_set.nominative.capitalize, copula: pronoun_set.copula)
+          %p.profile-card__example= raw(t inflex, scope: "pronoun_examples.#{user.pronoun_example}", pronoun: pronoun, pronoun_initial: pronoun.capitalize, nominative: pronoun_set.nominative, nominative_initial: pronoun_set.nominative.capitalize, copula: pronoun_set.copula)

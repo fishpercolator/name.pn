@@ -44,6 +44,10 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   step 'I select my pronouns as she/her' do
     check 'she/her'
   end
+  
+  step 'I select the running example' do
+    select 'Running', from: 'Pronoun example'
+  end
 
   step 'I click to finish' do
     click_button 'Finish my profile'
@@ -60,6 +64,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(user.formal_name).to eq('Mrs Lanterman')
     expect(user.envelope_name).to eq('Mrs M. Lanterman')
     expect(user.phonetic).to eq('LOG LAY-dee')
+    expect(user).to be_pronoun_example_running
     expect(user.pronoun_sets.map(&:to_s)).to eq(['she/her'])
     expect(user.slug).to eq('log-lady')
   end

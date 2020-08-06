@@ -2,11 +2,15 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   include CommonSteps::Auth
 
   step 'a user exists with a basic profile' do
-    create :user, :basic_profile
+    create :user, :basic_profile, slug: 'audrey-horne'
   end
 
   step 'I visit the path that is that user\'s slug' do
-    visit "/#{User.last.slug}"
+    visit "/audrey-horne"
+  end
+  
+  step 'I visit the path that is a mixed-case version of that user\'s slug' do
+    visit "/AudreY-hORne"
   end
 
   step 'I should not see the navbar' do
@@ -66,11 +70,21 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'a user exists who has not completed their profile' do
-    create :user, full_name: 'Killer BOB'
+    create :user, full_name: 'Killer BOB', slug: 'audrey-horne'
   end
 
   step 'I should be redirected to the homepage with a forbidden error' do
     expect(page).to have_css('.navbar')
     expect(page).to have_content('Sorry - you are not permitted to do that')
   end
+  
+  step 'the user has picked the \'running\' pronoun example' do
+    User.friendly.find('audrey-horne').update(pronoun_example: 'running')
+  end
+
+  step 'I should see an appropriate usage guide for one set of pronouns' do
+    expect(page).to have_css('.profile-card__pronoun', count: 1)
+    expect(page).to have_content("Audrey likes to run.\nShe is running a half-marathon.\nI saw her running just yesterday.\nToday she is trying to beat her personal best.\n")
+  end
+
 end

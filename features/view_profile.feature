@@ -11,6 +11,13 @@ Scenario: Basic profile
   And I should not see the formal name
   And I should not see a pronunciation guide
   And I should see a link to the main site
+
+Scenario: Profile URLs are case-insensitive
+  Given I am signed out
+  And a user exists with a basic profile
+  When I visit the path that is a mixed-case version of that user's slug
+  Then I should not see the navbar
+  And I should see a 'hello' card with the user's personal name and pronouns
   
 Scenario: Profile with text features filled out
   Given I am signed out
@@ -30,6 +37,13 @@ Scenario: Profile with multiple pronouns
   When I visit the path that is that user's slug
   Then I should see all the pronoun sets on one line each
   And I should see usage guides for all sets of pronouns
+
+Scenario: Alternative pronoun examples
+  Given I am signed out
+  And a user exists with a basic profile
+  And the user has picked the 'running' pronoun example
+  When I visit the path that is that user's slug
+  Then I should see an appropriate usage guide for one set of pronouns
 
 Scenario: Cannot view incomplete profile
   Given I am signed out

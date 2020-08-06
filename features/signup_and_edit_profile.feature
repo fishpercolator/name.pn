@@ -20,6 +20,7 @@ Scenario: Complete profile editing
   And I fill in my pronunciation
   And I go to the next stage
   And I select my pronouns as she/her
+  And I select the running example
   And I go to the next stage
   # FIXME: Add likeness
   And I go to the next stage
