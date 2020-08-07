@@ -135,6 +135,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(user.likeness).to be_attached
     blob = user.likeness.attachment.blob
     expect(blob.content_type).to eq('image/jpeg')
+    p blob
     expect(blob.metadata['width']).to eq(blob.metadata['height'])
   end
 end
