@@ -126,6 +126,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I accept the defaults in the image editor' do
+    expect(page).to have_css('.cropper-crop-box')
     expect(page).to have_css('button', text: 'Upload')
     click_button 'Upload'
   end
