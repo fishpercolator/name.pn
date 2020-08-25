@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :pronoun_sets_from_url
+  
   def show
     
     # If the user has entered an uppercase version of the name, try all lowercase
@@ -10,7 +12,11 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     authorize @user
     
-    pronouns = @user.pronoun_sets.map(&:to_s).join(', ')
+    if @pronoun_sets.blank?
+      @pronoun_sets = @user.pronoun_sets
+    end
+    
+    pronouns = @pronoun_sets.map(&:to_s).join(', ')
     image = view_context.image_url('hello.png', only_path: false)
     
     set_meta_tags({
@@ -43,5 +49,13 @@ class UsersController < ApplicationController
     })
     
     render layout: 'user_profile'
+  end
+  
+  private
+  
+  def pronoun_sets_from_url
+    if params[:nominative].present?
+      @pronoun_sets = PronounSet.where(nominative: params[:nominative].downcase, oblique: params[:oblique]&.downcase)
+    end
   end
 end

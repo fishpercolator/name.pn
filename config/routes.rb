@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   resources :profile
   
-  get "/*id", to: 'users#show', constraints: { id: %r{[^/]+} }, as: :user
+  get "/:id(/:nominative/:oblique)", to: 'users#show', constraints: { id: %r{[^/]+}, nominative: %r{[a-z]+}i, oblique: %r{[a-z]+}i }, as: :user
   
   root to: 'home#index'
 end

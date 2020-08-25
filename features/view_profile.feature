@@ -40,6 +40,14 @@ Scenario: Profile with multiple pronouns
   When I visit the path that is that user's slug
   Then I should see all the pronoun sets on one line each
   And I should see usage guides for all sets of pronouns
+  
+Scenario: Profile with multiple pronouns (URL containing one pronoun)
+  Given I am signed out
+  And a user exists with a basic profile
+  And the user has multiple pronoun sets
+  When I visit the path that is that user's slug with "she/her" on the end
+  Then I should see only "she/her" in their name card
+  And I should see a usage guide for one set of pronouns
 
 Scenario: Alternative pronoun examples
   Given I am signed out

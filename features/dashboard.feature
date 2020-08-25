@@ -7,6 +7,7 @@ Scenario: View complete profile
   And I should see edit buttons for each section
   And I should see no warnings about sharing my URL
   And I should see my URL
+  And I should see a pronoun version of my URL
   And I should see enabled buttons to view and copy my URL
   
 Scenario: View incomplete profile

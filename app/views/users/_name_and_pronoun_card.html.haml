@@ -3,10 +3,10 @@
   %h2.napc__heading= t('.my_name_is')
   .napc__text-box.napc__text-box--name
     .inner
-      %p.fit{data: {target: 'napc.fit', max_size: 120}}= @user.personal_name
+      %p.fit{data: {target: 'napc.fit', max_size: 120}}= user.personal_name
   %h2.napc__heading= t('.my_pronouns_are')
   .napc__text-box
     .inner
       .fit{data: {target: 'napc.fit'}}
-        - @user.pronoun_sets.each do |ps|
+        - pronoun_sets.each do |ps|
           %p= ps.to_s

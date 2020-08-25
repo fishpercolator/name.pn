@@ -3,9 +3,9 @@
   .container
     .columns.is-centered
       .column.is-half
-        = render 'name_and_pronoun_card', user: @user
+        = render 'name_and_pronoun_card', user: @user, pronoun_sets: @pronoun_sets
         = render 'name_details_card', user: @user
         = render 'likeness_card', user: @user
-        = render 'pronouns_card', user: @user
+        = render 'pronouns_card', user: @user, pronoun_sets: @pronoun_sets
 .blurb
   = link_to t('.blurb'), root_path

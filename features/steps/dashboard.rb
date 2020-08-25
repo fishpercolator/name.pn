@@ -26,6 +26,10 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
   step 'I should see my URL' do
     expect(page).to have_content('http://www.example.com/audrey-horne')
   end
+  
+  step 'I should see a pronoun version of my URL' do
+    expect(page).to have_content("or, if you prefer a URL containing your pronouns:\nhttp://www.example.com/audrey-horne/she/her")
+  end
 
   step 'I should see enabled buttons to view and copy my URL' do
     expect(page).to have_css('.button:not([disabled])', text: 'View')

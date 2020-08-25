@@ -7,9 +7,15 @@
   .card-content
     %p.is-size-4.has-text-centered
       - if current_user.slug.present?
-        %span{data: {target: 'url.url'}}= user_url(current_user, only_path: false)
+        %b{data: {target: 'url.url'}}= user_url(current_user, only_path: false)
       - else
         = you_must
+    - if current_user.pronoun_sets.any?
+      .mt-4.is-size-6.has-text-grey.has-text-centered
+        %p
+          %i= t('.or_with_pronouns')
+        - current_user.pronoun_sets.each do |ps|
+          %p= user_url(current_user, only_path: false, nominative: ps.nominative, oblique: ps.oblique)
   .card-footer
     = link_to profile_path(:slug),  class: 'button card-footer-item has-text-link' do
       %span.icon

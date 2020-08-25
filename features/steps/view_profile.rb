@@ -99,5 +99,13 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
     expect(page).to have_content('What I look like')
     expect(page).to have_css('a img[src$="likeness.png"]')
   end
+  
+  step 'I visit the path that is that user\'s slug with "she/her" on the end' do
+    visit "/audrey-horne/she/her"
+  end
 
+  step 'I should see only "she/her" in their name card' do
+    expect(page).to have_css('.napc', text: 'she/her')
+    expect(page).not_to have_css('.napc', text: 'they/them')
+  end
 end

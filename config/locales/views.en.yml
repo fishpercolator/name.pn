@@ -45,6 +45,7 @@ en:
       copy_to_clipboard: Copy
       copied: Copied!
       you_must_complete: You must complete the highlighted parts before you can preview your page
+      or_with_pronouns: 'or, if you prefer a URL containing your pronouns:'
   profile:
     show:
       title: Edit my profile

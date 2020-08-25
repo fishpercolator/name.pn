@@ -3,7 +3,7 @@
     .card-header-title= t('.how_to_use_my_pronouns')
   .card-content
     .profile-card__hint= t('.pronoun_hint')
-    - user.pronoun_sets.each do |pronoun_set|
+    - pronoun_sets.each do |pronoun_set|
       .profile-card__pronoun
         %h2.profile-card__heading= pronoun_set.to_s
         - %i[name nominative oblique possessive_determiner possessive reflexive].each do |inflex|
