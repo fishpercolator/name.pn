@@ -10,7 +10,10 @@ module MailingListable
   end
     
   included do
-    after_save :update_data_in_mailchimp, if: :mailchimp_data_changed?
+    # Set this attribute during user creation to subscribe them to mailing list
+    attr_accessor :subscribe_to_mailing_list
+    after_create :subscribe_to_mailing_list!, if: :subscribe_to_mailing_list
+    after_update :update_data_in_mailchimp, if: :mailchimp_data_changed?
     
     def subscribed_to_mailing_list?
       mailchimp_member&.retrieve&.body&.dig(:status) == 'subscribed'
@@ -29,6 +32,14 @@ module MailingListable
       end
     end
     
+    def subscribe_to_mailing_list!
+      update_data_in_mailchimp(status: 'subscribed')
+    end
+    
+    def unsubscribe_from_mailing_list!
+      update_data_in_mailchimp(status: 'unsubscribed')
+    end
+    
     private
     
     def mailchimp_member
@@ -36,7 +47,7 @@ module MailingListable
     end
     
     def mailchimp_data
-      {email_address: email, merge_fields: {NAME: full_name, FORMAL: formal_name}}
+      {email_address: email, merge_fields: {NAME: full_name || '', FORMAL: formal_name || ''}}
     end
     
     def mailchimp_data_changed?
