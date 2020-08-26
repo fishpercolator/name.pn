@@ -1,13 +1,13 @@
-<% if ENV["GA_ID"].present? %>
+<% if Figaro.env.GA_ID? %>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= ENV["GA_ID"] %>"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Figaro.env.GA_ID %>"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
         
     document.addEventListener('turbolinks:load', function(e) {
-      gtag('config', '<%= ENV["GA_ID"] %>', {page_location: e.data.url});
+      gtag('config', '<%= Figaro.env.GA_ID %>', {page_location: e.data.url});
     });
   </script>
   </script>

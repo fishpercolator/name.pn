@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include UserSlug
+  include MailingListable
   include ActiveStorageSupport::SupportForBase64
     
   has_and_belongs_to_many :pronoun_sets

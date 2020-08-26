@@ -30,3 +30,4 @@
 yarn-debug.log*
 .yarn-integrity
 /vendor/bundle
+/config/application.yml
