@@ -15,6 +15,7 @@ en:
         formal_name: Your formal name
         phonetic: "Phonetic pronunciation of '%{name}'"
         slug: Your personal URL
+        subscribe_to_mailing_list: 'Sign up for occasional update emails'
     hints:
       user:
         full_name: This is the name you would typically use to represent yourself on a list of names. For example, "Abby Yates". Don't include middle names or initials here unless you normally use them when identifying yourself.
@@ -24,6 +25,7 @@ en:
         phonetic: Spell out your name using English sounds, with a hyphen (-) between each syllable. In each word, type the syllable with the most stress using CAPITALS. For example, if your name is "Abby Yates", you could write "A-bee YAYTS".
         slug: Your URL must be at least two words, separated by hyphens (-), and it must not already belong to another user. For example, "abby-yates"
         pronoun_example: We'll use this activity as a reference to show people how to use your pronouns. Pick the one that best fits your personality.
+        subscribe_to_mailing_list: The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.
     placeholders:
       user:
         full_name: Abby Yates

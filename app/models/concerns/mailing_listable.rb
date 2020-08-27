@@ -23,6 +23,7 @@ module MailingListable
     
     # Update data in mailchimp. Will create the record if status is provided and none exists
     def update_data_in_mailchimp(status: nil)
+      return if MailingListable.gibbon.blank? # do nothing in development
       data = mailchimp_data
       if status.present?
         data[:status] = status
