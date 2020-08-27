@@ -2,7 +2,7 @@ module MailingListable
   extend ActiveSupport::Concern
   
   def self.gibbon
-    Figaro.env.MAILCHIMP_API_KEY? && @gibbon ||= Gibbon::Request.new(api_key: Figaro.env.MAILCHIMP_API_KEY, symbolize_keys: true)
+    @gibbon ||= (Figaro.env.MAILCHIMP_API_KEY? ? Gibbon::Request.new(api_key: Figaro.env.MAILCHIMP_API_KEY, symbolize_keys: true) : nil)
   end
   
   def self.mailing_list
