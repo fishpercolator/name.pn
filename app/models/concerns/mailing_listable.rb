@@ -2,7 +2,11 @@ module MailingListable
   extend ActiveSupport::Concern
   
   def self.gibbon
-    @gibbon ||= (Figaro.env.MAILCHIMP_API_KEY? ? Gibbon::Request.new(api_key: Figaro.env.MAILCHIMP_API_KEY, symbolize_keys: true) : nil)
+    if Figaro.env.MAILCHIMP_API_KEY?
+      @gibbon ||= Gibbon::Request.new(api_key: Figaro.env.MAILCHIMP_API_KEY, symbolize_keys: true)
+    else
+      nil
+    end
   end
   
   def self.mailing_list
@@ -23,7 +27,7 @@ module MailingListable
     
     # Update data in mailchimp. Will create the record if status is provided and none exists
     def update_data_in_mailchimp(status: nil)
-      return if MailingListable.gibbon.blank? # do nothing in development
+      return unless MailingListable.gibbon # do nothing in development
       data = mailchimp_data
       if status.present?
         data[:status] = status
