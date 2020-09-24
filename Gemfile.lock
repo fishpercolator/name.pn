@@ -323,6 +323,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.8.0)
+    render_async (2.1.7)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -470,6 +471,7 @@ DEPENDENCIES
   pundit-matchers
   rails (~> 6.0.2, >= 6.0.2.1)
   rails_12factor (~> 0.0.3)
+  render_async (~> 2.1)
   rspec
   rspec-collection_matchers
   rspec-rails

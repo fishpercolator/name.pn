@@ -20,7 +20,8 @@ module MailingListable
     after_update :update_data_in_mailchimp, if: :mailchimp_data_changed?
     
     def subscribed_to_mailing_list?
-      mailchimp_member&.retrieve&.body&.dig(:status) == 'subscribed'
+      status = mailchimp_member&.retrieve&.body&.dig(:status)
+      status == 'subscribed'
     rescue Gibbon::MailChimpError
       false
     end

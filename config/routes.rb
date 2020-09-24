@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   
   ActiveAdmin.routes(self)
   
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { 
+    registrations: 'registrations' 
+  }
+  
+  get 'users/mailing_list', to: 'mailing_list#show'
+  post 'users/mailing_list/subscribe', to: 'mailing_list#subscribe'
+  post 'users/mailing_list/unsubscribe', to: 'mailing_list#unsubscribe'
   
   resources :profile
   
