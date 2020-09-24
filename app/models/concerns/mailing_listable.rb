@@ -36,6 +36,9 @@ module MailingListable
       else
         mailchimp_member&.update(body: data)
       end
+    rescue Gibbon::MailChimpError => e
+      # Allow exceptions if the email address is fake-looking
+      raise unless e.detail =~ /looks fake or invalid/
     end
     
     def subscribe_to_mailing_list!
