@@ -11,7 +11,7 @@
         = f.button :submit, t('.save'), class: 'is-link'
 %section.section
   .container
-    = render_async users_mailing_list_path
+    = render_async users_mailing_list_path, container_class: 'mailing-list-form', replace_container: false
 %section.section
   .container
     %p= link_to t('.cancel'), registration_path(resource_name), data: {confirm: t('.cancel_confirm')}, method: :delete

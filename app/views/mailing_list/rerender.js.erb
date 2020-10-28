@@ -1,1 +1,2 @@
-document.querySelector('.mailing-list-form').innerHTML = '<%= j render partial: "mailing_list_form" %>'
+var event = new Event('refresh');
+document.querySelector('.mailing-list-form').dispatchEvent(event);
