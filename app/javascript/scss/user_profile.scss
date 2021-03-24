@@ -94,6 +94,9 @@ body.user-profile {
 }
 
 .likeness {
+  a[data-controller="lightbox"] {
+    cursor: zoom-in;
+  }
   img {
     border-radius: 50%;
   }

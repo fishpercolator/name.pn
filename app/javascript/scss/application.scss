@@ -7,6 +7,7 @@ $turquoise: #C7EAE4;
 $cyan:      #6DD3CE;
 $blue:      #4A6FA5;
 $purple:    #820263;
+$grey:      #595959;
 $primary:   #218380;
 $warning:   $orange;
 
@@ -50,9 +51,10 @@ $mdi-font-path: "~@mdi/font/fonts";
 @import "uppload/dist/uppload.css";
 @import "uppload/dist/themes/light.css";
 
+@import "~luminous-lightbox/dist/luminous-basic";
+
 // Import your own styles here
 @import "layout";
 @import "theme";
 @import "profile";
 @import "user_profile";
-@import "luminous";

@@ -4,5 +4,5 @@
       .card-header-title= t('.what_i_look_like')
     .card-content
       .likeness.likeness--centered
-        = link_to url_for(@user.likeness), data: {controller: 'lightbox'} do
-          = image_tag @user.likeness.variant(resize_to_limit: [300, 300])
+        = link_to url_for(@user.likeness), data: {controller: 'lightbox'}, title: t('.expand') do
+          = image_tag @user.likeness.variant(resize_to_limit: [300, 300]), alt: t('.alt_text', name: @user.full_name)
