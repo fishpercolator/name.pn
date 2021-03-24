@@ -122,7 +122,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I attach my likeness' do
-    find('.alternate-input input[type="file"]').set(fixture 'leeds.png')
+    find('.alternate-input input[type="file"]').set(file_fixture 'leeds.png')
   end
 
   step 'I accept the defaults in the image editor' do

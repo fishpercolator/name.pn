@@ -23,7 +23,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'my user has audio recorded already' do
-    test_user.update(pronunciation: fixture_file_upload(fixture 'pronunciation.wav'))
+    test_user.update(pronunciation: fixture_file_upload(file_fixture 'pronunciation.wav'))
   end
 
   step 'the play button and delete button should be available' do
@@ -48,7 +48,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'a user exists with recorded audio' do
-    example_user.update(pronunciation: fixture_file_upload(fixture 'pronunciation.wav'))
+    example_user.update(pronunciation: fixture_file_upload(file_fixture 'pronunciation.wav'))
   end
 
   step 'I visit that user\'s public URL' do
