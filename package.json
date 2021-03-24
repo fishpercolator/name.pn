@@ -14,7 +14,7 @@
     "opus-recorder": "^8.0.3",
     "rails-ujs": "^5.2.4-1",
     "recordrtc": "^5.6.1",
-    "stimulus": "^1.1.1",
+    "stimulus": "^2.0.0",
     "turbolinks": "^5.2.0",
     "uppload": "^3.2.1"
   },

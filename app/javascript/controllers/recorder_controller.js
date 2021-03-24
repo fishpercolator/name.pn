@@ -7,16 +7,19 @@ export default class extends Controller {
     'field', 'button', 'player', 
     'delete', 'deleteFlag'
   ]
+  static classes = [
+    'enabled'
+  ]
   
   connect () {    
     // Recorder is hidden in CSS - show it if we detect the browser supports it
     if (Recorder.isRecordingSupported()) {
-      this.element.classList.add('recorder--enabled')
+      this.element.classList.add(this.enabledClass)
       
       this.initializeRecorder()
       this.initializeFileReader()
-            
-      if (this.playerTarget.dataset['playerUrl']) {
+      
+      if (this.playerTarget.dataset['playerUrlValue']) {
         this.deleteTarget.disabled = false
       }
     }

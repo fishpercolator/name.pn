@@ -4,11 +4,11 @@
       %span.icon
         %i.mdi.mdi-file-upload-outline
       %span= t('.upload_button')
-    = f.button :button, value: 'delete_likeness', class: 'button is-danger is-medium', disabled: !f.object.likeness.attached?, data: {target: 'likeness-uploader.delete'} do
+    = f.button :button, value: 'delete_likeness', class: 'button is-danger is-medium', disabled: !f.object.likeness.attached?, data: {likeness_uploader_target: 'delete'} do
       %span.icon
         %i.mdi.mdi-delete
       %span= t('.delete_button')
-  .likeness{data: {target: 'likeness-uploader.preview'}}
+  .likeness{data: {likeness_uploader_target: 'preview'}}
     - if f.object.likeness.attached?
       = image_tag f.object.likeness.variant(resize_to_limit: [300, 300])
     

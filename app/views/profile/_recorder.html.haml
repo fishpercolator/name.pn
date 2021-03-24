@@ -1,16 +1,16 @@
-.recorder{data: {controller: 'recorder'}}
+.recorder{data: {controller: 'recorder', recorder_enabled_class: 'recorder--enabled'}}
   .recorder__available
     = f.fields_for :pronunciation do |pf|
-      = pf.hidden_field :data, data: {target: 'recorder.field'}, value: nil
-      = pf.hidden_field :delete, data: {target: 'recorder.deleteFlag'}, value: ''
+      = pf.hidden_field :data, data: {recorder_target: 'field'}, value: nil
+      = pf.hidden_field :delete, data: {recorder_target: 'deleteFlag'}, value: ''
     .recorder__buttons
-      %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {target: 'recorder.button', action: 'pointerdown->recorder#start pointerup->recorder#stop'}}
+      %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {recorder_target: 'button', action: 'pointerdown->recorder#start pointerup->recorder#stop'}}
         %span.icon
           %i.mdi.mdi-record-circle
         %span.recorder__button-text-idle= t('.record')
         %span.recorder__button-text-active= t('.recording')
-      = render 'users/player', data: {target: 'recorder.player', player: {url: (url_for(f.object.pronunciation) if f.object.pronunciation.attached?)}}, button_class: 'is-success is-medium'
-      %button.button.is-link.is-medium{type: 'button', disabled: true, data: {target: 'recorder.delete', action: 'recorder#delete'}}
+      = render 'users/player', data: {recorder_target: 'player', player_url_value: (url_for(f.object.pronunciation) if f.object.pronunciation.attached?)}, button_class: 'is-success is-medium'
+      %button.button.is-link.is-medium{type: 'button', disabled: true, data: {recorder_target: 'delete', action: 'recorder#delete'}}
         %span.icon
           %i.mdi.mdi-delete
         %span= t('.delete_audio')

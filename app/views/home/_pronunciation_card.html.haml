@@ -13,6 +13,6 @@
         %dt= t('.audio_clip', name: current_user.full_name)
         %dd
           - if current_user.pronunciation.attached?
-            = render 'users/player', data: {player: {url: url_for(current_user.pronunciation)}}
+            = render 'users/player', data: {player_url_value: url_for(current_user.pronunciation)}
           - else
             = not_set

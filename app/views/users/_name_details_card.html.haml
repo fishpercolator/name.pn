@@ -10,7 +10,7 @@
             - if user.phonetic.present?
               %span= user.phonetic
             - if user.pronunciation.attached?
-              = render 'player', data: {player: {url: url_for(user.pronunciation)}}
+              = render 'player', data: {player_url_value: url_for(user.pronunciation)}
           .profile-card__hint= t(".hints.phonetic", name: user.full_name, value: user.phonetic)              
       - else
         - val = user.public_send(att)

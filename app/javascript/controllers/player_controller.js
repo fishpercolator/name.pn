@@ -2,6 +2,9 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   static targets = ['media', 'play']
+  static values = {
+    url: String
+  }
   
   connect () {
     this.element.addEventListener('new-url', () => { this.refresh() })
@@ -10,7 +13,7 @@ export default class extends Controller {
   }
   
   refresh () {
-    let url = this.data.get('url')
+    let url = this.urlValue
     if (url) {
       this.mediaTarget.src = url
       this.playTarget.disabled = false

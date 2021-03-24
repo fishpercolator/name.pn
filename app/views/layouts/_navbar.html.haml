@@ -1,12 +1,12 @@
-%nav.navbar.is-primary{role: 'navigation', aria: {label: 'navigation'}, data: {controller: 'navbar'}}
+%nav.navbar.is-primary{role: 'navigation', aria: {label: 'navigation'}, data: {controller: 'navbar', navbar_active_class: 'is-active'}}
   .container
     .navbar-brand
       = link_to root_path, class: 'navbar-item' do
         %b= t('product_name')
-      %a.navbar-burger{role: 'button', aria: {label: 'menu', expanded: 'false'}, data: {target: 'navbar.burger', action: 'navbar#toggleMenu'}}
+      %a.navbar-burger{role: 'button', aria: {label: 'menu', expanded: 'false'}, data: {navbar_target: 'burger', action: 'navbar#toggleMenu'}}
         - 3.times do
           %span{aria_hidden: true}
-    .navbar-menu{data: {target: 'navbar.menu'}}
+    .navbar-menu{data: {navbar_target: 'menu'}}
       .navbar-start
         = link_to t('.about'), page_path('about'), class: 'navbar-item'
       .navbar-end
