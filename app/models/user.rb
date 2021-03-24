@@ -8,11 +8,12 @@ class User < ApplicationRecord
   enum role: {user: 'user', admin: 'admin'}, _prefix: true
   
   enum pronoun_example: {
+    boardgaming: 'boardgaming',
     cooking: 'cooking', 
     dancing: 'dancing',
     reading: 'reading',
     running: 'running'
-  }, _prefix: true
+  }, _prefix: true, _default: 'cooking'
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

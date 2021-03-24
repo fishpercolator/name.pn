@@ -7,6 +7,7 @@ en:
     not_authorized: Sorry - you are not permitted to do that
   pronoun_set_hint: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
   pronoun_example_headings:
+    boardgaming: Board gaming
     cooking: Cooking
     dancing: Dancing
     reading: Reading
@@ -40,3 +41,10 @@ en:
       possessive_determiner: 'Today %{nominative} %{copula} trying to beat <b>%{pronoun}</b> personal best.'
       possessive: 'These running shoes are <b>%{pronoun}</b>.'
       reflexive: '%{nominative_initial} %{copula} only competing against <b>%{pronoun}</b>.'
+    boardgaming:
+      name: '<b>%{pronoun}</b> plays board games.'
+      nominative: '<b>%{pronoun_initial}</b> %{copula} a bit competitive.'
+      oblique: 'Maybe you will win a game against <b>%{pronoun}</b> one day.'
+      possessive_determiner: '<b>%{pronoun_initial}</b> board game collection is impressive.'
+      possessive: 'Your collection is a lot smaller than <b>%{pronoun}</b>.'
+      reflexive: '%{personal_name} keeps a journal to remind <b>%{pronoun}</b> of past gaming victories.'
