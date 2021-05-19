@@ -63,6 +63,7 @@ SimpleForm.setup do |config|
     text: :bulma_text,
     string: :bulma_string,
     email: :bulma_string,
+    url: :bulma_string,
     password: :bulma_string,
     select: :bulma_select,
     enum: :bulma_select,

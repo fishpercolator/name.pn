@@ -1,0 +1,13 @@
+= simple_form_for @user, url: wizard_path, method: :patch do |f|
+  = render 'header', f: f
+  %section.section.is-collapsed
+    .container
+      .columns.is-centered
+        .column.is-half
+          .box.profile-form.is-links
+            %h1.title= title t('.title')
+            %p.mb-3.has-text-grey= t('.blurb')
+            = f.simple_fields_for :links do |l|
+              = l.input :title
+              = l.input :url
+            = render 'buttons', f: f
