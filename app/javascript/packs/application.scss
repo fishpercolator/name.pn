@@ -46,15 +46,14 @@ $family-handwriting: 'Patrick Hand', cursive;
 $mdi-font-path: "~@mdi/font/fonts";
 @import "~@mdi/font/scss/materialdesignicons";
 
-@import "~animate.css";
+@import "~animate.css/animate";
 
 @import "uppload/dist/uppload.css";
 @import "uppload/dist/themes/light.css";
 
 @import "~luminous-lightbox/dist/luminous-basic";
 
-// Import your own styles here
-@import "layout";
-@import "theme";
-@import "profile";
-@import "user_profile";
+@import "../scss/layout";
+@import "../scss/theme";
+@import "../scss/profile";
+@import "../scss/user_profile";
