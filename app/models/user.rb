@@ -12,7 +12,8 @@ class User < ApplicationRecord
     cooking: 'cooking', 
     dancing: 'dancing',
     reading: 'reading',
-    running: 'running'
+    running: 'running',
+    tv: 'tv',
   }, _prefix: true, _default: 'cooking'
   
   # Include default devise modules. Others available are:
