@@ -7,5 +7,6 @@
         = render 'name_details_card', user: @user
         = render 'likeness_card', user: @user
         = render 'pronouns_card', user: @user, pronoun_sets: @pronoun_sets
+        = render 'links_card', user: @user
 .blurb
   = link_to t('.blurb'), root_path

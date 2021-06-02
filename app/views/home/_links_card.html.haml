@@ -9,7 +9,7 @@
     .content
       - if current_user.links.present?
         %ul
-          - current_user.links.each do |link|
+          - current_user.links.order(:title).each do |link|
             %li= link_to link.title, link.url, rel: 'noopener'
       - else
         %p= not_set

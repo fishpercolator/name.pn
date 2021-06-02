@@ -1,0 +1,10 @@
+- if @user.links.present?
+  .card.profile-card.mt-6
+    .card-header.profile-card__header
+      .card-header-title= t('.more_about_me')
+    .card-content
+      .profile-card__hint= t('.links_hint', name: @user.personal_name)
+      .content
+        %ul
+          - @user.links.order(:title).each do |link|
+            %li= link_to link.title, link.url, rel: 'nofollow'
