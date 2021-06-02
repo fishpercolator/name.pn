@@ -134,3 +134,15 @@
     margin-bottom: 0.5rem;
   }
 }
+
+.link-fields {
+  border: 1px solid $grey-lighter;
+  border-radius: $radius;
+  align-items: center;
+  > * {
+    margin: 0.5rem;
+  }
+  .field { 
+    margin-bottom: 0.5rem;
+  }
+}

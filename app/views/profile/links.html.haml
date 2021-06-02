@@ -10,5 +10,9 @@
             #links
               = f.simple_fields_for :links do |link|
                 = render 'link_fields', f: link
-              = link_to_add_association 'add link', f, :links
+              .links
+                = link_to_add_association f, :links, class: 'button is-success' do
+                  %span.icon
+                    %i.mdi.mdi-plus-box
+                  %span= t('.add_link')
             = render 'buttons', f: f

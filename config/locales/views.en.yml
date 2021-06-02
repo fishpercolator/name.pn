@@ -82,6 +82,9 @@ en:
     links:
       title: Your personal links
       blurb: Because you might be using your 'one link' on social media to link to this page, here we let you provide a handful of onward links for people who want to know more about you.
+      add_link: Add a link
+    link_fields:
+      remove_link: Remove
     slug:
       title: Your URL
       blurb: 'Last thing: you need to pick a URL for your public profile.'

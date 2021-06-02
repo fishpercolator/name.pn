@@ -26,7 +26,7 @@ en:
         slug: Your URL must be at least two words, separated by hyphens (-), and it must not already belong to another user. For example, "abby-yates"
         pronoun_example: We'll use this activity as a reference to show people how to use your pronouns. Pick the one that best fits your personality.
         subscribe_to_mailing_list: The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.
-        links_attributes:
+        links:
           title: What this is a link to, e.g. 'Twitter'.
           url: Make sure you include the 'https' part.
     placeholders:

@@ -4,6 +4,7 @@ $pronouns: change-color($orange, $lightness: 93%);
 $pronunciation: change-color($blue, $lightness: 90%);
 $url: change-color($yellow, $lightness: 90%);
 $likeness: change-color($red, $lightness: 93%);
+$links: change-color($green, $lightness: 97%);
 $primary-bg: change-color($primary, $lightness: 90%);
 
 .is-personal-name {
@@ -23,4 +24,7 @@ $primary-bg: change-color($primary, $lightness: 90%);
 }
 .is-likeness {
   background-color: $likeness;
+}
+.is-links {
+  background-color: $links;
 }

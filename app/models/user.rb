@@ -27,7 +27,7 @@ class User < ApplicationRecord
   has_one_base64_attached :pronunciation
   has_one_attached :likeness
   
-  accepts_nested_attributes_for :links
+  accepts_nested_attributes_for :links, allow_destroy: true
   
   def to_s
     full_name.present? ? full_name : email
