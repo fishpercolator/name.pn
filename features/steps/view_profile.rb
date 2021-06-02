@@ -108,4 +108,14 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
     expect(page).to have_css('.napc', text: 'she/her')
     expect(page).not_to have_css('.napc', text: 'they/them')
   end
+  
+  step 'I should not see a box with links' do
+    expect(page).not_to have_content('More about me')
+  end
+
+  step 'I should see a box with links in alphabetical order' do
+    links = find('.profile-card', text: 'More about me')
+    expect(links).to have_content("LinkedIn Twitter")
+    expect(links).to have_css('a[href="https://twitter.com/ahorne"]', text: 'Twitter')
+  end
 end

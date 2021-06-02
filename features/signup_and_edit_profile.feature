@@ -27,9 +27,13 @@ Scenario: Complete profile editing
   And I attach my likeness
   And I accept the defaults in the image editor
   And I go to the next stage
+  And I click twice to add a link
+  And I fill in my Twitter and LinkedIn details
+  And I go to the next stage
   And I click to finish
   Then I should be on the dashboard
   And my profile should be completed successfully
+  And both my links should be added
   And my likeness should be cropped and converted
 
 Scenario: My slug is already taken
@@ -45,6 +49,7 @@ Scenario: My slug is already taken
   And I fill in my pronunciation
   And I go to the next stage
   And I select my pronouns as she/her
+  And I go to the next stage
   And I go to the next stage
   And I go to the next stage
   And I fill in audrey-horne as a slug
@@ -70,3 +75,12 @@ Scenario: Go back to editor at specified stage
   When I visit the dashboard
   And I click the edit button in the pronouns box
   Then I should be on the pronouns page of the profile editor
+
+@javascript
+Scenario: Delete a link
+  Given I am signed in as a user with a complete profile
+  When I visit the dashboard
+  And I click the edit button in the links box
+  And I click to delete the first link
+  And I click to save and exit
+  Then my profile should only have one link attached

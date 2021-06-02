@@ -18,6 +18,10 @@ FactoryBot.define do
       phonetic { 'AWD-ree HORN' }
       pronunciation { fixture_file_upload(file_fixture 'pronunciation.wav') }
       likeness { fixture_file_upload(file_fixture 'likeness.png') }
+      links { [
+        build(:link, title: 'Twitter', url: 'https://twitter.com/ahorne'),
+        build(:link, title: 'LinkedIn', url: 'https://linkedin.com/in/ahorne')
+      ] }
     end
   end
 end

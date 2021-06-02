@@ -9,6 +9,7 @@ Scenario: Basic profile
   And I should see a box with the full name
   And I should see a usage guide for one set of pronouns
   And I should not see the formal name
+  And I should not see a box with links
   And I should not see a pronunciation guide
   And I should not see a section for the user's likeness
   And I should see a link to the main site
@@ -32,6 +33,7 @@ Scenario: Profile with text features filled out
   And I should see the formal name
   And I should see a link to the main site
   And I should see the user's likeness
+  And I should see a box with links in alphabetical order
   
 Scenario: Profile with multiple pronouns
   Given I am signed out

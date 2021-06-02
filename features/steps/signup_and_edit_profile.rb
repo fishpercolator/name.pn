@@ -140,4 +140,44 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(blob.content_type).to eq('image/jpeg')
     expect(blob.metadata['width']).to eq(blob.metadata['height'])
   end
+  
+  step 'I click twice to add a link' do
+    click_link 'Add a link'
+    expect(page).to have_css('label', text: 'Title', count: 1)
+    click_link 'Add a link'
+    expect(page).to have_css('label', text: 'Title', count: 2)
+  end
+
+  step 'I fill in my Twitter and LinkedIn details' do
+    within all('.link-fields')[0] do
+      fill_in 'Title', with: 'Twitter @LogLady'
+      fill_in 'URL', with: 'https://twitter.com/LogLady'
+    end
+    within all('.link-fields')[1] do
+      fill_in 'Title', with: 'LinkedIn @mlanterman'
+      fill_in 'URL', with: 'https://www.linkedin.com/in/mlanterman'
+    end
+  end
+
+  step 'both my links should be added' do
+    user = User.find_by(email: 'loglady@example.com')
+    expect(user.links.map(&:title).sort).to eq(['LinkedIn @mlanterman', 'Twitter @LogLady'])
+  end
+  
+  step 'I click the edit button in the links box' do
+    within '.card.is-links' do
+      click_on 'Edit'
+    end
+  end
+
+  step 'I click to delete the first link' do
+    within all('.link-fields')[0] do
+      click_link 'Remove'
+    end
+  end
+
+  step 'my profile should only have one link attached' do
+    user = User.find_by(email: 'testuser@example.com')
+    expect(user.links.map(&:title).sort).to eq(['LinkedIn'])
+  end
 end

@@ -10,12 +10,14 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
     expect(page).to have_css('.card', text: 'Envelope name Ms A. H. Horne Formal name Ms Horne')
     expect(page).to have_css('.card', text: 'Audrey Horne is pronounced AWD-ree HORN')
     expect(page).to have_css('.card', text: 'Pronouns: she/her Audrey is a great cook. She is really good at cooking.')
-    # FIXME
     expect(page).to have_css('.card', text: 'What you look like')
+    expect(page).to have_css('.card.is-likeness img')
+    expect(page).to have_css('.card', text: 'Your personal links')
+    expect(page).to have_css('.card', text: 'LinkedIn Twitter')
   end
   
   step 'I should see edit buttons for each section' do
-    expect(page).to have_css('.card-header-icon a[title="Edit"]', count: 6)
+    expect(page).to have_css('.card-header-icon a[title="Edit"]', count: 7)
     expect(page).to have_css('.button', text: 'Edit', count: 1)
   end
 
