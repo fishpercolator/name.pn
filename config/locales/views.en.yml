@@ -38,7 +38,9 @@ en:
     pronouns_card:
       title: Your pronouns
     likeness_card:
-      title: What you look like      
+      title: What you look like
+    links_card:
+      title: Your personal links  
     url_card:
       title: Your unique URL
       view_your_page: View
@@ -81,7 +83,7 @@ en:
       blurb: To help people "put a face to the name", you have the option to add a picture of your face.
     links:
       title: Your personal links
-      blurb: Because you might be using your 'one link' on social media to link to this page, here we let you provide a handful of onward links for people who want to know more about you.
+      blurb: Because you might be using your 'one link' on social media to link to this page, here you can provide a handful of onward links for people who want to know more about you.
       add_link: Add a link
     link_fields:
       remove_link: Remove
