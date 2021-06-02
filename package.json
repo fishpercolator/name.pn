@@ -2,6 +2,7 @@
   "name": "name_pn",
   "private": true,
   "dependencies": {
+    "@kollegorna/cocoon-vanilla-js": "^1.0.7",
     "@mdi/font": "^5.1.45",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",

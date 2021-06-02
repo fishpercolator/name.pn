@@ -7,7 +7,8 @@
           .box.profile-form.is-links
             %h1.title= title t('.title')
             %p.mb-3.has-text-grey= t('.blurb')
-            = f.simple_fields_for :links do |l|
-              = l.input :title
-              = l.input :url
+            #links
+              = f.simple_fields_for :links do |link|
+                = render 'link_fields', f: link
+              = link_to_add_association 'add link', f, :links
             = render 'buttons', f: f

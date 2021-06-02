@@ -885,6 +885,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@kollegorna/cocoon-vanilla-js@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@kollegorna/cocoon-vanilla-js/-/cocoon-vanilla-js-1.0.7.tgz#af897b69227f3ff1bd96a6618b86d4a983c94da4"
+  integrity sha512-ceu4Mtx7R6Lw7rUdDiODEcMBJCWxog+pO4OEEQKRRERrBqQeGM5zb6qSM5Z5/DJJooqmpY9ANyxt7XbfJMDVWQ==
+
 "@mdi/font@^5.1.45":
   version "5.9.55"
   resolved "https://registry.yarnpkg.com/@mdi/font/-/font-5.9.55.tgz#41acd50b88073ded7095fc3029d8712b6e12f38e"

@@ -4,6 +4,9 @@ import Turbolinks from "turbolinks";
 UJS.start();
 Turbolinks.start();
 
+// Cocoon
+import "@kollegorna/cocoon-vanilla-js";
+
 // Serviceworker
 if (navigator.serviceWorker) {
   navigator.serviceWorker.register('/serviceworker.js', { scope: './' })
