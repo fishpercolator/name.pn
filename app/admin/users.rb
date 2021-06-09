@@ -50,6 +50,8 @@ ActiveAdmin.register User do
       row :envelope_name
       row :phonetic
       row :pronoun_sets
+      row(:likeness) {|u| u.likeness.attached? ? image_tag(u.likeness.variant(resize_to_limit: [300,300])) : '-'}
+      row :links
       row :created_at
       row :updated_at
       row :current_sign_in_at
