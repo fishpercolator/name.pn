@@ -180,4 +180,24 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     user = User.find_by(email: 'testuser@example.com')
     expect(user.links.map(&:title).sort).to eq(['LinkedIn'])
   end
+  
+  step 'I click the edit button in the pronunciation box' do
+    within '.card.is-pronunciation' do
+      click_on 'Edit'
+    end
+  end
+
+  step 'I select my personal name from the dropdown' do
+    select 'Audrey', from: 'Which version of your name would you like to pronounce?'
+  end
+
+  step 'the hints on the page should update to my personal name' do
+    expect(page).to have_content("Phonetic pronunciation of 'Audrey'")
+    expect(page).to have_content("Record yourself saying 'Audrey'")
+  end
+
+  step 'I should see the correct form of my name in the pronunciation box on the dashboard' do
+    expect(page).to have_content("Audrey is pronounced")
+    expect(page).to have_content("Audio clip of 'Audrey'")
+  end
 end

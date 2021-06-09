@@ -84,3 +84,19 @@ Scenario: Delete a link
   And I click to delete the first link
   And I click to save and exit
   Then my profile should only have one link attached
+
+@javascript
+Scenario: Change pronunciation of
+  Given I am signed in as a user with a complete profile
+  When I visit the dashboard
+  And I click the edit button in the pronunciation box
+  And I select my personal name from the dropdown
+  Then the hints on the page should update to my personal name
+
+Scenario: Save change to pronunciation of
+  Given I am signed in as a user with a complete profile
+  When I visit the dashboard
+  And I click the edit button in the pronunciation box
+  And I select my personal name from the dropdown
+  And I click to save and exit
+  Then I should see the correct form of my name in the pronunciation box on the dashboard
