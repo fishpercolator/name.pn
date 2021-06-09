@@ -8,9 +8,9 @@
     %p.mb-4.has-text-grey= t('profile.pronunciation.blurb')
     .content
       %dl
-        %dt= t('.name_is_pronounced', name: current_user.full_name)
+        %dt= t('.name_is_pronounced', name: current_user.pronunciation_of_name)
         %dd= current_user.phonetic? ? current_user.phonetic : not_set
-        %dt= t('.audio_clip', name: current_user.full_name)
+        %dt= t('.audio_clip', name: current_user.pronunciation_of_name)
         %dd
           - if current_user.pronunciation.attached?
             = render 'users/player', data: {player_url_value: url_for(current_user.pronunciation)}

@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_143446) do
+ActiveRecord::Schema.define(version: 2021_06_09_102956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   # These are custom enum types that must be created before they can be used in the schema definition
+  create_enum "user_name_variant", ["full_name", "personal_name", "formal_name", "envelope_name"]
   create_enum "user_role", ["user", "admin"]
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -114,6 +115,7 @@ ActiveRecord::Schema.define(version: 2021_05_19_143446) do
     t.string "phonetic"
     t.string "slug"
     t.string "pronoun_example", default: "cooking"
+    t.enum "pronunciation_of", default: "full_name", null: false, as: "user_name_variant"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

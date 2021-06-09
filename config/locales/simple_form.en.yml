@@ -13,6 +13,7 @@ en:
         personal_name: Your personal name
         envelope_name: Your envelope name
         formal_name: Your formal name
+        pronunciation_of: 'Which version of your name would you like to pronounce?'
         phonetic: "Phonetic pronunciation of '%{name}'"
         slug: Your personal URL
         subscribe_to_mailing_list: 'Sign up for occasional update emails'

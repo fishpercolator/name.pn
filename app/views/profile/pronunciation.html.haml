@@ -1,15 +1,17 @@
 = simple_form_for @user, url: wizard_path, method: :patch do |f|
   = render 'header', f: f
+  - pronunciation_of_tag = content_tag(:span, f.object.pronunciation_of_name, data: {pronunciation_form_target: 'output'})
   %section.section.is-collapsed
     .container
       .columns.is-centered
         .column.is-half
-          .box.profile-form.is-pronunciation
+          .box.profile-form.is-pronunciation{data: {controller: 'pronunciation-form'}}
             %h1.title= title t('.title')
             %p.mb-3.has-text-grey= t('.blurb')
             %p.mb-5.has-text-grey= t('profile.show.optional_section')
-            = f.input :phonetic, label: t('simple_form.labels.user.phonetic', name: @user.full_name)
-            %label.label= t('.record', name: f.object.full_name)
+            = f.input :pronunciation_of, as: :select, collection: pronunciation_of_options(@user), include_blank: false, input_html: {data: {action: 'pronunciation-form#changeChoice'}}
+            = f.input :phonetic, label: raw(t 'simple_form.labels.user.phonetic', name: pronunciation_of_tag)
+            %label.label= raw t('.record', name: pronunciation_of_tag)
             = render 'recorder', f: f
             = render 'buttons', f: f
             

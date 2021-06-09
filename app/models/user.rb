@@ -17,6 +17,13 @@ class User < ApplicationRecord
     tv: 'tv',
   }, _prefix: true, _default: 'cooking'
   
+  enum pronunciation_of: {
+    full_name: 'full_name',
+    personal_name: 'personal_name',
+    formal_name: 'formal_name',
+    envelope_name: 'envelope_name'
+  }, _prefix: true, _default: 'full_name'
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -31,6 +38,12 @@ class User < ApplicationRecord
   
   def to_s
     full_name.present? ? full_name : email
+  end
+  
+  # Which name is the pronunciation of?
+  def pronunciation_of_name
+    # This is safe because pronunciation_of is an enum and rejects invalid values
+    public_send(pronunciation_of)
   end
   
   # To have a complete profile you must have entered a full name,
