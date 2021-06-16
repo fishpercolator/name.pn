@@ -42,7 +42,8 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should see a pronunciation guide' do
-    expect(page).to have_content("'Audrey Horne' is pronounced\nAWD-ree HORN\n")
+    expect(page).to have_content("'Audrey Horne' is pronounced\nAWD-ree HORN")
+    expect(page).to have_css('span.is-ipa', text: '/ˈɔːdri hɔːn/')
   end
 
   step 'I should see the formal name' do

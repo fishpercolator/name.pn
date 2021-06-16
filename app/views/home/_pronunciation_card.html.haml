@@ -10,6 +10,8 @@
       %dl
         %dt= t('.name_is_pronounced', name: current_user.pronunciation_of_name)
         %dd= current_user.phonetic? ? current_user.phonetic : not_set
+        %dt= t('.ipa', name: current_user.pronunciation_of_name)
+        %dd.is-ipa= current_user.ipa? ? "/#{current_user.ipa}/" : not_set
         %dt= t('.audio_clip', name: current_user.pronunciation_of_name)
         %dd
           - if current_user.pronunciation.attached?

@@ -4,11 +4,13 @@
   .card-content
     - %i[full_name phonetic personal_name formal_name envelope_name].each do |att|
       - if att == :phonetic
-        - if user.phonetic.present? || user.pronunciation.attached?
+        - if user.phonetic.present? || user.ipa.present? || user.pronunciation.attached?
           %h2.profile-card__heading= t(".headings.phonetic", name: user.pronunciation_of_name, value: user.phonetic)
           .profile-card__name
             - if user.phonetic.present?
               %span= user.phonetic
+            - if user.ipa.present?
+              %span.is-ipa.has-text-grey-light.is-size-5 /#{user.ipa}/
             - if user.pronunciation.attached?
               = render 'player', data: {player_url_value: url_for(user.pronunciation)}
           .profile-card__hint= t(".hints.phonetic", name: user.pronunciation_of_name, value: user.phonetic)              

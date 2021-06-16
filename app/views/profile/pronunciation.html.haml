@@ -12,6 +12,8 @@
             = f.input :pronunciation_of, as: :select, collection: pronunciation_of_options(@user), include_blank: false, input_html: {data: {action: 'pronunciation-form#changeChoice'}}
             = f.input :phonetic, label: raw(t 'simple_form.labels.user.phonetic', name: pronunciation_of_tag)
             %label.label= raw t('.record', name: pronunciation_of_tag)
-            = render 'recorder', f: f
+            .field
+              = render 'recorder', f: f
+            = f.input :ipa, input_html: {class: 'is-ipa'}
             = render 'buttons', f: f
             

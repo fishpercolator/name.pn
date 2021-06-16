@@ -28,3 +28,6 @@ $primary-bg: change-color($primary, $lightness: 90%);
 .is-links {
   background-color: $links;
 }
+.is-ipa {
+  font-family: Voces, sans-serif;
+}
