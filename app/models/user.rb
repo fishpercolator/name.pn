@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include UserSlug
+  include UserImage
   include MailingListable
   include ActiveStorageSupport::SupportForBase64
     

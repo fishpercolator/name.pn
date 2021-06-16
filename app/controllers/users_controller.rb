@@ -16,13 +16,31 @@ class UsersController < ApplicationController
       @pronoun_sets = @user.pronoun_sets
     end
     
-    pronouns = @pronoun_sets.map(&:to_s).join(', ')
-    image = view_context.image_url('hello.png', only_path: false)
-    
-    set_meta_tags({
+    respond_to do |format|
+      format.html do
+        set_meta_tags(profile_meta_tags)
+        render layout: 'user_profile'
+      end
+      format.png do
+        send_data(@user.profile_image.read, filename: 'hello.png', type: 'image/png', disposition: 'inline')
+      end
+    end
+  end
+  
+  private
+  
+  def pronoun_sets_from_url
+    if params[:nominative].present?
+      @pronoun_sets = PronounSet.where(nominative: params[:nominative].downcase, oblique: params[:oblique]&.downcase)
+    end
+  end
+  
+  def profile_meta_tags
+    pronouns = @pronoun_sets.map(&:to_s).join(', ')    
+    {
       title: @user.full_name,
       description: t('.description', name: @user.full_name, pronouns: pronouns),
-      image: image,
+      image: url_for(format: :png, only_path: false),
       index: true,
       follow: true,
       og: {
@@ -31,7 +49,7 @@ class UsersController < ApplicationController
         title: t('.hello_my_name_is', name: @user.full_name),
         description: t('.my_pronouns_are', pronouns: pronouns),
         image: {
-          _: image,
+          _: url_for(format: :png, only_path: false),
           width: 527,
           height: 352
         }
@@ -44,18 +62,9 @@ class UsersController < ApplicationController
         site: Rails.configuration.x.twitter_app_id,
         title: t('.hello_my_name_is', name: @user.full_name),
         description: t('.my_pronouns_are', pronouns: pronouns),
-        image: image
+        image: url_for(format: :png, only_path: false)
       }
-    })
-    
-    render layout: 'user_profile'
+    }
   end
   
-  private
-  
-  def pronoun_sets_from_url
-    if params[:nominative].present?
-      @pronoun_sets = PronounSet.where(nominative: params[:nominative].downcase, oblique: params[:oblique]&.downcase)
-    end
-  end
 end
