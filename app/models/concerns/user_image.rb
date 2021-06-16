@@ -10,11 +10,21 @@ module UserImage
       ImageProcessing::MiniMagick
         .source(BG_FILE)
         .append('-font', FONT)
-        .append('-pointsize', 100)
+        .append('-pointsize', 90)
         .append('-gravity', 'center')
-        .append('-draw', 'text 0,80 Quinn')
+        .append('-draw', %{text 0,85 #{im_quote personal_name}})
         .convert!("png")
     end
     
   end
+  
+  private
+  
+  # Quote strings for imagemagick
+  def im_quote(str)
+    str = str.gsub(/\\/, %q{\\\\\\\\})
+    str = str.gsub(/'/, %q{\\\\'})
+    %{' #{str} '}
+  end
+
 end
