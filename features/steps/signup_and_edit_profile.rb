@@ -128,7 +128,10 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I accept the defaults in the image editor' do
-    expect(page).to have_css('.cropper-crop-box[style="width: 418px; height: 418px; transform: translateX(175px);"]')
+    expect(page).to have_css('.cropper-crop-box')
+    # Switch to the rotate box and check the image has been cropped
+    find('label', text: 'Rotate').click
+    expect(page).to have_css('.cropper-view-box img[style="width: 361px; height: 361px; transform: none;"]')
     click_button 'Upload'
   end
 
