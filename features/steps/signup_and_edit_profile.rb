@@ -128,10 +128,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I accept the defaults in the image editor' do
-    expect(page).to have_css('.cropper-crop-box')
-    # There's a race condition here - try switching to the rotate tab to make sure we set the dimensions before hitting upload
-    find('label', text: 'Rotate').click
-    expect(page).to have_css('img.cropper-hidden', visible: false)
+    expect(page).to have_css('.cropper-hidden[style="width: auto; height: 410.625px;"]', visible: false)
     click_button 'Upload'
   end
 
