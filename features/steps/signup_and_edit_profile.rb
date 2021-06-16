@@ -128,7 +128,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I accept the defaults in the image editor' do
-    expect(page).to have_css('.cropper-hidden[style="width: auto; height: 410.625px;"]', visible: false)
+    expect(page).to have_css('.cropper-crop-box[style="width: 418px; height: 418px; transform: translateX(175px);"]')
     click_button 'Upload'
   end
 
