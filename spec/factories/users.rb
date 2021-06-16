@@ -16,6 +16,7 @@ FactoryBot.define do
       formal_name { 'Ms Horne' }
       envelope_name { 'Ms A. H. Horne' }
       phonetic { 'AWD-ree HORN' }
+      ipa { 'ˈɔːdri hɔːn' }
       pronunciation { fixture_file_upload(file_fixture 'pronunciation.wav') }
       likeness { fixture_file_upload(file_fixture 'likeness.png') }
       links { [
