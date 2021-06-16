@@ -34,6 +34,7 @@ en:
     pronunciation_card:
       title: How to pronounce your name
       name_is_pronounced: '%{name} is pronounced'
+      ipa: 'IPA pronunciation of %{name}'
       audio_clip: Audio clip of '%{name}'
     pronouns_card:
       title: Your pronouns

@@ -15,6 +15,7 @@ en:
         formal_name: Your formal name
         pronunciation_of: 'Which version of your name would you like to pronounce?'
         phonetic: "Phonetic pronunciation of '%{name}'"
+        ipa: "Advanced: IPA pronunciation"
         slug: Your personal URL
         subscribe_to_mailing_list: 'Sign up for occasional update emails'
     hints:
@@ -24,6 +25,7 @@ en:
         envelope_name: How would you like your name to appear on the envelope when someone you don't know contacts you? For example, "Dr Abigail L Yates" or "Dr. A. Yates"
         formal_name: How would you like your name to appear at the start of a formal letter (after the word "Dear")? For example, "Dr Yates".
         phonetic: Spell out your name using English sounds, with a hyphen (-) between each syllable. In each word, type the syllable with the most stress using CAPITALS. For example, if your name is "Abby Yates", you could write "A-bee YAYTS".
+        ipa: "If it's useful to you and you want to provide a phonemic guide using the International Phonetic Alphabet, you can do so here. Please do not include the // symbols. For example, <span class=\"is-ipa\">ˈabi jeɪts</span>"
         slug: Your URL must be at least two words, separated by hyphens (-), and it must not already belong to another user. For example, "abby-yates"
         pronoun_example: We'll use this activity as a reference to show people how to use your pronouns. Pick the one that best fits your personality.
         subscribe_to_mailing_list: The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.
@@ -37,6 +39,7 @@ en:
         envelope_name: Dr Abigail L Yates
         formal_name: Dr Yates
         phonetic: A-bee YAYTS
+        ipa: ˈabi jeɪts
     # Examples
     # labels:
     #   defaults:
