@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'offline', to: 'home#offline'
   get 'manifest', to: 'home#manifest'
   
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   ActiveAdmin.routes(self)  
   
   devise_for :users, controllers: { 
