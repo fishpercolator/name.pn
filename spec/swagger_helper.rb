@@ -25,6 +25,13 @@ RSpec.configure do |config|
       basePath: '/api',
       servers: [{url: '/api'}],
       components: {
+        securitySchemes: {
+          apiKey: {
+            type: :http,
+            scheme: :bearer,
+            bearerFormat: :JWT
+          }
+        },
         schemas: {
           Link: LinkBlueprint::SCHEMA,
           PronounSet: PronounSetBlueprint::SCHEMA,
@@ -39,4 +46,14 @@ RSpec.configure do |config|
   # the key, this may want to be changed to avoid putting yaml in json files.
   # Defaults to json. Accepts ':json' and ':yaml'.
   config.swagger_format = :yaml
+end
+
+def needs_login
+  security [apiKey: []]
+  let(:client) { create :client }
+  let(:Authorization) { jwt client }
+  response 401, 'not logged in' do
+    let(:Authorization) { nil }
+    run_test!
+  end
 end

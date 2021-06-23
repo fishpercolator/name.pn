@@ -28,6 +28,11 @@ basePath: "/api"
 servers:
 - url: "/api"
 components:
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     Link:
       type: object

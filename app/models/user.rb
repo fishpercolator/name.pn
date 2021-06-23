@@ -6,6 +6,7 @@ class User < ApplicationRecord
     
   has_and_belongs_to_many :pronoun_sets
   has_many :links
+  has_many :clients
   
   enum role: {user: 'user', admin: 'admin'}, _prefix: true
   

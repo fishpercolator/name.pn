@@ -3,6 +3,8 @@ class Api::BaseController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, with: :forbidden
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   
+  before_action :authenticate_client!
+  
   private
   
   def forbidden

@@ -1,7 +1,6 @@
 require 'swagger_helper'
 
 RSpec.describe 'v1/users', type: :request do
-
   path '/v1/users/{slug}' do
     parameter name: 'slug', in: :path, type: :string, description: 'The slug of the user you want to retrieve', example: 'abby-yates'
 
@@ -9,10 +8,11 @@ RSpec.describe 'v1/users', type: :request do
 
     get 'show user' do
       produces 'application/json'
+      needs_login
+      
+      let(:slug) { 'audrey-horne' }
                   
-      response 200, 'successful' do
-        let(:slug) { 'audrey-horne' }
-        
+      response 200, 'successful' do        
         schema({
           '$ref': '#/components/schemas/User'
         })
