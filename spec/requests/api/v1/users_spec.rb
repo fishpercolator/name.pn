@@ -7,17 +7,15 @@ RSpec.describe 'api/v1/users', type: :request do
 
     let!(:user) { create :user, :full_profile }
 
-    get('show user') do
-      response(200, 'successful') do
-        let(:slug) { 'audrey-horne' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
+    get 'show user' do
+      produces 'application/json'
+      
+      let(:slug) { 'audrey-horne' }
+            
+      response 200, 'successful' do
+        schema({
+          '$ref': '#/components/schemas/User'
+        })
         run_test!
       end
     end

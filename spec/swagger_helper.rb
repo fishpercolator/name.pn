@@ -22,16 +22,12 @@ RSpec.configure do |config|
         version: 'v1'
       },
       paths: {},
-      servers: [
-        {
-          url: 'https://{defaultHost}',
-          variables: {
-            defaultHost: {
-              default: 'www.example.com'
-            }
-          }
+      servers: [{url: '/'}],
+      components: {
+        schemas: {
+          User: UserBlueprint::SCHEMA
         }
-      ]
+      }
     }
   }
 
