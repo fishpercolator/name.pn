@@ -298,5 +298,6 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   config.jwt do |jwt|
     jwt.secret = Figaro.env.jwt_secret!
+    jwt.expiration_time = 100.years
   end
 end

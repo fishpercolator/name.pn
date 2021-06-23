@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { 
     registrations: 'registrations' 
   }
-  devise_for :clients#, skip: :all
+  devise_for :clients, skip: :all
   
   get 'users/mailing_list', to: 'mailing_list#show'
   post 'users/mailing_list/subscribe', to: 'mailing_list#subscribe'

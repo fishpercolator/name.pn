@@ -26,7 +26,7 @@ RSpec.configure do |config|
       servers: [{url: '/api'}],
       components: {
         securitySchemes: {
-          apiKey: {
+          jwt: {
             type: :http,
             scheme: :bearer,
             bearerFormat: :JWT
@@ -49,7 +49,7 @@ RSpec.configure do |config|
 end
 
 def needs_login
-  security [apiKey: []]
+  security [jwt: []]
   let(:client) { create :client }
   let(:Authorization) { jwt client }
   response 401, 'not logged in' do

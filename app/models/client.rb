@@ -6,4 +6,9 @@ class Client < ApplicationRecord
   
   validates :name, presence: true
   
+  # Get a fresh JWT for the current JTI
+  def generate_token
+    Warden::JWTAuth::UserEncoder.new.call(self, 'client', nil).first
+  end
+  
 end
