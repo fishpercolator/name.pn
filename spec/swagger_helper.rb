@@ -22,7 +22,8 @@ RSpec.configure do |config|
         version: 'v1'
       },
       paths: {},
-      servers: [{url: '/'}],
+      basePath: '/api',
+      servers: [{url: '/api'}],
       components: {
         schemas: {
           User: UserBlueprint::SCHEMA

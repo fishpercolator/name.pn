@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < Api::BaseController
 
   def show
     user = User.friendly.find(params[:id])

@@ -4,7 +4,7 @@ info:
   title: API V1
   version: v1
 paths:
-  "/api/v1/users/{slug}":
+  "/v1/users/{slug}":
     parameters:
     - name: slug
       in: path
@@ -22,8 +22,11 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/User"
+        '404':
+          description: not found
+basePath: "/api"
 servers:
-- url: "/"
+- url: "/api"
 components:
   schemas:
     User:
