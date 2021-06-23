@@ -131,6 +131,7 @@ GEM
     bindex (0.8.1)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
+    blueprinter (0.25.3)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -465,6 +466,7 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1.73)
   better_errors
   binding_of_caller
+  blueprinter (~> 0.25.3)
   bootsnap (>= 1.4.2)
   bundler-audit
   byebug
