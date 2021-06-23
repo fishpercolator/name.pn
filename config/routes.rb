@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'offline', to: 'home#offline'
   get 'manifest', to: 'home#manifest'
   
-  ActiveAdmin.routes(self)
+  ActiveAdmin.routes(self)  
   
   devise_for :users, controllers: { 
     registrations: 'registrations' 
@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   resources :profile
   
   get "/:id(/:nominative/:oblique)", to: 'users#show', constraints: { id: %r{[-a-z\d]+}i, nominative: %r{[a-z]+}i, oblique: %r{[a-z]+}i }, as: :user
+  
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :users, only: [:show]
+    end
+  end  
   
   root to: 'home#index'
 end
