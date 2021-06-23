@@ -26,6 +26,8 @@ RSpec.configure do |config|
       servers: [{url: '/api'}],
       components: {
         schemas: {
+          Link: LinkBlueprint::SCHEMA,
+          PronounSet: PronounSetBlueprint::SCHEMA,
           User: UserBlueprint::SCHEMA
         }
       }

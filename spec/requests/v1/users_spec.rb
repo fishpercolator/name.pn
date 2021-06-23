@@ -16,7 +16,13 @@ RSpec.describe 'v1/users', type: :request do
         schema({
           '$ref': '#/components/schemas/User'
         })
-        run_test!
+        run_test! do
+          expect(jr[:full_name]).to eq('Audrey Horne')
+          expect(jr[:pronoun_sets][0][:nominative]).to eq('she')
+          expect(jr[:links]).to have(2).items
+          expect(jr[:pronunciation_of]).to eq('full_name')
+          expect(jr[:likeness]).to end_with('likeness.png')
+        end
       end
       
       response 404, 'not found' do

@@ -29,6 +29,54 @@ servers:
 - url: "/api"
 components:
   schemas:
+    Link:
+      type: object
+      required:
+      - title
+      - url
+      properties:
+        title:
+          type: string
+          description: The title of the link
+          example: Twitter
+        url:
+          type: string
+          description: The link URL
+          example: https://example.com/AbbyYates
+    PronounSet:
+      type: object
+      required:
+      - nominative
+      - oblique
+      - possessive_determiner
+      - possessive
+      - reflexive
+      - copula
+      properties:
+        nominative:
+          type: string
+          description: The nominative case / subject form of this pronoun
+          example: they
+        oblique:
+          type: string
+          description: The oblique case / object form of this pronoun
+          example: them
+        possessive_determiner:
+          type: string
+          description: The possessive determiner form of this pronoun
+          example: their
+        possessive:
+          type: string
+          description: The possessive (non-determiner) form of this pronoun
+          example: theirs
+        reflexive:
+          type: string
+          description: The reflexive form of this pronoun
+          example: themself
+        copula:
+          type: string
+          description: Which copula form ('is' or 'are') to use with this pronoun
+          example: are
     User:
       type: object
       required:
@@ -48,7 +96,7 @@ components:
           example: Abby
         full_name:
           type: string
-          description: The name this user uses on a list of names
+          description: Used when adding this user to a list of names
           example: Abby Yates
         formal_name:
           type: string
@@ -60,3 +108,45 @@ components:
           description: Used when adding this name to an address
           example: Dr Abigail L. Yates
           nullable: true
+        pronoun_sets:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PronounSet"
+          minItems: 1
+        pronunciation_of:
+          type: string
+          enum:
+          - full_name
+          - personal_name
+          - formal_name
+          - envelope_name
+          description: Which of the fields the pronunciation fields (phonetic, pronunciation
+            and ipa) relate to
+        phonetic:
+          type: string
+          description: Phonetic pronunciation
+          example: A-bee YAYTS
+          nullable: true
+        ipa:
+          type: string
+          description: International Phonetic Alphabet pronunciation
+          example: ˈabi jeɪts
+          nullable: true
+        pronunciation:
+          type: string
+          format: uri
+          description: 'URL of an audio clip of the pronunciation. **Note**: May be
+            a relative URL and may redirect.'
+          example: "/rails/active_storage/blobs/redirect/xxx.wav"
+          nullable: true
+        likeness:
+          type: string
+          format: uri
+          description: 'URL of an image of the user''s likeness. **Note**: May be
+            a relative URL and may redirect.'
+          example: "/rails/active_storage/blobs/redirect/yyy.jpg"
+          nullable: true
+        links:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Link"

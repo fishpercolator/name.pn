@@ -1,8 +1,15 @@
 class UserBlueprint < Blueprinter::Base
   identifier :slug
   
-  fields :personal_name, :full_name, :formal_name, :envelope_name
-
+  fields :personal_name, :full_name, :formal_name, 
+         :envelope_name, :pronunciation_of, :phonetic, :ipa
+  
+  field :pronunciation, extractor: ActiveStorageExtractor
+  field :likeness, extractor: ActiveStorageExtractor
+  
+  association :pronoun_sets, blueprint: PronounSetBlueprint
+  association :links, blueprint: LinkBlueprint
+  
   # OpenAPI schema for this blueprint
   SCHEMA = {
     type: :object,
@@ -23,7 +30,7 @@ class UserBlueprint < Blueprinter::Base
       },
       full_name: {
         type: :string, 
-        description: 'Used when adding this user to a list of names', description: 'The name this user uses on a list of names', 
+        description: 'Used when adding this user to a list of names',
         example: 'Abby Yates'
       },
       formal_name: {
@@ -38,6 +45,46 @@ class UserBlueprint < Blueprinter::Base
         example: 'Dr Abigail L. Yates',
         nullable: true
       },
+      pronoun_sets: {
+        type: :array,
+        items: {'$ref': '#/components/schemas/PronounSet'},
+        minItems: 1
+      },
+      pronunciation_of: {
+        type: :string,
+        enum: %w[full_name personal_name formal_name envelope_name],
+        description: 'Which of the fields the pronunciation fields (phonetic, pronunciation and ipa) relate to'
+      },
+      phonetic: {
+        type: :string,
+        description: 'Phonetic pronunciation',
+        example: 'A-bee YAYTS',
+        nullable: true,
+      },
+      ipa: {
+        type: :string,
+        description: 'International Phonetic Alphabet pronunciation',
+        example: 'ˈabi jeɪts',
+        nullable: true,
+      },
+      pronunciation: {
+        type: :string,
+        format: :uri,
+        description: 'URL of an audio clip of the pronunciation. **Note**: May be a relative URL and may redirect.',
+        example: '/rails/active_storage/blobs/redirect/xxx.wav',
+        nullable: true,
+      },
+      likeness: {
+        type: :string,
+        format: :uri,
+        description: 'URL of an image of the user\'s likeness. **Note**: May be a relative URL and may redirect.',
+        example: '/rails/active_storage/blobs/redirect/yyy.jpg',
+        nullable: true,
+      },
+      links: {
+        type: :array,
+        items: {'$ref': '#/components/schemas/Link'}
+      }
     }
   }
 end
