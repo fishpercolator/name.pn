@@ -8,6 +8,7 @@ RSpec.describe 'v1/users', type: :request do
 
     get 'show user' do
       produces 'application/json'
+      tags 'User profiles'
       needs_login
       
       let(:slug) { 'audrey-horne' }
