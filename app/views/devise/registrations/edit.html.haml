@@ -20,14 +20,14 @@
       %table.table.is-fullwidth.is-hoverable
         %thead
           %tr
-            %th= Client.human_attribute_name(:name)
+            %th#client-name-th= Client.human_attribute_name(:name)
             %th= Client.human_attribute_name(:created_at)
             %th
         %tbody
           = render partial: 'clients/client', collection: @clients
           = form_for @new_client do |f|
-            %tr
-              %td= f.text_field(:name, class: 'input', required: true, placeholder: t('.new_client_placeholder'))
+            %tr.new-api-key
+              %td= f.text_field(:name, class: 'input', required: true, placeholder: t('.new_client_placeholder'), aria: {labelledby: 'client-name-th'})
               %td
                 %button.button.is-success{type: 'submit'}
                   %span.icon
