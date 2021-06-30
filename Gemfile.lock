@@ -82,6 +82,7 @@ GEM
       activerecord (>= 4.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    amazing_print (1.3.0)
     arbre (1.4.0)
       activesupport (>= 3.0.0, < 6.2)
       ruby2_keywords (>= 0.0.2, < 1.0)
@@ -350,6 +351,10 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_semantic_logger (4.6.0)
+      rack
+      railties (>= 3.2)
+      semantic_logger (~> 4.8)
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
     railties (6.1.3.2)
@@ -418,6 +423,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    semantic_logger (4.8.1)
+      concurrent-ruby (~> 1.0)
     semantic_range (3.0.0)
     serviceworker-rails (0.6.0)
       railties (>= 3.1)
@@ -492,6 +499,7 @@ DEPENDENCIES
   activeadmin_sortable_table (~> 1.3)
   activerecord-pg_enum (~> 1.1)
   acts_as_list (~> 1.0)
+  amazing_print (~> 1.3)
   aws-sdk-rails (~> 3.1)
   aws-sdk-s3 (~> 1.73)
   better_errors
@@ -528,6 +536,7 @@ DEPENDENCIES
   pundit-matchers
   rails (~> 6.1.3)
   rails_12factor (~> 0.0.3)
+  rails_semantic_logger (~> 4.6)
   render_async (~> 2.1)
   rspec
   rspec-collection_matchers

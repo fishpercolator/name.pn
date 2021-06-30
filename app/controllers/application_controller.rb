@@ -23,5 +23,9 @@ class ApplicationController < ActionController::Base
     flash[:alert] = t('errors.not_authorized')
     redirect_to(request.referrer || root_path)
   end
-
+  
+  def append_info_to_payload(payload)
+    super
+    payload[:user_id] = current_user&.id
+  end
 end

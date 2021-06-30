@@ -5,6 +5,13 @@ class Api::BaseController < ApplicationController
   
   before_action :authenticate_client!
   
+  protected
+  
+  def append_info_to_payload(payload)
+    super
+    payload[:client_id] = current_client&.id
+  end
+  
   private
   
   def forbidden
