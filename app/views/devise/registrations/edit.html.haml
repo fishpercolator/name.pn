@@ -1,6 +1,6 @@
 %section.section
   .container
-    %h2.title= t('.title')
+    %h2.title= title t('.title')
     .box
       = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
         = f.error_notification
@@ -14,4 +14,29 @@
     = render_async users_mailing_list_path, container_class: 'mailing-list-form', replace_container: false
 %section.section
   .container
+    %h2.title= t('.api_keys')
+    %p.subtitle= t('.api_keys_blurb_html', href: link_to(t('.api'), rswag_ui_path, data: {turbolinks: false}))
+    .box
+      %table.table.is-fullwidth.is-hoverable
+        %thead
+          %tr
+            %th= Client.human_attribute_name(:name)
+            %th= Client.human_attribute_name(:created_at)
+            %th
+        %tbody
+          = render partial: 'clients/client', collection: @clients
+          = form_for @new_client do |f|
+            %tr
+              %td= f.text_field(:name, class: 'input', required: true, placeholder: t('.new_client_placeholder'))
+              %td
+                %button.button.is-success{type: 'submit'}
+                  %span.icon
+                    %i.mdi.mdi-plus
+                  %span= t('.new_client')
+%section.section
+  .container
     %p= link_to t('.cancel'), registration_path(resource_name), data: {confirm: t('.cancel_confirm')}, method: :delete
+
+-# If we've been redirected here after creating a key
+- if @new_key.present?
+  = render 'clients/key_modal', key: @new_key

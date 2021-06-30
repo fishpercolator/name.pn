@@ -1,0 +1,8 @@
+%tr
+  %td= client.name
+  %td= t('ago', time: time_ago_in_words(client.created_at))
+  %td
+    = button_to client_path(client), method: :delete, class: 'button is-danger', data: {confirm: t('.confirm_delete')}  do
+      %span.icon
+        %i.mdi.mdi-delete
+      %span= t('actions.delete')

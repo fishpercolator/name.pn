@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'users/mailing_list/unsubscribe', to: 'mailing_list#unsubscribe'
   
   resources :profile
+  resources :clients, only: %i[create destroy]
   
   get "/:id(/:nominative/:oblique)", to: 'users#show', constraints: { id: %r{[-a-z\d]+}i, nominative: %r{[a-z]+}i, oblique: %r{[a-z]+}i }, as: :user
   
