@@ -65,6 +65,11 @@ en:
         title: My account
         password_hint: leave blank if you don't want to change it
         current_password_hint: we need your current password to confirm your changes
+        api_keys: API keys
+        api_keys_blurb_html: Create keys to use with the %{href}
+        new_client: Create key
+        new_client_placeholder: A name for your records
+        api: name.pn API
         save: Save
         cancel: Cancel your account
         cancel_confirm: Are you sure you want to cancel your account?

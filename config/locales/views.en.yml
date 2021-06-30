@@ -146,3 +146,11 @@ en:
       links_hint: 'These external links have been provided by %{name} and are not endorsed by name.pn.'
     player:
       listen: Listen
+  clients:
+    client:
+      confirm_delete: Are you sure you want to delete this API key? All clients using this key will lose access.
+    destroy:
+      destroyed: That API key has been successfully deleted.
+    key_modal:
+      title: Your new API key
+      blurb: Be sure to copy this key before closing this box. After closing the box there will be no way to retrieve this key.

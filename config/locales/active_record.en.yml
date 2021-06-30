@@ -10,6 +10,8 @@ en:
         ipa: IPA
       link:
         url: URL
+      client:
+        created_at: Created
     errors:
       models:
         user:

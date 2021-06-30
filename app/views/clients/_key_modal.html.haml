@@ -1,0 +1,12 @@
+- content_for :modal do
+  .modal.is-active{data: {controller: 'modal'}}
+    .modal-background{data: {action: 'click->modal#close'}}
+    .modal-card
+      %header.modal-card-head
+        %p.modal-card-title= t('.title')
+        %button.delete{aria: {label: t('actions.close')}, data: {action: 'modal#close'}}
+      %section.modal-card-body
+        %p.mb-5= t('.blurb')
+        .message
+          .message-body.is-size-4.is-family-monospace.is-force-wrapped
+            = key

@@ -82,3 +82,7 @@ body {
     border-color: $input-arrow;
   }
 }
+
+.is-force-wrapped {
+  overflow-wrap: break-word;
+}

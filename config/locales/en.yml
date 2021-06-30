@@ -1,7 +1,11 @@
 en:
   product_name: name.pn
+  ago: '%{time} ago'
   actions:
+    create: Create
     edit: Edit
+    delete: Delete
+    close: Close
   errors:
     not_admin: Please sign is as an admin user
     not_authorized: Sorry - you are not permitted to do that
