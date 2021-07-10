@@ -16,6 +16,8 @@ Variables that can be used to configure the app are:
 * **EMAIL_FROM**: The name and email address that will be used for 'From' in emails sent by this platform. Make sure the DKIM & SPF settings are correct for this domain with respect to your email sending service (e.g. SendGrid; see below).
 * **AWS_ACCESS_KEY_ID** / **AWS_SECRET_ACCESS_KEY** / **AWS_REGION** / **S3_BUCKET**: Creds for a user who has SES access to send mail and S3 permission to read/write the given bucket.
 * **GA_ID**: Google Analytics ID
+* **MAILCHIMP_API_KEY** / **MAILCHIMP_LIST_ID**: If set, enables the mailing list integration on the user's settings page and allows them to opt in when creating an account.
+* **JWT_SECRET**: A secret (e.g. generated with `rails secret`) used in signing of JWT keys used with the name.pn public API.
 
 ## Getting a development environment
 
