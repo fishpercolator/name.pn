@@ -2,7 +2,7 @@
   steps:
     - name: Audit
       service: web
-      command: bundle exec bundle-audit check --update
+      command: bash -c 'bundle exec bundle-audit check --update && yarn audit'
     - name: Rspec
       service: web
       command: bash -c './bin/rails db:setup && ./bin/rspec'
