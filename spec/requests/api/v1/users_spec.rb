@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
-RSpec.describe 'v1/users', type: :request do
-  path '/v1/users/{slug}' do
+RSpec.describe 'api/v1/users', type: :request do
+  path '/api/v1/users/{slug}' do
     parameter name: 'slug', in: :path, type: :string, description: 'The slug of the user you want to retrieve', example: 'abby-yates'
 
     let!(:user) { create :user, :full_profile }
