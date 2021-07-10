@@ -65,7 +65,6 @@ paths:
                 "$ref": "#/components/schemas/User"
         '404':
           description: not found
-basePath: "/api"
 servers:
 - url: "/api"
 components:

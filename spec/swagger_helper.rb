@@ -58,7 +58,6 @@ RSpec.configure do |config|
         version: 'v1'
       },
       paths: {},
-      basePath: '/api',
       servers: [{url: '/api'}],
       components: {
         securitySchemes: {
