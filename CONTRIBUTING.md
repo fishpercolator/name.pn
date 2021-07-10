@@ -66,5 +66,4 @@ accepted.
 ## Any questions
 
 Any questions, feel free to get in touch with the primary maintainer
-[Quinn](https://name.pn/quinn-daley), whose email address is
-<quinn@fishpercolator.co.uk>.
+[Quinn](https://name.pn/quinn-daley), at <support@name.pn>.

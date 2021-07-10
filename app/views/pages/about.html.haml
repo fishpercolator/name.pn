@@ -21,29 +21,39 @@
   .container
     .columns
       .column.is-three-fifths.is-offset-one-fifth
+        %h2.title.is-4 Working in the open
+        .content.is-size-5
+          %p name.pn is an open source product and we are working in the open.
+          %p We welcome contributions to our roadmap, including bug reports, feature requests and even code changes! Follow the links below for more information.
+          %p.has-text-centered
+            = link_to 'https://github.com/fishpercolator/name.pn/issues', class: 'button is-link is-outlined is-medium' do
+              %span.icon
+                %i.mdi.mdi-bug
+              %span Report a bug or make a feature request
+          %p.has-text-centered
+            = link_to 'https://github.com/fishpercolator/name.pn/projects/1', class: 'button is-link is-outlined is-medium' do
+              %span.icon
+                %i.mdi.mdi-map
+              %span See what's coming up next on our roadmap
+          %p.has-text-centered
+            = link_to 'https://github.com/fishpercolator/name.pn/blob/main/CONTRIBUTING.md', class: 'button is-link is-outlined is-medium' do
+              %span.icon
+                %i.mdi.mdi-wrench-outline
+              %span Read about how you can contribute to name.pn
+          %p.has-text-centered
+            = link_to 'https://github.com/fishpercolator/name.pn', class: 'button is-link is-outlined is-medium' do
+              %span.icon
+                %i.mdi.mdi-github
+              %span Browse our source code on GitHub
+%section.section
+  .container
+    .columns
+      .column.is-three-fifths.is-offset-one-fifth
         %h2.title.is-4 Get in touch
         .content.is-size-5
-          %p Having problems with the site or want to chat about a feature idea?
+          %p If you'd like to report an issue or feature request, please use #{link_to 'our issues board', 'https://github.com/fishpercolator/name.pn/issues'}. But to get in touch for any other reason, our email address is below.
           %p.has-text-centered
             = link_to 'mailto:support@name.pn', class: 'button is-link is-outlined is-medium' do
               %span.icon
                 %i.mdi.mdi-email
               %span support@name.pn
-%section.section
-  .container
-    .columns
-      .column.is-three-fifths.is-offset-one-fifth
-        %h2.title.is-4 On the roadmap
-        .content.is-size-5
-          %p There are lots of ideas on the roadmap. Things we want to add in the near-term include:
-          %ul
-            %li Onward links to your socials or other website so you don't feel like you're using up your "one link" on Twitter/Instagram.
-            %li Sign up & sign in using Twitter or Facebook instead of a password.
-            %li A list of nicknames and shortened names that you like, and ones you don't like!
-            %li More advanced pronoun options, like being able to order them or specify that you use no pronouns.
-            %li Context-sensitive pages &mdash; maybe you use a different name at work and at home, for example.
-        %h2.title.is-4.mt-5 Known issues
-        .content.is-size-5
-          %ul
-            %li Support for recording and playing audio on Safari and iOS devices isn't working. This is due to some complex nuance of modern web tech and it's proving difficult to fix without access to Apple hardware. The fix is really important to me so stay tuned!
-            %li There are some issues with the picture uploading, especially on mobile. We use a very new third-party service called Uppload for this, and it's constantly being updated so hopefully there will be a fix in the future. In the meantime, please use a desktop browser to upload your likeness if you are having issues.
