@@ -15,4 +15,5 @@ ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
 ENV DEFAULT_DOMAIN localhost
 
 ENTRYPOINT ["vendor/docker-entrypoint.sh"]
+LABEL "com.datadoghq.ad.logs"='[{"source": "ruby", "service": "name-pn"}]'
 CMD ["foreman", "start", "-f", "Procfile.dev"]

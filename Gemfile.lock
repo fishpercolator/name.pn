@@ -166,6 +166,9 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
+    ddtrace (0.51.1)
+      ffi (~> 1.0)
+      msgpack
     debug_inspector (1.1.0)
     devise (4.8.0)
       bcrypt (~> 3.0)
@@ -520,6 +523,7 @@ DEPENDENCIES
   cocoon (~> 1.2)
   cuprite
   database_cleaner
+  ddtrace (~> 0.51.1)
   devise (~> 4.7)
   devise-jwt (~> 0.8.1)
   email_spec
