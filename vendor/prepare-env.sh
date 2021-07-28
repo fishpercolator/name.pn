@@ -12,3 +12,11 @@ apt-get update -y && apt-get install -y chromium nodejs postgresql-client-11 vim
 
 # Create a user
 adduser rails --uid $uid --disabled-password --gecos ""
+
+# Install a custom version of foreman that supports JSON logging
+cd /tmp
+git clone https://github.com/stewartmckee/foreman.git --single-branch --branch output-formats
+cd foreman
+gem build foreman.gemspec
+gem uninstall -a foreman
+gem install foreman-*.gem

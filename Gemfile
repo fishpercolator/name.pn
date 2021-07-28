@@ -79,7 +79,6 @@ group :development do
   gem 'spring-watcher-listen'
   gem 'spring-commands-rspec'
   gem 'better_errors'
-  gem 'foreman'
   gem 'haml-rails'
 end
 

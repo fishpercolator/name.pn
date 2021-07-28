@@ -31,6 +31,7 @@ services:
       - DD_SITE=datadoghq.eu
       - DD_ENV=dev
       - DD_LOGS_ENABLED=true
+      - DD_LOG_LEVEL=WARN
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock
      - /proc/:/host/proc/:ro
