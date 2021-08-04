@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_150558) do
+ActiveRecord::Schema.define(version: 2021_08_04_160207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   # These are custom enum types that must be created before they can be used in the schema definition
+  create_enum "alternate_name_category", ["variant", "nickname", "wrong"]
   create_enum "user_name_variant", ["full_name", "personal_name", "formal_name", "envelope_name"]
   create_enum "user_role", ["user", "admin"]
 
@@ -59,6 +60,15 @@ ActiveRecord::Schema.define(version: 2021_06_23_150558) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "alternate_names", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.enum "category", default: "variant", null: false, as: "alternate_name_category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_alternate_names_on_user_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -134,6 +144,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_150558) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "alternate_names", "users"
   add_foreign_key "clients", "users"
   add_foreign_key "links", "users"
 end

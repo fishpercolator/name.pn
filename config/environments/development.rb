@@ -4,7 +4,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   if gateway = /default via (\S+)/.match(%x{ip r})
     BetterErrors::Middleware.allow_ip! gateway[1]
-    config.web_console.whitelisted_ips = gateway[1]
+    config.web_console.allowed_ips = gateway[1]
   end
 
   # In the development environment your application's code is reloaded any time
