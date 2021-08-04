@@ -12,14 +12,6 @@ Scenario: View complete profile
   
 Scenario: View incomplete profile
   Given I am signed in as a user with no profile
-  When I visit the dashboard
-  Then I should see cards with indications that things are not set
-  And I should see warnings about sharing my URL
-  And I should not see my URL
-  And I should see disabled buttons to view and copy my URL
-  
-Scenario: View incomplete profile with slug set
-  Given I am signed in as a user with no profile
   And I have set my name and slug but not my pronouns
   When I visit the dashboard
   Then I should see cards with indications that things are not set

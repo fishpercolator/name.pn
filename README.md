@@ -1,12 +1,12 @@
-# Name.pn
-
-This is the documentation for maintainers and developers of the Name pn web app.
+# name.pn
+s
+This is the documentation for maintainers and developers of the name.pn web app.
 
 This app follows the [Twelve-Factor](https://12factor.net/) specification, and this should be kept in mind when developing for it.
 
 ## Configuration
 
-The app is configured using environment variables. On Heroku these can be configured using the `heroku:config` command, and on your development environment they can be either added to the `docker-compose.yml` or you can install the [dotenv](https://github.com/bkeepers/dotenv) gem to manage them locally.
+The app is configured using environment variables. On Heroku these can be configured using the `heroku:config` command, and on your development environment they can be added to `config/application.yml` as described in the [Figaro](https://github.com/laserlemon/figaro) documentation.
 
 Variables that can be used to configure the app are:
 
@@ -72,10 +72,10 @@ You'll need the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) i
 To deploy it to Heroku, you can do:
 
 ```sh
-cd ~/path/to/name_pn
+cd ~/path/to/name.pn
 # Replace name_pn with the name of the new heroku app
-heroku apps:create --region eu name_pn
-git push heroku master
+heroku apps:create --region eu name-pn
+git push heroku main
 ```
 
 The app should install all its dependencies and create the database automatically.
@@ -89,7 +89,7 @@ heroku run rails c
 To deploy a new version:
 
 ```sh
-git push heroku master
+git push heroku main
 ```
 
 Or you can set up automatic deploys through the Heroku dashboard. If you're using GitHub & Codeship you can integrate this with your Codeship CI, so the new version is only deployed if the tests pass.
@@ -175,6 +175,17 @@ To run these tests:
 
     ./bin/spinach
 
-### Bundler Audit
+### Audit
 
 [Bundler Audit](https://github.com/rubysec/bundler-audit) is a tool that looks for security advisories against any of the gems in your Gemfile. It's recomended to run this regularly (such as in the Codeship CI) and update the gems when it reports issues.
+
+[improved-yarn-audit](https://www.npmjs.com/package/improved-yarn-audit) does the same things for the JavaScript packages and is configured to run as part of
+the Codeship steps. There's an `.iyarc` file for configuring exceptions.
+
+### Datadog
+
+The app is configured to work with [Datadog](https://www.datadoghq.com/) for tracing/debugging, including correlation of logs and traces.
+
+To get this working in development, you'll need an account (a free plan one will do) and an API key. Set the `DD_API_KEY` environment variable to your key before running `docker-compose up` and the rest should sort itself out.
+
+To get it working in Heroku, you'll need to follow the [buildpack](https://docs.datadoghq.com/agent/basic_agent_usage/heroku/) instructions for APM and the [log drain](https://docs.datadoghq.com/logs/guide/collect-heroku-logs/) instructions for logs.
