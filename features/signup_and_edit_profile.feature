@@ -7,6 +7,26 @@ Scenario: Sign up takes user to profile editor
   And I submit the form
   Then I should be on the first page of the profile editor
   And my account should have been created on the backend
+
+Scenario: Cannot leave first page until it's completed
+  Given I am signed in as a user with no profile
+  When I try to go the home page
+  Then I should be redirected back to the first page of the profile editor
+  And I should not see links to the other sections
+  And I should not see a save and exit button
+
+Scenario: Can see dashboard if first page has been completed
+  Given I am signed in as a user with no profile
+  And I have filled out my personal name and full name elsewhere
+  When I try to go the home page
+  Then I should see the dashboard
+  
+Scenario: Can leave first page if first page has been completed
+  Given I am signed in as a user with no profile
+  And I have filled out my personal name and full name elsewhere
+  When I go to the profile editor
+  Then I should see links to the other sections
+  And I should see a save and exit button
   
 @javascript
 Scenario: Complete profile editing
