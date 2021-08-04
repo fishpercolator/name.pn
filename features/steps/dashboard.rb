@@ -46,10 +46,6 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
     expect(page).not_to have_content('You must set this before you can share your page', count: 2)
   end
 
-  step 'I should not see my URL' do
-    expect(page).not_to have_content('http://www.example.com/audrey-horne')
-  end
-
   step 'I should see disabled buttons to view and copy my URL' do
     expect(page).to have_css('.button[disabled]', text: 'View')
     expect(page).to have_css('.button[disabled]', text: 'Copy')
