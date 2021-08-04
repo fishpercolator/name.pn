@@ -208,4 +208,40 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(page).to have_content("Audrey is pronounced")
     expect(page).to have_content("Audio clip of 'Audrey'")
   end
+  
+  step 'I try to go the home page' do
+    visit '/'
+  end
+
+  step 'I should be redirected back to the first page of the profile editor' do
+    expect(page).to have_css('.box.profile-form.is-personal-name')
+  end
+
+  step 'I should not see links to the other sections' do
+    expect(page).not_to have_css('a.steps-marker[href]')
+  end
+
+  step 'I should not see a save and exit button' do
+    expect(page).not_to have_css('button', text: 'Save and exit')
+  end
+
+  step 'I have filled out my personal name and full name elsewhere' do
+    test_user.update(full_name: 'Harold Smith', personal_name: 'Harold')
+  end
+
+  step 'I should see the dashboard' do
+    expect(page).to have_css('.title', text: 'Your name dashboard')
+  end
+
+  step 'I go to the profile editor' do
+    visit '/profile/personal_name'
+  end
+
+  step 'I should see links to the other sections' do
+    expect(page).to have_css('a.steps-marker[href]')
+  end
+
+  step 'I should see a save and exit button' do
+    expect(page).to have_css('button', text: 'Save and exit')
+  end
 end
