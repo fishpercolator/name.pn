@@ -83,14 +83,13 @@ Rails.application.configure do
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    $stdout.sync = true
-    config.rails_semantic_logger.add_file_appender = false
-    config.semantic_logger.add_appender(io: $stdout, level: config.log_level, formatter: config.rails_semantic_logger.format)
-  end
   if ENV["LOG_LEVEL"].present?
     config.log_level = ENV["LOG_LEVEL"].downcase.strip.to_sym
   end
+  $stdout.sync = true
+  config.rails_semantic_logger.add_file_appender = false
+  config.colorize_logging = false
+  config.semantic_logger.add_appender(io: $stdout, level: config.log_level, formatter: :json)
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

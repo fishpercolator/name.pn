@@ -83,4 +83,10 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  
+  # Log to stdout in JSON format
+  $stdout.sync = true
+  config.rails_semantic_logger.add_file_appender = false
+  config.colorize_logging = false
+  config.semantic_logger.add_appender(io: $stdout, level: config.log_level, formatter: :json)
 end

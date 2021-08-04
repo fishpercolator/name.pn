@@ -33,6 +33,7 @@ gem 'acts_as_list', '~> 1.0'
 gem 'amazing_print', '~> 1.3'
 gem 'blueprinter', '~> 0.25.3'
 gem 'cocoon', '~> 1.2'
+gem 'ddtrace', '~> 0.51.1'
 gem 'devise', '~> 4.7'
 gem 'devise-jwt', '~> 0.8.1'
 gem 'figaro', '~> 1.2'
@@ -78,7 +79,6 @@ group :development do
   gem 'spring-watcher-listen'
   gem 'spring-commands-rspec'
   gem 'better_errors'
-  gem 'foreman'
   gem 'haml-rails'
 end
 
