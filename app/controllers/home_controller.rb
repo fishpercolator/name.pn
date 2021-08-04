@@ -4,6 +4,8 @@ class HomeController < ApplicationController
   
   def index
     if user_signed_in?
+      # Refuse to show the dashboard to people who haven't completed step 1
+      return redirect_to(profile_index_path) if !current_user.basic_names_complete?
       render 'user_home'
     else
       render 'anon_home'

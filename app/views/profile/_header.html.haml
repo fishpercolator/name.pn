@@ -1,12 +1,19 @@
 %section.section
   .container
-    = f.button :button, value: 'finish', class: 'is-outlined is-pulled-right' do
-      %span= t('.save_and_exit')
-      %span.icon
-        %i.mdi.mdi-close
+    - if @user.basic_names_complete?
+      = f.button :button, value: 'finish', class: 'is-outlined is-pulled-right' do
+        %span= t('.save_and_exit')
+        %span.icon
+          %i.mdi.mdi-close
     %ul.steps.has-content-centered.is-small
       - wizard_steps.each.with_index do |each_step|
-        %li.steps-segment{class: ('is-active' if each_step == step)}
-          = link_to '', wizard_path(each_step), class: 'steps-marker'
-          .steps-content
-            %p.is-size-6= t("profile.#{each_step}.title")
+        - if @user.basic_names_complete?
+          %li.steps-segment{class: ('is-active' if each_step == step)}
+            = link_to '', wizard_path(each_step), class: 'steps-marker'
+            .steps-content
+              %p.is-size-6= t("profile.#{each_step}.title")
+        - else
+          %li.steps-segment.is-dashed{class: ('is-active' if each_step == step)}
+            .steps-marker
+            .steps-content
+              %p.is-size-6= t("profile.#{each_step}.title")

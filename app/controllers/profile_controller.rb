@@ -49,6 +49,12 @@ class ProfileController < ApplicationController
     end
   end
   
+  # Users must complete the first step to continue
+  def stuck_on_first_step?
+    (@user.full_name.blank? || @user.personal_name.blank?)
+  end
+  helper_method :stuck_on_first_step?
+  
   private
   
   def set_user
