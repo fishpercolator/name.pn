@@ -29,8 +29,8 @@ en:
       not_set: Not set
     name_card:
       title: Your name
-    formal_name_card:
-      title: Formal name
+    name_variants_card:
+      title: Variants of your name
     pronunciation_card:
       title: How to pronounce your name
       name_is_pronounced: '%{name} is pronounced'
@@ -65,9 +65,9 @@ en:
     personal_name:
       title: Your name
       blurb: This section refers to the most common names you use for yourself when communicating with English speakers.
-    formal_name:
-      title: Formal name
-      blurb: This is how you would like to be addressed by someone you don't know. For example, in a letter, or on your bank cards.
+    variants:
+      title: Variants of your name
+      blurb: This is a section for adding information about how you use your name in different contexts. For example, in a formal context such as a letter or on bank cards.
     pronunciation:
       title: Pronunciation
       blurb: This section is concerned with how you would like English speakers to say your name out loud.

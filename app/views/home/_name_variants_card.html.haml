@@ -1,11 +1,11 @@
-.tile.is-child.card.is-formal-name
+.tile.is-child.card.is-variants
   .card-header
     .card-header-title= t('.title')
     .card-header-icon
       = link_to profile_path(:formal_name), class: 'icon', title: t('actions.edit') do
         %i.mdi.mdi-pencil
   .card-content
-    %p.mb-4.has-text-grey= t('profile.formal_name.blurb')
+    %p.mb-4.has-text-grey= t('profile.variants.blurb')
     .content
       %dl
         %dt= User.human_attribute_name(:envelope_name)
