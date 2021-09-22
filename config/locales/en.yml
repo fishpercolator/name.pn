@@ -61,6 +61,11 @@ en:
       possessive: 'I wanted to watch something else, but the TV set is <b>%{pronoun}</b>.'
       reflexive: '%{personal_name} sees <b>%{pronoun}</b> in the lead character.'
   alternate_name_categories:
+    like: Name variants that you like
+    ok: Name variants that you don't mind
+    sometimes: Name variants that are only used in specific circumstances
+    dislike: Name variants that you don't like
+  alternate_name_form_categories:
     like: I like it
     ok: I don't mind
     sometimes: Only in specific circumstances

@@ -2,7 +2,7 @@
   .card-header
     .card-header-title= t('.title')
     .card-header-icon
-      = link_to profile_path(:formal_name), class: 'icon', title: t('actions.edit') do
+      = link_to profile_path(:variants), class: 'icon', title: t('actions.edit') do
         %i.mdi.mdi-pencil
   .card-content
     %p.mb-4.has-text-grey= t('profile.variants.blurb')
@@ -12,3 +12,9 @@
         %dd= current_user.envelope_name? ? current_user.envelope_name : not_set
         %dt= User.human_attribute_name(:formal_name)
         %dd= current_user.formal_name? ? current_user.formal_name : not_set
+        - current_user.alternate_names.order(:name).group_by(&:category).each do |category, ans|
+          %dt= t(category, scope: 'alternate_name_categories')
+          %dd
+            %ul.mt-0.ml-0
+              - ans.each do |an|
+                %li= an.name

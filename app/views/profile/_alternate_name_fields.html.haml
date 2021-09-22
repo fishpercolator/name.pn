@@ -1,6 +1,6 @@
 .alternate_name-fields.nested-fields.field
   = f.input :name
-  = f.input :category, as: :select, collection: AlternateName.categories.keys.map {|c| [t(c, scope: 'alternate_name_categories'), c]}, include_blank: false
+  = f.input :category, as: :select, collection: AlternateName.categories.keys.map {|c| [t(c, scope: 'alternate_name_form_categories'), c]}, include_blank: false
   .level
     .level-left
     .level-right
