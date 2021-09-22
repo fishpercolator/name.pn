@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_08_04_160207) do
   enable_extension "plpgsql"
 
   # These are custom enum types that must be created before they can be used in the schema definition
-  create_enum "alternate_name_category", ["variant", "nickname", "wrong"]
+  create_enum "alternate_name_category", ["like", "sometimes", "ok", "dislike"]
   create_enum "user_name_variant", ["full_name", "personal_name", "formal_name", "envelope_name"]
   create_enum "user_role", ["user", "admin"]
 
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2021_08_04_160207) do
   create_table "alternate_names", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
-    t.enum "category", default: "variant", null: false, as: "alternate_name_category"
+    t.enum "category", default: "like", null: false, as: "alternate_name_category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_alternate_names_on_user_id"
