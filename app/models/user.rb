@@ -50,9 +50,15 @@ class User < ApplicationRecord
     public_send(pronunciation_of)
   end
   
+  # To be able to freely move around the profile, you must have entered a full
+  # name and a personal name
+  def basic_names_complete?
+    full_name.present? && personal_name.present?
+  end
+  
   # To have a complete profile you must have entered a full name,
   # a personal name and at least one pronoun
   def profile_complete?
-    full_name.present? && personal_name.present? && pronoun_sets.any? && slug.present?
+    basic_names_complete? && pronoun_sets.any? && slug.present?
   end
 end

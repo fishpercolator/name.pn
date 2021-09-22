@@ -17,7 +17,7 @@ module CommonSteps
     step 'I am signed in as a user with no profile' do
       sign_in_as create(:user, :test)
     end
-
+    
     def sign_in_as(user)
       visit new_user_session_path
       fill_in 'Your email address', with: user.email

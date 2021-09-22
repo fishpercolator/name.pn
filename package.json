@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@kollegorna/cocoon-vanilla-js": "^1.0.7",
-    "@mdi/font": "^5.1.45",
+    "@mdi/font": "^6.1.95",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^5.1.1",
