@@ -133,12 +133,22 @@ en:
         personal_name: Personal name
         formal_name: Formal name
         envelope_name: On an envelope
+        variants:
+          like_html: I also like to be called
+          ok_html: I don't mind being called
+          sometimes_html: You might hear me being called
+          dislike_html: I <b>don't like</b> to be called
       hints:
         full_name: If you're adding me to a list of names, please use this name.
         phonetic: This is how I pronounce my own name when speaking English.
         personal_name: This is the name I want to be addressed by during a conversation.
         formal_name: I use this name in formal contexts. For example, a letter addressed to me might start 'Dear %{value}'.
         envelope_name: Please use this name when adding my name to an address in a formal context.
+        variants:
+          like: It's always OK to use these nicknames or variants of my name wherever you use my personal name.
+          ok: If you use these variants of my personal name I won't mind, but they're not names I enjoy being called.
+          sometimes: There are some circumstances in which you might hear people using these variants of my personal name. Please don't use them except in those circumstances.
+          dislike: Please don't use these variants of my personal name.
     likeness_card:
       what_i_look_like: What I look like
       alt_text: A picture of %{name}
