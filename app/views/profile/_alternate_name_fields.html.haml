@@ -1,0 +1,10 @@
+.alternate_name-fields.nested-fields.field
+  = f.input :name
+  = f.input :category, as: :select, collection: AlternateName.categories.keys.map {|c| [t(c, scope: 'alternate_name_categories'), c]}, include_blank: false
+  .level
+    .level-left
+    .level-right
+      = link_to_remove_association f, class: 'button is-danger level-item' do
+        %span.icon
+          %i.mdi.mdi-delete
+        %span= t('.remove_alternate_name')

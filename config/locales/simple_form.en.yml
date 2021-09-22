@@ -32,6 +32,9 @@ en:
         links:
           title: What this is a link to, e.g. 'Twitter'.
           url: Make sure you include the 'https' part.
+        alternate_names:
+          name: A version of your personal name. For example, "Abs"
+          category: Do you like to be called by this name?
     placeholders:
       user:
         full_name: Abby Yates

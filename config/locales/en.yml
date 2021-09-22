@@ -60,3 +60,8 @@ en:
       possessive_determiner: 'Well, definitely in <b>%{pronoun}</b> all-time top ten.'
       possessive: 'I wanted to watch something else, but the TV set is <b>%{pronoun}</b>.'
       reflexive: '%{personal_name} sees <b>%{pronoun}</b> in the lead character.'
+  alternate_name_categories:
+    like: I like it
+    ok: I don't mind
+    sometimes: Only in specific circumstances
+    dislike: I don't like it
