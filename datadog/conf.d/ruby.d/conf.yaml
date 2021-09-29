@@ -1,0 +1,6 @@
+logs:
+  - type: file
+    path: "/log/development.json.log"
+    service: name-pn
+    source: ruby
+    sourcecategory: sourcecode
