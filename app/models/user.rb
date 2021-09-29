@@ -6,6 +6,7 @@ class User < ApplicationRecord
     
   has_and_belongs_to_many :pronoun_sets
   has_many :links
+  has_many :alternate_names
   has_many :clients
   
   enum role: {user: 'user', admin: 'admin'}, _prefix: true
@@ -37,6 +38,7 @@ class User < ApplicationRecord
   has_one_attached :likeness
   
   accepts_nested_attributes_for :links, allow_destroy: true
+  accepts_nested_attributes_for :alternate_names, allow_destroy: true
   
   def to_s
     full_name.present? ? full_name : email

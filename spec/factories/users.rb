@@ -23,6 +23,11 @@ FactoryBot.define do
         build(:link, title: 'Twitter', url: 'https://twitter.com/ahorne'),
         build(:link, title: 'LinkedIn', url: 'https://linkedin.com/in/ahorne')
       ] }
+      alternate_names { [
+        build(:alternate_name, name: 'Hester Prynne', category: :like),
+        build(:alternate_name, name: 'Scarlett', category: :like),
+        build(:alternate_name, name: 'Aud', category: :dislike)
+      ] }
     end
   end
 end

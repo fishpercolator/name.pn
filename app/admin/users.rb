@@ -48,6 +48,7 @@ ActiveAdmin.register User do
       row :personal_name
       row :formal_name
       row :envelope_name
+      row :alternate_names
       row :phonetic
       row :pronoun_sets
       row(:likeness) {|u| u.likeness.attached? ? image_tag(u.likeness.variant(resize_to_limit: [300,300])) : '-'}

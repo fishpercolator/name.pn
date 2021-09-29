@@ -71,6 +71,10 @@ body.user-profile {
       margin-left: 1rem;
     }
   }
+  ul {
+    margin-left: 1.5rem;
+    list-style-type: square;
+  }
 }
 .profile-card__hint {
   color: $grey;

@@ -29,8 +29,8 @@ en:
       not_set: Not set
     name_card:
       title: Your name
-    formal_name_card:
-      title: Formal name
+    name_variants_card:
+      title: Variants of your name
     pronunciation_card:
       title: How to pronounce your name
       name_is_pronounced: '%{name} is pronounced'
@@ -65,9 +65,14 @@ en:
     personal_name:
       title: Your name
       blurb: This section refers to the most common names you use for yourself when communicating with English speakers.
-    formal_name:
-      title: Formal name
-      blurb: This is how you would like to be addressed by someone you don't know. For example, in a letter, or on your bank cards.
+    variants:
+      title: Variants of your name
+      blurb: This is a section for adding information about how you use your name in different contexts. For example, in a formal context such as a letter or on bank cards.
+      alternate_names: Alternate names
+      alternate_names_blurb: Here you can add nicknames and other (e.g. shortened) versions of your name, and say whether you like or dislike people using them.
+      add_alternate_name: Add alternate name
+    alternate_name_fields:
+      remove_alternate_name: Remove
     pronunciation:
       title: Pronunciation
       blurb: This section is concerned with how you would like English speakers to say your name out loud.
@@ -128,12 +133,22 @@ en:
         personal_name: Personal name
         formal_name: Formal name
         envelope_name: On an envelope
+        variants:
+          like_html: I also like to be called
+          ok_html: I don't mind being called
+          sometimes_html: You might hear me being called
+          dislike_html: I <b>don't like</b> to be called
       hints:
         full_name: If you're adding me to a list of names, please use this name.
         phonetic: This is how I pronounce my own name when speaking English.
         personal_name: This is the name I want to be addressed by during a conversation.
         formal_name: I use this name in formal contexts. For example, a letter addressed to me might start 'Dear %{value}'.
         envelope_name: Please use this name when adding my name to an address in a formal context.
+        variants:
+          like: It's always OK to use these nicknames or variants of my name wherever you use my personal name.
+          ok: If you use these variants of my personal name I won't mind, but they're not names I enjoy being called.
+          sometimes: There are some circumstances in which you might hear people using these variants of my personal name. Please don't use them except in those circumstances.
+          dislike: Please don't use these variants of my personal name.
     likeness_card:
       what_i_look_like: What I look like
       alt_text: A picture of %{name}

@@ -1,5 +1,5 @@
 $personal-name: change-color($purple, $lightness: 97%);
-$formal-name: change-color($cyan, $lightness: 93%);
+$variants: change-color($cyan, $lightness: 93%);
 $pronouns: change-color($orange, $lightness: 93%);
 $pronunciation: change-color($blue, $lightness: 90%);
 $url: change-color($yellow, $lightness: 90%);
@@ -10,8 +10,8 @@ $primary-bg: change-color($primary, $lightness: 90%);
 .is-personal-name {
   background-color: $personal-name;
 }
-.is-formal-name {
-  background-color: $formal-name;
+.is-variants {
+  background-color: $variants;
 }
 .is-pronouns {
   background-color: $pronouns;
