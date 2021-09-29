@@ -37,6 +37,8 @@ Scenario: Complete profile editing
   And I fill in my personal name details
   And I go to the next stage
   And I fill in my formal name details
+  And I click twice to add alternate names
+  And I add a name I like and one I dislike
   And I go to the next stage
   And I fill in my pronunciation
   And I go to the next stage
@@ -54,6 +56,7 @@ Scenario: Complete profile editing
   Then I should be on the dashboard
   And my profile should be completed successfully
   And both my links should be added
+  And both my alternate names should be added correctly
   And my likeness should be cropped and converted
 
 Scenario: My slug is already taken
@@ -104,6 +107,15 @@ Scenario: Delete a link
   And I click to delete the first link
   And I click to save and exit
   Then my profile should only have one link attached
+
+@javascript
+Scenario: Delete an alternate name
+  Given I am signed in as a user with a complete profile
+  When I visit the dashboard
+  And I click the edit button in the variants box
+  And I click to delete the first alternate name
+  And I click to save and exit
+  Then my profile should only have two alternate names attached
 
 @javascript
 Scenario: Change pronunciation of

@@ -20,7 +20,7 @@
           %h2.profile-card__heading= t(".headings.#{att}", name: user.full_name, value: val)
           .profile-card__name= val
           .profile-card__hint= t(".hints.#{att}", name: user.full_name, value: val)
-    - user.alternate_names.order(:name).group_by(&:category).each do |category, ans|
+    - user.alternate_names.grouped_by_category.each do |category, ans|
       %h2.profile-card__heading=t (".headings.variants.#{category}_html")
       .profile-card__name
         %ul

@@ -31,6 +31,7 @@ Scenario: Profile with text features filled out
   And I should see a pronunciation guide
   And I should see the audio player
   And I should see the formal name
+  And I should see sections for each of the completed types of alternate name
   And I should see a link to the main site
   And I should see the user's likeness
   And I should see a box with links in alphabetical order

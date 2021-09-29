@@ -244,4 +244,45 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   step 'I should see a save and exit button' do
     expect(page).to have_css('button', text: 'Save and exit')
   end
+  
+  step 'I click twice to add alternate names' do
+    click_link 'Add alternate name'
+    expect(page).to have_css('label', text: 'Category', count: 1)
+    click_link 'Add alternate name'
+    expect(page).to have_css('label', text: 'Category', count: 2)
+  end
+
+  step 'I add a name I like and one I dislike' do
+    within all('.alternate_name-fields')[0] do
+      fill_in 'Name', with: 'Logs'
+      select 'I like it', from: 'Category'
+    end
+    within all('.alternate_name-fields')[1] do
+      fill_in 'Name', with: 'Mags'
+      select 'I don\'t like it', from: 'Category'
+    end
+  end
+
+  step 'both my alternate names should be added correctly' do
+    user = User.find_by(email: 'loglady@example.com')
+    expect(user.alternate_names.category_like.pluck(:name)).to eq(['Logs'])
+    expect(user.alternate_names.category_dislike.pluck(:name)).to eq(['Mags'])
+  end
+  
+  step 'I click the edit button in the variants box' do
+    within '.card.is-variants' do
+      click_on 'Edit'
+    end
+  end
+
+  step 'I click to delete the first alternate name' do
+    within all('.alternate_name-fields')[0] do
+      click_link 'Remove'
+    end
+  end
+
+  step 'my profile should only have two alternate names attached' do
+    user = User.find_by(email: 'testuser@example.com')
+    expect(user.alternate_names.map(&:name).sort).to eq(['Aud', 'Scarlett'])
+  end
 end

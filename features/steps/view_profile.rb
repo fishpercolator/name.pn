@@ -119,4 +119,12 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
     expect(links).to have_content("LinkedIn Twitter")
     expect(links).to have_css('a[href="https://twitter.com/ahorne"]', text: 'Twitter')
   end
+  
+  step 'I should see sections for each of the completed types of alternate name' do
+    expect(page).to have_content("I also like to be called\nHester Prynne Scarlett")
+    # and check it's a bullet list
+    expect(page).to have_css('ul li', text: /\AHester Prynne\Z/)
+    expect(page).to have_content("I don't like to be called\nAud")
+    expect(page).not_to have_content("I don't mind being called")
+  end
 end
