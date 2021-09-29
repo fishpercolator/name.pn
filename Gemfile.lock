@@ -234,6 +234,8 @@ GEM
     formtastic_i18n (0.7.0)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
+    gaffe (1.2.0)
+      rails (>= 4.0.0)
     gherkin-ruby (0.3.2)
     gibbon (3.4.2)
       faraday (>= 1.0)
@@ -533,6 +535,7 @@ DEPENDENCIES
   figaro (~> 1.2)
   foreman
   friendly_id (~> 5.3)
+  gaffe (~> 1.2)
   gibbon (~> 3.3)
   haml (~> 5.1)
   haml-rails

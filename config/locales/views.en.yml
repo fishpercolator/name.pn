@@ -4,6 +4,15 @@ en:
       admin: Admin
       home: Home
       about: About
+  errors:
+    not_found:
+      title: Page not found
+      blurb: Oh! Sorry, that page wasn't found. If you followed a link here, would you mind letting us know using either the issues board or our support email address below? Thanks so much!
+    internal_server_error:
+      title: Something went wrong
+      blurb: Argh! Something happened on the server that shouldn't have happened. If you have time, it would be really helpful to us to hear a description of what you were doing when this happened, so we can fix it!
+    support:
+      report_a_bug: Report a bug on our issues board
   home:
     anon_home:
       title:
