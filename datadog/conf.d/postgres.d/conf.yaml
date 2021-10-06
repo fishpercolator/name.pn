@@ -1,0 +1,34 @@
+init_config:
+
+instances:
+  ## @param host - string - required
+  ## The hostname to connect to.
+  ## NOTE: Even if the server name is "localhost", the agent connects to
+  ## PostgreSQL using TCP/IP, unless you also provide a value for the sock key.
+  #
+  - host: "<YOUR HOSTNAME>"
+
+    ## @param port - integer - required
+    ## Port to use when connecting to PostgreSQL.
+    #
+    port: <YOUR PORT>
+
+    ## @param user - string - required
+    ## Datadog Username created to connect to PostgreSQL.
+    #
+    username: "<YOUR USERNAME>"
+
+    ## @param pass - string - required
+    ## Password associated with the Datadog user.
+    #
+    password: "<YOUR PASSWORD>"
+
+    ## @param dbname - string - optional - default: postgres
+    ## Name of the PostgresSQL database to monitor.
+    ## Note: If omitted, the default system postgres database is queried.
+    #
+    dbname: "<YOUR DBNAME>"
+   
+    # @param disable_generic_tags - boolean - optional - default: false
+    # The integration will stop sending server tag as is reduntant with host tag
+    disable_generic_tags: true
