@@ -32,3 +32,5 @@ instances:
     # @param disable_generic_tags - boolean - optional - default: false
     # The integration will stop sending server tag as is reduntant with host tag
     disable_generic_tags: true
+    
+    ssl: require
