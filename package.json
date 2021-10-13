@@ -21,7 +21,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "improved-yarn-audit": "^2.3.3",
+    "improved-yarn-audit": "^3.0.0",
     "webpack-dev-server": "^3.10.3"
   }
 }
