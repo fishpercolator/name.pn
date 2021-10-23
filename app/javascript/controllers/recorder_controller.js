@@ -71,7 +71,7 @@ export default class extends Controller {
     
     // And finally, make sure the delete button is active
     this.deleteFlagTarget.value = ''
-    this.deleteTarget.disabled = true
+    this.deleteTarget.disabled = false
   }
   
   delete () {
@@ -82,12 +82,10 @@ export default class extends Controller {
   
   setPlayerUrl (url) {
     if (url === null) {
-      delete this.playerTarget.dataset.playerUrl
+      delete this.playerTarget.dataset.playerUrlValue
     } else {
-      this.playerTarget.dataset.playerUrl = url
+      this.playerTarget.dataset.playerUrlValue = url
     }
-    const event = new CustomEvent('new-url')
-    this.playerTarget.dispatchEvent(event)
   }
   
   // Get a dataURL for the given arrayBuffer

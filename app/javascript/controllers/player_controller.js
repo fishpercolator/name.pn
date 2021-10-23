@@ -7,12 +7,10 @@ export default class extends Controller {
   }
   
   connect () {
-    this.element.addEventListener('new-url', () => { this.refresh() })
     this.mediaTarget.addEventListener('ended', () => { this.playTarget.disabled = false })
-    this.refresh()
   }
   
-  refresh () {
+  urlValueChanged () {
     let url = this.urlValue
     if (url) {
       this.mediaTarget.src = url
