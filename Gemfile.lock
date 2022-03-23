@@ -461,9 +461,6 @@ GEM
       capybara (>= 2.0.0)
       railties (>= 3)
       spinach (>= 0.4)
-    spring (2.1.1)
-    spring-commands-spinach (1.1.0)
-      spring (>= 0.9.1)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -566,7 +563,6 @@ DEPENDENCIES
   spicy-proton (~> 2.1)
   spinach
   spinach-rails
-  spring-commands-spinach
   timecop
   web-console (>= 3.3.0)
   webpacker (~> 5.0)

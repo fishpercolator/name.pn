@@ -81,7 +81,6 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'spring-commands-spinach'
   gem 'cuprite'
   gem 'capybara-screenshot'
   gem 'rspec-collection_matchers'
