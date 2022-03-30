@@ -5,23 +5,27 @@ ruby '3.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 7.0.2'
+
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 5.6', '>= 5.6.2'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-# gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.7'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+gem "jsbundling-rails", "~> 1.0"
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem "turbo-rails", "~> 1.0"
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails", "~> 1.0"
+# Bundle and process CSS [https://github.com/rails/cssbundling-rails]
+gem "cssbundling-rails", "~> 1.0"
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+# Use Redis adapter to run Action Cable in production
+# gem "redis", "~> 4.0"
+
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+gem 'image_processing', '~> 1.11'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -42,7 +46,6 @@ gem 'gaffe', '~> 1.2'
 gem 'gibbon', '~> 3.4', '>= 3.4.3'
 gem 'haml', '~> 5.1'
 gem 'high_voltage', '~> 3.1'
-gem 'image_processing', '~> 1.11'
 gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 4.10'
 gem 'pundit', '~> 2.1'
@@ -50,7 +53,6 @@ gem 'rails_semantic_logger', '~> 4.6'
 gem 'render_async', '~> 2.1'
 gem 'rswag-api', '~> 2.4'
 gem 'rswag-ui', '~> 2.4'
-gem 'serviceworker-rails', '~> 0.6.0'
 gem 'simple_form', '~> 5.0'
 gem 'spicy-proton', '~> 2.1'
 gem 'wicked', '~> 1.3'
@@ -75,7 +77,6 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen'
   gem 'better_errors'
-  gem 'foreman'
   gem 'haml-rails'
 end
 
