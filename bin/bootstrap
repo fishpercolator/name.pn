@@ -5,5 +5,5 @@ cd "${0%/*}"
 env UID=$(id -u) docker-compose build
 docker-compose run web bundle
 docker-compose run web yarn
-docker-compose run web bash -c 'rails db:create && rails db:migrate && rails db:seed'
+docker-compose run web bash -c 'rails db:setup'
 echo "Done."

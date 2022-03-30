@@ -67,7 +67,9 @@ After updating the `Gemfile` or `package.json`, you'll need to install the new g
 
 The app already conforms to the Twelve-Factor specification and has a Procfile with all the information Heroku needs to get going.
 
-You'll need the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed to run these commands:
+You'll need the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed to run these commands.
+
+The [apt buildpack](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt) is used to install libvips, which is a prerequisite of the default ActiveStorage configuration for 7+.
 
 To deploy it to Heroku, you can do:
 
@@ -75,6 +77,7 @@ To deploy it to Heroku, you can do:
 cd ~/path/to/name.pn
 # Replace name_pn with the name of the new heroku app
 heroku apps:create --region eu name-pn
+heroku buildpacks:add --index 1 heroku-community/apt
 git push heroku main
 ```
 
