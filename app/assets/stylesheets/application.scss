@@ -1,0 +1,60 @@
+// Config goes here
+$red:       #C33C54;
+$orange:    #EF8354;
+$yellow:    #FFD972;
+$green:     #A7E8BD;
+$turquoise: #C7EAE4;
+$cyan:      #6DD3CE;
+$blue:      #4A6FA5;
+$purple:    #820263;
+$grey:      #595959;
+$primary:   #218380;
+$warning:   $orange;
+
+$family-sans-serif: Raleway, sans-serif;
+$family-handwriting: 'Patrick Hand', cursive;
+
+// Add the pieces of Bulma that your project uses here
+@import "bulma/sass/utilities/_all";
+@import "bulma/sass/base/_all";
+@import "bulma/sass/helpers/_all";
+
+@import "bulma/sass/components/card";
+@import "bulma/sass/components/level";
+@import "bulma/sass/components/message";
+@import "bulma/sass/components/modal";
+@import "bulma/sass/components/navbar";
+
+@import "bulma/sass/elements/box";
+@import "bulma/sass/elements/button";
+@import "bulma/sass/elements/container";
+@import "bulma/sass/elements/content";
+@import "bulma/sass/elements/icon";
+@import "bulma/sass/elements/notification";
+@import "bulma/sass/elements/other";
+@import "bulma/sass/elements/table";
+@import "bulma/sass/elements/title";
+
+@import "bulma/sass/form/_all";
+
+@import "bulma/sass/grid/_all";
+
+@import "bulma/sass/layout/hero";
+@import "bulma/sass/layout/section";
+
+@import "bulma-o-steps/bulma-steps";
+
+$mdi-font-path: "@mdi/font/fonts";
+@import "@mdi/font/scss/materialdesignicons";
+
+@import "animate.css/animate";
+
+@import "uppload/dist/uppload.css";
+@import "uppload/dist/themes/light.css";
+
+@import "luminous-lightbox/dist/luminous-basic";
+
+@import "layout";
+@import "theme";
+@import "profile";
+@import "user_profile";
