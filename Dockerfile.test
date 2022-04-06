@@ -18,7 +18,7 @@ RUN yarn
 RUN chown rails:rails $APP/
 COPY --chown=rails:rails . $APP/
 USER rails
-RUN ./bin/webpack
+RUN ./bin/webpacker
 
 ENTRYPOINT ["vendor/docker-entrypoint.sh"]
 CMD ["bash"]
