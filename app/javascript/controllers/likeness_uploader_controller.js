@@ -1,7 +1,7 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "stimulus"
 
 import { Uppload, Local, Camera, Crop, Rotate, Brightness, Contrast, xhrUploader, en } from "uppload";
-import Rails from '@rails/ujs'
+import Rails from 'rails-ujs'
 
 export default class extends Controller {
   static targets = ['preview', 'delete']

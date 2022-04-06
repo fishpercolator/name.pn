@@ -15,10 +15,10 @@ services:
       - .:/usr/src/app
     ports:
       - "3000:3000"
+      - "3035:3035"
     depends_on:
       - db
     user: rails
-    command: bundle exec rails s -b 0.0.0.0
     environment:
       DD_AGENT_HOST: datadog
       JWT_SECRET: 8139a4837740e8ca5aa6809fb87912605d4ad652cb247c30096eb62413812375d4fa906bb0bee9c3aa3663b814681af7e0e68dc1a8d59f13034ddd24f7a4fefb

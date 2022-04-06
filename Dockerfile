@@ -16,4 +16,4 @@ ENV DEFAULT_DOMAIN localhost
 
 ENTRYPOINT ["vendor/docker-entrypoint.sh"]
 LABEL "com.datadoghq.ad.logs"='[{"source": "ruby", "service": "name-pn"}]'
-CMD ["bin/dev"]
+CMD ["foreman", "start", "-f", "Procfile.dev"]
