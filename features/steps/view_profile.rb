@@ -127,4 +127,16 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
     expect(page).to have_content("I don't like to be called\nAud")
     expect(page).not_to have_content("I don't mind being called")
   end
+  
+  step 'the page should have a meta tag saying search engines can index it' do
+    expect(page).to have_css('meta[name="robots"][content="index, follow"]', visible: false)
+  end
+
+  step 'that profile is marked with the noindex flag' do
+    User.friendly.find('audrey-horne').update(noindex: true)
+  end
+
+  step 'the page should have a meta tag saying search engines cannot index it' do
+    expect(page).to have_css('meta[name="robots"][content="noindex, follow"]', visible: false)
+  end
 end

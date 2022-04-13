@@ -69,6 +69,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(user).to be_pronoun_example_running
     expect(user.pronoun_sets.map(&:to_s)).to eq(['she/her'])
     expect(user.slug).to eq('log-lady')
+    expect(user).not_to be_noindex
   end
 
   step 'an Audrey Horne profile already exists' do
@@ -284,5 +285,20 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   step 'my profile should only have two alternate names attached' do
     user = User.find_by(email: 'testuser@example.com')
     expect(user.alternate_names.map(&:name).sort).to eq(['Aud', 'Scarlett'])
+  end
+  
+  step 'I click the edit button in the URL box' do
+    within '.card.is-url' do
+      click_on 'Edit', match: :first
+    end
+  end
+
+  step 'I select the checkbox to hide from search engines' do
+    check 'Hide from search engines?'
+  end
+
+  step 'my profile should be marked as noindex' do
+    user = User.find_by(email: 'testuser@example.com')
+    expect(user).to be_noindex
   end
 end

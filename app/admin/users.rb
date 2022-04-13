@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :role, :password, :full_name, :personal_name, :formal_name, :envelope_name, :phonetic, :pronoun_set_ids => []
+  permit_params :email, :role, :password, :full_name, :personal_name, :formal_name, :envelope_name, :phonetic, :noindex, :pronoun_set_ids => []
 
   controller do
     def find_resource
@@ -27,6 +27,7 @@ ActiveAdmin.register User do
       f.input :email
       f.input :password
       f.input :slug
+      f.input :noindex
       f.input :role, as: :select
       f.input :full_name
       f.input :personal_name
@@ -43,6 +44,7 @@ ActiveAdmin.register User do
       row :id
       row :email
       row(:slug) {|u| u.slug.present? ? link_to(u.slug, user_url(u)) : '-'}
+      row :noindex
       row :role
       row :full_name
       row :personal_name

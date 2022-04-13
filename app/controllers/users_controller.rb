@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       title: @user.full_name,
       description: t('.description', name: @user.full_name, pronouns: pronouns),
       image: url_for(format: :png, only_path: false),
-      index: true,
+      (@user.noindex? ? :noindex : :index) => true,
       follow: true,
       og: {
         url: url_for(only_path: false),

@@ -132,3 +132,11 @@ Scenario: Save change to pronunciation of
   And I select my personal name from the dropdown
   And I click to save and exit
   Then I should see the correct form of my name in the pronunciation box on the dashboard
+
+Scenario: Mark as noindex
+  Given I am signed in as a user with a complete profile
+  When I visit the dashboard
+  And I click the edit button in the URL box
+  And I select the checkbox to hide from search engines
+  And I click to save and exit
+  Then my profile should be marked as noindex

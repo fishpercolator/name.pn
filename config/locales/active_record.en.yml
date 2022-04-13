@@ -8,6 +8,7 @@ en:
         envelope_name: Envelope name
         formal_name: Formal name
         ipa: IPA
+        noindex: Hide from search engines?
       link:
         url: URL
       client:

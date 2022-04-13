@@ -13,6 +13,7 @@ Scenario: Basic profile
   And I should not see a pronunciation guide
   And I should not see a section for the user's likeness
   And I should see a link to the main site
+  And the page should have a meta tag saying search engines can index it
 
 Scenario: Profile URLs are case-insensitive
   Given I am signed out
@@ -35,6 +36,7 @@ Scenario: Profile with text features filled out
   And I should see a link to the main site
   And I should see the user's likeness
   And I should see a box with links in alphabetical order
+  And the page should have a meta tag saying search engines can index it
   
 Scenario: Profile with multiple pronouns
   Given I am signed out
@@ -58,6 +60,16 @@ Scenario: Alternative pronoun examples
   And the user has picked the 'running' pronoun example
   When I visit the path that is that user's slug
   Then I should see an appropriate usage guide for one set of pronouns
+
+Scenario: User with noindex flag
+  Given I am signed out
+  And a user exists with a basic profile
+  And that profile is marked with the noindex flag
+  When I visit the path that is that user's slug
+  Then I should not see the navbar
+  And I should see a 'hello' card with the user's personal name and pronouns
+  And I should see a link to the main site
+  And the page should have a meta tag saying search engines cannot index it
 
 Scenario: Cannot view incomplete profile
   Given I am signed out
