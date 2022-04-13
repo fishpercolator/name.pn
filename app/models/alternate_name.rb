@@ -1,6 +1,6 @@
 class AlternateName < ApplicationRecord
   belongs_to :user
-  enum category: {like: 'like', ok: 'ok', sometimes: 'sometimes', dislike: 'dislike'}, _prefix: true
+  enum :category, %w[like ok sometimes dislike].index_by(&:to_sym), prefix: true
   
   validates :name, :category, presence: true
   

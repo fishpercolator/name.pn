@@ -131,13 +131,13 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(page).to have_css('.cropper-crop-box')
     # Switch to the rotate box and check the image has been cropped
     find('label', text: 'Rotate').click
-    unless page.has_css?('.cropper-view-box img[style="width: 361px; height: 361px; transform: none;"]')
+    unless page.has_css?('.cropper-view-box img[style="width: 360px; height: 360px; transform: none;"]')
       # do it all again but sleep this time
       find('label', text: 'Crop').click
       sleep 1
       find('label', text: 'Rotate').click
     end
-    expect(page).to have_css('.cropper-view-box img[style="width: 361px; height: 361px; transform: none;"]')
+    expect(page).to have_css('.cropper-view-box img[style="width: 360px; height: 360px; transform: none;"]')
     click_button 'Upload'
   end
 

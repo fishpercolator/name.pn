@@ -1,6 +1,1 @@
-# Some upstream dependencies of @rails/webpacker that have patches which are
-# hard to fold into webpacker. Should be resolved with webpacker v6.x which
-# is a big upgrade process and should wait for an official release.
-GHSA-ww39-953v-wcq6
-GHSA-rp65-9cf3-cjxr
-GHSA-93q8-gq69-wqmw
+# No ignored risks any more - webpacker has been upgraded

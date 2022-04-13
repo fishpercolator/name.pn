@@ -4,7 +4,7 @@ class CreateAlternateNames < ActiveRecord::Migration[6.1]
     create_table :alternate_names do |t|
       t.belongs_to :user, null: false, foreign_key: true
       t.string :name, null: false
-      t.column :category, :alternate_name_category, null: false, default: :like
+      t.enum :category, enum_type: :alternate_name_category, null: false, default: :like
 
       t.timestamps
     end

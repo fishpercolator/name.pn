@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.1'
+ruby '3.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 7.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -12,11 +12,11 @@ gem 'puma', '~> 5.6', '>= 5.6.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'shakapacker', '~> 6.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+# gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -28,7 +28,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'activeadmin', '~> 2.6'
 gem 'activeadmin_sortable_table', '~> 1.3'
-gem 'active_storage_base64', '~> 1.1'
+gem 'active_storage_base64', '~> 2.0'
 gem 'acts_as_list', '~> 1.0'
 gem 'amazing_print', '~> 1.3'
 gem 'blueprinter', '~> 0.25.3'
@@ -45,7 +45,6 @@ gem 'high_voltage', '~> 3.1'
 gem 'image_processing', '~> 1.11'
 gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 4.10'
-gem 'activerecord-pg_enum', '~> 1.1'
 gem 'pundit', '~> 2.1'
 gem 'rails_semantic_logger', '~> 4.6'
 gem 'render_async', '~> 2.1'
@@ -75,10 +74,6 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen'
-  gem 'spring-commands-rspec'
   gem 'better_errors'
   gem 'foreman'
   gem 'haml-rails'
@@ -86,7 +81,6 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'spring-commands-spinach'
   gem 'cuprite'
   gem 'capybara-screenshot'
   gem 'rspec-collection_matchers'

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include Pundit
+  include Pundit::Authorization
   after_action :verify_authorized, except: :index, unless: :framework_controller?
   after_action :verify_policy_scoped, only: :index, unless: :framework_controller?
 

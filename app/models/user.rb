@@ -9,23 +9,11 @@ class User < ApplicationRecord
   has_many :alternate_names
   has_many :clients
   
-  enum role: {user: 'user', admin: 'admin'}, _prefix: true
+  enum :role, %w[user admin].index_by(&:to_sym), prefix: true
   
-  enum pronoun_example: {
-    boardgaming: 'boardgaming',
-    cooking: 'cooking', 
-    dancing: 'dancing',
-    reading: 'reading',
-    running: 'running',
-    tv: 'tv',
-  }, _prefix: true, _default: 'cooking'
+  enum :pronoun_example, %w[boardgaming cooking dancing reading running tv].index_by(&:to_sym), prefix: true, default: :cooking
   
-  enum pronunciation_of: {
-    full_name: 'full_name',
-    personal_name: 'personal_name',
-    formal_name: 'formal_name',
-    envelope_name: 'envelope_name'
-  }, _prefix: true, _default: 'full_name'
+  enum :pronunciation_of, %w[full_name personal_name formal_name envelope_name].index_by(&:to_sym), prefix: true, default: :full_name
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
