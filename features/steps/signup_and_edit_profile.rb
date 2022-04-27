@@ -139,11 +139,10 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     end
   end
 
-  step 'my likeness should be cropped and converted' do
+  step 'my likeness should be cropped' do
     user = User.find_by(email: 'loglady@example.com')
     expect(user.likeness).to be_attached
     blob = user.likeness.attachment.blob
-    #expect(blob.content_type).to eq('image/jpeg')
     expect(blob.metadata['width']).to eq(blob.metadata['height'])
   end
   
