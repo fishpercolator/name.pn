@@ -57,7 +57,7 @@ Scenario: Complete profile editing
   And my profile should be completed successfully
   And both my links should be added
   And both my alternate names should be added correctly
-  And my likeness should be cropped and converted
+  And my likeness should be cropped
 
 Scenario: My slug is already taken
   Given I am signed out
