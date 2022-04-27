@@ -10,7 +10,15 @@ ActiveAdmin.register User do
   index do
     selectable_column
     id_column
-    column(:slug) {|u| u.slug.present? ? link_to(u.slug, user_url(u)) : '-'}
+    column(:slug) do |u| 
+      if u.profile_complete?
+        link_to(u.slug, user_url(u))
+      elsif u.slug.present?
+        u.slug
+      else
+        '-'
+      end
+    end
     column :email
     column :full_name
     column :role
