@@ -12,12 +12,13 @@ export default class extends Controller {
   connect() {
     this.uploader = new Uppy({
       restrictions: {
-        maxNumberOfFiles: 1
+        maxNumberOfFiles: 1,
+        maxFileSize: 1048576,
+        allowedFileTypes: ['image/jpeg', 'image/png', 'image/gif']
       }
     })
     .use(Dashboard, {
       autoOpenFileEditor: true,
-      showSelectedFiles: false
     })
     .use(ImageEditor, {
       target: Dashboard,
