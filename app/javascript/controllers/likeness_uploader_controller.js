@@ -4,6 +4,7 @@ import Uppy from '@uppy/core'
 import XHRUpload from '@uppy/xhr-upload'
 import Dashboard from '@uppy/dashboard'
 import ImageEditor from '@uppy/image-editor'
+import Webcam from '@uppy/webcam'
 import Rails from 'rails-ujs'
 
 export default class extends Controller {
@@ -19,6 +20,10 @@ export default class extends Controller {
     })
     .use(Dashboard, {
       autoOpenFileEditor: true,
+    })
+    .use(Webcam, {
+      target: Dashboard,
+      modes: ['picture']
     })
     .use(ImageEditor, {
       target: Dashboard,
