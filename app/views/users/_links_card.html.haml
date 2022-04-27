@@ -7,4 +7,4 @@
       .content
         %ul
           - @user.links.order(:title).each do |link|
-            %li= link_to link.title, link.url, rel: 'nofollow'
+            %li= link_to link.title, link.url, rel: 'me nofollow'
