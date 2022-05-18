@@ -23,7 +23,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'my user has audio recorded already' do
-    test_user.update(pronunciation: fixture_file_upload(file_fixture 'pronunciation.wav'))
+    test_user.update(pronunciation: fixture_file_upload(file_fixture('pronunciation.wav'), 'audio/wav'))
   end
 
   step 'the play button and delete button should be available' do
@@ -48,7 +48,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'a user exists with recorded audio' do
-    example_user.update(pronunciation: fixture_file_upload(file_fixture 'pronunciation.wav'))
+    example_user.update(pronunciation: fixture_file_upload(file_fixture('pronunciation.wav'), 'audio/wav'))
   end
 
   step 'I visit that user\'s public URL' do
@@ -67,5 +67,36 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   step 'I should not see a player' do
     expect(page).not_to have_css('button', text: 'Listen')
     expect(page).not_to have_css('audio[src]', visible: false)
+  end
+  
+  def fixture_to_data_url(filename, content_type='application/octet-stream')
+    "data:#{content_type};base64,#{Base64.strict_encode64(File.read(file_fixture filename))}"
+  end
+  
+  step 'I make a short recording' do
+    find('#user_pronunciation_data', visible: false).set(fixture_to_data_url 'pronunciation.wav')
+  end
+
+  step 'I click to go to the next step' do
+    click_button 'Next step'
+  end
+
+  step 'my recording should be saved in storage' do
+    test_user.reload
+    expect(test_user.pronunciation).to be_attached
+    expect(test_user.pronunciation.content_type).to eq('audio/wav')
+  end
+
+  step 'I make a recording that is too large' do
+    find('#user_pronunciation_data', visible: false).set(fixture_to_data_url '2mb.wav')
+  end
+
+  step 'I should see an error requiring me to make a shorter recording' do
+    expect(page).to have_css('.help.is-danger', text: 'That file is too large (2.05 MB);')
+  end
+  
+  step 'my recording should not be saved in storage' do
+    test_user.reload
+    expect(test_user.pronunciation).not_to be_attached
   end
 end

@@ -28,6 +28,9 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :links, allow_destroy: true
   accepts_nested_attributes_for :alternate_names, allow_destroy: true
   
+  validates :likeness, content_type: ['image/jpeg', 'image/png', 'image/gif'], size: { less_than: 1.megabyte }
+  validates :pronunciation, content_type: ['audio/wav', 'audio/webm'], size: { less_than: 2.megabytes }
+
   def to_s
     full_name.present? ? full_name : email
   end

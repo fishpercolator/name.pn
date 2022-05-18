@@ -17,8 +17,8 @@ FactoryBot.define do
       envelope_name { 'Ms A. H. Horne' }
       phonetic { 'AWD-ree HORN' }
       ipa { 'ˈɔːdri hɔːn' }
-      pronunciation { fixture_file_upload(file_fixture 'pronunciation.wav') }
-      likeness { fixture_file_upload(file_fixture 'likeness.png') }
+      pronunciation { fixture_file_upload(file_fixture('pronunciation.wav'), 'audio/wav') }
+      likeness { fixture_file_upload(file_fixture('likeness.png'), 'image/png') }
       links { [
         build(:link, title: 'Twitter', url: 'https://twitter.com/ahorne'),
         build(:link, title: 'LinkedIn', url: 'https://linkedin.com/in/ahorne')

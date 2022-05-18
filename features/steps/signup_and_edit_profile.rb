@@ -297,4 +297,20 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     user = User.find_by(email: 'testuser@example.com')
     expect(user).to be_noindex
   end
+  
+  step 'I click the edit button in the likeness box' do
+    within '.card.is-likeness' do
+      click_on 'Edit', match: :first
+    end
+  end
+
+  step 'I attach a likeness that is too large' do
+    within '.uppy-Dashboard-AddFiles' do
+      first('input[type="file"]', visible: false).set(file_fixture 'rostyslav-savchyn.jpg')
+    end
+  end
+
+  step 'I should see an error that the file is too large' do
+    expect(page).to have_content('rostyslav-savchyn.jpg exceeds maximum allowed size of 1 MB')
+  end
 end

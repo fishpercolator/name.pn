@@ -41,3 +41,20 @@ Scenario: Player not on public page
   And a user exists without recorded audio
   And I visit that user's public URL
   Then I should not see a player
+
+Scenario: Save recording
+  Given I am signed in
+  And my user has no audio recorded already
+  When I visit the profile editing page for pronunciation
+  And I make a short recording
+  And I click to go to the next step
+  Then my recording should be saved in storage
+
+Scenario: Attempt to save very large recording
+  Given I am signed in
+  And my user has no audio recorded already
+  When I visit the profile editing page for pronunciation
+  And I make a recording that is too large
+  And I click to go to the next step
+  Then I should see an error requiring me to make a shorter recording
+  And my recording should not be saved in storage

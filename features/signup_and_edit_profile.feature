@@ -140,3 +140,12 @@ Scenario: Mark as noindex
   And I select the checkbox to hide from search engines
   And I click to save and exit
   Then my profile should be marked as noindex
+  
+@javascript
+Scenario: Likeness is too large
+  Given I am signed in as a user with a complete profile
+  When I visit the dashboard
+  And I click the edit button in the likeness box
+  And I click to add an image
+  And I attach a likeness that is too large
+  Then I should see an error that the file is too large
