@@ -24,5 +24,13 @@ FactoryBot.define do
       reflexive { "herself" }
       copula { "is" }
     end
+    trait :it do
+      nominative { "it" }
+      oblique { "it" }
+      possessive_determiner { "its" }
+      possessive { "its" }
+      reflexive { "itself" }
+      copula { "is" }
+    end
   end
 end

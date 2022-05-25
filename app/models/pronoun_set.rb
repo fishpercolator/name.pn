@@ -5,6 +5,10 @@ class PronounSet < ApplicationRecord
   has_and_belongs_to_many :users
 
   def to_s
-    "#{nominative}/#{oblique}"
+    if nominative == oblique
+      "#{nominative}/#{possessive}"
+    else
+      "#{nominative}/#{oblique}"
+    end
   end
 end
