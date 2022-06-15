@@ -15,6 +15,13 @@ Scenario: Basic profile
   And I should see a link to the main site
   And the page should have a meta tag saying search engines can index it
 
+Scenario: Pronoun style three
+  Given I am signed out
+  And a user exists with a basic profile
+  And that user has set pronoun style to three
+  When I visit the path that is that user's slug
+  And I should see a 'hello' card with the user's personal name and pronoun in style three
+
 Scenario: Profile URLs are case-insensitive
   Given I am signed out
   And a user exists with a basic profile

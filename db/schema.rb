@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_13_141635) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_15_111122) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,15 +18,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_13_141635) do
   # Note that some types may not work with other database engines. Be careful if changing database.
   create_enum "alternate_name_category", ["like", "sometimes", "ok", "dislike"]
   create_enum "user_name_variant", ["full_name", "personal_name", "formal_name", "envelope_name"]
+  create_enum "user_pronoun_style", ["two", "three"]
   create_enum "user_role", ["user", "admin"]
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -57,7 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_13_141635) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -86,7 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_13_141635) do
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
     t.string "scope"
-    t.datetime "created_at"
+    t.datetime "created_at", precision: nil
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
@@ -138,6 +139,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_13_141635) do
     t.enum "pronunciation_of", default: "full_name", null: false, enum_type: "user_name_variant"
     t.string "ipa"
     t.boolean "noindex", default: false, null: false
+    t.enum "pronoun_style", default: "two", null: false, enum_type: "user_pronoun_style"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

@@ -2,7 +2,7 @@
   %thead
     %tr
       - pronoun_sets.each do |pronoun_set|
-        %th= t('.header', pronoun: pronoun_set.to_s)
+        %th= t('.header', pronoun: pronoun_set.to_s(current_user))
   %tbody
     - %i[name nominative oblique possessive_determiner possessive reflexive].each do |inflex|
       %tr

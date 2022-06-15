@@ -12,6 +12,9 @@ en:
     messages:
       file_size_out_of_range: That file is too large (%{file_size}); please try uploading something smaller.
   pronoun_set_hint: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
+  pronoun_styles:
+    two: Two pronouns (e.g. they/them)
+    three: Three pronouns (e.g. they/them/theirs)
   pronoun_example_headings:
     boardgaming: Board gaming
     cooking: Cooking

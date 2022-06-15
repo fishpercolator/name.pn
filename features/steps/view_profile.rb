@@ -19,6 +19,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
 
   step 'I should see a \'hello\' card with the user\'s personal name and pronouns' do
     expect(page).to have_css('.napc', text: "Hello\nmy name is\nAudrey\nmy pronouns are\nshe/her")
+    expect(page).not_to have_text('she/her/hers')
   end
 
   step 'I should see a box with the full name' do
@@ -138,5 +139,13 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
 
   step 'the page should have a meta tag saying search engines cannot index it' do
     expect(page).to have_css('meta[name="robots"][content="noindex, follow"]', visible: false)
+  end
+  
+  step 'that user has set pronoun style to three' do
+    User.friendly.find('audrey-horne').update(pronoun_style: :three)
+  end
+
+  step 'I should see a \'hello\' card with the user\'s personal name and pronoun in style three' do
+    expect(page).to have_css('.napc', text: "Hello\nmy name is\nAudrey\nmy pronouns are\nshe/her/hers")
   end
 end

@@ -28,6 +28,7 @@ en:
         ipa: "If it's useful to you and you want to provide a phonemic guide using the International Phonetic Alphabet, you can do so here. Please do not include the // symbols. For example, <span class=\"is-ipa\">ˈabi jeɪts</span>"
         slug: Your URL must be at least two words, separated by hyphens (-), and it must not already belong to another user. For example, "abby-yates"
         noindex: Instruct search engines not to index your profile page. The most popular search engines will obey this instruction but please note that it does not provide guarantees.
+        pronoun_style: How many pronouns would you like displayed in the short version of your pronouns?
         pronoun_example: We'll use this activity as a reference to show people how to use your pronouns. Pick the one that best fits your personality.
         subscribe_to_mailing_list: The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.
         links:

@@ -15,6 +15,8 @@ class User < ApplicationRecord
   
   enum :pronunciation_of, %w[full_name personal_name formal_name envelope_name].index_by(&:to_sym), prefix: true, default: :full_name
   
+  enum :pronoun_style, %w[two three].index_by(&:to_sym), prefix: true
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
