@@ -21,6 +21,7 @@ Scenario: Pronoun style three
   And that user has set pronoun style to three
   When I visit the path that is that user's slug
   And I should see a 'hello' card with the user's personal name and pronoun in style three
+  And I should see a usage guide for the pronouns in style three
 
 Scenario: Profile URLs are case-insensitive
   Given I am signed out

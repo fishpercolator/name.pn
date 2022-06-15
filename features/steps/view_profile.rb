@@ -62,6 +62,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   
   step 'I should see a usage guide for one set of pronouns' do
     expect(page).to have_css('.profile-card__pronoun', count: 1)
+    expect(page).to have_css('.profile-card__pronoun', text: 'she/her')
     expect(page).to have_content("Audrey is a great cook.\nShe is really good at cooking.\nCooking comes really naturally to her.\n")
   end
 
@@ -147,5 +148,11 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
 
   step 'I should see a \'hello\' card with the user\'s personal name and pronoun in style three' do
     expect(page).to have_css('.napc', text: "Hello\nmy name is\nAudrey\nmy pronouns are\nshe/her/hers")
+  end
+  
+  step 'I should see a usage guide for the pronouns in style three' do
+    expect(page).to have_css('.profile-card__pronoun', count: 1)
+    expect(page).to have_css('.profile-card__pronoun', text: 'she/her/hers')
+    expect(page).to have_content("Audrey is a great cook.\nShe is really good at cooking.\nCooking comes really naturally to her.\n")
   end
 end
