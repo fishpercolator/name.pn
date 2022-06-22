@@ -46,14 +46,23 @@ RSpec.configure do |config|
         
         ### Terms of use
         
-        name.pn is still an alpha product and this API is provided with no
-        guarantees. Please be considerate in how you use it, including caching
-        responses if you're making lots of calls.
+        Use of the name.pn API is subject to the [name.pn terms and conditions 
+        of use](/pages/terms), including the prohibited uses in Section 4.
         
-        There are currently no usage limits, but your API key ID is
-        logged with every request and we reserve the right to disable clients
-        that are not being considerate in their usage. These terms will change
-        as the product matures!
+        Use of this API is provided with no guarantees. Please be considerate in
+        how you use it, including caching responses if you're making frequent
+        calls.
+        
+        There are no fixed usage limits, but your API key ID is logged with
+        every request and we reserve the right to disable clients that are not
+        being considerate in their usage.
+        
+        As a guideline, please consider 3600 calls per hour to this API as a
+        reasonable limit that we would not impose any restrictions on. If you
+        need more than this, please contact us for a commercial agreement.
+        
+        Usage of this API is currently provided at no charge. We reserve the
+        right to introduce charges to this API as this product matures.
         MD
         version: 'v1'
       },
