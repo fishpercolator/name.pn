@@ -15,3 +15,7 @@
           %span.icon
             %i.mdi.mdi-map
           %span= t('.roadmap')
+        = link_to rswag_ui_path, class: 'navbar-item', data: {turbolinks: false} do
+          %span.icon
+            %i.mdi.mdi-cogs
+          %span= t('.api')

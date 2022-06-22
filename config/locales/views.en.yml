@@ -10,6 +10,7 @@ en:
       privacy: Privacy policy
       github: GitHub
       roadmap: Public roadmap
+      api: API
   errors:
     not_found:
       title: Page not found
