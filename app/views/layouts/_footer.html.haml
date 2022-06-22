@@ -1,0 +1,17 @@
+%nav.navbar{role: 'navigation', aria: {label: t('.label')}}
+  .container
+    .navbar-menu.is-active
+      .navbar-start
+        = link_to page_path('privacy'), class: 'navbar-item' do
+          %span.icon
+            %i.mdi.mdi-shield-account
+          %span= t('.privacy')
+      .navbar-end
+        = link_to 'https://github.com/fishpercolator/name.pn', class: 'navbar-item' do
+          %span.icon
+            %i.mdi.mdi-github
+          %span= t('.github')
+        = link_to 'https://github.com/fishpercolator/name.pn/projects/1', class: 'navbar-item' do
+          %span.icon
+            %i.mdi.mdi-map
+          %span= t('.roadmap')

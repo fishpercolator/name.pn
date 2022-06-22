@@ -6,5 +6,7 @@
       = render 'layouts/navbar'
       = render 'layouts/messages'
     %main= yield
+    %footer.footer
+      = render 'layouts/footer'
     = content_for :render_async
     = content_for :modal

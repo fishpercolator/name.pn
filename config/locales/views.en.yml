@@ -1,9 +1,15 @@
 en:
   layouts:
     navbar:
+      label: main navigation
       admin: Admin
       home: Home
       about: About
+    footer:
+      label: footer navigation
+      privacy: Privacy policy
+      github: GitHub
+      roadmap: Public roadmap
   errors:
     not_found:
       title: Page not found
