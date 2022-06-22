@@ -9,7 +9,7 @@
       .box.mt-5
         = f.input :subscribe_to_mailing_list, as: :boolean, input_html: {checked: true}
       .box.mt-5
-        %p=raw t('.privacy_notice')
+        %p= t('.privacy_notice_html', url: page_path('privacy'))
       .mt-5
         = f.button :submit, t('.submit'), class: 'is-link'
     .mt-5
