@@ -2,6 +2,10 @@
   .container
     .navbar-menu.is-active
       .navbar-start
+        = link_to page_path('terms'), class: 'navbar-item' do
+          %span.icon
+            %i.mdi.mdi-file-sign
+          %span= t('.terms')
         = link_to page_path('privacy'), class: 'navbar-item' do
           %span.icon
             %i.mdi.mdi-shield-account
