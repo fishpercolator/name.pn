@@ -31,7 +31,7 @@
     "recordrtc": "^5.6.1",
     "sass": "^1.49.11",
     "sass-loader": "^12.6.0",
-    "shakapacker": "6.4.1",
+    "shakapacker": "6.5.0",
     "stimulus": "^2.0.0",
     "style-loader": "^3.3.1",
     "terser-webpack-plugin": "5",
