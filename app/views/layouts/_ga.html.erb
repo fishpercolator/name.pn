@@ -11,7 +11,12 @@
     let isInitialLoad = true;
     document.addEventListener('turbolinks:load', function(e) {
       if (isInitialLoad){isInitialLoad = false; return;}
-      gtag('config', '<%= Figaro.env.GA_ID %>', {page_location: e.data.url});
+      gtag('config', '<%= Figaro.env.GA_ID %>', {
+        <% if user_signed_in? %>
+        user_id: '<%= current_user.id %>',
+        <% end %>
+        page_location: e.data.url
+      });
     });
   </script>
 <% end %>
