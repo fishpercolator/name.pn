@@ -1,5 +1,6 @@
 service_name = 'name-pn'
 Datadog.configure do |c|
-  c.use :rails, log_injection: true, service_name: service_name
+  c.service = service_name
+  c.tracing.instrument :rails
 end
 SemanticLogger.application = service_name
