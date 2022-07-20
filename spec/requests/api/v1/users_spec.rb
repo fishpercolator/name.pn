@@ -23,6 +23,7 @@ RSpec.describe 'api/v1/users', type: :request do
           expect(jr[:links]).to have(2).items
           expect(jr[:pronunciation_of]).to eq('full_name')
           expect(jr[:likeness]).to end_with('likeness.png')
+          expect(jr[:alternate_names]).to have(3).items
         end
       end
       

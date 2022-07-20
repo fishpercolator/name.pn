@@ -51,7 +51,7 @@ paths:
         '404':
           description: not found
 servers:
-- url: "/api"
+- url: "/"
 components:
   securitySchemes:
     jwt:
@@ -59,6 +59,26 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
+    AlternateName:
+      type: object
+      required:
+      - name
+      - category
+      properties:
+        name:
+          type: string
+          description: An alternate name for this user
+          example: Abigail
+        category:
+          type: string
+          enum:
+          - like
+          - ok
+          - sometimes
+          - dislike
+          description: 'Whether this user likes to be called by this name: like =
+            likes; ok = does not mind; sometimes = only under specific circumstances;
+            dislike = dislikes'
     Link:
       type: object
       required:
@@ -115,6 +135,8 @@ components:
       - full_name
       - formal_name
       - envelope_name
+      - pronoun_style
+      - noindex
       properties:
         slug:
           type: string
@@ -162,6 +184,18 @@ components:
           description: International Phonetic Alphabet pronunciation
           example: ˈabi jeɪts
           nullable: true
+        pronoun_style:
+          type: string
+          enum:
+          - two
+          - three
+          description: Whether this user prefers to shorten their pronouns to two
+            (e.g. they/them) or three (e.g. they/them/theirs)
+        noindex:
+          type: boolean
+          description: If true, this user has expressed a preference for their personal
+            data not to be indexed by search engines.
+          example: false
         pronunciation:
           type: string
           format: uri
@@ -176,6 +210,10 @@ components:
             a relative URL and may redirect.'
           example: "/rails/active_storage/blobs/redirect/yyy.jpg"
           nullable: true
+        alternate_names:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AlternateName"
         links:
           type: array
           items:

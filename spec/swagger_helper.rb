@@ -67,7 +67,7 @@ RSpec.configure do |config|
         version: 'v1'
       },
       paths: {},
-      servers: [{url: '/api'}],
+      servers: [{url: '/'}],
       components: {
         securitySchemes: {
           jwt: {
@@ -77,6 +77,7 @@ RSpec.configure do |config|
           }
         },
         schemas: {
+          AlternateName: AlternateNameBlueprint::SCHEMA,
           Link: LinkBlueprint::SCHEMA,
           PronounSet: PronounSetBlueprint::SCHEMA,
           User: UserBlueprint::SCHEMA

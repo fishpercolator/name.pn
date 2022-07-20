@@ -2,20 +2,22 @@ class UserBlueprint < Blueprinter::Base
   identifier :slug
   
   fields :personal_name, :full_name, :formal_name, 
-         :envelope_name, :pronunciation_of, :phonetic, :ipa
+         :envelope_name, :pronunciation_of, :phonetic, :ipa,
+         :pronoun_style, :noindex
   
   field :pronunciation, extractor: ActiveStorageExtractor
   field :likeness, extractor: ActiveStorageExtractor
   
   association :pronoun_sets, blueprint: PronounSetBlueprint
   association :links, blueprint: LinkBlueprint
+  association :alternate_names, blueprint: AlternateNameBlueprint
   
   # OpenAPI schema for this blueprint
   SCHEMA = {
     type: :object,
     required: %i[
       slug personal_name full_name formal_name 
-      envelope_name
+      envelope_name pronoun_style noindex
     ],
     properties: {
       slug: {
@@ -67,6 +69,16 @@ class UserBlueprint < Blueprinter::Base
         example: 'ˈabi jeɪts',
         nullable: true,
       },
+      pronoun_style: {
+        type: :string,
+        enum: %w[two three],
+        description: 'Whether this user prefers to shorten their pronouns to two (e.g. they/them) or three (e.g. they/them/theirs)'
+      },
+      noindex: {
+        type: :boolean,
+        description: 'If true, this user has expressed a preference for their personal data not to be indexed by search engines.',
+        example: false,
+      },
       pronunciation: {
         type: :string,
         format: :uri,
@@ -80,6 +92,10 @@ class UserBlueprint < Blueprinter::Base
         description: 'URL of an image of the user\'s likeness. **Note**: May be a relative URL and may redirect.',
         example: '/rails/active_storage/blobs/redirect/yyy.jpg',
         nullable: true,
+      },
+      alternate_names: {
+        type: :array,
+        items: {'$ref': '#/components/schemas/AlternateName'}
       },
       links: {
         type: :array,
