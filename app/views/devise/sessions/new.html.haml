@@ -1,10 +1,13 @@
+- content_for(:main_class) { 'is-justify-content-center' }
 %section.section
   .container
-    %h2.title= title t('.title')
-    .box
-      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        = f.input :email
-        = f.input :password
-        = f.input :remember_me, as: :boolean
-        = f.button :submit, t('.submit'), class: 'is-link'
-    = render "devise/shared/links"
+    .columns
+      .column.is-three-fifths.is-offset-one-fifth
+        %h1.title= title t('.title')
+        .box
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            = f.input :email
+            = f.input :password
+            = f.input :remember_me, as: :boolean
+            = f.button :submit, t('.submit'), class: 'is-link'
+        = render "devise/shared/links"

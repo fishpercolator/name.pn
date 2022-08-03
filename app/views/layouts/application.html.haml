@@ -5,7 +5,7 @@
     %header
       = render 'layouts/navbar'
       = render 'layouts/messages'
-    %main= yield
+    %main{class: content_for(:main_class)}= yield
     %footer.footer
       = render 'layouts/footer'
     = content_for :render_async

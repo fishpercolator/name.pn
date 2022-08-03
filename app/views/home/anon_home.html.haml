@@ -1,7 +1,8 @@
 %section.hero.is-light
   .hero-body
     .container.has-text-centered
-      %h1.title.is-1.home__title
+      %h1.home__title
+        .home__title__image= image_tag 'logo.svg', alt: t('icon_alt')
         .home__title__name= t('.title.namedot')
         .home__title__pn= t('.title.pn')
         .home__title__examples.has-text-primary.is-size-5
