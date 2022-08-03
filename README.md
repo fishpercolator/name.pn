@@ -1,5 +1,5 @@
 # name.pn
-s
+
 This is the documentation for maintainers and developers of the name.pn web app.
 
 This app follows the [Twelve-Factor](https://12factor.net/) specification, and this should be kept in mind when developing for it.
