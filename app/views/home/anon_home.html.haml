@@ -14,17 +14,32 @@
   .container
     .columns.is-multiline.is-centered.home__columns
       .column
-        .box.is-personal-name
-          %h1.title.is-5.has-text-centered= t('.get_your_name_right')
-          %p.mt-5= t('.name_right_blurb')
+        .box
+          %article.media
+            .media-left
+              %span.icon.is-large
+                %i.mdi.mdi-48px.mdi-sticker-check-outline
+            .media-content
+              %h3.title.is-5= t('.get_your_name_right')
+              %p.mt-5= t('.name_right_blurb')
       .column
-        .box.is-pronunciation
-          %h1.title.is-5.has-text-centered= t('.pronunciation')
-          %p.mt-5= t('.pronunciation_blurb')
+        .box
+          %article.media
+            .media-left
+              %span.icon.is-large
+                %i.mdi.mdi-48px.mdi-bullhorn
+            .media-content
+              %h3.title.is-5= t('.pronunciation')
+              %p.mt-5= t('.pronunciation_blurb')
       .column
-        .box.is-pronouns
-          %h1.title.is-5.has-text-centered= t('.pronouns')
-          %p.mt-5= t('.pronouns_blurb')
+        .box
+          %article.media
+            .media-left
+              %span.icon.is-large
+                %i.mdi.mdi-48px.mdi-gender-male-female
+            .media-content
+              %h3.title.is-5= t('.pronouns')
+              %p.mt-5= t('.pronouns_blurb')
 %section.section
   .container.has-text-centered
     %p= link_to t('.sign_up_free'), new_user_registration_path, class: 'button is-link is-large'

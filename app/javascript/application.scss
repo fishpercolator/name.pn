@@ -1,15 +1,11 @@
 // Config goes here
-$red:       #C33C54;
-$orange:    #EF8354;
-$yellow:    #FFD972;
-$green:     #A7E8BD;
-$turquoise: #C7EAE4;
-$cyan:      #6DD3CE;
-$blue:      #4A6FA5;
-$purple:    #820263;
+$red:       #D62839;
+$yellow:    #BC8034;
+$green:     #4E937A;
+$blue:      #175676;
 $grey:      #595959;
-$primary:   #f41046;
-$warning:   $orange;
+$primary:   $red;
+$warning:   $yellow;
 
 $family-sans-serif: Raleway, sans-serif;
 $family-handwriting: 'Patrick Hand', cursive;
@@ -21,6 +17,7 @@ $family-handwriting: 'Patrick Hand', cursive;
 
 @import "~bulma/sass/components/card";
 @import "~bulma/sass/components/level";
+@import "~bulma/sass/components/media";
 @import "~bulma/sass/components/message";
 @import "~bulma/sass/components/modal";
 @import "~bulma/sass/components/navbar";

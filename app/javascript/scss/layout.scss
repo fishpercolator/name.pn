@@ -58,6 +58,9 @@ main {
       content: ':'
     }
   }
+  a:not(.button) {
+    text-decoration: underline;
+  }
 }
 
 .button.card-footer-item {

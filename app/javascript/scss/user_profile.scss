@@ -51,13 +51,13 @@ body.user-profile {
 }
 .profile-card__header {
   border-radius: $radius-large $radius-large 0 0;
-  background-color: $primary;
+  background-color: $green;
   > .card-header-title {
     color: $white;
   }
 }
 .profile-card__heading {
-  color: $primary;
+  color: $green;
   font-weight: normal;
   &:not(:first-child) {
     margin-top: 2rem;
