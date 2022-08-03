@@ -40,7 +40,7 @@ en:
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
       new:
-        title: Forgot your password?
+        title: Lost your password?
         submit: Send me password reset instructions
       edit:
         title: Change your password

@@ -1,5 +1,6 @@
 en:
   product_name: name.pn
+  icon_alt: stylized name badge
   ago: '%{time} ago'
   actions:
     create: Create

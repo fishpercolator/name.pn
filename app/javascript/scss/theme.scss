@@ -1,32 +1,27 @@
-$personal-name: change-color($purple, $lightness: 97%);
-$variants: change-color($cyan, $lightness: 93%);
-$pronouns: change-color($orange, $lightness: 93%);
-$pronunciation: change-color($blue, $lightness: 90%);
-$url: change-color($yellow, $lightness: 90%);
-$likeness: change-color($red, $lightness: 93%);
-$links: change-color($green, $lightness: 97%);
-$primary-bg: change-color($primary, $lightness: 90%);
+$red-bg: change-color($primary, $lightness: 97%);
+$green-bg: change-color($green, $lightness: 96%);
+$blue-bg: change-color(blue, $lightness: 98%);
 
 .is-personal-name {
-  background-color: $personal-name;
+  background-color: $red-bg;
 }
 .is-variants {
-  background-color: $variants;
+  background-color: $green-bg;
 }
 .is-pronouns {
-  background-color: $pronouns;
+  background-color: $red-bg;
 }
 .is-pronunciation {
-  background-color: $pronunciation;
+  background-color: $green-bg;
 }
 .is-url {
-  background-color: $url;
+  background-color: $blue-bg;
 }
 .is-likeness {
-  background-color: $likeness;
+  background-color: $red-bg;
 }
 .is-links {
-  background-color: $links;
+  background-color: $blue-bg;
 }
 .is-ipa {
   font-family: Voces, sans-serif;

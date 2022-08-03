@@ -1,7 +1,8 @@
-%nav.navbar.is-primary{role: 'navigation', aria: {label: t('.label')}, data: {controller: 'navbar', navbar_active_class: 'is-active'}}
+%nav.navbar.is-dark{role: 'navigation', aria: {label: t('.label')}, data: {controller: 'navbar', navbar_active_class: 'is-active'}}
   .container
     .navbar-brand
       = link_to root_path, class: 'navbar-item' do
+        = image_tag 'logo.svg', alt: t('icon_alt')
         %b= t('product_name')
       %a.navbar-burger{role: 'button', aria: {label: 'menu', expanded: 'false'}, data: {navbar_target: 'burger', action: 'navbar#toggleMenu'}}
         - 3.times do

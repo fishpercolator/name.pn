@@ -30,12 +30,12 @@ en:
         pronounce: pronunciation
       subtitle: Your name – your rules
       sign_up_free: Sign up – it's free
-      get_your_name_right: People should get your name right
-      name_right_blurb: Your own page, telling people which version of your name and titles you wish they would use.
-      pronunciation: And pronounce it correctly
-      pronunciation_blurb: Let people hear you saying your name out loud in your own voice.
-      pronouns: An end to wrong pronouns
-      pronouns_blurb: You can't guess someone's pronouns from their name. Proudly display yours with automatic usage examples.
+      get_your_name_right: Share how you'd like people to use your name
+      name_right_blurb: Not everyone wants to be "title surname". Your name.pn page tells people how you like to be addressed in different situations and which nicknames you like and dislike.
+      pronunciation: Your name spoken in your voice
+      pronunciation_blurb: You can use name.pn to share how your name is pronounced. Let all your contacts hear you saying your name in your own voice.
+      pronouns: Display your pronouns to reduce misgendering
+      pronouns_blurb: You can't guess someone's pronouns (they, she, he, etc.) from their name. Sharing your helps to create a world where fewer people are misgendered. 
       warning: 'Note: name.pn is pre-alpha software and is changing all the time. Feel free to use it but expect changes and bugs!'
       learn_more: Learn more about name.pn
     user_home:
@@ -134,7 +134,7 @@ en:
       header: 'Pronouns: %{pronoun}'
   users:
     show:
-      blurb: Get your own name.pn
+      blurb: Find out more about name.pn and get your own free page
       description: "Hello! My name is %{name}. My pronouns are %{pronouns}."
       hello_my_name_is: "Hello! My name is %{name}"
       my_pronouns_are: "My pronouns are %{pronouns}"
