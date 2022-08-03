@@ -35,7 +35,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should see a link to the main site' do
-    expect(page).to have_css('a', text: 'Get your own name.pn')
+    expect(page).to have_css('a', text: 'get your own free page')
   end
 
   step 'a user exists with a detailed profile' do
