@@ -22,7 +22,7 @@ contributors are expected to abide by the code.
 ## Roadmap
 
 [Our roadmap for the next milestone and beyond can be viewed
-here](https://github.com/fishpercolator/name.pn/projects/1).
+here](https://github.com/orgs/fishpercolator/projects/1).
 
 All cards on the
 roadmap have their own space for conversation, which you are welcome to join in

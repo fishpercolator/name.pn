@@ -35,7 +35,7 @@ en:
       pronunciation: Your name spoken in your voice
       pronunciation_blurb: You can use name.pn to share how your name is pronounced. Let all your contacts hear you saying your name in your own voice.
       pronouns: Display your pronouns to reduce misgendering
-      pronouns_blurb: You can't guess someone's pronouns (they, she, he, etc.) from their name. Sharing your helps to create a world where fewer people are misgendered. 
+      pronouns_blurb: You can't guess someone's pronouns (they, she, he, etc.) from their name. Sharing your pronouns helps to create a world where fewer people are misgendered. 
       warning: 'Note: name.pn is pre-alpha software and is changing all the time. Feel free to use it but expect changes and bugs!'
       learn_more: Learn more about name.pn
     user_home:
