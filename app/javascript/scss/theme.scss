@@ -5,23 +5,23 @@ $blue-bg: change-color(blue, $lightness: 98%);
 .is-personal-name {
   background-color: $red-bg;
 }
-.is-variants {
-  background-color: $green-bg;
-}
 .is-pronouns {
-  background-color: $red-bg;
-}
-.is-pronunciation {
   background-color: $green-bg;
 }
 .is-url {
   background-color: $blue-bg;
 }
-.is-likeness {
+.is-pronunciation {
   background-color: $red-bg;
 }
-.is-links {
+.is-variants {
+  background-color: $green-bg;
+}
+.is-likeness {
   background-color: $blue-bg;
+}
+.is-links {
+  background-color: $red-bg;
 }
 .is-ipa {
   font-family: Voces, sans-serif;

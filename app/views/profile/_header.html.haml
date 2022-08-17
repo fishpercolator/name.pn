@@ -6,7 +6,7 @@
         %span.icon
           %i.mdi.mdi-close
     %ul.steps.has-content-centered.is-small
-      - wizard_steps.each.with_index do |each_step|
+      - wizard_steps.each do |each_step|
         - if @user.basic_names_complete?
           %li.steps-segment{class: ('is-active' if each_step == step)}
             = link_to '', wizard_path(each_step), class: 'steps-marker'

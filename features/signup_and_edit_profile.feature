@@ -28,6 +28,21 @@ Scenario: Can leave first page if first page has been completed
   Then I should see links to the other sections
   And I should see a save and exit button
   
+Scenario: Save and exit after basic profile
+  Given I am signed out
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I submit the form
+  And I fill in my personal name details
+  And I go to the next stage
+  And I select my pronouns as she/her
+  And I select the running example
+  And I go to the next stage
+  And I leave my slug as the default
+  And I click the save button in the optional blurb
+  Then I should be on the dashboard
+  And my profile should be completed enough to use
+
 @javascript
 Scenario: Complete profile editing
   Given I am signed out
@@ -36,14 +51,16 @@ Scenario: Complete profile editing
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
-  And I fill in my formal name details
-  And I click twice to add alternate names
-  And I add a name I like and one I dislike
+  And I select my pronouns as she/her
+  And I select the running example
+  And I go to the next stage
+  And I leave my slug as the default
   And I go to the next stage
   And I fill in my pronunciation
   And I go to the next stage
-  And I select my pronouns as she/her
-  And I select the running example
+  And I fill in my formal name details
+  And I click twice to add alternate names
+  And I add a name I like and one I dislike
   And I go to the next stage
   And I click to add an image
   And I attach my likeness
@@ -51,7 +68,6 @@ Scenario: Complete profile editing
   And I go to the next stage
   And I click twice to add a link
   And I fill in my Twitter and LinkedIn details
-  And I go to the next stage
   And I click to finish
   Then I should be on the dashboard
   And my profile should be completed successfully
@@ -67,16 +83,10 @@ Scenario: My slug is already taken
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
-  And I fill in my formal name details
-  And I go to the next stage
-  And I fill in my pronunciation
-  And I go to the next stage
   And I select my pronouns as she/her
   And I go to the next stage
-  And I go to the next stage
-  And I go to the next stage
   And I fill in audrey-horne as a slug
-  And I click to finish
+  And I click the save button in the optional blurb
   Then I should still be on the slug-editing page
   And I should see a message telling me there was a conflict
   And I should see a suggested alternative name prefilled
@@ -88,6 +98,7 @@ Scenario: Save and exit early
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
+  And I click to go to the variants page
   And I fill in my formal name details
   And I click to save and exit
   Then I should be on the dashboard

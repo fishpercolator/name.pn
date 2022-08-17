@@ -112,7 +112,11 @@ en:
       remove_link: Remove
     slug:
       title: Your URL
-      blurb: 'Last thing: you need to pick a URL for your public profile.'
+      blurb: 'Last important thing: you need to pick a URL for your public profile.'
+      the_rest_is_optional: The rest is optional
+      optional_blurb: There's lots more you can add to fill out your name.pn profile, but if you like you can stop here and start using your page right away. You will be able to come back here any time to add more details.
+      save_and_exit: Click here to save and exit
+      or_continue: or if you'd like to continue to the next sections now, go ahead and click 'Next step' below. All the following sections are optional and you can skip any you don't want to fill out.
     buttons:
       previous: Go back
       next: Next step

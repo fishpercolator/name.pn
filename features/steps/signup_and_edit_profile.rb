@@ -313,4 +313,23 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   step 'I should see an error that the file is too large' do
     expect(page).to have_content('rostyslav-savchyn.jpg exceeds maximum allowed size of 1 MB')
   end
+  
+  step 'I leave my slug as the default' do
+    # nop
+  end
+
+  step 'I click the save button in the optional blurb' do
+    click_on 'Click here to save and exit'
+  end
+
+  step 'my profile should be completed enough to use' do
+    user = User.find_by(email: 'loglady@example.com')
+    expect(user).to be_profile_complete
+  end
+  
+  step 'I click to go to the variants page' do
+    within find('.steps-segment', text: 'Variants of your name') do
+      find('a.steps-marker').click
+    end
+  end
 end
