@@ -59,13 +59,13 @@ export default class extends Controller {
         this.previewTarget.innerHTML = ''
         this.previewTarget.appendChild(img)
         this.deleteTarget.disabled = false
-        this.uploader.getPlugin('Dashboard').closeModal()
+        this.uploader.getPlugin('Dashboard').requestCloseModal()
+        this.uploader.cancelAll()
       }
     })
   }
   
   start() {
-    this.uploader.reset()
     this.uploader.getPlugin('Dashboard').openModal()
   }
   
