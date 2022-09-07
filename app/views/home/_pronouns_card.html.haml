@@ -6,7 +6,9 @@
         %i.mdi.mdi-pencil
   .card-content
     %p.mb-4.has-text-grey= t('profile.pronouns.blurb')&.first
-    - if current_user.pronoun_sets.any?
+    - if current_user.pronounless_style?
+      %p.has-text-weight-bold= t(current_user.pronounless_style, scope: 'pronounless_styles')
+    - elsif current_user.pronoun_sets.any?
       = render 'pronoun_sets/table', pronoun_sets: current_user.pronoun_sets, user: current_user
     - else
       %p= you_must

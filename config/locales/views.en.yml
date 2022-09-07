@@ -177,6 +177,10 @@ en:
     pronouns_card:
       how_to_use_my_pronouns: How to use my pronouns
       pronoun_hint: To speak about a person in English, you don't need to know their gender but you do need to know which pronouns to use. This information can't be determined from a person's name or what they look like, so we include it on everyone's page.
+      pronounless_blurbs:
+        none_html: '<b>Note about "None"</b>: I do not have pronouns. I always use my name wherever other people might use a pronoun.'
+        unknown_html: '<b>Note about "Unknown"</b>: I have not yet worked out what my pronouns are or should be. Please use my name instead of pronouns for the time being.'
+        any_html: '<b>Note about "Any"</b>: I do not mind what pronouns are used for me. Below are random examples of pronouns you could use for me.'
     links_card:
       more_about_me: More about me
       links_hint: 'These external links have been provided by %{name} and are not endorsed by name.pn.'

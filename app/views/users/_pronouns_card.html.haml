@@ -3,9 +3,10 @@
     .card-header-title= t('.how_to_use_my_pronouns')
   .card-content
     .profile-card__hint= t('.pronoun_hint')
+    - case user.pronounless_style&.to_sym
+    - when :none, :unknown
+      %p.is-size-5.mt-5= t(".pronounless_blurbs.#{user.pronounless_style}_html")
+    - when :any
+      %p.is-size-5.mt-5= t('.pronounless_blurbs.any_html')
     - pronoun_sets.each do |pronoun_set|
-      .profile-card__pronoun
-        %h2.profile-card__heading= pronoun_set.to_s(user)
-        - %i[name nominative oblique possessive_determiner possessive reflexive].each do |inflex|
-          - pronoun = (inflex == :name ? user.personal_name : pronoun_set.public_send(inflex))
-          %p.profile-card__example= raw(t inflex, scope: "pronoun_examples.#{user.pronoun_example}", pronoun: pronoun, pronoun_initial: pronoun.capitalize, nominative: pronoun_set.nominative, nominative_initial: pronoun_set.nominative.capitalize, copula: pronoun_set.copula, personal_name: user.personal_name)
+      = render 'pronoun_set', pronoun_set: pronoun_set, user: user

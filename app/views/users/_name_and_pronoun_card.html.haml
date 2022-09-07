@@ -8,5 +8,8 @@
   .napc__text-box
     .inner
       .fit{data: {napc_target: 'fit'}}
-        - pronoun_sets.each do |ps|
-          %p= ps.to_s(user)
+        - if user.pronounless_style
+          %p= user.pronounless_style.humanize
+        - else
+          - pronoun_sets.each do |ps|
+            %p= ps.to_s(user)
