@@ -24,11 +24,11 @@ class PronounSet < ApplicationRecord
   def self.name_only(user)
     new(
       name_only: true,
-      nominative: user.personal_name,
-      oblique: user.personal_name,
-      possessive_determiner: user.personal_name + "'s",
-      possessive: user.personal_name + "'s",
-      reflexive: user.personal_name,
+      nominative: "#{user.personal_name}",
+      oblique: "#{user.personal_name}",
+      possessive_determiner: "#{user.personal_name}'s",
+      possessive: "#{user.personal_name}'s",
+      reflexive: "#{user.personal_name}",
       copula: 'is'
     )
   end
