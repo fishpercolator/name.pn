@@ -3,12 +3,12 @@ class UserBlueprint < Blueprinter::Base
   
   fields :personal_name, :full_name, :formal_name, 
          :envelope_name, :pronunciation_of, :phonetic, :ipa,
-         :pronoun_style, :noindex
+         :pronoun_style, :noindex, :pronounless_style
   
   field :pronunciation, extractor: ActiveStorageExtractor
   field :likeness, extractor: ActiveStorageExtractor
   
-  association :pronoun_sets, blueprint: PronounSetBlueprint
+  association :pronoun_sets_with_preference, blueprint: PronounSetBlueprint, name: :pronoun_sets
   association :links, blueprint: LinkBlueprint
   association :alternate_names, blueprint: AlternateNameBlueprint
   
@@ -17,7 +17,7 @@ class UserBlueprint < Blueprinter::Base
     type: :object,
     required: %i[
       slug personal_name full_name formal_name 
-      envelope_name pronoun_style noindex
+      envelope_name pronoun_style noindex pronounless_style
     ],
     properties: {
       slug: {
@@ -49,6 +49,7 @@ class UserBlueprint < Blueprinter::Base
       },
       pronoun_sets: {
         type: :array,
+        description: 'The user\'s pronoun sets - note that this is affected by the value of pronounless_style',
         items: {'$ref': '#/components/schemas/PronounSet'},
         minItems: 1
       },
@@ -73,6 +74,12 @@ class UserBlueprint < Blueprinter::Base
         type: :string,
         enum: %w[two three],
         description: 'Whether this user prefers to shorten their pronouns to two (e.g. they/them) or three (e.g. they/them/theirs)'
+      },
+      pronounless_style: {
+        type: :string,
+        enum: [nil] + %w[none unknown any],
+        description: 'If set to none or unknown, the user prefers to use their name rather than pronouns. If any, the user has no pronoun preference. This value affects the values in pronoun_sets.',
+        nullable: true,
       },
       noindex: {
         type: :boolean,
