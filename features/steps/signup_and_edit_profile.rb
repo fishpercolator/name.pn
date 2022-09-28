@@ -332,4 +332,27 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
       find('a.steps-marker').click
     end
   end
+
+  step 'I select the pronounless style "none"' do
+    select 'None', from: 'if you don\'t use specific pronouns'
+  end
+
+  step 'the pronoun selection boxes should be disabled' do
+    expect(page.find('.profile-pronouns')).to have_css('input[type=checkbox][disabled]', count: 3)
+  end
+
+  step 'I select the pronounless style "N/A"' do
+    select 'N/A', from: 'if you don\'t use specific pronouns'
+  end
+
+  step 'the pronoun selection boxes should be enabled' do
+    expect(page.find('.profile-pronouns')).not_to have_css('input[type=checkbox][disabled]')
+    expect(page.find('.profile-pronouns')).to have_css('input[type=checkbox]', count: 3)
+  end
+
+  step 'I should have a pronounless style and no pronouns saved in my user' do
+    user = User.find_by(email: 'loglady@example.com')
+    expect(user).to be_pronounless_style
+    expect(user.pronoun_sets).to eq([])
+  end
 end
