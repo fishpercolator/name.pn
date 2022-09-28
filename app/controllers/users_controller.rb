@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     authorize @user
     
     if @pronoun_sets.blank?
-      @pronoun_sets = @user.pronoun_sets
+      @pronoun_sets = @user.pronoun_sets_with_preference
     end
     
     respond_to do |format|

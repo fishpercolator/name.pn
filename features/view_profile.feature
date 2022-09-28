@@ -20,8 +20,35 @@ Scenario: Pronoun style three
   And a user exists with a basic profile
   And that user has set pronoun style to three
   When I visit the path that is that user's slug
-  And I should see a 'hello' card with the user's personal name and pronoun in style three
+  Then I should see a 'hello' card with the user's personal name and pronoun in style three
   And I should see a usage guide for the pronouns in style three
+
+Scenario: Pronounless (none)
+  Given I am signed out
+  And a user exists with a basic profile
+  And that user has pronounless style "none"
+  When I visit the path that is that user's slug
+  Then I should see a 'hello' card with the user's personal name
+  And the pronouns in the hello card should be listed as "None"
+  And I should see a usage guide that shows only the user's name
+
+Scenario: Pronounless (unknown)
+  Given I am signed out
+  And a user exists with a basic profile
+  And that user has pronounless style "unknown"
+  When I visit the path that is that user's slug
+  Then I should see a 'hello' card with the user's personal name
+  And the pronouns in the hello card should be listed as "Unknown"
+  And I should see a usage guide that shows only the user's name
+
+Scenario: Pronounless (any)
+  Given I am signed out
+  And a user exists with a basic profile
+  And that user has pronounless style "any"
+  When I visit the path that is that user's slug
+  Then I should see a 'hello' card with the user's personal name
+  And the pronouns in the hello card should be listed as "Any"
+  And I should see three random usage guides using any pronouns
 
 Scenario: Profile URLs are case-insensitive
   Given I am signed out

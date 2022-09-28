@@ -44,6 +44,43 @@ Scenario: Save and exit after basic profile
   And my profile should be completed enough to use
 
 @javascript
+Scenario: Pronoun selection boxes disabled when pronounless style selected
+  Given I am signed out
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I submit the form
+  And I fill in my personal name details
+  And I go to the next stage
+  And I select the pronounless style "none"
+  Then the pronoun selection boxes should be disabled
+
+@javascript
+Scenario: Pronoun selection boxes enabled when pronounless style unselected
+  Given I am signed out
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I submit the form
+  And I fill in my personal name details
+  And I go to the next stage
+  And I select the pronounless style "N/A"
+  Then the pronoun selection boxes should be enabled
+
+Scenario: Save pronounless style
+  Given I am signed out
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I submit the form
+  And I fill in my personal name details
+  And I go to the next stage
+  And I select the pronounless style "none"
+  And I go to the next stage
+  And I leave my slug as the default
+  And I click the save button in the optional blurb
+  Then I should be on the dashboard
+  And my profile should be completed enough to use
+  And I should have a pronounless style and no pronouns saved in my user
+
+@javascript
 Scenario: Complete profile editing
   Given I am signed out
   When I visit the sign up page

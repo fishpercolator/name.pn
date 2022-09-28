@@ -13,6 +13,7 @@ en:
         personal_name: Your personal name
         envelope_name: Your envelope name
         formal_name: Your formal name
+        pronounless_style: "Or: if you don't use specific pronouns, please select your reason"
         pronunciation_of: 'Which version of your name would you like to pronounce?'
         phonetic: "Phonetic pronunciation of '%{name}'"
         ipa: "Advanced: IPA pronunciation"
@@ -30,6 +31,7 @@ en:
         noindex: Instruct search engines not to index your profile page. The most popular search engines will obey this instruction but please note that it does not provide guarantees.
         pronoun_style: How many pronouns would you like displayed in the short version of your pronouns?
         pronoun_example: We'll use this activity as a reference to show people how to use your pronouns. Pick the one that best fits your personality.
+        pronounless_style: Some people do not use pronouns, or are genuinely happy to have any pronouns used for them. If this is you, please select from these options instead of selecting pronouns above.
         subscribe_to_mailing_list: The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.
         links:
           title: What this is a link to, e.g. 'Twitter'.

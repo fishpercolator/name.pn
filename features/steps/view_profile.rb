@@ -155,4 +155,45 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
     expect(page).to have_css('.profile-card__pronoun', text: 'she/her/hers')
     expect(page).to have_content("Audrey is a great cook.\nShe is really good at cooking.\nCooking comes really naturally to her.\n")
   end
+
+  step 'that user has pronounless style "none"' do
+    User.last.update(pronounless_style: 'none')
+  end
+
+  step 'that user has pronounless style "unknown"' do
+    User.last.update(pronounless_style: 'unknown')
+  end
+
+  step 'that user has pronounless style "any"' do
+    User.last.update(pronounless_style: 'any')
+  end
+
+  step 'I should see a \'hello\' card with the user\'s personal name' do
+    expect(page).to have_css('.napc', text: "Hello\nmy name is\nAudrey\n")
+  end
+
+  step 'the pronouns in the hello card should be listed as "None"' do
+    expect(page).to have_css('.napc', text: "my pronouns are\nNone")
+  end
+
+  step 'I should see a usage guide that shows only the user\'s name' do
+    expect(page).to have_css('.profile-card__pronoun', count: 1)
+    expect(page).to have_css('.profile-card__pronoun', text: 'Please always use my name')
+    expect(page).to have_content("Audrey is a great cook.\nAudrey is really good at cooking.\nCooking comes really naturally to Audrey.\n")   
+  end
+
+  step 'the pronouns in the hello card should be listed as "Unknown"' do
+    expect(page).to have_css('.napc', text: "my pronouns are\nUnknown")
+  end
+
+  step 'the pronouns in the hello card should be listed as "Any"' do
+    expect(page).to have_css('.napc', text: "my pronouns are\nAny")
+  end
+
+  step 'I should see three random usage guides using any pronouns' do
+    expect(page).to have_css('.profile-card__pronoun', count: 3)
+    expect(page).to have_content("She is really good at cooking.")
+    expect(page).to have_content("He is really good at cooking.")
+    expect(page).to have_content("They are really good at cooking.")
+  end
 end

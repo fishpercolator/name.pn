@@ -12,10 +12,16 @@ en:
     not_authorized: Sorry - you are not permitted to do that
     messages:
       file_size_out_of_range: That file is too large (%{file_size}); please try uploading something smaller.
+  please_use_my_name: Please always use my name
   pronoun_set_hint: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
   pronoun_styles:
     two: Two pronouns (e.g. they/them)
     three: Three pronouns (e.g. they/them/theirs)
+  pronounless_styles:
+    na: 'N/A'
+    none: 'None: I do not have pronouns - please always use my name'
+    unknown: 'Unknown: I am in a transition period - please use my name for now'
+    any: 'Any: I prefer to be called by any available pronoun'
   pronoun_example_headings:
     boardgaming: Board gaming
     cooking: Cooking
@@ -30,14 +36,14 @@ en:
       oblique: 'Cooking comes really naturally to <b>%{pronoun}</b>.'
       possessive_determiner: 'Cooking is one of <b>%{pronoun}</b> best skills.'
       possessive: 'I think this cookbook is <b>%{pronoun}</b>.'
-      reflexive: '%{nominative_initial} came up with this recipe <b>%{pronoun}</b>.'
+      reflexive: '%{nominative_initial} is cooking this recipe for <b>%{pronoun}</b>.'
     dancing:
       name: '<b>%{pronoun}</b> is often found on the dance floor.'
       nominative: '<b>%{pronoun_initial}</b> %{copula} dancing right now.'
       oblique: 'You should see <b>%{pronoun}</b> dance!'
       possessive_determiner: 'Dancing is one of <b>%{pronoun}</b> passions.'
       possessive: 'The dance trophy should have been <b>%{pronoun}</b>!'
-      reflexive: '%{nominative_initial} invented this dance move <b>%{pronoun}</b>.'
+      reflexive: '%{nominative_initial} keeps <b>%{pronoun}</b> fit by dancing.'
     reading:
       name: '<b>%{pronoun}</b> is a book-lover.'
       nominative: '<b>%{pronoun_initial}</b> %{copula} about to finish reading a book.'

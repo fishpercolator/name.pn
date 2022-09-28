@@ -16,6 +16,7 @@ class User < ApplicationRecord
   enum :pronunciation_of, %w[full_name personal_name formal_name envelope_name].index_by(&:to_sym), prefix: true, default: :full_name
   
   enum :pronoun_style, %w[two three].index_by(&:to_sym), prefix: true
+  enum :pronounless_style, %w[none unknown any].index_by(&:to_sym), prefix: true
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -50,8 +51,19 @@ class User < ApplicationRecord
   end
   
   # To have a complete profile you must have entered a full name,
-  # a personal name and at least one pronoun
+  # a personal name and at least one pronoun or declared yourself pronounless
   def profile_complete?
-    basic_names_complete? && pronoun_sets.any? && slug.present?
+    basic_names_complete? && (pronoun_sets.any? || pronounless_style.present?) && slug.present?
+  end
+
+  def pronoun_sets_with_preference
+    case pronounless_style&.to_sym
+    when :none, :unknown
+      [PronounSet.name_only(self)]
+    when :any
+      PronounSet.random.limit(3)
+    else
+      pronoun_sets
+    end
   end
 end
