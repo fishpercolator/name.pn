@@ -1,10 +1,14 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ['option']
+  static targets = ['pronounless', 'option']
 
-  changePronounless(e) {
-    let disabled = (e.target.value !== '')
+  connect () {
+    this.changePronounless()
+  }
+
+  changePronounless() {
+    let disabled = (this.pronounlessTarget.value !== '')
     this.optionTargets.forEach(t => t.disabled = disabled)
   }
 }
