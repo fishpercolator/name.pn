@@ -3,8 +3,9 @@ class User < ApplicationRecord
   include UserImage
   include MailingListable
   include ActiveStorageSupport::SupportForBase64
-    
-  has_and_belongs_to_many :pronoun_sets
+  
+  has_many :user_pronoun_sets
+  has_many :pronoun_sets, through: :user_pronoun_sets
   has_many :links, dependent: :destroy
   has_many :alternate_names, dependent: :destroy
   has_many :clients, dependent: :destroy
