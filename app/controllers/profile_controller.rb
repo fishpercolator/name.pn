@@ -60,6 +60,9 @@ class ProfileController < ApplicationController
   def set_user
     @user = current_user
     authorize @user, :update?
+
+    # Get the set of pronoun_sets the user hasn't selected and render them as user_pronoun_sets
+    @additional_ups = PronounSet.where.not(id: @user.pronoun_sets).map {|ps| UserPronounSet.new(pronoun_set: ps, user: @user)}
   end
   
   def pronunciation

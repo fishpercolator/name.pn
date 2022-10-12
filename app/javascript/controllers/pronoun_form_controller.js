@@ -1,11 +1,11 @@
 import { Controller } from "stimulus"
-import Sortable from 'sortablejs'
+// import Sortable from 'sortablejs'
 
 export default class extends Controller {
   static targets = ['pronounless', 'list', 'option']
 
   connect () {
-    this.sortable = Sortable.create(this.listTarget)
+    // this.sortable = Sortable.create(this.listTarget)
     this.changePronounless()
   }
 

@@ -31,6 +31,7 @@ class User < ApplicationRecord
   
   accepts_nested_attributes_for :links, allow_destroy: true
   accepts_nested_attributes_for :alternate_names, allow_destroy: true
+  accepts_nested_attributes_for :user_pronoun_sets, allow_destroy: true
   
   validates :likeness, size: { less_than: 1.megabyte }
   validates :pronunciation, size: { less_than: 2.megabytes }
