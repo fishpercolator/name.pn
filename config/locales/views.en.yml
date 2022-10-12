@@ -110,6 +110,9 @@ en:
       add_link: Add a link
     link_fields:
       remove_link: Remove
+    user_pronoun_set_fields:
+      pronoun_set_hint: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
+      position_hint: Set this to a position number to reorder your pronouns (1 is the top)
     slug:
       title: Your URL
       blurb: 'Last important thing: you need to pick a URL for your public profile.'
