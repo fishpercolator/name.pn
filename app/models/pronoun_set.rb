@@ -6,7 +6,8 @@ class PronounSet < ApplicationRecord
   
   attr_accessor :name_only
 
-  has_and_belongs_to_many :users
+  has_many :user_pronoun_sets
+  has_many :users, through: :user_pronoun_sets
 
   def to_s(user=nil)
     if name_only

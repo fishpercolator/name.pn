@@ -1,0 +1,9 @@
+- ps ||= f.object&.pronoun_set
+- user ||= f.object&.user
+= f.hidden_field :pronoun_set_id
+.checkbox
+  = f.label :_destroy do
+    = f.number_field :position, title: t('.position_hint'), data: {pronoun_form_target: 'position'}
+    = f.check_box :_destroy, {checked: f.object.persisted?, data: {pronoun_form_target: 'option'}}, '0', '1'
+    %span= ps.to_s
+    %p.help= raw t('.pronoun_set_hint', name: user.personal_name, nominative: ps.nominative, oblique: ps.oblique, copula: ps.copula)

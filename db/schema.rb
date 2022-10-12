@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_113908) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_28_152520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -116,9 +116,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_113908) do
     t.index ["position"], name: "index_pronoun_sets_on_position"
   end
 
-  create_table "pronoun_sets_users", id: false, force: :cascade do |t|
+  create_table "user_pronoun_sets", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "pronoun_set_id", null: false
+    t.integer "position"
   end
 
   create_table "users", force: :cascade do |t|

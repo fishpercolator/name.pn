@@ -197,3 +197,58 @@ Scenario: Likeness is too large
   And I click to add an image
   And I attach a likeness that is too large
   Then I should see an error that the file is too large
+
+Scenario: Reorder pronouns (no JavaScript)
+  Given I am signed out
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I submit the form
+  And I fill in my personal name details
+  And I go to the next stage
+  And I select my pronouns as she/her
+  And I type 2 into the she/her position box
+  And I select my pronouns as they/them
+  And I type 1 into the they/them position box
+  And I click to save and exit
+  And I visit my profile page
+  Then I should see my pronouns listed in the order they/them, she/her
+
+@javascript
+Scenario: Reordering boxes invisible when JavaScript on
+  Given I am signed out
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I submit the form
+  And I fill in my personal name details
+  And I go to the next stage
+  Then I should see pronoun checkboxes but no position boxes
+
+@javascript
+Scenario: No reorder (JavaScript enabled)
+  Given I am signed out
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I submit the form
+  And I fill in my personal name details
+  And I go to the next stage
+  And I select my pronouns as she/her
+  And I select my pronouns as they/them
+  And I click to save and exit
+  And I visit my profile page
+  Then I should see my pronouns listed in the order she/her, they/them
+
+# https://github.com/rubycdp/cuprite/issues/178
+@javascript @wip
+Scenario: Reorder with drag-and-drop
+  Given I am signed out
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I submit the form
+  And I fill in my personal name details
+  And I go to the next stage
+  And I select my pronouns as she/her
+  And I select my pronouns as they/them
+  And I drag they/them to the top position
+  And I click to save and exit
+  And I visit my profile page
+  Then I should see my pronouns listed in the order they/them, she/her

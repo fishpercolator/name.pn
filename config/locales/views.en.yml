@@ -99,7 +99,8 @@ en:
       blurb: 
         - To address you properly in English, people don't need to know your gender, but they do need to know your personal pronouns.
         - This is especially important for people who are trans and gender-nonconforming, and for people with unusual or gender-neutral names. We ask everyone to provide this information so as not to make some users feel like the odd one out.
-        - Most people will need to select only one item below. Please choose the pronouns that feel most natural for talking about you. The option to select multiple pronouns is available for people who use multiple pronouns.
+        - Most people will need to select only one item below. Please choose the pronouns that feel most natural for talking about you.
+        - The option to select multiple pronouns is available for people who use multiple pronouns. If you select multiple pronouns, you can also drag-and-drop them into the order you'd like them to be displayed on your profile.
       get_in_touch: If you don't see your pronouns here, please get in touch.
     likeness:
       title: What you look like
@@ -110,6 +111,9 @@ en:
       add_link: Add a link
     link_fields:
       remove_link: Remove
+    user_pronoun_set_fields:
+      pronoun_set_hint: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
+      position_hint: Set this to a position number to reorder your pronouns (1 is the top)
     slug:
       title: Your URL
       blurb: 'Last important thing: you need to pick a URL for your public profile.'

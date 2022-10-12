@@ -355,4 +355,44 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(user).to be_pronounless_style
     expect(user.pronoun_sets).to eq([])
   end
+
+  step 'I type 2 into the she/her position box' do
+    within find('.checkbox', text: 'she/her') do
+      find('input[type=number]').fill_in with: '2'
+    end
+  end
+
+  step 'I select my pronouns as they/them' do
+    check 'they/them'
+  end
+
+  step 'I type 1 into the they/them position box' do
+    within find('.checkbox', text: 'they/them') do
+      find('input[type=number]').fill_in with: '1'
+    end
+  end
+
+  step 'I visit my profile page' do
+    visit '/log-lady'
+  end
+
+  step 'I should see my pronouns listed in the order she/her, they/them' do
+    expect(page).to have_content("my pronouns are\nshe/her\nthey/them\n")
+  end
+
+  step 'I should see my pronouns listed in the order they/them, she/her' do
+    expect(page).to have_content("my pronouns are\nthey/them\nshe/her\n")
+  end
+
+  step 'I should see pronoun checkboxes but no position boxes' do
+    expect(page).to have_css('.checkbox', text: 'they/them')
+    expect(page).not_to have_css('input[type=number]')
+  end
+
+  step 'I drag they/them to the top position' do
+    top = first('.checkbox')
+    tt = find('.checkbox', text: 'they/them')
+    tt.drag_to(top)
+    expect(first('.checkbox')).to have_content('they/them')
+  end
 end

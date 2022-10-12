@@ -3,8 +3,9 @@ class User < ApplicationRecord
   include UserImage
   include MailingListable
   include ActiveStorageSupport::SupportForBase64
-    
-  has_and_belongs_to_many :pronoun_sets
+  
+  has_many :user_pronoun_sets
+  has_many :pronoun_sets, -> { reorder('user_pronoun_sets.position': :asc) }, through: :user_pronoun_sets
   has_many :links, dependent: :destroy
   has_many :alternate_names, dependent: :destroy
   has_many :clients, dependent: :destroy
@@ -30,6 +31,7 @@ class User < ApplicationRecord
   
   accepts_nested_attributes_for :links, allow_destroy: true
   accepts_nested_attributes_for :alternate_names, allow_destroy: true
+  accepts_nested_attributes_for :user_pronoun_sets, allow_destroy: true
   
   validates :likeness, size: { less_than: 1.megabyte }
   validates :pronunciation, size: { less_than: 2.megabytes }

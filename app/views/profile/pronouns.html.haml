@@ -9,7 +9,13 @@
             - t('.blurb').each do |para|
               %p.mb-3.has-text-grey= para
             %p.mb-5.has-text-grey= t('profile.show.you_must_complete')
-            = f.association :pronoun_sets, as: :pronouns, label: false, item_wrapper_tag: 'div', wrapper_class: 'profile-pronouns', input_html: {data: {pronoun_form_target: 'option'}}
+            .profile-pronouns{data: {pronoun_form_target: 'list'}}
+              = f.simple_fields_for :user_pronoun_sets do |ff|
+                = render 'user_pronoun_set_fields', f: ff
+              - @additional_ups.each do |ups|
+                = f.simple_fields_for :user_pronoun_sets, ups do |ff|
+                  = render 'user_pronoun_set_fields', f: ff
+            =# f.association :pronoun_sets, as: :pronouns, label: false, item_wrapper_tag: 'div', wrapper_class: 'profile-pronouns', wrapper_html: {data: {pronoun_form_target: 'list'}}, input_html: {data: {pronoun_form_target: 'option'}}
             %p.my-3.has-text-grey= t('.get_in_touch')
             = f.input :pronounless_style, as: :select, collection: User.pronounless_styles.keys.map {|ps| [t(ps, scope: 'pronounless_styles'), ps]}, include_blank: t('pronounless_styles.na'), wrapper_class: 'mt-5', input_html: {data: {pronoun_form_target: 'pronounless', action: 'pronoun-form#changePronounless'}}
             = f.input :pronoun_style, as: :select, collection: User.pronoun_styles.keys.map {|ps| [t(ps, scope: 'pronoun_styles'), ps]}, include_blank: false, wrapper_class: 'mt-5'
