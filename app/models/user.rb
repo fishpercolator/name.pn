@@ -5,7 +5,7 @@ class User < ApplicationRecord
   include ActiveStorageSupport::SupportForBase64
   
   has_many :user_pronoun_sets
-  has_many :pronoun_sets, through: :user_pronoun_sets
+  has_many :pronoun_sets, -> { reorder('user_pronoun_sets.position': :asc) }, through: :user_pronoun_sets
   has_many :links, dependent: :destroy
   has_many :alternate_names, dependent: :destroy
   has_many :clients, dependent: :destroy

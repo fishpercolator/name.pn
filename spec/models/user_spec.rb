@@ -43,5 +43,16 @@ RSpec.describe User, type: :model do
         expect(subject).to have(3).items
       end
     end
+    context 'user has specified an order for pronouns' do
+      before do
+        user.user_pronoun_sets.destroy_all
+        UserPronounSet.create!(user: user, pronoun_set: PronounSet.find_by(nominative: 'he'), position: 1)
+        UserPronounSet.create!(user: user, pronoun_set: PronounSet.find_by(nominative: 'they'), position: 2)
+        user.reload
+      end
+      it 'returns the pronoun sets in the correct order' do
+        expect(subject.map(&:to_s)).to eq(%w[he/him they/them])
+      end
+    end
   end
 end

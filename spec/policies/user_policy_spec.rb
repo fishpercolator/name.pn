@@ -27,7 +27,7 @@ RSpec.describe UserPolicy, type: :policy do
   context 'being the actual user' do
     let(:user) { user_obj }
     it { is_expected.to permit_actions(%i[show update]) }
-    it { is_expected.to permit_mass_assignment_of([:full_name, :personal_name, :formal_name, :envelope_name, :phonetic, :ipa, :slug, :pronunciation_of, :pronoun_style, :pronounless_style, :noindex, :pronoun_set_ids => [], :links_attributes => [:id, :title, :url, :_destroy], :alternate_names_attributes => [:id, :name, :category, :_destroy]]) }
+    it { is_expected.to permit_mass_assignment_of([:full_name, :personal_name, :formal_name, :envelope_name, :phonetic, :ipa, :slug, :pronunciation_of, :pronoun_style, :pronounless_style, :noindex, :user_pronoun_sets_attributes => [:id, :pronoun_set_id, :position, :_destroy], :links_attributes => [:id, :title, :url, :_destroy], :alternate_names_attributes => [:id, :name, :category, :_destroy]]) }
     context 'profile not complete' do
       let(:user_obj) { create :user }
       it { is_expected.to permit_actions(%i[update]) }
