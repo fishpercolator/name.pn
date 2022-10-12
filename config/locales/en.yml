@@ -35,14 +35,14 @@ en:
       oblique: 'Cooking comes really naturally to <b>%{pronoun}</b>.'
       possessive_determiner: 'Cooking is one of <b>%{pronoun}</b> best skills.'
       possessive: 'I think this cookbook is <b>%{pronoun}</b>.'
-      reflexive: '%{nominative_initial} is cooking this recipe for <b>%{pronoun}</b>.'
+      reflexive: '%{nominative_initial} %{copula} cooking this recipe for <b>%{pronoun}</b>.'
     dancing:
       name: '<b>%{pronoun}</b> is often found on the dance floor.'
       nominative: '<b>%{pronoun_initial}</b> %{copula} dancing right now.'
       oblique: 'You should see <b>%{pronoun}</b> dance!'
       possessive_determiner: 'Dancing is one of <b>%{pronoun}</b> passions.'
       possessive: 'The dance trophy should have been <b>%{pronoun}</b>!'
-      reflexive: '%{nominative_initial} keeps <b>%{pronoun}</b> fit by dancing.'
+      reflexive: '%{nominative_initial} %{copula} keeping <b>%{pronoun}</b> fit by dancing.'
     reading:
       name: '<b>%{pronoun}</b> is a book-lover.'
       nominative: '<b>%{pronoun_initial}</b> %{copula} about to finish reading a book.'
