@@ -1,4 +1,4 @@
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus"
 
 import Uppy from '@uppy/core'
 import XHRUpload from '@uppy/xhr-upload'
@@ -9,6 +9,11 @@ import Rails from 'rails-ujs'
 
 export default class extends Controller {
   static targets = ['preview', 'delete']
+
+  static values = {
+    endpoint: { type: String, default: '/profile/likeness' },
+    fieldName: { type: String, default: 'user[likeness]' }
+  }
   
   connect() {
     this.uploader = new Uppy({
@@ -41,9 +46,9 @@ export default class extends Controller {
       }
     })
     .use(XHRUpload, {
-      endpoint: '/profile/likeness',
+      endpoint: this.endpointValue,
       method: 'patch',
-      fieldName: 'user[likeness]',
+      fieldName: this.fieldNameValue,
       headers: {
         accept: 'application/json',
         'x-csrf-token': Rails.csrfToken()

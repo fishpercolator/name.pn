@@ -16,8 +16,8 @@ if (navigator.serviceWorker) {
 }
 
 // Start Stimulus
-import { Application } from "stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers"
-const application = Application.start()
+import { Application } from "@hotwired/stimulus"
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
+window.Stimulus = Application.start()
 const context = require.context("controllers", true, /.js$/)
-application.load(definitionsFromContext(context))
+Stimulus.load(definitionsFromContext(context))
