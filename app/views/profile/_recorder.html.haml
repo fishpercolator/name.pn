@@ -4,7 +4,7 @@
       = pf.hidden_field :data, data: {recorder_target: 'field'}, value: nil
       = pf.hidden_field :delete, data: {recorder_target: 'deleteFlag'}, value: ''
     .recorder__buttons
-      %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {recorder_target: 'button', action: 'pointerdown->recorder#start pointerup->recorder#stop'}}
+      %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {recorder_target: 'button', action: 'pointerdown->recorder#start pointerup->recorder#stop pointerleave->recorder#stop'}}
         %span.icon
           %i.mdi.mdi-record-circle
         %span.recorder__button-text-idle= t('.record')
