@@ -26,3 +26,8 @@ $blue-bg: change-color(blue, $lightness: 98%);
 .is-ipa {
   font-family: Voces, sans-serif;
 }
+
+.can-wrap {
+  white-space: normal;
+  height: auto;
+}
