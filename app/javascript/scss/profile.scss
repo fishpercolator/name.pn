@@ -89,14 +89,34 @@
 }
 
 .recorder {
-  &:not(.recorder--enabled) {
-    .recorder__available {
+  .recorder__available, .recorder__prompt-form, .recorder__denied {
+    display: none;
+  }
+  
+  &.recorder--granted {
+    .recorder__unavailable, input#user_pronunciation {
       display: none;
     }
+    .recorder__available {
+      display: block;
+    }
   }
-  &.recorder--enabled {
-    .recorder__unavailable {
+  
+  &.recorder--prompt {
+    .recorder__unavailable, input#user_pronunciation {
       display: none;
+    }
+    .recorder__prompt-form {
+      display: block;
+    }
+  }
+  
+  &.recorder--denied {
+    .recorder__unavailable, input#user_pronunciation {
+      display: none;
+    }
+    .recorder__denied {
+      display: block;
     }
   }
 }
