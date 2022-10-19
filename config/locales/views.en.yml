@@ -171,9 +171,9 @@ en:
         envelope_name: Please use this name when adding my name to an address in a formal context.
         variants:
           like: It's always OK to use these nicknames or variants of my name wherever you use my personal name.
-          ok: If you use these variants of my personal name I won't mind, but they're not names I enjoy being called.
+          ok: If you use these variants of my name I won't mind, but they're not names I enjoy being called.
           sometimes: There are some circumstances in which you might hear people using these variants of my personal name. Please don't use them except in those circumstances.
-          dislike: Please don't use these variants of my personal name.
+          dislike: Please don't use these variants of my name.
     likeness_card:
       what_i_look_like: What I look like
       alt_text: A picture of %{name}
