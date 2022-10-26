@@ -22,6 +22,8 @@ ActiveAdmin.register User do
     column :email
     column :full_name
     column :role
+    column :pronoun_sets
+    column :pronounless_style
     actions
   end
 
@@ -43,6 +45,8 @@ ActiveAdmin.register User do
       f.input :envelope_name
       f.input :phonetic
       f.input :pronoun_sets
+      f.input :pronoun_style, as: :select
+      f.input :pronounless_style, as: :select
     end
     f.actions
   end
@@ -61,8 +65,11 @@ ActiveAdmin.register User do
       row :alternate_names
       row :phonetic
       row :pronoun_sets
+      row :pronoun_style
+      row :pronounless_style
       row(:likeness) {|u| u.likeness.attached? ? image_tag(u.likeness.variant(resize_to_limit: [300,300])) : '-'}
       row :links
+      row :clients
       row :created_at
       row :updated_at
       row :current_sign_in_at
