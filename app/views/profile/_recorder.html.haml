@@ -9,7 +9,12 @@
         %span.recorder__button-text-idle= t('.record')
         %span.recorder__button-text-active= t('.recording')
   .recorder__prompt-form
-    INSERT PROMPT FORM HERE
+    .recorder__buttons
+      %button.button.is-danger.is-medium{type: 'button', data: {action: 'recorder#prompt'}}
+        %span.icon
+          %i.mdi.mdi-microphone-question
+        %span= t('.prompt')
+    %p.help= t('.prompt_hint')
   .recorder__denied.mt-3
     %article.notification.is-danger
       %span.icon.is-medium

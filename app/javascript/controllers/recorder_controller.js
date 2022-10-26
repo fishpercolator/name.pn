@@ -20,12 +20,32 @@ export default class extends Controller {
   // Test the current state of the mic and set classes on the element accordingly
   async testMicState() {
     this.micState = await navigator.permissions.query({ name: 'microphone' })
+
     // Remove any classes that were added by earlier calls to this method
-    const classes = [this.grantedClass, this.promptClass, this.deniedClass]
-    classes.forEach(x => this.element.classList.remove(x))
+    this.element.classList.remove(this.grantedClass, this.promptClass, this.deniedClass)
     // Set the appropriate class for the current micState
     if (this.micState.state) {
       this.element.classList.add(this[this.micState.state + 'Class'])
+    }
+  }
+
+  // Ask for the user's permission to stream and stop the stream immediately after
+  async prompt () {
+    try {
+      this.stream = await navigator.mediaDevices.getUserMedia({audio: true, video: false})
+      this.stop()
+    } catch (e) {
+      // Just log errors
+      console.error(e)
+    } finally {
+      this.testMicState()
+    }
+  }
+
+  stop () {
+    if (this.stream) {
+      this.stream.getTracks().forEach(t => t.stop())
+      this.stream = null
     }
   }
   

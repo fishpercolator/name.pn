@@ -128,11 +128,14 @@ en:
     header:
       save_and_exit: Save and exit
     recorder:
+      prompt: Give permission for microphone
+      prompt_hint: We've detected that you haven't yet given name.pn permission to access your microphone. Please click the button and say "Allow" when your browser asks you. We will only use your microphone when you are making recordings for your profile. If you do not want to give us permission, this feature is optional and you can skip it.
       record: Hold to record
       recording: Recording
       play: Play
       delete_audio: Delete audio
       hint: If you like, you can record audio of yourself saying your name here. Hold the Record button while you're speaking and release it when you're done. You can preview the sound with the Play buton until you're happy with it or delete the sound if you want to proceed without it.
+      recorder_denied: It looks like you've blocked name.pn from accessing your microphone. If you'd like to use this feature, please find your browser microphone settings and allow name.pn.
       recorder_unavailable: It looks like recording audio is not currently available in your browser. Please try using the latest version of Google Chrome, Mozilla Firefox or Microsoft Edge.
     likeness_uploader:
       upload_button: Set image
