@@ -33,7 +33,7 @@
     "recordrtc": "^5.6.1",
     "sass": "^1.49.11",
     "sass-loader": "^12.6.0",
-    "shakapacker": "^6.5.1",
+    "shakapacker": "^6.5.4",
     "sortablejs": "^1.15.0",
     "style-loader": "^3.3.1",
     "terser-webpack-plugin": "5",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "improved-yarn-audit": "^3.0.0",
-    "webpack-dev-server": "^4.8.1"
+    "webpack-dev-server": "^4.11.1"
   },
   "version": "0.1.0",
   "babel": {
