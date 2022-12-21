@@ -13,6 +13,10 @@ ENV RAILS_ENV test
 
 COPY Gemfile Gemfile.lock $APP/
 RUN bundle install
+
+# https://github.com/mikel/mail/issues/1489 - remove when fixed
+RUN find /usr/local/bundle/gems/mail-2.8.0/ -type f -perm 640 -exec chmod 644 {} \;
+
 COPY package.json yarn.lock $APP/
 RUN yarn
 RUN chown rails:rails $APP/
