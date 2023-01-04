@@ -94,7 +94,8 @@
   }
   
   &.recorder--granted {
-    .recorder__unavailable, input#user_pronunciation {
+    .recorder__unavailable {
+    // .recorder__unavailable, input#user_pronunciation_data {
       display: none;
     }
     .recorder__available {

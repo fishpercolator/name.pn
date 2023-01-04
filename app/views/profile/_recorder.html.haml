@@ -1,6 +1,8 @@
 .recorder{data: {controller: 'recorder', recorder_granted_class: 'recorder--granted', recorder_prompt_class: 'recorder--prompt', recorder_denied_class: 'recorder--denied'}}
   -# https://web.dev/media-recording-audio/
-  = f.file_field :pronunciation, accept: 'audio/wav', capture: '', data: {recorder_target: 'field'}
+  = f.fields_for :pronunciation do |pf|
+    = pf.file_field :data, accept: 'audio/wav', capture: '', data: {recorder_target: 'field', action: 'recorder#recorded'}
+    = pf.hidden_field :delete, data: {recorder_target: 'deleteFlag'}, value: ''
   .recorder__available
     .recorder__buttons
       %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {recorder_target: 'button', action: 'pointerdown->recorder#start pointerup->recorder#stop pointerleave->recorder#stop'}}
@@ -8,6 +10,13 @@
           %i.mdi.mdi-record-circle
         %span.recorder__button-text-idle= t('.record')
         %span.recorder__button-text-active= t('.recording')
+      = render 'users/player', data: {recorder_target: 'player', player_url_value: (url_for(f.object.pronunciation) if f.object.pronunciation.attached?)}, button_class: 'is-success is-medium'
+      %button.button.is-link.is-medium{type: 'button', disabled: true, data: {recorder_target: 'delete', action: 'recorder#delete'}}
+        %span.icon
+          %i.mdi.mdi-delete
+        %span= t('.delete_audio')
+    %p.help.is-danger= f.error :pronunciation
+    %p.help= t('.hint')
   .recorder__prompt-form
     .recorder__buttons
       %button.button.is-danger.is-medium{type: 'button', data: {action: 'recorder#prompt'}}
@@ -25,25 +34,3 @@
       %span.icon.is-medium
         %i.mdi.mdi-24px.mdi-alert
       %span= t('.recorder_unavailable')
-    
-  -#   = f.fields_for :pronunciation do |pf|
-  -#     = pf.hidden_field :data, data: {recorder_target: 'field'}, value: nil
-  -#     = pf.hidden_field :delete, data: {recorder_target: 'deleteFlag'}, value: ''
-  -#   .recorder__buttons
-  -#     %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {recorder_target: 'button', action: 'pointerdown->recorder#start pointerup->recorder#stop pointerleave->recorder#stop'}}
-  -#       %span.icon
-  -#         %i.mdi.mdi-record-circle
-  -#       %span.recorder__button-text-idle= t('.record')
-  -#       %span.recorder__button-text-active= t('.recording')
-  -#     = render 'users/player', data: {recorder_target: 'player', player_url_value: (url_for(f.object.pronunciation) if f.object.pronunciation.attached?)}, button_class: 'is-success is-medium'
-  -#     %button.button.is-link.is-medium{type: 'button', disabled: true, data: {recorder_target: 'delete', action: 'recorder#delete'}}
-  -#       %span.icon
-  -#         %i.mdi.mdi-delete
-  -#       %span= t('.delete_audio')
-  -#   %p.help.is-danger= f.error :pronunciation
-  -#   %p.help= t('.hint')
-  -# .recorder__unavailable.mt-3
-  -#   %article.notification.is-warning
-  -#     %span.icon.is-medium
-  -#       %i.mdi.mdi-24px.mdi-alert
-  -#     %span= t('.recorder_unavailable')

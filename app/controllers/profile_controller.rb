@@ -27,11 +27,11 @@ class ProfileController < ApplicationController
     if params[:user].present?
       @user.assign_attributes(permitted_attributes @user)
     end
-    # if pronunciation[:delete].present?
-    #   @user.pronunciation.purge
-    # elsif pronunciation[:data].present?
-    #   @user.pronunciation.attach(data: pronunciation[:data], filename: 'pronunciation.wav', content_type: 'audio/wav', identify: false)
-    # end
+    if pronunciation[:delete].present?
+      @user.pronunciation.purge
+    elsif pronunciation[:data].present?
+      @user.pronunciation.attach(io: pronunciation[:data], filename: 'pronunciation.wav', content_type: 'audio/wav', identify: false)
+    end
     respond_to do |format|
       format.html { render_wizard @user }
       format.json do
@@ -63,6 +63,10 @@ class ProfileController < ApplicationController
 
     # Get the set of pronoun_sets the user hasn't selected and render them as user_pronoun_sets
     @additional_ups = PronounSet.where.not(id: @user.pronoun_sets).map {|ps| UserPronounSet.new(pronoun_set: ps, user: @user)}
+  end
+
+  def pronunciation
+    params.dig(:user, :pronunciation) || {}
   end
   
 end

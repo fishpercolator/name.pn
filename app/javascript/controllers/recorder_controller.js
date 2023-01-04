@@ -3,18 +3,15 @@ import { Controller } from "@hotwired/stimulus"
 // import Recorder from 'opus-recorder'
 
 export default class extends Controller {
-  static targets = ['field']
-
-  // static targets = [
-  //   'field', 'button', 'player', 
-  //   'delete', 'deleteFlag'
-  // ]
+  static targets = ['field', 'button', 'player', 'delete', 'deleteFlag']
+  
   static classes = [
     'granted', 'prompt', 'denied'
   ]
 
   connect () {
     this.testMicState()
+    this.testDeleteState()
   }
 
   // Test the current state of the mic and set classes on the element accordingly
@@ -40,6 +37,18 @@ export default class extends Controller {
     } finally {
       this.testMicState()
     }
+  }
+
+  // Activate the delete button if there's something in the player
+  testDeleteState() {
+    this.deleteTarget.disabled = !this.playerTarget.dataset['playerUrlValue']
+  }
+
+  // Event fires when the uploaded file changes
+  recorded (e) {
+    const file = e.target.files[0]
+    const url = URL.createObjectURL(file)
+    this.setPlayerUrl(url)
   }
 
   stop () {
@@ -112,19 +121,20 @@ export default class extends Controller {
   //   this.deleteTarget.disabled = false
   // }
   
-  // delete () {
-  //   this.deleteFlagTarget.value = '1'
-  //   this.deleteTarget.disabled = true
-  //   this.setPlayerUrl(null)
-  // }
+  delete () {
+    this.deleteFlagTarget.value = '1'
+    this.fieldTarget.value = null
+    this.setPlayerUrl(null)
+  }
   
-  // setPlayerUrl (url) {
-  //   if (url === null) {
-  //     delete this.playerTarget.dataset.playerUrlValue
-  //   } else {
-  //     this.playerTarget.dataset.playerUrlValue = url
-  //   }
-  // }
+  setPlayerUrl (url) {
+    if (url === null) {
+      delete this.playerTarget.dataset.playerUrlValue
+    } else {
+      this.playerTarget.dataset.playerUrlValue = url
+    }
+    this.testDeleteState()
+  }
   
   // // Get a dataURL for the given arrayBuffer
   // dataUrl(buf) {
