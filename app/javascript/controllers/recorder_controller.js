@@ -24,6 +24,15 @@ export default class extends Controller {
     if (this.micState.state) {
       this.element.classList.add(this[this.micState.state + 'Class'])
     }
+
+    // Set the most appropriate MIME type for recording
+    if (window.MediaRecorder) {
+      if (MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported("audio/webm")) {
+        this.mimeType = "webm"
+      } else {
+        this.mimeType = "mp4"
+      }
+    }
   }
 
   // Ask for the user's permission to stream and stop the stream immediately after
@@ -54,12 +63,12 @@ export default class extends Controller {
   async start () {
     this.stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false })
     const recordedChunks = []
-    this.mr = new MediaRecorder(this.stream, { mimeType: 'audio/webm' })
+    this.mr = new MediaRecorder(this.stream, { mimeType: `audio/${this.mimeType}` })
     this.mr.addEventListener('dataavailable', e => { if (e.data.size > 0) recordedChunks.push(e.data) })
     this.mr.addEventListener('stop', () => {
       const url = URL.createObjectURL(new Blob(recordedChunks))
       this.setPlayerUrl(url)
-      const file = new File(recordedChunks, "pronunciation.webm", { type: 'audio/webm' })
+      const file = new File(recordedChunks, `pronunciation.${this.mimeType}`, { type: `audio/${this.mimeType}` })
       const container = new DataTransfer()
       container.items.add(file)
       this.fieldTarget.files = container.files
