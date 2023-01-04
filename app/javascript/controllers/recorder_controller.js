@@ -51,75 +51,34 @@ export default class extends Controller {
     this.setPlayerUrl(url)
   }
 
+  async start () {
+    this.stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+    const recordedChunks = []
+    this.mr = new MediaRecorder(this.stream, { mimeType: 'audio/webm' })
+    this.mr.addEventListener('dataavailable', e => { if (e.data.size > 0) recordedChunks.push(e.data) })
+    this.mr.addEventListener('stop', () => {
+      const url = URL.createObjectURL(new Blob(recordedChunks))
+      this.setPlayerUrl(url)
+      const file = new File(recordedChunks, "pronunciation.webm", { type: 'audio/webm' })
+      const container = new DataTransfer()
+      container.items.add(file)
+      this.fieldTarget.files = container.files
+    })
+    this.mr.start()
+    this.buttonTarget.classList.add('is-active')
+  }
+
   stop () {
+    this.buttonTarget.classList.remove('is-active')
+    if (this.mr && this.mr.state !== 'inactive') {
+      this.mr.stop()
+      this.mr = null
+    }
     if (this.stream) {
       this.stream.getTracks().forEach(t => t.stop())
       this.stream = null
     }
   }
-  
-  // connect () {    
-  //   // Recorder is hidden in CSS - show it if we detect the browser supports it
-  //   if (Recorder.isRecordingSupported()) {
-  //     this.element.classList.add(this.enabledClass)
-      
-  //     this.initializeRecorder()
-  //     this.initializeFileReader()
-      
-  //     if (this.playerTarget.dataset['playerUrlValue']) {
-  //       this.deleteTarget.disabled = false
-  //     }
-  //   }
-  // }
-  
-  // initializeRecorder () {
-  //   this.recorder = new Recorder({
-  //     encoderPath: '/workers/waveWorker.min.js',
-  //     streamPages: false,
-  //     numberOfChannels: 1,
-  //     wavBitDepth: 16
-  //   })
-  //   this.recorder.onstart = () => { this.buttonTarget.classList.add('is-active') }
-  //   this.recorder.onstop = () => { this.buttonTarget.classList.remove('is-active') }
-  //   this.recorder.ondataavailable = (arrayBuffer) => { this.processNewAudioData(arrayBuffer) }
-  // }
-  
-  // initializeFileReader () {
-  //   this.reader = new FileReader ()
-  //   this.reader.onload = (e) => {
-  //     this.fieldTarget.value = this.reader.result
-  //   }
-  // }
-  
-  // // FIXME: Catch user holding record button for too long etc
-  // start (e) {
-  //   e.preventDefault()
-  //   try {
-  //     this.recorder.start()
-  //   } catch(e) {
-  //     console.log('Error: ' + e.message)
-  //   }
-  // }
-  
-  // stop (e) {
-  //   e.preventDefault()
-  //   this.recorder.stop()
-  // }
-  
-  // processNewAudioData (recording) {
-  //   const rec_blob = new Blob([recording])
-    
-  //   // This sets the file for upload
-  //   this.reader.readAsDataURL(rec_blob)
-    
-  //   // This uses a blob locally for the preview player
-  //   const rec_url = URL.createObjectURL(rec_blob)
-  //   this.setPlayerUrl(rec_url)
-    
-  //   // And finally, make sure the delete button is active
-  //   this.deleteFlagTarget.value = ''
-  //   this.deleteTarget.disabled = false
-  // }
   
   delete () {
     this.deleteFlagTarget.value = '1'
@@ -135,9 +94,4 @@ export default class extends Controller {
     }
     this.testDeleteState()
   }
-  
-  // // Get a dataURL for the given arrayBuffer
-  // dataUrl(buf) {
-  //   return 'data:audio/ogg;codecs=opus;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(buf)))
-  // }
 }
