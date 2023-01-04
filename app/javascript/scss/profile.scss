@@ -103,7 +103,7 @@
   }
   
   &.recorder--prompt {
-    .recorder__unavailable, input#user_pronunciation {
+    .recorder__unavailable, input#user_pronunciation_data {
       display: none;
     }
     .recorder__prompt-form {
@@ -112,7 +112,7 @@
   }
   
   &.recorder--denied {
-    .recorder__unavailable, input#user_pronunciation {
+    .recorder__unavailable, input#user_pronunciation_data {
       display: none;
     }
     .recorder__denied {
@@ -135,6 +135,10 @@
       width: 100%;
       justify-content: center;
     }
+  }
+  > .button:first-child:last-child {
+    // Allow full-width buttons to wrap, because the permissions button might need it on mobile
+    white-space: normal;
   }
 }
 .recorder__button.is-active {

@@ -78,6 +78,7 @@ group :development do
   gem 'better_errors'
   gem 'foreman'
   gem 'haml-rails'
+  gem 'localhost', require: 'localhost/authority'
 end
 
 group :test do

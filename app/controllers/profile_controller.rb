@@ -30,7 +30,7 @@ class ProfileController < ApplicationController
     if pronunciation[:delete].present?
       @user.pronunciation.purge
     elsif pronunciation[:data].present?
-      @user.pronunciation.attach(io: pronunciation[:data], filename: 'pronunciation.webm', content_type: 'audio/webm', identify: false)
+      @user.pronunciation.attach(pronunciation[:data])
     end
     respond_to do |format|
       format.html { render_wizard @user }

@@ -101,4 +101,7 @@ Rails.application.configure do
   # Add a JSON-format logfile to /tmp for local Datadog
   config.rails_semantic_logger.add_file_appender = false
   config.semantic_logger.add_appender(file_name: "log/development.json.log", level: config.log_level, formatter: :json)
+
+  # This is the hostname of Quinn's dev env - change it to your hostname if you want to unblock access
+  config.hosts << "hulat"
 end
