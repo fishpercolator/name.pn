@@ -94,7 +94,7 @@ GEM
       activesupport (>= 3.0.0, < 7.1)
       ruby2_keywords (>= 0.0.2, < 1.0)
     aws-eventstream (1.2.0)
-    aws-partitions (1.681.0)
+    aws-partitions (1.687.0)
     aws-record (2.9.0)
       aws-sdk-dynamodb (~> 1.18)
     aws-sdk-core (3.168.4)
@@ -205,7 +205,7 @@ GEM
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
       mail (~> 2.7)
-    erubi (1.11.0)
+    erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -270,7 +270,7 @@ GEM
     json (2.6.3)
     json-schema (3.0.0)
       addressable (>= 2.8)
-    jwt (2.5.0)
+    jwt (2.6.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -283,8 +283,8 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    launchy (2.5.0)
-      addressable (~> 2.7)
+    launchy (2.5.2)
+      addressable (~> 2.8)
     libdatadog (0.9.0.1.0)
     libddwaf (1.5.1.0.0)
       ffi (~> 1.0)
@@ -306,11 +306,11 @@ GEM
     method_source (1.0.0)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.0)
-    minitest (5.16.3)
+    mini_portile2 (2.8.1)
+    minitest (5.17.0)
     msgpack (1.6.0)
     multi_json (1.15.0)
-    net-imap (0.3.3)
+    net-imap (0.3.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -334,14 +334,14 @@ GEM
       interception (>= 0.5)
       pry (>= 0.12.0)
     public_suffix (5.0.1)
-    puma (6.0.1)
+    puma (6.0.2)
       nio4r (~> 2.0)
     pundit (2.3.0)
       activesupport (>= 3.0.0)
     pundit-matchers (1.8.4)
       rspec-rails (>= 3.0.0)
-    racc (1.6.1)
-    rack (2.2.4)
+    racc (1.6.2)
+    rack (2.2.5)
     rack-proxy (0.7.4)
       rack
     rack-test (2.0.2)
@@ -445,7 +445,7 @@ GEM
     semantic_range (3.0.0)
     serviceworker-rails (0.6.0)
       railties (>= 3.1)
-    shakapacker (6.5.4)
+    shakapacker (6.5.5)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -567,7 +567,7 @@ DEPENDENCIES
   wicked (~> 2.0)
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.1.3p185
 
 BUNDLED WITH
    2.3.9
