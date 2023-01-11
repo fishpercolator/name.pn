@@ -63,18 +63,19 @@ export default class extends Controller {
   async start () {
     this.stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false })
     const recordedChunks = []
-    this.mr = new MediaRecorder(this.stream, { mimeType: `audio/${this.mimeType}` })
+    const mimeType = `audio/${this.mimeType}`
+    this.mr = new MediaRecorder(this.stream, { mimeType })
+    this.mr.addEventListener('start', () => { this.buttonTarget.classList.add('is-active') })
     this.mr.addEventListener('dataavailable', e => { if (e.data.size > 0) recordedChunks.push(e.data) })
     this.mr.addEventListener('stop', () => {
-      const url = URL.createObjectURL(new Blob(recordedChunks))
+      const url = URL.createObjectURL(new Blob(recordedChunks, { type: mimeType }))
       this.setPlayerUrl(url)
-      const file = new File(recordedChunks, `pronunciation.${this.mimeType}`, { type: `audio/${this.mimeType}` })
+      const file = new File(recordedChunks, `pronunciation.${this.mimeType}`, { type: mimeType })
       const container = new DataTransfer()
       container.items.add(file)
       this.fieldTarget.files = container.files
     })
     this.mr.start()
-    this.buttonTarget.classList.add('is-active')
   }
 
   stop () {
