@@ -61,11 +61,15 @@ export default class extends Controller {
   }
 
   async start () {
+    this.buttonTarget.classList.add('is-waiting')
     this.stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false })
     const recordedChunks = []
     const mimeType = `audio/${this.mimeType}`
     this.mr = new MediaRecorder(this.stream, { mimeType })
-    this.mr.addEventListener('start', () => { this.buttonTarget.classList.add('is-active') })
+    this.mr.addEventListener('start', () => { 
+      this.buttonTarget.classList.remove('is-waiting')
+      this.buttonTarget.classList.add('is-active') 
+    })
     this.mr.addEventListener('dataavailable', e => { if (e.data.size > 0) recordedChunks.push(e.data) })
     this.mr.addEventListener('stop', () => {
       const url = URL.createObjectURL(new Blob(recordedChunks, { type: mimeType }))

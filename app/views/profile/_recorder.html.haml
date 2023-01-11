@@ -6,9 +6,12 @@
   .recorder__available
     .recorder__buttons
       %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {recorder_target: 'button', action: 'pointerdown->recorder#start pointerup->recorder#stop pointerleave->recorder#stop'}}
-        %span.icon
+        %span.icon.recorder__button-icon
           %i.mdi.mdi-record-circle
+        %span.icon.recorder__button-wait
+          %i.mdi.mdi-timer-sand
         %span.recorder__button-text-idle= t('.record')
+        %span.recorder__button-text-waiting= t('.please_wait')
         %span.recorder__button-text-active= t('.recording')
       = render 'users/player', data: {recorder_target: 'player', player_url_value: (url_for(f.object.pronunciation) if f.object.pronunciation.attached?)}, button_class: 'is-success is-medium'
       %button.button.is-link.is-medium{type: 'button', disabled: true, data: {recorder_target: 'delete', action: 'recorder#delete'}}

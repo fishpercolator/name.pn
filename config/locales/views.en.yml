@@ -131,6 +131,7 @@ en:
       prompt: Give permission for microphone
       prompt_hint: We've detected that you haven't yet given name.pn permission to access your microphone. Please click the button and say "Allow" when your browser asks you. We will only use your microphone when you are making recordings for your profile. If you do not want to give us permission, this feature is optional and you can skip it.
       record: Hold to record
+      please_wait: Please wait...
       recording: Recording
       play: Play
       delete_audio: Delete audio

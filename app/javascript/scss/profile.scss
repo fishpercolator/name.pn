@@ -142,15 +142,26 @@
   }
 }
 .recorder__button.is-active {
-  > .icon {
+  cursor:progress;
+
+  > .recorder__button-icon {
     animation: blink 1s linear infinite;
   }
+  .recorder__button-wait, .recorder__button-text-idle, .recorder__button-text-waiting {
+    display: none;
+  }
+}
+.recorder__button.is-waiting {
+  cursor: wait;
+
+  .recorder__button-icon, 
+  .recorder__button-text-active,
   .recorder__button-text-idle {
     display: none;
   }
 }
-.recorder__button:not(.is-active) {
-  .recorder__button-text-active {
+.recorder__button:not(.is-active):not(.is-waiting) {
+  .recorder__button-wait, .recorder__button-text-active, .recorder__button-text-waiting {
     display: none;
   }
 }
