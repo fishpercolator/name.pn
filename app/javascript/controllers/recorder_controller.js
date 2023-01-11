@@ -83,7 +83,7 @@ export default class extends Controller {
   }
 
   stop () {
-    this.buttonTarget.classList.remove('is-active')
+    this.buttonTarget.classList.remove('is-waiting', 'is-active')
     if (this.mr && this.mr.state !== 'inactive') {
       this.mr.stop()
       this.mr = null
