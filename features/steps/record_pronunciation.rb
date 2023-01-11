@@ -9,6 +9,26 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
     expect(::Capybara.current_driver).to eq(:cuprite)
   end
 
+  step 'I have given permission to record audio' do
+    page.driver.browser.command("Browser.grantPermissions", origin: page.server_url, permissions: %w[audioCapture])
+  end
+
+  step 'I have not given permission to record audio' do
+    pending 'step not implemented'
+  end
+
+  step 'I should see the permission button' do
+    pending 'step not implemented'
+  end
+
+  step 'I have revoked permission to record audio' do
+    pending 'step not implemented'
+  end
+
+  step 'I should see an error message' do
+    pending 'step not implemented'
+  end
+
   step 'I visit the profile editing page for pronunciation' do
     visit profile_path(:pronunciation)
   end

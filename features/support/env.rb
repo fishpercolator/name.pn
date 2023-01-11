@@ -13,10 +13,15 @@ Spinach.hooks.before_scenario { DatabaseCleaner.clean }
 
 Capybara.register_driver :cuprite do |app|
   Capybara::Cuprite::Driver.new app, {
+    #logger: $stdout,
     window_size: [1280, 900],
     browser_options: {
       'disable-gpu' => nil,
-      'no-sandbox'  => nil
+      'no-sandbox'  => nil,
+      'unsafely-treat-insecure-origin-as-secure' => nil,
+      'use-fake-device-for-media-stream' => nil,
+      'use-fake-ui-for-media-stream' => nil,
+      'use-file-for-fake-audio-capture' => (Rails.root + 'spec/fixtures/files/pronunciation.wav').to_s
     }
   }
 end
