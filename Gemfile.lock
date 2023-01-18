@@ -291,7 +291,6 @@ GEM
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    localhost (1.1.9)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -538,7 +537,6 @@ DEPENDENCIES
   high_voltage (~> 3.1)
   image_processing (~> 1.11)
   listen
-  localhost
   meta-tags (~> 2.13)
   mini_magick (~> 4.10)
   pg (>= 0.18, < 2.0)

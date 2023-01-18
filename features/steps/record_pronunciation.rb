@@ -10,27 +10,35 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'I have given permission to record audio' do
-    page.driver.browser.command("Browser.grantPermissions", origin: page.server_url, permissions: %w[audioCapture])
+    @mock_permission = "granted"
   end
 
   step 'I have not given permission to record audio' do
-    pending 'step not implemented'
+    @mock_permission = "prompt"
   end
 
   step 'I should see the permission button' do
-    pending 'step not implemented'
+    expect(page).to have_css('.button', text: 'Give permission for microphone')
   end
 
   step 'I have revoked permission to record audio' do
-    pending 'step not implemented'
+    @mock_permission = "denied"
   end
 
   step 'I should see an error message' do
-    pending 'step not implemented'
+    expect(page).to have_css('.notification.is-danger', text: 'It looks like you\'ve blocked name.pn')
   end
 
   step 'I visit the profile editing page for pronunciation' do
-    visit profile_path(:pronunciation)
+    visit profile_path(:pronunciation, mock_permission: @mock_permission)
+  end
+
+  step 'I click to request permissions' do
+    click_button 'Give permission for microphone'
+  end
+
+  step 'I grant permission' do
+    fail
   end
 
   step 'I should see the recorder' do
@@ -89,12 +97,8 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
     expect(page).not_to have_css('audio[src]', visible: false)
   end
   
-  def fixture_to_data_url(filename, content_type='application/octet-stream')
-    "data:#{content_type};base64,#{Base64.strict_encode64(File.read(file_fixture filename))}"
-  end
-  
   step 'I make a short recording' do
-    find('#user_pronunciation_data', visible: false).set(fixture_to_data_url 'pronunciation.wav')
+    find('#user_pronunciation_data', visible: false).set(file_fixture 'pronunciation.wav')
   end
 
   step 'I click to go to the next step' do
@@ -104,11 +108,11 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   step 'my recording should be saved in storage' do
     test_user.reload
     expect(test_user.pronunciation).to be_attached
-    expect(test_user.pronunciation.content_type).to eq('audio/wav')
+    expect(test_user.pronunciation.content_type).to eq('audio/x-wav')
   end
 
   step 'I make a recording that is too large' do
-    find('#user_pronunciation_data', visible: false).set(fixture_to_data_url '2mb.wav')
+    find('#user_pronunciation_data', visible: false).set(file_fixture '2mb.wav')
   end
 
   step 'I should see an error requiring me to make a shorter recording' do

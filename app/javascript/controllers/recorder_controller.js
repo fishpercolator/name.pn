@@ -9,6 +9,10 @@ export default class extends Controller {
     'granted', 'prompt', 'denied'
   ]
 
+  static values = {
+    mockPermission: String
+  }
+
   async connect () {
     this.activated = false
     await this.registerWav()
@@ -29,7 +33,11 @@ export default class extends Controller {
 
   // Test the current state of the mic and set classes on the element accordingly
   async testMicState() {
-    this.micState = await navigator.permissions.query({ name: 'microphone' })
+    if (this.mockPermissionValue) {
+      this.micState = {state: this.mockPermissionValue}
+    } else {
+      this.micState = await navigator.permissions.query({ name: 'microphone' })
+    }
 
     // Remove any classes that were added by earlier calls to this method
     this.element.classList.remove(this.grantedClass, this.promptClass, this.deniedClass)

@@ -1,4 +1,4 @@
-.recorder{data: {controller: 'recorder', recorder_granted_class: 'recorder--granted', recorder_prompt_class: 'recorder--prompt', recorder_denied_class: 'recorder--denied'}}
+.recorder{data: {controller: 'recorder', recorder_granted_class: 'recorder--granted', recorder_prompt_class: 'recorder--prompt', recorder_denied_class: 'recorder--denied', recorder_mock_permission_value: params[:mock_permission]}}
   -# https://web.dev/media-recording-audio/
   = f.fields_for :pronunciation do |pf|
     = pf.file_field :data, accept: 'audio/wav', capture: '', data: {recorder_target: 'field', action: 'recorder#recorded'}
