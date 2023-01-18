@@ -26,6 +26,8 @@
     "compression-webpack-plugin": "9",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^3.4.1",
+    "extendable-media-recorder": "^7.1.1",
+    "extendable-media-recorder-wav-encoder": "^7.0.81",
     "fitty": "^2.3.0",
     "luminous-lightbox": "^2.3.2",
     "mini-css-extract-plugin": "^2.6.0",

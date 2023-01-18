@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
-
-// import Recorder from 'opus-recorder'
+import * as emr from 'extendable-media-recorder';
+import * as wav from 'extendable-media-recorder-wav-encoder';
 
 export default class extends Controller {
   static targets = ['field', 'button', 'player', 'delete', 'deleteFlag']
@@ -9,8 +9,9 @@ export default class extends Controller {
     'granted', 'prompt', 'denied'
   ]
 
-  connect () {
+  async connect () {
     this.activated = false
+    await emr.register(await wav.connect())
     this.testMicState()
     this.testDeleteState()
   }
@@ -24,15 +25,6 @@ export default class extends Controller {
     // Set the appropriate class for the current micState
     if (this.micState.state) {
       this.element.classList.add(this[this.micState.state + 'Class'])
-    }
-
-    // Set the most appropriate MIME type for recording
-    if (window.MediaRecorder) {
-      if (MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported("audio/webm")) {
-        this.mimeType = "webm"
-      } else {
-        this.mimeType = "mp4"
-      }
     }
   }
 
@@ -66,8 +58,8 @@ export default class extends Controller {
     this.buttonTarget.classList.add('is-waiting')
     this.stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false })
     const recordedChunks = []
-    const mimeType = `audio/${this.mimeType}`
-    this.mr = new MediaRecorder(this.stream, { mimeType })
+    const mimeType = 'audio/wav'
+    this.mr = new emr.MediaRecorder(this.stream, { mimeType })
     this.mr.addEventListener('start', () => {
       // If the user deactivated before we got here, just run the stop routine again
       if (this.activated) {
@@ -81,7 +73,7 @@ export default class extends Controller {
     this.mr.addEventListener('stop', () => {
       const url = URL.createObjectURL(new Blob(recordedChunks, { type: mimeType }))
       this.setPlayerUrl(url)
-      const file = new File(recordedChunks, `pronunciation.${this.mimeType}`, { type: mimeType })
+      const file = new File(recordedChunks, `pronunciation.wav`, { type: mimeType })
       const container = new DataTransfer()
       container.items.add(file)
       this.fieldTarget.files = container.files
