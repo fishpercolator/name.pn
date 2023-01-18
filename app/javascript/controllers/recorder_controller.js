@@ -11,9 +11,20 @@ export default class extends Controller {
 
   async connect () {
     this.activated = false
-    await emr.register(await wav.connect())
+    await this.registerWav()
     this.testMicState()
     this.testDeleteState()
+  }
+
+  // Register the wav encoder if it's not already been registered
+  async registerWav() {
+    try {
+      await emr.register(await wav.connect())
+    } catch (err) {
+      // We might have already stored the encoder (thanks Turbolinks!) - if that's the case
+      // we can safely ignore this exception. Otherwise, re-throw
+      if (!err.message.match(/already an encoder stored/)) throw err
+    }
   }
 
   // Test the current state of the mic and set classes on the element accordingly
