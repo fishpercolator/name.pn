@@ -10,6 +10,7 @@ export default class extends Controller {
   ]
 
   connect () {
+    this.activated = false
     this.testMicState()
     this.testDeleteState()
   }
@@ -61,14 +62,20 @@ export default class extends Controller {
   }
 
   async start () {
+    this.activated = true
     this.buttonTarget.classList.add('is-waiting')
     this.stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false })
     const recordedChunks = []
     const mimeType = `audio/${this.mimeType}`
     this.mr = new MediaRecorder(this.stream, { mimeType })
-    this.mr.addEventListener('start', () => { 
-      this.buttonTarget.classList.remove('is-waiting')
-      this.buttonTarget.classList.add('is-active') 
+    this.mr.addEventListener('start', () => {
+      // If the user deactivated before we got here, just run the stop routine again
+      if (this.activated) {
+        this.buttonTarget.classList.remove('is-waiting')
+        this.buttonTarget.classList.add('is-active')
+      } else {
+        this.stop()
+      }
     })
     this.mr.addEventListener('dataavailable', e => { if (e.data.size > 0) recordedChunks.push(e.data) })
     this.mr.addEventListener('stop', () => {
@@ -83,6 +90,7 @@ export default class extends Controller {
   }
 
   stop () {
+    this.activated = false
     this.buttonTarget.classList.remove('is-waiting', 'is-active')
     if (this.mr && this.mr.state !== 'inactive') {
       this.mr.stop()
