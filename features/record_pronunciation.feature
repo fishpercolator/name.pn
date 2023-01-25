@@ -7,6 +7,7 @@ Scenario: Recorder available (no recording)
   Given I am signed in
   And my user has no audio recorded already
   And I am using a browser with the ability to record audio
+  And I have given permission to record audio
   When I visit the profile editing page for pronunciation
   Then I should see the recorder
   And the play button and delete button should be disabled
@@ -16,6 +17,7 @@ Scenario: Recorder available (recording present)
   Given I am signed in
   And my user has audio recorded already
   And I am using a browser with the ability to record audio
+  And I have given permission to record audio
   When I visit the profile editing page for pronunciation
   Then I should see the recorder
   And the play button and delete button should be available
@@ -27,6 +29,24 @@ Scenario: Recorder not available
   When I visit the profile editing page for pronunciation
   Then I should not see the recorder
   And I should see a message telling me to use a different browser
+
+@javascript
+Scenario: Permission not given
+  Given I am signed in
+  And my user has audio recorded already
+  And I am using a browser with the ability to record audio
+  And I have not given permission to record audio
+  When I visit the profile editing page for pronunciation
+  Then I should see the permission button
+
+@javascript
+Scenario: Permission revoked
+  Given I am signed in
+  And my user has audio recorded already
+  And I am using a browser with the ability to record audio
+  And I have revoked permission to record audio
+  When I visit the profile editing page for pronunciation
+  Then I should see an error message
 
 @javascript
 Scenario: Player on public page

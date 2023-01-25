@@ -89,14 +89,34 @@
 }
 
 .recorder {
-  &:not(.recorder--enabled) {
-    .recorder__available {
+  .recorder__available, .recorder__prompt-form, .recorder__denied {
+    display: none;
+  }
+  
+  &.recorder--granted {
+    .recorder__unavailable, input#user_pronunciation_data {
       display: none;
     }
+    .recorder__available {
+      display: block;
+    }
   }
-  &.recorder--enabled {
-    .recorder__unavailable {
+  
+  &.recorder--prompt {
+    .recorder__unavailable, input#user_pronunciation_data {
       display: none;
+    }
+    .recorder__prompt-form {
+      display: block;
+    }
+  }
+  
+  &.recorder--denied {
+    .recorder__unavailable, input#user_pronunciation_data {
+      display: none;
+    }
+    .recorder__denied {
+      display: block;
     }
   }
 }
@@ -116,17 +136,32 @@
       justify-content: center;
     }
   }
+  > .button:first-child:last-child {
+    // Allow full-width buttons to wrap, because the permissions button might need it on mobile
+    white-space: normal;
+  }
 }
 .recorder__button.is-active {
-  > .icon {
+  cursor:progress;
+
+  > .recorder__button-icon {
     animation: blink 1s linear infinite;
   }
+  .recorder__button-wait, .recorder__button-text-idle, .recorder__button-text-waiting {
+    display: none;
+  }
+}
+.recorder__button.is-waiting {
+  cursor: wait;
+
+  .recorder__button-icon, 
+  .recorder__button-text-active,
   .recorder__button-text-idle {
     display: none;
   }
 }
-.recorder__button:not(.is-active) {
-  .recorder__button-text-active {
+.recorder__button:not(.is-active):not(.is-waiting) {
+  .recorder__button-wait, .recorder__button-text-active, .recorder__button-text-waiting {
     display: none;
   }
 }

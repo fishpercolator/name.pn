@@ -1,82 +1,121 @@
 import { Controller } from "@hotwired/stimulus"
-
-import Recorder from 'opus-recorder'
+import * as emr from 'extendable-media-recorder';
+import * as wav from 'extendable-media-recorder-wav-encoder';
 
 export default class extends Controller {
-  static targets = [
-    'field', 'button', 'player', 
-    'delete', 'deleteFlag'
-  ]
+  static targets = ['field', 'button', 'player', 'delete', 'deleteFlag']
+  
   static classes = [
-    'enabled'
+    'granted', 'prompt', 'denied'
   ]
-  
-  connect () {    
-    // Recorder is hidden in CSS - show it if we detect the browser supports it
-    if (Recorder.isRecordingSupported()) {
-      this.element.classList.add(this.enabledClass)
-      
-      this.initializeRecorder()
-      this.initializeFileReader()
-      
-      if (this.playerTarget.dataset['playerUrlValue']) {
-        this.deleteTarget.disabled = false
-      }
-    }
+
+  static values = {
+    mockPermission: String
   }
-  
-  initializeRecorder () {
-    this.recorder = new Recorder({
-      encoderPath: '/workers/waveWorker.min.js',
-      streamPages: false,
-      numberOfChannels: 1,
-      wavBitDepth: 16
-    })
-    this.recorder.onstart = () => { this.buttonTarget.classList.add('is-active') }
-    this.recorder.onstop = () => { this.buttonTarget.classList.remove('is-active') }
-    this.recorder.ondataavailable = (arrayBuffer) => { this.processNewAudioData(arrayBuffer) }
+
+  async connect () {
+    this.activated = false
+    await this.registerWav()
+    this.testMicState()
+    this.testDeleteState()
   }
-  
-  initializeFileReader () {
-    this.reader = new FileReader ()
-    this.reader.onload = (e) => {
-      this.fieldTarget.value = this.reader.result
-    }
-  }
-  
-  // FIXME: Catch user holding record button for too long etc
-  start (e) {
-    e.preventDefault()
+
+  // Register the wav encoder if it's not already been registered
+  async registerWav() {
     try {
-      this.recorder.start()
-    } catch(e) {
-      console.log('Error: ' + e.message)
+      await emr.register(await wav.connect())
+    } catch (err) {
+      // We might have already stored the encoder (thanks Turbolinks!) - if that's the case
+      // we can safely ignore this exception. Otherwise, re-throw
+      if (!err.message.match(/already an encoder stored/)) throw err
     }
   }
-  
-  stop (e) {
-    e.preventDefault()
-    this.recorder.stop()
+
+  // Test the current state of the mic and set classes on the element accordingly
+  async testMicState() {
+    if (this.mockPermissionValue) {
+      this.micState = {state: this.mockPermissionValue}
+    } else {
+      this.micState = await navigator.permissions.query({ name: 'microphone' })
+    }
+
+    // Remove any classes that were added by earlier calls to this method
+    this.element.classList.remove(this.grantedClass, this.promptClass, this.deniedClass)
+    // Set the appropriate class for the current micState
+    if (this.micState.state) {
+      this.element.classList.add(this[this.micState.state + 'Class'])
+    }
   }
-  
-  processNewAudioData (recording) {
-    const rec_blob = new Blob([recording])
-    
-    // This sets the file for upload
-    this.reader.readAsDataURL(rec_blob)
-    
-    // This uses a blob locally for the preview player
-    const rec_url = URL.createObjectURL(rec_blob)
-    this.setPlayerUrl(rec_url)
-    
-    // And finally, make sure the delete button is active
-    this.deleteFlagTarget.value = ''
-    this.deleteTarget.disabled = false
+
+  // Ask for the user's permission to stream and stop the stream immediately after
+  async prompt () {
+    try {
+      this.stream = await navigator.mediaDevices.getUserMedia({audio: true, video: false})
+      this.stop()
+    } catch (e) {
+      // Just log errors
+      console.error(e)
+    } finally {
+      this.testMicState()
+    }
+  }
+
+  // Activate the delete button if there's something in the player
+  testDeleteState() {
+    this.deleteTarget.disabled = !this.playerTarget.dataset['playerUrlValue']
+  }
+
+  // Event fires when the uploaded file changes
+  recorded (e) {
+    const file = e.target.files[0]
+    const url = URL.createObjectURL(file)
+    this.setPlayerUrl(url)
+  }
+
+  async start () {
+    this.activated = true
+    this.buttonTarget.classList.add('is-waiting')
+    this.stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+    const recordedChunks = []
+    const mimeType = 'audio/wav'
+    this.mr = new emr.MediaRecorder(this.stream, { mimeType })
+    this.mr.addEventListener('start', () => {
+      // If the user deactivated before we got here, just run the stop routine again
+      if (this.activated) {
+        this.buttonTarget.classList.remove('is-waiting')
+        this.buttonTarget.classList.add('is-active')
+      } else {
+        this.stop()
+      }
+    })
+    this.mr.addEventListener('dataavailable', e => { if (e.data.size > 0) recordedChunks.push(e.data) })
+    this.mr.addEventListener('stop', () => {
+      const url = URL.createObjectURL(new Blob(recordedChunks, { type: mimeType }))
+      this.setPlayerUrl(url)
+      const file = new File(recordedChunks, `pronunciation.wav`, { type: mimeType })
+      const container = new DataTransfer()
+      container.items.add(file)
+      this.fieldTarget.files = container.files
+    })
+    this.mr.start()
+  }
+
+  stop () {
+    this.activated = false
+    this.buttonTarget.classList.remove('is-waiting', 'is-active')
+    if (this.mr && this.mr.state !== 'inactive') {
+      this.mr.stop()
+      this.mr = null
+    }
+    if (this.stream) {
+      this.stream.getTracks().forEach(t => t.stop())
+      this.stream = null
+    }
   }
   
   delete () {
     this.deleteFlagTarget.value = '1'
-    this.deleteTarget.disabled = true
+    this.fieldTarget.value = null
     this.setPlayerUrl(null)
   }
   
@@ -86,10 +125,6 @@ export default class extends Controller {
     } else {
       this.playerTarget.dataset.playerUrlValue = url
     }
-  }
-  
-  // Get a dataURL for the given arrayBuffer
-  dataUrl(buf) {
-    return 'data:audio/ogg;codecs=opus;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(buf)))
+    this.testDeleteState()
   }
 }

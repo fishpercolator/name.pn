@@ -12,11 +12,13 @@ DatabaseCleaner.strategy = :truncation
 Spinach.hooks.before_scenario { DatabaseCleaner.clean }
 
 Capybara.register_driver :cuprite do |app|
+  log = File.open('log/cuprite.log', 'w')
   Capybara::Cuprite::Driver.new app, {
+    logger: log,
     window_size: [1280, 900],
     browser_options: {
       'disable-gpu' => nil,
-      'no-sandbox'  => nil
+      'no-sandbox'  => nil,
     }
   }
 end
