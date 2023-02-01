@@ -1,0 +1,26 @@
+name: run-tests
+run-name: ${{ github.actor }} is running the tests
+on: [push]
+jobs:
+  tests:
+    runs:
+      using: docker
+      image: 'Dockerfile.test'
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: s3sam3
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Setup database
+        run: ./bin/rails db:setup
+      - name: Run Rspec tests
+        run: ./bin/rspec
+        env:
+          CI: true
+          JWT_SECRET: ecc9bd09c69b20112918a7eb50b5a09d9e97cb9f51ab417208d3f93939c013cfd9cf3de9003b6a688592141c475aeeb660036b43d5e675e96583e389b234ce59
