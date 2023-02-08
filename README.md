@@ -97,24 +97,22 @@ git push heroku main
 
 Or you can set up automatic deploys through the Heroku dashboard. If you're using GitHub & Codeship you can integrate this with your Codeship CI, so the new version is only deployed if the tests pass.
 
-## Codeship CI
+## GitHub Actions CI
 
-The app is configured for continuous integration using [Codeship Pro](https://codeship.com/features/pro). If you use GitHub, you can set up your app for continuous integration by going to the Codeship dashboard and following these steps:
+The app is configured for continuous integration using [GitHub Actions](https://github.com/features/actions). There are two workflows:
 
-1. Click on 'Projects', then 'New Project'
-2. Click on GitHub and authorize your organisation
-3. Select your organisation and repository and click 'Connect'
-4. Select 'Pro' as the type of Codeship you want to use
-5. Make a change, e.g. to this README, and push it to GitHub
-6. Go back to the dashboard and you should see your first build, hopefully running and passing.
+* `audits`: runs a security audit on the gem & yarn dependencies
+* `tests`: sets up a vaguely production-like environment and runs the rspec & spinach tests on it
 
-The first time will take a while as everything builds, but future builds will use the cache.
+No special configuration should be necessary - just using GitHub for this repo should be enough to enable the actions on every push.
+
+If you're using Heroku it's a good idea to set it to only allow automatic deploys after CI passes.
 
 ## Features
 
 ### Rails
 
-This is a [Rails](https://rubyonrails.org/) 5.x application, and comes with all the usual Rails stuff, plus the following additional important components.
+This is a [Rails](https://rubyonrails.org/) 7.x application, and comes with all the usual Rails stuff, plus the following additional important components.
 
 ### Bulma UI
 
