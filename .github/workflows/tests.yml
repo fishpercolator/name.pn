@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: Install dependencies
+      - name: Install dependencies
         run: yarn
       - name: Run improved-yarn-audit 
         run: yarn run improved-yarn-audit --fail-on-missing-exclusions --ignore-dev-deps
