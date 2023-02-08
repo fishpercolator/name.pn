@@ -32,7 +32,7 @@ jobs:
     name: RSpec tests
     runs-on: ubuntu-latest
     services:
-      db:
+      postgres:
         image: postgres
         env:
           POSTGRES_PASSWORD: s3sam3
@@ -42,6 +42,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     env:
+      POSTGRES_HOST: postgres
       CI: true
       JWT_SECRET: ecc9bd09c69b20112918a7eb50b5a09d9e97cb9f51ab417208d3f93939c013cfd9cf3de9003b6a688592141c475aeeb660036b43d5e675e96583e389b234ce59
     steps:
