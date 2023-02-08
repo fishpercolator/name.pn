@@ -2,11 +2,12 @@ name: tests
 run-name: ${{ github.actor }} is running the tests
 on: [push]
 jobs:
-  audit:
+  ruby-audit:
+    name: Ruby dependency audit
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Ruby
+      - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.3'
@@ -14,3 +15,40 @@ jobs:
         run: bundle install
       - name: Run bundle audit
         run: bundle exec bundle-audit check --update
+  js-audit:
+    name: JS dependency audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - run: Install dependencies
+        run: yarn
+      - name: Run improved-yarn-audit 
+        run: yarn run improved-yarn-audit --fail-on-missing-exclusions --ignore-dev-deps
+  rspec:
+    name: RSpec tests
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: s3sam3
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.3'
+      - name: Install dependencies
+        run: bundle install
+      - name: Set up database
+        run: rails db:setup
+      - name: Run tests
+        run: rspec
