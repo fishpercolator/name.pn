@@ -2,9 +2,12 @@ name: tests
 run-name: ${{ github.actor }} is running the tests
 on: [push]
 jobs:
-  setup:
-    name: Create test environment
+  run-tests:
+    name: Run ${{ matrix.command }} tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        command: [rspec, spinach]
     services:
       postgres:
         image: postgres
@@ -39,17 +42,5 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Set up database
         run: bin/rails db:setup
-  rspec:
-    name: Unit tests
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run tests
-        run: bin/rspec
-  spinach:
-    name: Feature tests
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run tests
-        run: bin/spinach
+      - name: Run ${{ matrix.command }}
+        run: bin/${{ matrix.command }}
