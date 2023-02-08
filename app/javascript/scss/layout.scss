@@ -11,8 +11,10 @@ main {
 }
 
 #messages .notification {
-  padding-left: 0;
-  padding-right: 0;
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .delete {
     top: 1.25rem;
   }
