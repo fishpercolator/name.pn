@@ -11,8 +11,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.3'
-      - name: Install dependencies
-        run: bundle install
+          bundler-cache: true
       - name: Run bundle audit
         run: bundle exec bundle-audit check --update
   js-audit:
@@ -24,8 +23,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          cache: 'yarn'
       - name: Install dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
       - name: Run improved-yarn-audit 
         run: yarn run improved-yarn-audit --fail-on-missing-exclusions --ignore-dev-deps
   rspec:
@@ -41,17 +41,16 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+    env:
+      CI: true
+      JWT_SECRET: ecc9bd09c69b20112918a7eb50b5a09d9e97cb9f51ab417208d3f93939c013cfd9cf3de9003b6a688592141c475aeeb660036b43d5e675e96583e389b234ce59
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.3'
-      - name: Install dependencies
-        run: bundle install
+          bundler-cache: true
       - name: Set up database
         run: rails db:setup
       - name: Run tests
         run: rspec
-        env:
-          CI: true
-          JWT_SECRET: ecc9bd09c69b20112918a7eb50b5a09d9e97cb9f51ab417208d3f93939c013cfd9cf3de9003b6a688592141c475aeeb660036b43d5e675e96583e389b234ce59
