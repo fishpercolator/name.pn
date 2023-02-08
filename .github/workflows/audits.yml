@@ -1,0 +1,30 @@
+name: audits
+run-name: ${{ github.actor }} is running dependency audits
+on: [push]
+jobs:
+  ruby:
+    name: Ruby (bundle audit)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.3'
+          bundler-cache: true
+      - name: Run bundle audit
+        run: bundle exec bundle-audit check --update
+  js:
+    name: JS (improved-yarn-audit)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run improved-yarn-audit 
+        run: yarn run improved-yarn-audit --fail-on-missing-exclusions --ignore-dev-deps
