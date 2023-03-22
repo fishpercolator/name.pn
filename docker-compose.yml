@@ -6,6 +6,8 @@ services:
       - "5432"
     environment:
       POSTGRES_PASSWORD: s3sam3
+    volumes:
+      - db-data:/var/lib/postgresql/data
   web:
     build:
       context: .
@@ -37,3 +39,5 @@ services:
       - DD_LOG_LEVEL=WARN
     volumes:
       - ./log:/log
+volumes:
+  db-data:
