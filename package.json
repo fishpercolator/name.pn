@@ -34,7 +34,7 @@
     "rails-ujs": "^5.2.4-1",
     "sass": "^1.49.11",
     "sass-loader": "^12.6.0",
-    "shakapacker": "^6.5.5",
+    "shakapacker": "6.6.0",
     "sortablejs": "^1.15.0",
     "style-loader": "^3.3.1",
     "terser-webpack-plugin": "5",
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "improved-yarn-audit": "^3.0.0",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.13.1"
   },
   "version": "0.1.0",
   "babel": {
