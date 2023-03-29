@@ -13,13 +13,13 @@ import RecorderController from "./recorder_controller"
 import UrlController from "./url_controller"
 
 application.register("lightbox", LightboxController)
-application.register("likeness_uploader", LikenessUploaderController)
+application.register("likeness-uploader", LikenessUploaderController)
 application.register("messages", MessagesController)
 application.register("modal", ModalController)
 application.register("napc", NapcController)
 application.register("navbar", NavbarController)
 application.register("player", PlayerController)
-application.register("pronoun_form", PronounFormController)
-application.register("pronunciation_form", PronunciationFormController)
+application.register("pronoun-form", PronounFormController)
+application.register("pronunciation-form", PronunciationFormController)
 application.register("recorder", RecorderController)
 application.register("url", UrlController)
