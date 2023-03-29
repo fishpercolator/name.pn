@@ -1,6 +1,6 @@
 name: tests
 run-name: ${{ github.actor }} is running the tests
-on: [push]
+on: [push, pull_request]
 jobs:
   run-tests:
     name: Run ${{ matrix.command }} tests
