@@ -1,12 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
-  
-  def edit
-    @clients = policy_scope(resource.clients)
-    @new_client = resource.clients.new
-    @new_key = flash[:new_key]
-    super
-  end
+  before_action :setup_clients, only: %w[edit update]
   
   protected
   
@@ -16,5 +10,11 @@ class RegistrationsController < Devise::RegistrationsController
   
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit :sign_up, keys: %i[subscribe_to_mailing_list]
+  end
+
+  def setup_clients
+    @clients = policy_scope(resource.clients)
+    @new_client = resource.clients.new
+    @new_key = flash[:new_key]
   end
 end
