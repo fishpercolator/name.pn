@@ -1,0 +1,59 @@
+// Config goes here
+$red:       #D62839;
+$yellow:    #BC8034;
+$green:     #4E937A;
+$blue:      #175676;
+$grey:      #595959;
+$primary:   $red;
+$warning:   $yellow;
+
+$family-sans-serif: Raleway, sans-serif;
+$family-handwriting: 'Patrick Hand', cursive;
+
+// Add the pieces of Bulma that your project uses here
+@import "bulma/sass/utilities/_all";
+@import "bulma/sass/base/_all";
+@import "bulma/sass/helpers/_all";
+
+@import "bulma/sass/components/card";
+@import "bulma/sass/components/level";
+@import "bulma/sass/components/media";
+@import "bulma/sass/components/message";
+@import "bulma/sass/components/modal";
+@import "bulma/sass/components/navbar";
+
+@import "bulma/sass/elements/box";
+@import "bulma/sass/elements/button";
+@import "bulma/sass/elements/container";
+@import "bulma/sass/elements/content";
+@import "bulma/sass/elements/icon";
+@import "bulma/sass/elements/notification";
+@import "bulma/sass/elements/other";
+@import "bulma/sass/elements/table";
+@import "bulma/sass/elements/title";
+
+@import "bulma/sass/form/_all";
+
+@import "bulma/sass/grid/_all";
+
+@import "bulma/sass/layout/hero";
+@import "bulma/sass/layout/section";
+
+@import "bulma-o-steps/bulma-steps";
+
+$mdi-font-path: "@mdi/font/fonts";
+@import "@mdi/font/scss/materialdesignicons";
+
+@import "animate.css/animate";
+
+@import '@uppy/core/dist/style.css';
+@import '@uppy/dashboard/dist/style.css';
+@import '@uppy/image-editor/dist/style.css';
+@import '@uppy/webcam/dist/style.css';
+
+@import "luminous-lightbox/dist/luminous-basic";
+
+@import "custom/layout";
+@import "custom/theme";
+@import "custom/profile";
+@import "custom/user_profile";

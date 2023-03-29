@@ -18,35 +18,22 @@
     "@uppy/webcam": "^3.0.0",
     "@uppy/xhr-upload": "^3.0.0",
     "animate.css": "^4.1.0",
-    "babel-loader": "8",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-plugin-macros": "^3.1.0",
     "bulma": "^0.9.0",
     "bulma-o-steps": "^1.0.9",
-    "compression-webpack-plugin": "9",
-    "css-loader": "^6.7.1",
-    "css-minimizer-webpack-plugin": "^3.4.1",
+    "esbuild": "^0.17.14",
     "extendable-media-recorder": "^7.1.1",
     "extendable-media-recorder-wav-encoder": "^7.0.81",
     "fitty": "^2.3.0",
     "luminous-lightbox": "^2.3.2",
-    "mini-css-extract-plugin": "^2.6.0",
     "rails-ujs": "^5.2.4-1",
-    "sass": "^1.49.11",
-    "sass-loader": "^12.6.0",
-    "shakapacker": "6.6.0",
+    "sass": "^1.60.0",
     "sortablejs": "^1.15.0",
-    "style-loader": "^3.3.1",
-    "terser-webpack-plugin": "5",
-    "turbolinks": "^5.2.0",
-    "webpack": "5",
-    "webpack-assets-manifest": "5",
-    "webpack-cli": "4",
-    "webpack-merge": "5"
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "improved-yarn-audit": "^3.0.0",
-    "webpack-dev-server": "^4.13.1"
+    "improved-yarn-audit": "^3.0.0"
   },
   "version": "0.1.0",
   "babel": {
@@ -56,5 +43,9 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "scripts": {
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
+  }
 }
