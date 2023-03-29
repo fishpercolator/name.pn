@@ -1,30 +1,18 @@
 var CACHE_VERSION = 'v1';
 var CACHE_NAME = CACHE_VERSION + ':sw-cache-';
 
-<%
-manifest_location = Webpacker.config.manifest_path.to_s
-manifest_location.slice! Rails.public_path.to_s
-%>
-
 function onInstall(event) {
   console.log('[Serviceworker]', "Installing!", event);
   event.waitUntil(
-    fetch('<%= manifest_location %>').then(function (response) {
-      response.json().then(function (manifest) {
-        caches.open(CACHE_NAME).then(function prefill(cache) {
-          var toCache = [
-            '/offline',
-            '/manifest.json',
-            '<%= asset_path 'favicon.ico' %>',
-            manifest['application.js']
-          ];
-          // The css only exists in production
-          if (typeof(manifest['application.css']) !== 'undefined') {
-            toCache.push(manifest['application.css'])
-          }
-          return cache.addAll(toCache);
-        })
-      })
+    caches.open(CACHE_NAME).then(function prefill(cache) {
+      var toCache = [
+        '/offline',
+        '/manifest.json',
+        '<%= asset_path "favicon.ico" %>',
+        '<%= asset_path "application.js" %>',
+        '<%= asset_path "application.css" %>'
+      ];
+      return cache.addAll(toCache);
     })
   );
 }
