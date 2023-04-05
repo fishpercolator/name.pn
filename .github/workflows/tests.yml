@@ -44,5 +44,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Set up database
         run: bin/rails db:setup
+      - name: Build assets
+        run: bin/rails assets:precompile
       - name: Run ${{ matrix.command }}
         run: bin/${{ matrix.command }}
