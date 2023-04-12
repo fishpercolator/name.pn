@@ -314,9 +314,9 @@ broker-factory@^3.0.75:
     tslib "^2.5.0"
     worker-factory "^6.0.76"
 
-"bulma-o-steps@https://github.com/pedantic-git/bulma-o-steps.git#08d4a4a":
+"bulma-o-steps@https://github.com/octoshrimpy/bulma-o-steps.git#c21bf10":
   version "1.1.0"
-  resolved "https://github.com/pedantic-git/bulma-o-steps.git#08d4a4ab98c7440422147f151997c9d3007269f6"
+  resolved "https://github.com/octoshrimpy/bulma-o-steps.git#c21bf1072d7560be2c0443276e952b36c021fcfc"
   dependencies:
     bulma "^0.8.2"
 
