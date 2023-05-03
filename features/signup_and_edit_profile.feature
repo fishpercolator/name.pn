@@ -4,6 +4,7 @@ Scenario: Sign up takes user to profile editor
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   Then I should be on the first page of the profile editor
   And my account should have been created on the backend
@@ -27,11 +28,20 @@ Scenario: Can leave first page if first page has been completed
   When I go to the profile editor
   Then I should see links to the other sections
   And I should see a save and exit button
-  
+
+Scenario: Cannot proceed without accepting terms
+  Given I am signed out
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I submit the form
+  Then I should see an error saying the terms must be accepted
+  And my user should not be created
+
 Scenario: Save and exit after basic profile
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
@@ -48,6 +58,7 @@ Scenario: Pronoun selection boxes disabled when pronounless style selected
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
@@ -59,6 +70,7 @@ Scenario: Pronoun selection boxes enabled when pronounless style unselected
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
@@ -69,6 +81,7 @@ Scenario: Save pronounless style
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
@@ -85,6 +98,7 @@ Scenario: Complete profile editing
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
@@ -117,6 +131,7 @@ Scenario: My slug is already taken
   And an Audrey Horne profile already exists
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
@@ -132,6 +147,7 @@ Scenario: Save and exit early
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
@@ -202,6 +218,7 @@ Scenario: Reorder pronouns (no JavaScript)
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
@@ -218,6 +235,7 @@ Scenario: Reordering boxes invisible when JavaScript on
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
@@ -228,6 +246,7 @@ Scenario: No reorder (JavaScript enabled)
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
@@ -243,6 +262,7 @@ Scenario: Reorder with drag-and-drop
   Given I am signed out
   When I visit the sign up page
   And I fill in my email address and a password
+  And I select to accept the terms
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage

@@ -6,13 +6,25 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I fill in my email address and a password' do
-    fill_in 'Your email address', with: 'loglady@example.com'
-    fill_in 'Password', with: 'th4tn1ght'
-    fill_in 'Password confirmation', with: 'th4tn1ght'
+    fill_in 'Your personal email address', with: 'loglady@example.com'
+    fill_in 'Choose a password', with: 'th4tn1ght'
+    fill_in 'Confirm password (type it again)', with: 'th4tn1ght'
   end
 
   step 'I submit the form' do
     click_button 'Submit'
+  end
+
+  step 'I should see an error saying the terms must be accepted' do
+    expect(page).to have_content('must be accepted')
+  end
+
+  step 'my user should not be created' do
+    expect(User.count).to eq(0)
+  end
+
+  step 'I select to accept the terms' do
+    check 'I have read and agree to the terms of use'
   end
 
   step 'I should be on the first page of the profile editor' do

@@ -41,6 +41,7 @@ ActiveAdmin.register User do
     f.inputs do
       f.input :email
       f.input :password
+      f.input :terms
       f.input :slug
       f.input :noindex
       f.input :role, as: :select
@@ -60,6 +61,7 @@ ActiveAdmin.register User do
     attributes_table do
       row :id
       row :email
+      row :terms
       row(:slug) {|u| u.slug.present? ? link_to(u.slug, user_url(u)) : '-'}
       row :noindex
       row :role

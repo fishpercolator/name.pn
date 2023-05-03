@@ -9,6 +9,8 @@ en:
         formal_name: Formal name
         ipa: IPA
         noindex: Hide from search engines?
+        password: Your password
+        password_confirmation: Confirm password (type it again)
       link:
         url: URL
       client:

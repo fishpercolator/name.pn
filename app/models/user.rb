@@ -25,6 +25,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
            
   validates :personal_name, :full_name, presence: true, unless: :new_record?
+  validates :terms, acceptance: true, on: :create
   
   has_one_base64_attached :pronunciation
   has_one_attached :likeness

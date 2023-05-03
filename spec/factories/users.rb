@@ -3,6 +3,7 @@ FactoryBot.define do
   factory :user do
     email { generate :email }
     password { "letmein123" }
+    terms { true }
     trait :test do
       email { 'testuser@example.com' }
     end

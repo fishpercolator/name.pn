@@ -18,7 +18,7 @@ class Spinach::Features::SignIn < Spinach::FeatureSteps
   end
 
   step 'I fill in my password' do
-    fill_in 'Password', with: 'letmein123'
+    fill_in 'Your password', with: 'letmein123'
   end
 
   step 'I submit the form' do

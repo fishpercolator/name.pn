@@ -19,6 +19,8 @@ en:
         ipa: "Advanced: IPA pronunciation"
         slug: Your personal URL
         subscribe_to_mailing_list: 'Sign up for occasional update emails'
+        edit:
+          password: New password
     hints:
       user:
         full_name: This is the name you would typically use to represent yourself on a list of names. For example, "Abby Yates". Don't include middle names or initials here unless you normally use them when identifying yourself.
