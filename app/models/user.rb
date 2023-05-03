@@ -51,12 +51,19 @@ class User < ApplicationRecord
   def basic_names_complete?
     full_name.present? && personal_name.present?
   end
+
+  scope :basic_names_complete, -> { where.not(full_name: '').where.not(personal_name: '') }
   
   # To have a complete profile you must have entered a full name,
   # a personal name and at least one pronoun or declared yourself pronounless
   def profile_complete?
     basic_names_complete? && (pronoun_sets.any? || pronounless_style.present?) && slug.present?
   end
+
+  scope :has_pronouns, -> { left_outer_joins(:pronoun_sets).where.not('pronoun_sets.id': nil, pronounless_style: nil) }
+  scope :profile_complete, -> { basic_names_complete.has_pronouns.where.not(slug: '') }
+
+  scope :created_since, ->(time) { where(User.arel_table[:created_at].gteq(time)) }
 
   def pronoun_sets_with_preference
     case pronounless_style&.to_sym

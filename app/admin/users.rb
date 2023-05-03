@@ -27,6 +27,11 @@ ActiveAdmin.register User do
     actions
   end
 
+  scope :all, default: true
+  scope :profile_complete
+  scope("Has Audio") {|s| s.where.associated(:pronunciation_attachment)}
+  scope("Has Likeness") {|s| s.where.associated(:likeness_attachment)}
+
   filter :email
   filter :role
   filter :slug

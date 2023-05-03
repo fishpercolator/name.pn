@@ -55,4 +55,58 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '.basic_names_complete' do
+    before do
+      create :user
+      create :user, full_name: '', personal_name: 'A'
+      create :user, full_name: 'B', personal_name: ''
+      create :user, full_name: 'C'
+      create :user, personal_name: 'D'
+      create :user, full_name: 'E', personal_name: 'F'
+      create :user, full_name: 'G', personal_name: 'H'
+    end
+
+    it 'returns only those users with full_name and personal_name set to non-empty values' do
+      expect(User.basic_names_complete).to have(2).items
+      expect(User.basic_names_complete.pluck(:full_name).sort).to eq(%w[E G])
+    end
+  end
+
+  describe '.has_pronouns' do
+    before do
+      create :user, full_name: 'A'
+      create :user, full_name: 'B', pronoun_sets: [create(:pronoun_set, :she)]
+      create :user, full_name: 'C', pronounless_style: 'none'
+      create :user, full_name: 'D', pronounless_style: 'any'
+      create :user, full_name: 'E', personal_name: 'F'
+    end
+
+    it 'returns only those users with either pronouns associated or a pronounless_style set' do
+      expect(User.has_pronouns).to have(3).items
+      expect(User.has_pronouns.pluck(:full_name).sort).to eq(%w[B C D])
+    end
+  end
+
+  describe '.profile_complete' do
+    before do
+      create :user, full_name: 'A', personal_name: 'A'
+      create :user, full_name: 'B', personal_name: 'B', pronoun_sets: [create(:pronoun_set, :she)]
+      create :user, full_name: 'C', personal_name: 'C', pronounless_style: 'none'
+      create(:user, full_name: 'D', personal_name: 'D', pronounless_style: 'any').then do |u|
+        u.update_column(:slug, nil) # force slug to nil because UserSlug will set it automatically
+      end
+      create :user, full_name: 'E', personal_name: 'E'
+      create :user, personal_name: 'F', pronoun_sets: [create(:pronoun_set, :she)]
+    end
+
+    it 'returns only those users with a complete profile (one that can be shared)' do
+      expect(User.profile_complete).to have(2).items
+      expect(User.profile_complete.pluck(:full_name).sort).to eq(%w[B C])
+      # Check for parity with #profile_complete?
+      expect(User.profile_complete).to all(be_profile_complete)
+      expect((User.all - User.profile_complete).map(&:profile_complete?)).to all(eq false)
+    end
+  end
+
 end
