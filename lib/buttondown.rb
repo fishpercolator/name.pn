@@ -1,12 +1,17 @@
-require 'httparty'
+require 'faraday'
 require 'addressable'
 
 class Buttondown
-  include HTTParty
-  base_uri 'https://api.buttondown.email'
+
+  attr_reader :conn
 
   def initialize(key)
-    self.class.headers 'Authorization' => "Token #{key}"
+    @conn = Faraday.new(url: 'https://api.buttondown.email') do |f|
+      f.request :authorization, 'Token', key
+      f.request :json
+      f.response :json
+      f.response :raise_error
+    end
   end
 
   def subscribed?(email)
@@ -15,26 +20,28 @@ class Buttondown
 
   def unsubscribe!(email)
     if s = subscriber(email)
-      self.class.delete(subscriber_url(s["email"]))
+      conn.delete(subscriber_url(s["id"]))
     end
   end
 
   def subscribe!(email, metadata={})
     if s = subscriber(email)
-      self.class.patch(subscriber_url(s["email"]), body: {subscriber_type: 'regular', metadata: metadata}.to_json)
+      conn.patch(subscriber_url(s["id"]), {subscriber_type: 'regular', metadata: metadata})
     else
-      self.class.post("/v1/subscribers", body: {email: email, subscriber_type: 'regular', metadata: metadata}.to_json)
+      conn.post("/v1/subscribers", {email: email, subscriber_type: 'regular', metadata: metadata})
     end
   end
 
   private
 
-  def subscriber(email)
-    self.class.get(subscriber_url email)
+  def subscriber(id_or_email)
+    conn.get(subscriber_url id_or_email).body
+  rescue Faraday::ResourceNotFound
+    nil # return nil if there is a 404 and raise all other kinds of exceptions
   end
 
-  def subscriber_url(email)
-    Addressable::Template.new("/v1/subscribers/{email}").expand(email: email)
+  def subscriber_url(id_or_email)
+    Addressable::Template.new("/v1/subscribers/{id}").expand(id: id_or_email)
   end
 
 end

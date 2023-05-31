@@ -58,7 +58,7 @@ gem 'spicy-proton', '~> 2.1'
 gem 'wicked', '~> 2.0'
 
 # gems for buttondown - eventually move this to its own gem
-gem 'httparty', '~> 0.21.0'
+gem 'faraday', '~> 2.7'
 gem 'addressable', '~> 2.8'
 
 group :development, :test do
