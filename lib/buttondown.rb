@@ -15,13 +15,13 @@ class Buttondown
 
   def unsubscribe!(email)
     if s = subscriber(email)
-      self.class.delete(subscriber_url(s))
+      self.class.delete(subscriber_url(s["email"]))
     end
   end
 
   def subscribe!(email, metadata={})
     if s = subscriber(email)
-      self.class.patch(subscriber_url(s), body: {subscriber_type: 'regular', metadata: metadata}.to_json)
+      self.class.patch(subscriber_url(s["email"]), body: {subscriber_type: 'regular', metadata: metadata}.to_json)
     else
       self.class.post("/v1/subscribers", body: {email: email, subscriber_type: 'regular', metadata: metadata}.to_json)
     end
@@ -29,17 +29,12 @@ class Buttondown
 
   private
 
-  def subscribers(params)
-    self.class.get("/v1/subscribers", {query: params})['results']
-  end
-
   def subscriber(email)
-    # Filter the results because the current API call matches substrings
-    subscribers(email: email).find {|s| s['email'] == email}
+    self.class.get(subscriber_url email)
   end
 
-  def subscriber_url(subscriber)
-    Addressable::Template.new("/v1/subscribers/{id}").expand(id: subscriber['id'])
+  def subscriber_url(email)
+    Addressable::Template.new("/v1/subscribers/{email}").expand(email: email)
   end
 
 end
