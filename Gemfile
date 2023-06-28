@@ -93,6 +93,7 @@ group :test do
   gem 'pundit-matchers'
   gem 'timecop'
   gem 'email_spec'
+  gem 'webmock'
 end
 
 group :production do
