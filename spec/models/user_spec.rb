@@ -91,7 +91,7 @@ RSpec.describe User, type: :model do
   describe '.profile_complete' do
     before do
       create :user, full_name: 'A', personal_name: 'A'
-      create :user, full_name: 'B', personal_name: 'B', pronoun_sets: [create(:pronoun_set, :she)]
+      create :user, full_name: 'B', personal_name: 'B', pronoun_sets: [create(:pronoun_set, :she), create(:pronoun_set, :they)]
       create :user, full_name: 'C', personal_name: 'C', pronounless_style: 'none'
       create(:user, full_name: 'D', personal_name: 'D', pronounless_style: 'any').then do |u|
         u.update_column(:slug, nil) # force slug to nil because UserSlug will set it automatically

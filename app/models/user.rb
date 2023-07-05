@@ -61,7 +61,7 @@ class User < ApplicationRecord
     basic_names_complete? && (pronoun_sets.any? || pronounless_style.present?) && slug.present?
   end
 
-  scope :has_pronouns, -> { left_outer_joins(:pronoun_sets).where.not('pronoun_sets.id': nil, pronounless_style: nil) }
+  scope :has_pronouns, -> { left_outer_joins(:pronoun_sets).where.not('pronoun_sets.id': nil, pronounless_style: nil).distinct }
   scope :profile_complete, -> { basic_names_complete.has_pronouns.where.not(slug: '') }
 
   scope :created_since, ->(time) { where(User.arel_table[:created_at].gteq(time)) }
