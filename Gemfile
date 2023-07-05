@@ -57,6 +57,10 @@ gem 'simple_form', '~> 5.0'
 gem 'spicy-proton', '~> 2.1'
 gem 'wicked', '~> 2.0'
 
+# gems for buttondown - eventually move this to its own gem
+gem 'faraday', '~> 2.7'
+gem 'addressable', '~> 2.8'
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'pry-rails'
@@ -89,6 +93,7 @@ group :test do
   gem 'pundit-matchers'
   gem 'timecop'
   gem 'email_spec'
+  gem 'webmock'
 end
 
 group :production do

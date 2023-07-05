@@ -1,65 +1,39 @@
 module MailingListable
   extend ActiveSupport::Concern
-  
-  def self.gibbon
-    if Figaro.env.MAILCHIMP_API_KEY?
-      @gibbon ||= Gibbon::Request.new(api_key: Figaro.env.MAILCHIMP_API_KEY, symbolize_keys: true)
+
+  def self.buttondown
+    if Figaro.env.BUTTONDOWN_API_KEY?
+      @buttondown = Buttondown.new(Figaro.env.BUTTONDOWN_API_KEY)
     else
       nil
     end
   end
   
-  def self.mailing_list
-    gibbon&.lists(Figaro.env.MAILCHIMP_LIST_ID)
-  end
-    
   included do
     # Set this attribute during user creation to subscribe them to mailing list
     attr_accessor :subscribe_to_mailing_list
     after_create :subscribe_to_mailing_list!, if: :subscribe_to_mailing_list
-    after_update :update_data_in_mailchimp, if: :mailchimp_data_changed?
+    after_update :subscribe_to_mailing_list!, if: :mailing_list_data_changed?
     
     def subscribed_to_mailing_list?
-      status = mailchimp_member&.retrieve&.body&.dig(:status)
-      status == 'subscribed'
-    rescue Gibbon::MailChimpError
-      false
-    end
-    
-    # Update data in mailchimp. Will create the record if status is provided and none exists
-    def update_data_in_mailchimp(status: nil)
-      return unless MailingListable.gibbon # do nothing in development
-      data = mailchimp_data
-      if status.present?
-        data[:status] = status
-        mailchimp_member&.upsert(body: data)
-      else
-        mailchimp_member&.update(body: data)
-      end
-    rescue Gibbon::MailChimpError => e
-      # Allow exceptions if the email address is fake-looking
-      raise unless e.detail =~ /looks fake or invalid/
+      MailingListable.buttondown&.subscribed?(email)
     end
     
     def subscribe_to_mailing_list!
-      update_data_in_mailchimp(status: 'subscribed')
+      MailingListable.buttondown&.subscribe!(email, mailing_list_data)
     end
     
     def unsubscribe_from_mailing_list!
-      update_data_in_mailchimp(status: 'unsubscribed')
+      MailingListable.buttondown&.unsubscribe!(email)
     end
     
     private
-    
-    def mailchimp_member
-      MailingListable.mailing_list&.members(Digest::MD5.hexdigest(email))
+
+    def mailing_list_data
+      slice(:full_name, :formal_name).reject {|_,v| v.blank?}
     end
     
-    def mailchimp_data
-      {email_address: email, merge_fields: {NAME: full_name || '', FORMAL: formal_name || ''}}
-    end
-    
-    def mailchimp_data_changed?
+    def mailing_list_data_changed?
       subscribed_to_mailing_list? && (saved_change_to_email? || saved_change_to_full_name? || saved_change_to_formal_name?)
     end
     
