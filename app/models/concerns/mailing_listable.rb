@@ -16,7 +16,7 @@ module MailingListable
     after_update :subscribe_to_mailing_list!, if: :mailing_list_data_changed?
     
     def subscribed_to_mailing_list?
-      MailingListable.buttondown&.subscribed?(email)
+      MailingListable.buttondown&.subscribed?(email_was || email)
     end
     
     def subscribe_to_mailing_list!
@@ -26,11 +26,16 @@ module MailingListable
     def unsubscribe_from_mailing_list!
       MailingListable.buttondown&.unsubscribe!(email)
     end
+
+    # Get the user's email at the last save if it is not the current email
+    def email_was
+      saved_change_to_email? && email_before_last_save.present? && email_before_last_save
+    end
     
     private
 
     def mailing_list_data
-      slice(:full_name, :formal_name).reject {|_,v| v.blank?}
+      slice(:full_name, :formal_name, :email_was).reject {|_,v| v.blank?}
     end
     
     def mailing_list_data_changed?

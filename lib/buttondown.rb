@@ -27,10 +27,18 @@ class Buttondown
     end
   end
 
+  # Subscribe or edit a subscription - if the email address has changed, add :email_was to metadata
   def subscribe!(email, metadata={})
-    if s = subscriber(email)
-      conn.patch(subscriber_url(s["id"]), {subscriber_type: 'regular', metadata: metadata})
+    email_was = metadata.delete(:email_was) || email
+    if s = subscriber(email_was)
+      update = {subscriber_type: 'regular', metadata: metadata}
+      if email != email_was
+        # Only update the email if it's changed
+        update[:email] = email
+      end
+      conn.patch(subscriber_url(s["id"]), update)
     else
+      puts "or am I here"
       conn.post("/v1/subscribers", {email: email, subscriber_type: 'regular', metadata: metadata})
     end
   end
