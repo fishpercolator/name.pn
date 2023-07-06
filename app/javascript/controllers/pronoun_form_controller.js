@@ -8,6 +8,7 @@ export default class extends Controller {
     this.changePronounless()
     this.fillPositions()
     this.sortable = Sortable.create(this.listTarget, {
+      filter: 'input[type="checkbox"]',
       onUpdate: () => this.fillPositions()
     })
     this.positionTargets.forEach(t => t.style.display = 'none')
