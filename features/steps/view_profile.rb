@@ -31,6 +31,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should not see a pronunciation guide' do
+    expect(page).not_to have_css('.profile-card .card-header-title', text: 'How to pronounce my name')
     expect(page).not_to have_content('is pronounced')
   end
 
@@ -43,6 +44,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should see a pronunciation guide' do
+    expect(page).to have_css('.profile-card .card-header-title', text: 'How to pronounce my name')
     expect(page).to have_content("'Audrey Horne' is pronounced\nAWD-ree HORN")
     expect(page).to have_css('span.is-ipa', text: '/ˈɔːdri hɔːn/')
   end
