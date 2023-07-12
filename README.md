@@ -16,7 +16,7 @@ Variables that can be used to configure the app are:
 * **EMAIL_FROM**: The name and email address that will be used for 'From' in emails sent by this platform. Make sure the DKIM & SPF settings are correct for this domain with respect to your email sending service (e.g. SendGrid; see below).
 * **AWS_ACCESS_KEY_ID** / **AWS_SECRET_ACCESS_KEY** / **AWS_REGION** / **S3_BUCKET**: Creds for a user who has SES access to send mail and S3 permission to read/write the given bucket.
 * **GA_ID**: Google Analytics ID
-* **MAILCHIMP_API_KEY** / **MAILCHIMP_LIST_ID**: If set, enables the mailing list integration on the user's settings page and allows them to opt in when creating an account.
+* **BUTTONDOWN_API_KEY**: If set, enables the Buttondown mailing list integration on the user's settings page and allows them to opt in when creating an account.
 * **JWT_SECRET**: A secret (e.g. generated with `rails secret`) used in signing of JWT keys used with the name.pn public API.
 
 ## Getting a development environment
@@ -122,7 +122,7 @@ The user interface is derived from [Bulma](https://bulma.io/documentation/), in 
 
 Frontend Javascript is based on the [Stimulus](https://stimulusjs.org/) framework. You can create a new JS controller by adding a file to `app/javascript/controllers` and then naming that controller in your HTML by adding a `data-controller` attribute to the parent element of the UI feature you want to control.
 
-Because this is Webpack, Babel is enabled so you can use all the features of ES7 which will then be transpiled down to a browser-compatible form.
+Javascript is bundled using [esbuild](https://esbuild.github.io/) (via jsbundling-rails) and is currently configured to transpile to target browsers with support for es2020 and above, even if you use JS features that are newer than this version. 
 
 ### Haml
 
