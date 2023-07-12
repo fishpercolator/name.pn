@@ -9,6 +9,7 @@ import NavbarController from "./navbar_controller"
 import PlayerController from "./player_controller"
 import PronounFormController from "./pronoun_form_controller"
 import PronunciationFormController from "./pronunciation_form_controller"
+import PublicProfileController from "./public_profile_controller"
 import RecorderController from "./recorder_controller"
 import UrlController from "./url_controller"
 
@@ -21,5 +22,6 @@ application.register("navbar", NavbarController)
 application.register("player", PlayerController)
 application.register("pronoun-form", PronounFormController)
 application.register("pronunciation-form", PronunciationFormController)
+application.register("public-profile", PublicProfileController)
 application.register("recorder", RecorderController)
 application.register("url", UrlController)

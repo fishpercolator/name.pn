@@ -1,5 +1,5 @@
 - if @user.likeness.attached?
-  .card.profile-card.mt-6
+  .card.profile-card.mt-6#likeness{data: {public_profile_target: 'card'}}
     .card-header.profile-card__header
       .card-header-title= t('.what_i_look_like')
     .card-content

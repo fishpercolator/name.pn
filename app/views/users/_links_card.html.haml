@@ -1,5 +1,5 @@
 - if @user.links.present?
-  .card.profile-card.mt-6
+  .card.profile-card.mt-6#links{data: {public_profile_target: 'card'}}
     .card-header.profile-card__header
       .card-header-title= t('.more_about_me')
     .card-content
