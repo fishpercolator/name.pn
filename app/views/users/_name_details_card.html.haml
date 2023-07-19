@@ -1,6 +1,7 @@
 .card.profile-card.mt-6#name-details{data: {public_profile_target: 'card'}}
   .card-header.profile-card__header
     .card-header-title= t('.how_to_use_my_name')
+    = section_link 'name-details'
   .card-content
     - %i[full_name personal_name formal_name envelope_name].each do |att|
       - val = user.public_send(att)
@@ -15,3 +16,4 @@
           - ans.each do |an|
             %li= an.name
       .profile-card__hint= t(".hints.variants.#{category}")
+  = see_all

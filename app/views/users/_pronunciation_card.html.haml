@@ -2,6 +2,7 @@
   .card.profile-card.mt-6#pronunciation{data: {public_profile_target: 'card'}}
     .card-header.profile-card__header
       .card-header-title= t('.how_to_pronounce_my_name')
+      = section_link 'pronunciation'
     .card-content
       %h2.profile-card__heading= t(".headings.phonetic", name: user.pronunciation_of_name, value: user.phonetic)
       .profile-card__name
@@ -12,3 +13,4 @@
         - if user.pronunciation.attached?
           = render 'player', data: {player_url_value: url_for(user.pronunciation)}
       .profile-card__hint= t(".hints.phonetic", name: user.pronunciation_of_name, value: user.phonetic)
+    = see_all
