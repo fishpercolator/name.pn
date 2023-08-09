@@ -52,7 +52,7 @@ body.user-profile {
 .profile-card__header {
   border-radius: $radius-large $radius-large 0 0;
   background-color: $green;
-  > .card-header-title {
+  > .card-header-title, > .card-header-icon {
     color: $white;
   }
 }
@@ -86,6 +86,13 @@ body.user-profile {
 .profile-card__example {
   font-size: 1.25rem;
   margin-top: 0.75rem;
+}
+.profile-card__see-all {
+  display: none;
+  font-size: 1.25rem;
+  .profile-card.is-shown-alone & {
+    display: block;
+  }
 }
 
 .blurb {

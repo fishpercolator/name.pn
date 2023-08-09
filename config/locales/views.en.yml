@@ -150,15 +150,22 @@ en:
       description: "Hello! My name is %{name}. My pronouns are %{pronouns}."
       hello_my_name_is: "Hello! My name is %{name}"
       my_pronouns_are: "My pronouns are %{pronouns}"
+      link_to_this_section: Link to just this section
+      see_all: "See my full profile"
     name_and_pronoun_card:
       hello: Hello
       my_name_is: my name is
       my_pronouns_are: my pronouns are
+    pronunciation_card:
+      how_to_pronounce_my_name: How to pronounce my name
+      headings:
+        phonetic: "'%{name}' is pronounced"
+      hints:
+        phonetic: This is how I pronounce my own name when speaking English.
     name_details_card:
       how_to_use_my_name: How to use my name
       headings:
         full_name: My full name
-        phonetic: "'%{name}' is pronounced"
         personal_name: Personal name
         formal_name: Formal name
         envelope_name: On an envelope
@@ -169,7 +176,6 @@ en:
           dislike_html: I <b>don't like</b> to be called
       hints:
         full_name: If you're adding me to a list of names, please use this name.
-        phonetic: This is how I pronounce my own name when speaking English.
         personal_name: This is the name I want to be addressed by during a conversation.
         formal_name: I use this name in formal contexts. For example, a letter addressed to me might start 'Dear %{value}'.
         envelope_name: Please use this name when adding my name to an address in a formal context.

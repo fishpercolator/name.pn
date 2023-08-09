@@ -1,6 +1,7 @@
-.card.profile-card.mt-6
+.card.profile-card.mt-6#pronouns{data: {public_profile_target: 'card'}}
   .card-header.profile-card__header
     .card-header-title= t('.how_to_use_my_pronouns')
+    = section_link 'pronouns'
   .card-content
     .profile-card__hint= t('.pronoun_hint')
     - case user.pronounless_style&.to_sym
@@ -10,3 +11,4 @@
       %p.is-size-5.mt-5= t('.pronounless_blurbs.any_html')
     - pronoun_sets.each do |pronoun_set|
       = render 'pronoun_set', pronoun_set: pronoun_set, user: user
+  = see_all
