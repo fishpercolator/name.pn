@@ -1,8 +1,8 @@
 .recorder{data: {controller: 'recorder', recorder_granted_class: 'recorder--granted', recorder_prompt_class: 'recorder--prompt', recorder_denied_class: 'recorder--denied', recorder_mock_permission_value: params[:mock_permission]}}
   -# https://web.dev/media-recording-audio/
   = f.fields_for :pronunciation do |pf|
-    = pf.file_field :data, accept: 'audio/wav', capture: '', data: {recorder_target: 'field', action: 'recorder#recorded'}
-    = pf.hidden_field :delete, data: {recorder_target: 'deleteFlag'}, value: ''
+    = pf.input :data, as: :file, input_html: {accept: 'audio/wav', capture: '', data: {recorder_target: 'field', action: 'recorder#recorded'}}, wrapper_class: 'recorder__nojs mb-2'
+    = pf.input :delete, as: :boolean, include_hidden: false, input_html: {data: {recorder_target: 'deleteFlag'}}, wrapper_class: 'recorder__nojs'
   .recorder__available
     .recorder__buttons
       %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {recorder_target: 'button', action: 'pointerdown->recorder#start pointerup->recorder#stop pointerleave->recorder#stop'}}

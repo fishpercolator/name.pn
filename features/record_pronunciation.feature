@@ -10,6 +10,7 @@ Scenario: Recorder available (no recording)
   And I have given permission to record audio
   When I visit the profile editing page for pronunciation
   Then I should see the recorder
+  And I should not see the upload form and delete checkbox
   And the play button and delete button should be disabled
   
 @javascript
@@ -20,7 +21,9 @@ Scenario: Recorder available (recording present)
   And I have given permission to record audio
   When I visit the profile editing page for pronunciation
   Then I should see the recorder
+  And I should not see the upload form and delete checkbox
   And the play button and delete button should be available
+
 
 Scenario: Recorder not available
   Given I am signed in
@@ -29,6 +32,7 @@ Scenario: Recorder not available
   When I visit the profile editing page for pronunciation
   Then I should not see the recorder
   And I should see a message telling me to use a different browser
+  And I should see the upload form and delete checkbox
 
 @javascript
 Scenario: Permission not given
@@ -38,6 +42,7 @@ Scenario: Permission not given
   And I have not given permission to record audio
   When I visit the profile editing page for pronunciation
   Then I should see the permission button
+  And I should not see the upload form and delete checkbox
 
 @javascript
 Scenario: Permission revoked
@@ -47,6 +52,7 @@ Scenario: Permission revoked
   And I have revoked permission to record audio
   When I visit the profile editing page for pronunciation
   Then I should see an error message
+  And I should not see the upload form and delete checkbox
 
 @javascript
 Scenario: Player on public page

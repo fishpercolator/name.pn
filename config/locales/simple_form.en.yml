@@ -19,6 +19,9 @@ en:
         ipa: "Advanced: IPA pronunciation"
         slug: Your personal URL
         subscribe_to_mailing_list: 'Sign up for occasional update emails'
+        pronunciation:
+          data: Upload your audio file
+          delete: or check this box to delete the current audio (if any)
         edit:
           password: New password
     hints:
@@ -41,6 +44,8 @@ en:
         alternate_names:
           name: A version of your personal name. For example, "Abs"
           category: Do you like to be called by this name?
+        pronunciation:
+          data: File must be in WAV format and less than 2MB. (You are seeing this upload form because the JavaScript audio recorder could not be loaded instead.)
     placeholders:
       user:
         full_name: Abby Yates

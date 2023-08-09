@@ -94,7 +94,7 @@
   }
   
   &.recorder--granted {
-    .recorder__unavailable, input#user_pronunciation_data {
+    .recorder__unavailable, .recorder__nojs {
       display: none;
     }
     .recorder__available {
@@ -103,7 +103,7 @@
   }
   
   &.recorder--prompt {
-    .recorder__unavailable, input#user_pronunciation_data {
+    .recorder__unavailable, .recorder__nojs {
       display: none;
     }
     .recorder__prompt-form {
@@ -112,7 +112,7 @@
   }
   
   &.recorder--denied {
-    .recorder__unavailable, input#user_pronunciation_data {
+    .recorder__unavailable, .recorder__nojs {
       display: none;
     }
     .recorder__denied {

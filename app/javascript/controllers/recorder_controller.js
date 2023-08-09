@@ -114,7 +114,7 @@ export default class extends Controller {
   }
   
   delete () {
-    this.deleteFlagTarget.value = '1'
+    this.deleteFlagTarget.checked = true
     this.fieldTarget.value = null
     this.setPlayerUrl(null)
   }

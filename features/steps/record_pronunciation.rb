@@ -123,4 +123,17 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
     test_user.reload
     expect(test_user.pronunciation).not_to be_attached
   end
+
+  step 'I should see the upload form and delete checkbox' do
+    expect(page).to have_content('Upload your audio file')
+    expect(page).to have_css('input[type=file]')
+    expect(page).to have_css('label.checkbox', text: 'or check this box to delete the current audio')
+  end
+
+  step 'I should not see the upload form and delete checkbox' do
+    expect(page).not_to have_content('Upload your audio file')
+    expect(page).not_to have_css('input[type=file]')
+    expect(page).not_to have_css('label.checkbox', text: 'or check this box to delete the current audio')
+  end
+
 end
