@@ -168,6 +168,7 @@ en:
         full_name: My full name
         personal_name: Personal name
         formal_name: Formal name
+        email_name: Email name
         envelope_name: On an envelope
         variants:
           like_html: I also like to be called
@@ -178,7 +179,8 @@ en:
         full_name: If you're adding me to a list of names, please use this name.
         personal_name: This is the name I want to be addressed by during a conversation.
         formal_name: I use this name in formal contexts. For example, a letter addressed to me might start 'Dear %{value}'.
-        envelope_name: Please use this name when adding my name to an address in a formal context.
+        email_name: Please use this name when addressing me at the start of an email. For example, 'Dear %{value}'.
+        envelope_name: Please use this name when adding my name to an address in a formal context. For example, on an envelope.
         variants:
           like: It's always OK to use these nicknames or variants of my name wherever you use my personal name.
           ok: If you use these variants of my name I won't mind, but they're not names I enjoy being called.

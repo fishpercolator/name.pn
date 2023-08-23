@@ -38,7 +38,6 @@ class Buttondown
       end
       conn.patch(subscriber_url(s["id"]), update)
     else
-      puts "or am I here"
       conn.post("/v1/subscribers", {email: email, subscriber_type: 'regular', metadata: metadata})
     end
   end

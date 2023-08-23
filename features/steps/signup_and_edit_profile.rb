@@ -47,6 +47,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   step 'I fill in my formal name details' do
     fill_in 'Your envelope name', with: 'Mrs M. Lanterman'
     fill_in 'Your formal name', with: 'Mrs Lanterman'
+    fill_in 'Your email name', with: 'Margaret'
   end
 
   step 'I fill in my pronunciation' do
@@ -75,6 +76,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(user.personal_name).to eq('Margaret')
     expect(user.full_name).to eq('Log Lady')
     expect(user.formal_name).to eq('Mrs Lanterman')
+    expect(user.email_name).to eq('Margaret')
     expect(user.envelope_name).to eq('Mrs M. Lanterman')
     expect(user.phonetic).to eq('LOG LAY-dee')
     expect(user.ipa).to eq('lɒg ˈleɪdi')

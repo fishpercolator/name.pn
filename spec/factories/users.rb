@@ -15,6 +15,7 @@ FactoryBot.define do
     trait :full_profile do
       basic_profile
       formal_name { 'Ms Horne' }
+      email_name { 'Audrey' }
       envelope_name { 'Ms A. H. Horne' }
       phonetic { 'AWD-ree HORN' }
       ipa { 'ˈɔːdri hɔːn' }

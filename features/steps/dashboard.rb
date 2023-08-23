@@ -7,7 +7,7 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
 
   step 'I should see cards displaying every aspect of my name' do
     expect(page).to have_css('.card', text: 'Personal name Audrey Full name Audrey Horne')
-    expect(page).to have_css('.card', text: "Envelope name Ms A. H. Horne Formal name Ms Horne Name variants that you like\nHester Prynne Scarlett\nName variants that you don\'t like\nAud")
+    expect(page).to have_css('.card', text: "Envelope name Ms A. H. Horne Formal name Ms Horne Email name Audrey Name variants that you like\nHester Prynne Scarlett\nName variants that you don\'t like\nAud")
     expect(page).to have_css('.card', text: 'Audrey Horne is pronounced AWD-ree HORN')
     expect(page).to have_css('.card', text: 'Pronouns: she/her Audrey is a great cook. She is really good at cooking.')
     expect(page).to have_css('.card', text: 'What you look like')

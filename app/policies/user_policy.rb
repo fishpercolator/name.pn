@@ -10,7 +10,7 @@ class UserPolicy < ApplicationPolicy
   
   def permitted_attributes
     [
-      :full_name, :personal_name, :formal_name, :envelope_name,
+      :full_name, :personal_name, :formal_name, :envelope_name, :email_name,
       :phonetic, :ipa, :slug, :likeness, :pronoun_example, :pronoun_style,
       :pronounless_style, :pronunciation, :pronunciation_of, :noindex,
       :user_pronoun_sets_attributes => [:id, :pronoun_set_id, :position, :_destroy],
