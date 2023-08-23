@@ -12,6 +12,8 @@
         %dd= current_user.envelope_name? ? current_user.envelope_name : not_set
         %dt= User.human_attribute_name(:formal_name)
         %dd= current_user.formal_name? ? current_user.formal_name : not_set
+        %dt= User.human_attribute_name(:email_name)
+        %dd= current_user.email_name? ? current_user.email_name : not_set
         - current_user.alternate_names.grouped_by_category.each do |category, ans|
           %dt= t(category, scope: 'alternate_name_categories')
           %dd

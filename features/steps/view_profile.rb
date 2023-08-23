@@ -198,4 +198,12 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
     expect(page).to have_content("He is really good at cooking.")
     expect(page).to have_content("They are really good at cooking.")
   end
+
+  step 'I should not see the email name' do
+    expect(page).not_to have_content('Email name')
+  end
+
+  step 'I should see the email name' do
+    expect(page).to have_content("Email name\nAudrey\n")
+  end
 end

@@ -35,11 +35,11 @@ module MailingListable
     private
 
     def mailing_list_data
-      slice(:full_name, :formal_name, :email_was).reject {|_,v| v.blank?}
+      slice(:full_name, :formal_name, :email_name, :email_was).reject {|_,v| v.blank?}
     end
     
     def mailing_list_data_changed?
-      subscribed_to_mailing_list? && (saved_change_to_email? || saved_change_to_full_name? || saved_change_to_formal_name?)
+      subscribed_to_mailing_list? && (saved_change_to_email? || saved_change_to_full_name? || saved_change_to_formal_name? || saved_change_to_email_name?)
     end
     
   end

@@ -3,7 +3,7 @@
     .card-header-title= t('.how_to_use_my_name')
     = section_link 'name-details'
   .card-content
-    - %i[full_name personal_name formal_name envelope_name].each do |att|
+    - %i[full_name personal_name envelope_name formal_name email_name].each do |att|
       - val = user.public_send(att)
       - if val.present?
         %h2.profile-card__heading= t(".headings.#{att}", name: user.full_name, value: val)
