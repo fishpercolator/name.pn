@@ -37,6 +37,14 @@ class User < ApplicationRecord
   validates :likeness, size: { less_than: 1.megabyte }
   validates :pronunciation, size: { less_than: 2.megabytes }
 
+  # This needs updating if filters in the admin UI change
+  def self.ransackable_attributes(auth_object = nil)
+    %w[full_name email slug]
+  end
+  def self.ransackable_associations(auth_object = nil)
+    %w[]
+  end
+
   def to_s
     full_name.present? ? full_name : email
   end

@@ -27,7 +27,7 @@ gem 'jsbundling-rails', '~> 1.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'activeadmin', '~> 2.6'
+gem 'activeadmin', '~> 3.0'
 gem 'activeadmin_sortable_table', '~> 1.3'
 gem 'active_storage_base64', '~> 2.0'
 gem 'active_storage_validations', '~> 1.0'
@@ -37,7 +37,7 @@ gem 'blueprinter', '~> 0.25.3'
 gem 'cocoon', '~> 1.2'
 gem 'ddtrace', '~> 1.2', require: 'ddtrace/auto_instrument'
 gem 'devise', '~> 4.7'
-gem 'devise-jwt', '~> 0.10.0'
+gem 'devise-jwt', '~> 0.11.0'
 gem 'figaro', '~> 1.2'
 gem 'friendly_id', '~> 5.3'
 gem 'gaffe', '~> 1.2'
