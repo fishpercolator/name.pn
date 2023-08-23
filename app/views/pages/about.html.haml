@@ -1,59 +1,44 @@
-%section.section
-  .container
-    .columns
-      .column.is-three-fifths.is-offset-one-fifth
-        %h1.title= title 'About name.pn'
-        .content.mt-5.is-size-5
-          %p 
-            Like most useful products, name.pn was born out of necessity. Developer <b>Quinn</b> #{link_to 'name.pn/quinn-daley', 'https://name.pn/quinn-daley'} is trans &amp; non-binary and uses <i>they/them</i> pronouns and needed a nice way to share how to use those pronouns with business contacts.
-          %p
-            These days we do a lot of our communicating electronically. We can see a person's name a dozen times and
-          %ul 
-            %li never learn how to <b>pronounce</b> it the way they want it to be pronounced,
-            %li not know what <b>pronouns</b> to use when talking about them in the third person,
-            %li want to <b>address them formally</b> but not know what title to use (or even if they want to be addressed by a title),
-            %li hear them being called by a shortened version of their name and not know <b>if they actually like it</b>.
-          %p name.pn was created to give each person <b>a short URL</b> that you can put in your email signature and your social profiles that gives people all the information they need to address you correctly, including a chance to hear you pronouncing your name in your own voice.
-          %p It's free and always will be (although we might add some cool additional paid features in the future for businesses). It's still early in development but it works and it's ready to use now.
-          - unless user_signed_in?
-            %p.has-text-centered= link_to 'Sign up for your free name.pn page', new_user_registration_path, class: 'button is-link is-outlined is-medium'
-%section.section
-  .container
-    .columns
-      .column.is-three-fifths.is-offset-one-fifth
-        %h2.title.is-4 Working in the open
-        .content.is-size-5
-          %p name.pn is an open source product and we are working in the open.
-          %p We welcome contributions to our roadmap, including bug reports, feature requests and even code changes! Follow the links below for more information.
-          %p.is-flex.is-justify-content-center
-            = link_to 'https://github.com/fishpercolator/name.pn/issues', class: 'button is-link is-outlined is-medium can-wrap' do
-              %span.icon
-                %i.mdi.mdi-bug
-              %span Report a bug or make a feature request
-          %p.is-flex.is-justify-content-center
-            = link_to 'https://github.com/orgs/fishpercolator/projects/1', class: 'button is-link is-outlined is-medium can-wrap' do
-              %span.icon
-                %i.mdi.mdi-map
-              %span See what's coming up next on our roadmap
-          %p.is-flex.is-justify-content-center
-            = link_to 'https://github.com/fishpercolator/name.pn/blob/main/CONTRIBUTING.md', class: 'button is-link is-outlined is-medium can-wrap' do
-              %span.icon
-                %i.mdi.mdi-wrench-outline
-              %span Read about how you can contribute to name.pn
-          %p.is-flex.is-justify-content-center
-            = link_to 'https://github.com/fishpercolator/name.pn', class: 'button is-link is-outlined is-medium can-wrap' do
-              %span.icon
-                %i.mdi.mdi-github
-              %span Browse our source code on GitHub
-%section.section
-  .container
-    .columns
-      .column.is-three-fifths.is-offset-one-fifth
-        %h2.title.is-4 Get in touch
-        .content.is-size-5
-          %p If you'd like to report an issue or feature request, please use #{link_to 'our issues board', 'https://github.com/fishpercolator/name.pn/issues'}. But to get in touch for any other reason, our email address is below.
-          %p.is-flex.is-justify-content-center
-            = link_to 'mailto:support@name.pn', class: 'button is-link is-outlined is-medium can-wrap' do
-              %span.icon
-                %i.mdi.mdi-email
-              %span support@name.pn
+= page_section(title: 'About name.pn', page_title: true) do 
+  %p 
+    Like most useful products, name.pn was born out of necessity. Developer <b>Quinn</b> #{link_to 'name.pn/quinn-daley', 'https://name.pn/quinn-daley'} is trans &amp; non-binary and uses <i>they/them</i> pronouns and needed a nice way to share how to use those pronouns with business contacts.
+  %p
+    These days we do a lot of our communicating electronically. We can see a person's name a dozen times and
+  %ul 
+    %li never learn how to <b>pronounce</b> it the way they want it to be pronounced,
+    %li not know what <b>pronouns</b> to use when talking about them in the third person,
+    %li want to <b>address them formally</b> but not know what title to use (or even if they want to be addressed by a title),
+    %li hear them being called by a shortened version of their name and not know <b>if they actually like it</b>.
+  %p name.pn was created to give each person <b>a short URL</b> that you can put in your email signature and your social profiles that gives people all the information they need to address you correctly, including a chance to hear you pronouncing your name in your own voice.
+  %p It's free and always will be (although we might add some cool additional paid features in the future for businesses). It's still early in development but it works and it's ready to use now.
+  - unless user_signed_in?
+    %p.has-text-centered= link_to 'Sign up for your free name.pn page', new_user_registration_path, class: 'button is-link is-outlined is-medium'
+= page_section(title: 'Working in the open') do
+  %p name.pn is an open source product and we are working in the open.
+  %p We welcome contributions to our roadmap, including bug reports, feature requests and even code changes! Follow the links below for more information.
+  %p.is-flex.is-justify-content-center
+    = link_to 'https://github.com/fishpercolator/name.pn/issues', class: 'button is-link is-outlined is-medium can-wrap' do
+      %span.icon
+        %i.mdi.mdi-bug
+      %span Report a bug or make a feature request
+  %p.is-flex.is-justify-content-center
+    = link_to 'https://github.com/orgs/fishpercolator/projects/1', class: 'button is-link is-outlined is-medium can-wrap' do
+      %span.icon
+        %i.mdi.mdi-map
+      %span See what's coming up next on our roadmap
+  %p.is-flex.is-justify-content-center
+    = link_to 'https://github.com/fishpercolator/name.pn/blob/main/CONTRIBUTING.md', class: 'button is-link is-outlined is-medium can-wrap' do
+      %span.icon
+        %i.mdi.mdi-wrench-outline
+      %span Read about how you can contribute to name.pn
+  %p.is-flex.is-justify-content-center
+    = link_to 'https://github.com/fishpercolator/name.pn', class: 'button is-link is-outlined is-medium can-wrap' do
+      %span.icon
+        %i.mdi.mdi-github
+      %span Browse our source code on GitHub
+= page_section(title: 'Get in touch') do
+  %p If you'd like to report an issue or feature request, please use #{link_to 'our issues board', 'https://github.com/fishpercolator/name.pn/issues'}. But to get in touch for any other reason, our email address is below.
+  %p.is-flex.is-justify-content-center
+    = link_to 'mailto:support@name.pn', class: 'button is-link is-outlined is-medium can-wrap' do
+      %span.icon
+        %i.mdi.mdi-email
+      %span support@name.pn
