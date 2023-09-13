@@ -8,6 +8,9 @@
     &:not(.is-danger) { 
       color: $grey; 
     }
+    a {
+      text-decoration: underline;
+    }
   }
   .level .field {
     margin-bottom: 0;
