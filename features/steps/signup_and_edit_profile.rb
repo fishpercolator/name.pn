@@ -51,7 +51,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I fill in my pronunciation' do
-    fill_in 'Phonetic pronunciation of \'Log Lady\'', with: 'LOG LAY-dee'
+    fill_in 'Phonetic spelling of \'Log Lady\'', with: 'LOG LAY-dee'
     fill_in 'Advanced: IPA pronunciation', with: 'lɒg ˈleɪdi'
   end
 
@@ -211,7 +211,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'the hints on the page should update to my personal name' do
-    expect(page).to have_content("Phonetic pronunciation of 'Audrey'")
+    expect(page).to have_content("Phonetic spelling of 'Audrey'")
     expect(page).to have_content("Record yourself saying 'Audrey'")
   end
 
