@@ -52,7 +52,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
 
   step 'I fill in my pronunciation' do
     fill_in 'Phonetic spelling of \'Log Lady\'', with: 'LOG LAY-dee'
-    fill_in 'Advanced: IPA pronunciation', with: 'lɒg ˈleɪdi'
+    fill_in 'Advanced: IPA spelling', with: 'lɒg ˈleɪdi'
   end
 
   step 'I select my pronouns as she/her' do
