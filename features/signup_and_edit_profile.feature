@@ -214,6 +214,16 @@ Scenario: Likeness is too large
   And I attach a likeness that is too large
   Then I should see an error that the file is too large
 
+@javascript
+Scenario: Cancel likeness upload from cropper
+  Given I am signed in as a user with a complete profile
+  When I visit the dashboard
+  And I click the edit button in the likeness box
+  And I click to add an image
+  And I attach my likeness
+  And I cancel from the image editor
+  Then I should be back on the likeness upload dashboard
+
 Scenario: Reorder pronouns (no JavaScript)
   Given I am signed out
   When I visit the sign up page

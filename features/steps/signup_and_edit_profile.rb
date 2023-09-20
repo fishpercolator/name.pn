@@ -409,4 +409,12 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     tt.drag_to(top)
     expect(first('.checkbox')).to have_content('they/them')
   end
+
+  step 'I cancel from the image editor' do
+    find('#uppy-DashboardContent-panel--editor .uppy-DashboardContent-back', text: 'Cancel').click
+  end
+
+  step 'I should be back on the likeness upload dashboard' do
+    expect(page).to have_content('Drop files here, browse files or import from')
+  end
 end

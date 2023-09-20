@@ -57,6 +57,9 @@ export default class extends Controller {
     this.uploader.on('file-editor:complete', () => {
       this.uploader.upload()
     })
+    this.uploader.on('file-editor:cancel', () => {
+      this.uploader.cancelAll()
+    })
     this.uploader.on('complete', result => {
       if (result.successful.length > 0) {
         let img = document.createElement('img')
