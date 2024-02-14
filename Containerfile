@@ -1,4 +1,4 @@
-FROM ruby:3.1.3
+FROM docker.io/ruby:3.1.3
 
 ARG UID=1001
 COPY vendor/prepare-env.sh /tmp
