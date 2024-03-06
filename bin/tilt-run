@@ -1,0 +1,7 @@
+#!/bin/bash
+
+RESOURCE=name-pn
+POD_NAME="$(tilt get kubernetesdiscovery "$RESOURCE" -ojsonpath='{.status.pods[0].name}')"
+# If we're running this from a terminal, attach a terminal here too
+if [ -t 0 ]; then FLAGS="-ti"; fi
+kubectl exec $FLAGS "$POD_NAME" -- bundle exec $@

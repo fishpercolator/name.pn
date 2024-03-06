@@ -1,19 +1,38 @@
-FROM docker.io/ruby:3.1.3
+# syntax = docker/dockerfile:1
 
-ARG UID=1001
-COPY vendor/prepare-env.sh /tmp
-RUN /tmp/prepare-env.sh $UID
+# Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
+ARG RUBY_VERSION=3.1.3
+FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
-# Assume the app will be mounted here by docker-compose
-ENV APP /usr/src/app
-RUN mkdir $APP
-WORKDIR $APP
+# Rails app lives here
+WORKDIR /rails
 
-ENV GEM_HOME $APP/vendor/bundle
-ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
+# Set development environment
+ENV RAILS_ENV="development" \
+    BUNDLE_PATH="/usr/local/bundle"
+
+# Install apt dependencies
+ARG NODE_MAJOR=18
+COPY vendor/install-dependencies.sh /tmp
+RUN /tmp/install-dependencies.sh $NODE_MAJOR
+
+# Install application gems
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
+# Install application JS
+COPY package.json yarn.lock ./
+RUN yarn
+
+# Copy application code
+COPY . .
 
 ENV DEFAULT_DOMAIN localhost
 
-ENTRYPOINT ["vendor/docker-entrypoint.sh"]
+# Entrypoint prepares the database.
+ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 LABEL "com.datadoghq.ad.logs"='[{"source": "ruby", "service": "name-pn"}]'
+
+# Start the server by default, this can be overwritten at runtime
+EXPOSE 3000
 CMD ["bin/dev"]
