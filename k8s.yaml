@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: name-pn
+  labels:
+    app: name-pn
+spec:
+  selector:
+    matchLabels:
+      app: name-pn
+  template:
+    metadata:
+      labels:
+        app: name-pn
+    spec:
+      containers:
+        - name: name-pn
+          image: name-pn
+          ports:
+            - containerPort: 8080
+          env:
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: tiltfile
+                  key: jwt-secret
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tiltfile
+                  key: postgres-password
