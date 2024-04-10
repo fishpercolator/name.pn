@@ -1,3 +1,5 @@
+v1alpha1.extension_repo(name='default', url='file:///var/home/quinn/git/tilt-extensions')
+
 load('ext://helm_resource', 'helm_resource', 'helm_repo')
 load('ext://podman', 'podman_build')
 load('ext://secret', 'secret_from_dict')
@@ -25,13 +27,15 @@ helm_resource(
 )
 
 # The Rails app itself is built and served by app.yaml
-podman_build('name-pn', '.', live_update=[
-  fall_back_on(['./config', './Containerfile', './k8s.yaml']),
-  sync('.', '/rails'),
-  run('bundle', trigger=['./Gemfile', './Gemfile.lock']),
-  run('yarn', trigger=['./package.json', './yarn.lock']),
-  run('yarn build', trigger=['./app/javascript']),
-  run('yarn build:css', trigger=['./app/assets/stylesheets']),
+podman_build('name-pn', '.', 
+  ignore=['log', 'tmp'],
+  live_update=[
+    fall_back_on(['./config', './Containerfile', './k8s.yaml']),
+    sync('.', '/rails'),
+    run('bundle', trigger=['./Gemfile', './Gemfile.lock']),
+    run('yarn', trigger=['./package.json', './yarn.lock']),
+    run('yarn build', trigger=['./app/javascript']),
+    run('yarn build:css', trigger=['./app/assets/stylesheets']),
 ])
 k8s_yaml('k8s.yaml')
 k8s_resource('name-pn', 
@@ -39,8 +43,17 @@ k8s_resource('name-pn',
   resource_deps=['postgresql'],
   port_forwards='3000:3000'
 )
-syncback('lockfiles', 'deploy/name-pn', '/rails/', 
-  paths=['db/schema.rb', 'Gemfile.lock', 'yarn.lock']
+syncback('sync lockfiles', 'deploy/name-pn', '/rails/', 
+  rsync_options=[
+    '--include=db/', '--include=db/schema.rb',
+    '--include=Gemfile.lock', '--include=yarn.lock', '--exclude=*'
+  ]
+)
+syncback('sync logs & test results', 'deploy/name-pn', '/rails/',
+  rsync_options=[
+    '--include=log/**', '--include=tmp/', '--include=tmp/capybara**',
+    '--exclude=*'
+  ]
 )
 cmd_button('name-pn:db-migrate',
   argv=['./bin/tilt-run', 'rails', 'db:migrate'],
