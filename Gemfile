@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.2'
+gem 'rails', '~> 7.1.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -29,11 +29,11 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'activeadmin', '~> 3.0'
 gem 'activeadmin_sortable_table', '~> 1.3'
-gem 'active_storage_base64', '~> 2.0'
+gem 'active_storage_base64', '~> 3.0'
 gem 'active_storage_validations', '~> 1.0'
 gem 'acts_as_list', '~> 1.0'
 gem 'amazing_print', '~> 1.3'
-gem 'blueprinter', '~> 0.26.0'
+gem 'blueprinter', '~> 1.0'
 gem 'cocoon', '~> 1.2'
 gem 'ddtrace', '~> 1.2', require: 'ddtrace/auto_instrument'
 gem 'devise', '~> 4.7'

@@ -8,8 +8,7 @@ FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 WORKDIR /rails
 
 # Set development environment
-ENV RAILS_ENV="development" \
-    BUNDLE_PATH="/usr/local/bundle"
+ENV BUNDLE_PATH="/usr/local/bundle"
 
 # Install apt dependencies
 ARG NODE_MAJOR=18
@@ -27,6 +26,10 @@ RUN yarn
 # Copy application code
 COPY . .
 
+# Build assets in dev mode
+RUN yarn build
+RUN yarn build:css
+
 ENV DEFAULT_DOMAIN localhost
 
 # Entrypoint prepares the database.
@@ -35,4 +38,4 @@ LABEL "com.datadoghq.ad.logs"='[{"source": "ruby", "service": "name-pn"}]'
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["bin/dev"]
+CMD ["./bin/rails", "server"]

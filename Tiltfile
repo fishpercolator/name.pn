@@ -1,6 +1,7 @@
 load('ext://helm_resource', 'helm_resource', 'helm_repo')
 load('ext://podman', 'podman_build')
 load('ext://secret', 'secret_from_dict')
+load('ext://syncback', 'syncback')
 load('ext://uibutton', 'cmd_button')
 
 # Set up secrets with defaults for development
@@ -15,6 +16,7 @@ helm_resource(
   name='postgresql',
   chart='bitnami/postgresql',
   flags=[
+      '--version=^14.0',
       '--set=image.tag=16',
       '--set=global.postgresql.auth.existingSecret=tiltfile',
   ],
@@ -24,16 +26,21 @@ helm_resource(
 
 # The Rails app itself is built and served by app.yaml
 podman_build('name-pn', '.', live_update=[
+  fall_back_on(['./config', './Containerfile', './k8s.yaml']),
   sync('.', '/rails'),
   run('bundle', trigger=['./Gemfile', './Gemfile.lock']),
   run('yarn', trigger=['./package.json', './yarn.lock']),
-  run('bundle exec rails assets:precompile', trigger=['./app/assets']),
+  run('yarn build', trigger=['./app/javascript']),
+  run('yarn build:css', trigger=['./app/assets/stylesheets']),
 ])
 k8s_yaml('k8s.yaml')
 k8s_resource('name-pn', 
   labels=['app'],
   resource_deps=['postgresql'],
   port_forwards='3000:3000'
+)
+syncback('lockfiles', 'deploy/name-pn', '/rails/', 
+  paths=['db/schema.rb', 'Gemfile.lock', 'yarn.lock']
 )
 cmd_button('name-pn:db-migrate',
   argv=['./bin/tilt-run', 'rails', 'db:migrate'],

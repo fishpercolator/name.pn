@@ -17,7 +17,7 @@ spec:
         - name: name-pn
           image: name-pn
           ports:
-            - containerPort: 8080
+            - containerPort: 3000
           env:
             - name: JWT_SECRET
               valueFrom:
