@@ -1,5 +1,3 @@
-v1alpha1.extension_repo(name='default', url='file:///var/home/quinn/git/tilt-extensions')
-
 load('ext://helm_resource', 'helm_resource', 'helm_repo')
 load('ext://podman', 'podman_build')
 load('ext://secret', 'secret_from_dict')
@@ -7,7 +5,7 @@ load('ext://syncback', 'syncback')
 load('ext://uibutton', 'cmd_button')
 
 # Set up secrets with defaults for development
-k8s_yaml(secret_from_dict('tiltfile', inputs = {
+k8s_yaml(secret_from_dict('name-pn-tiltfile', inputs = {
   'postgres-password' : os.getenv('POSTGRES_PASSWORD', 's3sam3'),
   'jwt-secret': os.getenv('JWT_SECRET', 'JWT_SECRET=8139a4837740e8ca5aa6809fb87912605d4ad652cb247c30096eb62413812375d4fa906bb0bee9c3aa3663b814681af7e0e68dc1a8d59f13034ddd24f7a4fefb'),
 }))
@@ -15,12 +13,12 @@ k8s_yaml(secret_from_dict('tiltfile', inputs = {
 # Use Helm to spin up postgres
 helm_repo('bitnami', 'https://charts.bitnami.com/bitnami')
 helm_resource(
-  name='postgresql',
+  name='name-pn-postgresql',
   chart='bitnami/postgresql',
   flags=[
       '--version=^14.0',
       '--set=image.tag=16',
-      '--set=global.postgresql.auth.existingSecret=tiltfile',
+      '--set=global.postgresql.auth.existingSecret=name-pn-tiltfile',
   ],
   labels=['database'],
   resource_deps=['bitnami'],
@@ -40,7 +38,7 @@ podman_build('name-pn', '.',
 k8s_yaml('k8s.yaml')
 k8s_resource('name-pn', 
   labels=['app'],
-  resource_deps=['postgresql'],
+  resource_deps=['name-pn-postgresql'],
   port_forwards='3000:3000'
 )
 syncback('sync lockfiles', 'deploy/name-pn', '/rails/', 

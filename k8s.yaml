@@ -22,10 +22,10 @@ spec:
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: tiltfile
+                  name: name-pn-tiltfile
                   key: jwt-secret
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: tiltfile
+                  name: name-pn-tiltfile
                   key: postgres-password
