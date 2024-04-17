@@ -29,3 +29,13 @@ spec:
                 secretKeyRef:
                   name: name-pn-tiltfile
                   key: postgres-password
+            - name: DD_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: name-pn-tiltfile
+                  key: dd-api-key
+            - name: BUTTONDOWN_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: name-pn-tiltfile
+                  key: buttondown-api-key

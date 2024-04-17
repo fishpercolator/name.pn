@@ -7,7 +7,9 @@ load('ext://uibutton', 'cmd_button')
 # Set up secrets with defaults for development
 k8s_yaml(secret_from_dict('name-pn-tiltfile', inputs = {
   'postgres-password' : os.getenv('POSTGRES_PASSWORD', 's3sam3'),
-  'jwt-secret': os.getenv('JWT_SECRET', 'JWT_SECRET=8139a4837740e8ca5aa6809fb87912605d4ad652cb247c30096eb62413812375d4fa906bb0bee9c3aa3663b814681af7e0e68dc1a8d59f13034ddd24f7a4fefb'),
+  'jwt-secret': os.getenv('JWT_SECRET', '8139a4837740e8ca5aa6809fb87912605d4ad652cb247c30096eb62413812375d4fa906bb0bee9c3aa3663b814681af7e0e68dc1a8d59f13034ddd24f7a4fefb'),
+  'buttondown-api-key': os.getenv('BUTTONDOWN_API_KEY'),
+  'dd-api-key': os.getenv('DD_API_KEY'),
 }))
 
 # Use Helm to spin up postgres
