@@ -1,16 +1,19 @@
-load('ext://helm_resource', 'helm_resource')
+load('ext://helm_resource', 'helm_resource', 'helm_repo')
 load('ext://podman', 'podman_build')
 load('ext://secret', 'secret_from_dict')
 load('ext://syncback', 'syncback')
 load('ext://uibutton', 'cmd_button')
 
 # Set up secrets with defaults for development
-k8s_yaml(secret_from_dict('name-pn-tiltfile', inputs = {
+env = {
   'postgres-password' : os.getenv('POSTGRES_PASSWORD', 's3sam3'),
-  'jwt-secret': os.getenv('JWT_SECRET', '8139a4837740e8ca5aa6809fb87912605d4ad652cb247c30096eb62413812375d4fa906bb0bee9c3aa3663b814681af7e0e68dc1a8d59f13034ddd24f7a4fefb'),
-  'buttondown-api-key': os.getenv('BUTTONDOWN_API_KEY'),
-  'dd-api-key': os.getenv('DD_API_KEY'),
-}))
+  'jwt-secret': os.getenv('JWT_SECRET', '8139a4837740e8ca5aa6809fb87912605d4ad652cb247c30096eb62413812375d4fa906bb0bee9c3aa3663b814681af7e0e68dc1a8d59f13034ddd24f7a4fefb')
+}
+if os.getenv('BUTTONDOWN_API_KEY'):
+  env['buttondown-api-key'] = os.getenv('BUTTONDOWN_API_KEY')
+if os.getenv('DD_API_KEY'):
+  env['dd-api-key'] = os.getenv('DD_API_KEY')
+k8s_yaml(secret_from_dict('name-pn-tiltfile', inputs = env))
 
 # Use Helm to spin up postgres
 helm_resource(
@@ -23,6 +26,18 @@ helm_resource(
   ],
   labels=['database'],
 )
+
+# Spin up a datadog agent if the env var is set
+if os.getenv('DD_API_KEY'):
+  helm_repo('datadog-repo', 'https://helm.datadoghq.com', labels=['datadog'])
+  helm_resource(
+    name='datadog-operator',
+    chart='datadog/datadog-operator',
+    resource_deps=['datadog-repo'],
+    labels=['datadog'],
+  )
+  k8s_yaml('datadog-agent.yaml')
+  k8s_resource(new_name='datadog-agent', objects=['datadog:DatadogAgent'], labels=['datadog'])
 
 # The Rails app itself is built and served by app.yaml
 podman_build('name-pn', '.', 

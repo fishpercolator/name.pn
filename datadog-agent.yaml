@@ -1,0 +1,20 @@
+kind: DatadogAgent
+apiVersion: datadoghq.com/v2alpha1
+metadata:
+  name: datadog
+spec:
+  global:
+    site: datadoghq.eu
+    credentials:
+      apiSecret:
+        secretName: name-pn-tiltfile
+        keyName: dd-api-key
+  features:
+    apm:
+      enabled: true
+    logCollection:
+      enabled: true
+      containerCollectAll: true
+    admissionController:
+      enabled: true
+      mutateUnlabelled: true
