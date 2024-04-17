@@ -232,13 +232,13 @@ Scenario: Reorder pronouns (no JavaScript)
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
-  And I select my pronouns as she/her
-  And I type 2 into the she/her position box
   And I select my pronouns as they/them
-  And I type 1 into the they/them position box
+  And I type 2 into the they/them position box
+  And I select my pronouns as she/her
+  And I type 1 into the she/her position box
   And I click to save and exit
   And I visit my profile page
-  Then I should see my pronouns listed in the order they/them, she/her
+  Then I should see my pronouns listed in the order she/her, they/them
 
 @javascript
 Scenario: Reordering boxes invisible when JavaScript on
@@ -260,11 +260,11 @@ Scenario: No reorder (JavaScript enabled)
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
-  And I select my pronouns as she/her
   And I select my pronouns as they/them
+  And I select my pronouns as she/her
   And I click to save and exit
   And I visit my profile page
-  Then I should see my pronouns listed in the order she/her, they/them
+  Then I should see my pronouns listed in the order they/them, she/her
 
 # https://github.com/rubycdp/cuprite/issues/178
 @javascript @wip
@@ -276,9 +276,9 @@ Scenario: Reorder with drag-and-drop
   And I submit the form
   And I fill in my personal name details
   And I go to the next stage
+    And I select my pronouns as they/them
   And I select my pronouns as she/her
-  And I select my pronouns as they/them
-  And I drag they/them to the top position
+  And I drag she/her to the top position
   And I click to save and exit
   And I visit my profile page
-  Then I should see my pronouns listed in the order they/them, she/her
+  Then I should see my pronouns listed in the order she/her, they/them
