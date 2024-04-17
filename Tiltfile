@@ -1,4 +1,4 @@
-load('ext://helm_resource', 'helm_resource', 'helm_repo')
+load('ext://helm_resource', 'helm_resource')
 load('ext://podman', 'podman_build')
 load('ext://secret', 'secret_from_dict')
 load('ext://syncback', 'syncback')
@@ -11,17 +11,15 @@ k8s_yaml(secret_from_dict('name-pn-tiltfile', inputs = {
 }))
 
 # Use Helm to spin up postgres
-helm_repo('bitnami', 'https://charts.bitnami.com/bitnami')
 helm_resource(
   name='name-pn-postgresql',
-  chart='bitnami/postgresql',
+  chart='oci://registry-1.docker.io/bitnamicharts/postgresql',
   flags=[
       '--version=^14.0',
       '--set=image.tag=16',
       '--set=global.postgresql.auth.existingSecret=name-pn-tiltfile',
   ],
   labels=['database'],
-  resource_deps=['bitnami'],
 )
 
 # The Rails app itself is built and served by app.yaml
@@ -30,7 +28,7 @@ podman_build('name-pn', '.',
   live_update=[
     fall_back_on(['./config', './Containerfile', './k8s.yaml']),
     sync('.', '/rails'),
-    run('bundle', trigger=['./Gemfile', './Gemfile.lock']),
+    run('bundle && touch tmp/restart.txt', trigger=['./Gemfile', './Gemfile.lock']),
     run('yarn', trigger=['./package.json', './yarn.lock']),
     run('yarn build', trigger=['./app/javascript']),
     run('yarn build:css', trigger=['./app/assets/stylesheets']),
@@ -44,14 +42,31 @@ k8s_resource('name-pn',
 syncback('sync lockfiles', 'deploy/name-pn', '/rails/', 
   rsync_options=[
     '--include=db/', '--include=db/schema.rb',
-    '--include=Gemfile.lock', '--include=yarn.lock', '--exclude=*'
-  ]
+    '--include=Gemfile.lock', '--include=yarn.lock', 
+    '--include=tmp', '--include=tmp/local_secret.txt', 
+    '--exclude=*'
+  ],
+  labels=['app']
 )
 syncback('sync logs & test results', 'deploy/name-pn', '/rails/',
   rsync_options=[
     '--include=log/**', '--include=tmp/', '--include=tmp/capybara**',
     '--exclude=*'
-  ]
+  ],
+  labels=['app']
+)
+syncback('sync app files', 'deploy/name-pn', '/rails/',
+  rsync_options=[
+    '--exclude=log/', '--exclude=tmp/', '--exclude=app/assets/builds/'
+  ],
+  labels=['app']
+)
+
+cmd_button('name-pn:restart',
+  argv=['./bin/tilt-run', 'touch', 'tmp/restart.txt'],
+  resource='name-pn',
+  icon_name='restart_alt',
+  text='Restart',
 )
 cmd_button('name-pn:db-migrate',
   argv=['./bin/tilt-run', 'rails', 'db:migrate'],
@@ -62,7 +77,7 @@ cmd_button('name-pn:db-migrate',
 cmd_button('name-pn:db-reset',
   argv=['./bin/tilt-run', 'rails', 'db:seed:replant'],
   resource='name-pn',
-  icon_name='restart_alt',
+  icon_name='sync',
   text='Reset database',
   requires_confirmation=True,
 )
