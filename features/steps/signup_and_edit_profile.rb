@@ -406,7 +406,8 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   step 'I drag she/her to the top position' do
     top = first('.checkbox')
     tt = find('.checkbox', text: 'she/her')
-    tt.drag_to(top)
+    # https://github.com/rubycdp/cuprite/issues/178#issuecomment-1714133280
+    tt.drag_to(top, steps: 10)
     expect(first('.checkbox')).to have_content('she/her')
   end
 

@@ -9,6 +9,7 @@ export default class extends Controller {
     this.fillPositions()
     this.sortable = Sortable.create(this.listTarget, {
       filter: 'input[type="checkbox"]',
+      forceFallback: true,
       onUpdate: () => this.fillPositions()
     })
     this.positionTargets.forEach(t => t.style.display = 'none')

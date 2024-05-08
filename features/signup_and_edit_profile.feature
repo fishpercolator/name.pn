@@ -266,8 +266,7 @@ Scenario: No reorder (JavaScript enabled)
   And I visit my profile page
   Then I should see my pronouns listed in the order they/them, she/her
 
-# https://github.com/rubycdp/cuprite/issues/178
-@javascript @wip
+@javascript
 Scenario: Reorder with drag-and-drop
   Given I am signed out
   When I visit the sign up page
