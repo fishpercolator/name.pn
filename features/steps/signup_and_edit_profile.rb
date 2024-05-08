@@ -370,8 +370,8 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(user.pronoun_sets).to eq([])
   end
 
-  step 'I type 2 into the she/her position box' do
-    within find('.checkbox', text: 'she/her') do
+  step 'I type 2 into the they/them position box' do
+    within find('.checkbox', text: 'they/them') do
       find('input[type=number]').fill_in with: '2'
     end
   end
@@ -380,8 +380,8 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     check 'they/them'
   end
 
-  step 'I type 1 into the they/them position box' do
-    within find('.checkbox', text: 'they/them') do
+  step 'I type 1 into the she/her position box' do
+    within find('.checkbox', text: 'she/her') do
       find('input[type=number]').fill_in with: '1'
     end
   end
@@ -403,11 +403,11 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(page).not_to have_css('input[type=number]')
   end
 
-  step 'I drag they/them to the top position' do
+  step 'I drag she/her to the top position' do
     top = first('.checkbox')
-    tt = find('.checkbox', text: 'they/them')
+    tt = find('.checkbox', text: 'she/her')
     tt.drag_to(top)
-    expect(first('.checkbox')).to have_content('they/them')
+    expect(first('.checkbox')).to have_content('she/her')
   end
 
   step 'I cancel from the image editor' do

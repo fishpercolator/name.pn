@@ -13,7 +13,7 @@
         %span.recorder__button-text-idle= t('.record')
         %span.recorder__button-text-waiting= t('.please_wait')
         %span.recorder__button-text-active= t('.recording')
-      = render 'users/player', data: {recorder_target: 'player', player_url_value: (url_for(f.object.pronunciation) if f.object.pronunciation.attached?)}, button_class: 'is-success is-medium'
+      = render 'users/player', data: {recorder_target: 'player', player_url_value: (url_for(f.object.pronunciation) if f.object.pronunciation.attached? && !f.object.errors[:pronunciation].any?)}, button_class: 'is-success is-medium'
       %button.button.is-link.is-medium{type: 'button', disabled: true, data: {recorder_target: 'delete', action: 'recorder#delete'}}
         %span.icon
           %i.mdi.mdi-delete

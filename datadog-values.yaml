@@ -1,0 +1,10 @@
+datadog:
+  apiKeyExistingSecret: datadog-secret
+  site: datadoghq.eu
+  kubelet:
+    tlsVerify: false
+  apm:
+    instrumentation:
+      enabled: true
+  serviceMonitoring:
+    enabled: false
