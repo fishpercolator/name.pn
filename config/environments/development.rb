@@ -79,7 +79,4 @@ Rails.application.configure do
 
   # Log to stdout
   $stdout.sync = true
-  # # Add a JSON-format logfile to /tmp for local Datadog
-  # config.rails_semantic_logger.add_file_appender = false
-  # config.semantic_logger.add_appender(file_name: "log/development.json.log", level: config.log_level, formatter: :json)
 end
