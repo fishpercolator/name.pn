@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
-ARG RUBY_VERSION=3.1.3
+ARG RUBY_VERSION=3.3.0
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
 # Rails app lives here
@@ -10,18 +10,30 @@ WORKDIR /rails
 # Set development environment
 ENV BUNDLE_PATH="/usr/local/bundle"
 
-# Install apt dependencies
-ARG NODE_MAJOR=18
-COPY vendor/install-dependencies.sh /tmp
-RUN /tmp/install-dependencies.sh $NODE_MAJOR
+# Install packages needed to build gems and node modules
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential chromium curl git libpq-dev libvips node-gyp pkg-config postgresql-common python-is-python3 rsync
+
+# Install JavaScript dependencies
+ARG NODE_VERSION=22.1.0
+ARG YARN_VERSION=1.22.22
+ENV PATH=/usr/local/node/bin:$PATH
+RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
+    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
+    npm install -g yarn@$YARN_VERSION && \
+    rm -rf /tmp/node-build-master
+
+# Install postgresql-client-16
+RUN /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -v 16 && \
+    apt-get install --no-install-recommends -y postgresql-client-16
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
-# Install application JS
+# Install node modules
 COPY package.json yarn.lock ./
-RUN yarn
+RUN yarn install
 
 # Copy application code
 COPY . .
@@ -34,7 +46,6 @@ ENV DEFAULT_DOMAIN localhost
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
-LABEL "com.datadoghq.ad.logs"='[{"source": "ruby", "service": "name-pn"}]'
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
