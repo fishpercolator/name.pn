@@ -29,15 +29,17 @@ helm_resource(
 
 # Spin up a datadog agent if the env var is set
 if os.getenv('DD_API_KEY'):
+  k8s_yaml(secret_from_dict('datadog-secret', inputs = {
+    'api-key': os.getenv('DD_API_KEY')
+  }))
   helm_repo('datadog-repo', 'https://helm.datadoghq.com', labels=['datadog'])
   helm_resource(
-    name='datadog-operator',
-    chart='datadog/datadog-operator',
+    name='datadog-agent',
+    chart='datadog/datadog',
     resource_deps=['datadog-repo'],
+    flags=['--values=./datadog-values.yaml'],
     labels=['datadog'],
   )
-  k8s_yaml('datadog-agent.yaml')
-  k8s_resource(new_name='datadog-agent', objects=['datadog:DatadogAgent'], labels=['datadog'])
 
 # The Rails app itself is built and served by app.yaml
 podman_build('name-pn', '.', 
