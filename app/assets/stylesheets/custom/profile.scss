@@ -49,28 +49,28 @@
   }
 }
 
-.field-slug {
-  .input {
-    &:focus-within {
-      border-color: $input-focus-border-color;
-      box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color;
-    }
-  }
-  .field-slug__input {
-    border: none;
-    outline: none;
-    font-size: 1em;
-    padding: 0;
-    line-height: 1.5;
-    width: 100%;
-  }
-}
-.field-slug--error .input {
-  border-color: $danger;
-  &:focus-within {
-    box-shadow: $input-focus-box-shadow-size bulmaRgba($danger, 0.25);
-  }
-}
+// .field-slug {
+//   .input {
+//     &:focus-within {
+//       border-color: $input-focus-border-color;
+//       box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color;
+//     }
+//   }
+//   .field-slug__input {
+//     border: none;
+//     outline: none;
+//     font-size: 1em;
+//     padding: 0;
+//     line-height: 1.5;
+//     width: 100%;
+//   }
+// }
+// .field-slug--error .input {
+//   border-color: $danger;
+//   &:focus-within {
+//     box-shadow: $input-focus-box-shadow-size bulmaRgba($danger, 0.25);
+//   }
+// }
 
 .copy-button {
   &.copy-button--copied {

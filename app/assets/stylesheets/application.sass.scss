@@ -4,40 +4,35 @@ $yellow:    #BC8034;
 $green:     #4E937A;
 $blue:      #175676;
 $grey:      #595959;
-$primary:   $red;
-$warning:   $yellow;
 
-$family-sans-serif: Raleway, sans-serif;
-$family-handwriting: 'Patrick Hand', cursive;
+@use "bulma/sass/utilities" with (
+  $primary:   $red,
+  $warning:   $yellow,
+  $family-sans-serif: 'Raleway, sans-serif',
+);
+$family-handwriting: '"Patrick Hand", cursive';
 
 // Add the pieces of Bulma that your project uses here
-@import "bulma/sass/utilities/_all";
-@import "bulma/sass/base/_all";
-@import "bulma/sass/helpers/_all";
+@forward "bulma/sass/base";
 
-@import "bulma/sass/components/card";
-@import "bulma/sass/components/level";
-@import "bulma/sass/components/media";
-@import "bulma/sass/components/message";
-@import "bulma/sass/components/modal";
-@import "bulma/sass/components/navbar";
+@forward "bulma/sass/components/card";
+@forward "bulma/sass/components/message";
+@forward "bulma/sass/components/modal";
+@forward "bulma/sass/components/navbar";
 
-@import "bulma/sass/elements/box";
-@import "bulma/sass/elements/button";
-@import "bulma/sass/elements/container";
-@import "bulma/sass/elements/content";
-@import "bulma/sass/elements/icon";
-@import "bulma/sass/elements/notification";
-@import "bulma/sass/elements/other";
-@import "bulma/sass/elements/table";
-@import "bulma/sass/elements/title";
+@forward "bulma/sass/elements/box";
+@forward "bulma/sass/elements/button";
+@forward "bulma/sass/elements/content";
+@forward "bulma/sass/elements/icon";
+@forward "bulma/sass/elements/notification";
+@forward "bulma/sass/elements/table";
+@forward "bulma/sass/elements/title";
 
-@import "bulma/sass/form/_all";
+@forward "bulma/sass/form";
+@forward "bulma/sass/grid";
+@forward "bulma/sass/layout";
 
-@import "bulma/sass/grid/_all";
-
-@import "bulma/sass/layout/hero";
-@import "bulma/sass/layout/section";
+@forward "bulma/sass/themes";
 
 @import "bulma-o-steps/bulma-steps";
 
