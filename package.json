@@ -11,7 +11,7 @@
     "@uppy/dashboard": "^3.0.0",
     "@uppy/image-editor": "^2.0.0",
     "@uppy/webcam": "^3.0.0",
-    "@uppy/xhr-upload": "3.6.0",
+    "@uppy/xhr-upload": "^3.6.6",
     "animate.css": "^4.1.0",
     "bulma": "^0.9.0",
     "bulma-o-steps": "https://github.com/octoshrimpy/bulma-o-steps.git#c21bf10",

@@ -47,7 +47,7 @@ export default class extends Controller {
     })
     .use(XHRUpload, {
       endpoint: this.endpointValue,
-      method: 'patch',
+      method: 'PATCH',
       fieldName: this.fieldNameValue,
       headers: {
         accept: 'application/json',
