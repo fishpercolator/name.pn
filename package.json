@@ -13,7 +13,7 @@
     "@uppy/webcam": "^3.0.0",
     "@uppy/xhr-upload": "^3.0.0",
     "animate.css": "^4.1.0",
-    "bulma": "^1.0.0",
+    "bulma": "^0.9.0",
     "bulma-o-steps": "https://github.com/octoshrimpy/bulma-o-steps.git#c21bf10",
     "esbuild": "^0.21.2",
     "extendable-media-recorder": "^9.1.0",
