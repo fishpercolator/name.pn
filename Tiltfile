@@ -35,6 +35,7 @@ podman_build('name-pn', '.',
     run('yarn', trigger=['./package.json', './yarn.lock']),
     run('yarn build', trigger=['./app/javascript']),
     run('yarn build:css', trigger=['./app/assets/stylesheets']),
+    run('yarn check-types', trigger=["./app/javascript"]),
 ])
 k8s_yaml('k8s.yaml')
 k8s_resource('name-pn', 

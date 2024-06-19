@@ -26,7 +26,9 @@
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "improved-yarn-audit": "^3.0.0"
+    "@types/sortablejs": "^1.15.8",
+    "improved-yarn-audit": "^3.0.0",
+    "typescript": "^5.4.5"
   },
   "version": "0.1.0",
   "browserslist": [
@@ -34,6 +36,7 @@
   ],
   "scripts": {
     "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
-    "build": "esbuild app/javascript/*.* --bundle --minify --sourcemap --target=es2020 --outdir=app/assets/builds --public-path=assets"
+    "build": "esbuild app/javascript/*.* --bundle --minify --sourcemap --target=es2020 --outdir=app/assets/builds --public-path=assets",
+    "check-types": "tsc --project tsconfig.json --noEmit"
   }
 }
