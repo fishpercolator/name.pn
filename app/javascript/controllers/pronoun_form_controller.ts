@@ -11,7 +11,7 @@ export default class extends Controller {
   declare readonly handleTargets: HTMLElement[]
   declare readonly pronounlessTarget: HTMLSelectElement
 
-  connect () {
+  override connect () {
     this.changePronounless()
     this.fillPositions()
     this.sortable = Sortable.create(this.listTarget, {

@@ -6,13 +6,18 @@ export default class extends Controller {
     hash: String
   }
 
-  connect () {
+  declare hashValue: string
+  declare readonly cardTargets: HTMLDivElement[]
+
+  override connect() {
     this.hashChange()
   }
-  hashChange () {
+
+  public hashChange(): void {
     this.hashValue = window.location.hash
   }
-  hashValueChanged(value) {
+
+  protected hashValueChanged(value: string): void {
     let cardToShow
     if (cardToShow = this.cardTargets.find(x => value === `#${x.id}`)) {
       this.showCard(cardToShow)
@@ -21,7 +26,7 @@ export default class extends Controller {
     }
   }
   // Given a card, show only that card
-  showCard(card) {
+  protected showCard(card: HTMLDivElement): void {
     this.cardTargets.forEach(x => {
       if (x === card) {
         x.classList.remove('is-hidden')
@@ -33,7 +38,7 @@ export default class extends Controller {
     })
   }
   // Show all cards
-  showAllCards() {
+  protected showAllCards(): void {
     this.cardTargets.forEach(x => x.classList.remove('is-hidden', 'is-shown-alone'))
   }
 }
