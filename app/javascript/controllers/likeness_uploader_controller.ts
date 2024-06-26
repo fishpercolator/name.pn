@@ -5,7 +5,7 @@ import XHRUpload from '@uppy/xhr-upload'
 import Dashboard from '@uppy/dashboard'
 import ImageEditor from '@uppy/image-editor'
 import Webcam from '@uppy/webcam'
-import Rails from 'rails-ujs'
+import Rails from '@rails/ujs'
 
 export default class extends Controller {
   static targets = ['preview', 'delete']
@@ -14,15 +14,22 @@ export default class extends Controller {
     endpoint: { type: String, default: '/profile/likeness' },
     fieldName: { type: String, default: 'user[likeness]' }
   }
-  
-  connect() {
-    this.uploader = new Uppy({
-      restrictions: {
-        maxNumberOfFiles: 1,
-        maxFileSize: 1048576,
-        allowedFileTypes: ['image/jpeg', 'image/png', 'image/gif']
-      }
-    })
+
+  declare readonly previewTarget: HTMLDivElement
+  declare readonly deleteTarget: HTMLButtonElement
+  declare readonly endpointValue: string
+  declare readonly fieldNameValue: string
+
+  readonly uploader = new Uppy({
+    restrictions: {
+      maxNumberOfFiles: 1,
+      maxFileSize: 1048576,
+      allowedFileTypes: ['image/jpeg', 'image/png', 'image/gif']
+    }
+  })
+
+  override connect(): void {
+    this.uploader
     .use(Dashboard, {
       autoOpenFileEditor: true,
     })
@@ -34,12 +41,16 @@ export default class extends Controller {
       target: Dashboard,
       quality: 0.8,
       cropperOptions: {
-        aspectRatio: 1
+        aspectRatio: 1,
+        croppedCanvasOptions: {},
       },
       actions: {
         revert: false,
+        rotate: true,
         granularRotate: false,
         flip: false,
+        zoomIn: true,
+        zoomOut: true,
         cropSquare: false,
         cropWidescreen: false,
         cropWidescreenVertical: false
@@ -47,11 +58,12 @@ export default class extends Controller {
     })
     .use(XHRUpload, {
       endpoint: this.endpointValue,
+      // @ts-expect-error until https://github.com/transloadit/uppy/pull/5279
       method: 'PATCH',
       fieldName: this.fieldNameValue,
       headers: {
         accept: 'application/json',
-        'x-csrf-token': Rails.csrfToken()
+        'x-csrf-token': Rails.csrfToken() ?? ''
       }
     })
     this.uploader.on('file-editor:complete', () => {
@@ -66,15 +78,15 @@ export default class extends Controller {
         img.setAttribute('src', result.successful[0].uploadURL)
         this.previewTarget.innerHTML = ''
         this.previewTarget.appendChild(img)
-        this.deleteTarget.disabled = false
-        this.uploader.getPlugin('Dashboard').requestCloseModal()
+        this.deleteTarget.disabled = false;
+        (this.uploader.getPlugin('Dashboard') as Dashboard).closeModal()
         this.uploader.cancelAll()
       }
     })
   }
   
-  start() {
-    this.uploader.getPlugin('Dashboard').openModal()
+  public start(): void {
+    (this.uploader.getPlugin('Dashboard') as Dashboard).openModal()
   }
   
 }

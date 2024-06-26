@@ -1,5 +1,5 @@
 // Start Turbolinks and UJS
-import UJS from "rails-ujs";
+import UJS from "@rails/ujs";
 import Turbolinks from "turbolinks";
 UJS.start();
 Turbolinks.start();

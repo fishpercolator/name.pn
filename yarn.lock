@@ -146,15 +146,20 @@
   dependencies:
     spark-md5 "^3.0.1"
 
-"@rails/ujs@^7.0.2":
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-7.1.3.tgz#6d94a68b7da5046147d31716e0c187a4ead4fb93"
-  integrity sha512-FxtgKNvvIonoBE1TK7U10VMf6CYvzq8SIZ1XZ1Q8zcn/BEXzPzid3zC9qFiojuI5WXVwWhO8GFqApq0stD+OqQ==
+"@rails/ujs@^7.1.3-4":
+  version "7.1.3-4"
+  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-7.1.3-4.tgz#1dddea99d5c042e8513973ea709b2cb7e840dc2d"
+  integrity sha512-z0ckI5jrAJfImcObjMT1RBz2IxH6I5q6ZTMFex6AfxSQKZuuL8JxAXvg2CvBuodGCxKvybFVolDyMHXlBLeYAA==
 
 "@transloadit/prettier-bytes@^0.3.4":
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/@transloadit/prettier-bytes/-/prettier-bytes-0.3.4.tgz#51f837a49cab10a42ef64d6f227d1a859ba435aa"
   integrity sha512-8/SnIF9Q2k52mbjRVAYLranwkaDTLb+O9r4Z/uo8uNw//SjygKvvbF4BHSOuReufaAyum1q13602VcNud25Dfg==
+
+"@types/rails__ujs@^6.0.4":
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/@types/rails__ujs/-/rails__ujs-6.0.4.tgz#c5fc210e1a1fe186d9a4386280490f3ceb17d0e9"
+  integrity sha512-4A8+Xp+2bd4E/mLjfwldc46katQQJfLfwTRbhDBoQyj4timlpWfJ6uHqwyre/qwcapgjKtVd365pt9ovD/3tRw==
 
 "@types/retry@0.12.2":
   version "0.12.2"
@@ -275,7 +280,7 @@
     is-mobile "^3.1.1"
     preact "^10.5.13"
 
-"@uppy/xhr-upload@^3.6.6":
+"@uppy/xhr-upload@^3.6.7":
   version "3.6.7"
   resolved "https://registry.yarnpkg.com/@uppy/xhr-upload/-/xhr-upload-3.6.7.tgz#1c6b62e1563dcfbbe85bb7d292d1bdce491ae82d"
   integrity sha512-xd8PA6gz8/usm7wpI6w8zOjnw5KnE/Yt7fWknFubMFCbP0yutWbStgeFAj5AMdLjLQpGveGb/OVWHhBfy2LwlA==
@@ -326,9 +331,9 @@ broker-factory@^3.0.98:
     tslib "^2.6.2"
     worker-factory "^7.0.25"
 
-"bulma-o-steps@https://github.com/octoshrimpy/bulma-o-steps.git#c21bf10":
+"bulma-o-steps@github:octoshrimpy/bulma-o-steps#c21bf10":
   version "1.1.0"
-  resolved "https://github.com/octoshrimpy/bulma-o-steps.git#c21bf1072d7560be2c0443276e952b36c021fcfc"
+  resolved "https://codeload.github.com/octoshrimpy/bulma-o-steps/tar.gz/c21bf1072d7560be2c0443276e952b36c021fcfc"
   dependencies:
     bulma "^0.8.2"
 
@@ -636,11 +641,6 @@ preact@^10.5.13:
   version "10.22.0"
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.22.0.tgz#a50f38006ae438d255e2631cbdaf7488e6dd4e16"
   integrity sha512-RRurnSjJPj4rp5K6XoP45Ui33ncb7e4H7WiOHVpjbkvqvA3U+N8Z6Qbo0AE6leGYBV66n8EhEaFixvIu3SkxFw==
-
-rails-ujs@^5.2.4-1:
-  version "5.2.8"
-  resolved "https://registry.yarnpkg.com/rails-ujs/-/rails-ujs-5.2.8.tgz#dffc6b7d15f735f523e31be0a30b47264b282623"
-  integrity sha512-qwCTG/7FgRRxQIWJ9vmLF8ucqFVM2Krk+0JWcI5OF485jymGa1Rix8kF5vNHGz/VGUvS2Dhom9PdlsdjMt9Kmg==
 
 readdirp@~3.6.0:
   version "3.6.0"
