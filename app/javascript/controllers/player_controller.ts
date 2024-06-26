@@ -5,12 +5,16 @@ export default class extends Controller {
   static values = {
     url: String
   }
-  
-  connect () {
+
+  declare readonly mediaTarget: HTMLAudioElement
+  declare readonly playTarget: HTMLButtonElement
+  declare urlValue: string
+
+  override connect () {
     this.mediaTarget.addEventListener('ended', () => { this.playTarget.disabled = false })
   }
-  
-  urlValueChanged () {
+
+  protected urlValueChanged (): void {
     let url = this.urlValue
     if (url) {
       this.mediaTarget.src = url
@@ -20,8 +24,8 @@ export default class extends Controller {
       this.playTarget.disabled = true
     }
   }
-  
-  play () {
+
+  public play (): void {
     this.mediaTarget.play()
     this.playTarget.disabled = true
   }
