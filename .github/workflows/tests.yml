@@ -49,3 +49,11 @@ jobs:
         run: bin/rails assets:precompile
       - name: Run ${{ matrix.command }}
         run: bin/${{ matrix.command }}
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: capybara-screenshots
+          path: tmp/capybara
+          if-no-files-found: ignore
+          retention-days: 4
