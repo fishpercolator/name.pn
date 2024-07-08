@@ -19,49 +19,35 @@ Variables that can be used to configure the app are:
 * **BUTTONDOWN_API_KEY**: If set, enables the Buttondown mailing list integration on the user's settings page and allows them to opt in when creating an account.
 * **JWT_SECRET**: A secret (e.g. generated with `rails secret`) used in signing of JWT keys used with the name.pn public API.
 
-## Getting a development environment
+## name.pn Development environment
 
 ### Installation
 
-Getting a development environment is easy on a Linux or Mac computer. You'll need the [Docker](https://www.docker.com/get-started) and [Docker Compose](https://docs.docker.com/compose/) tools installed to proceed.
+The development environment is packaged for use on [Tilt](https://tilt.dev/) and currently uses Podman for its container management (although this could easily be changed to Docker in the future).
 
-Assuming you have the `docker` and `docker-compose` tools in your path, all you need to do to create a development environment is:
+Getting Tilt set up is a little work - there's a script [here](https://github.com/fishpercolator/silverblue-tilt) that should work on any Fedora installation. (For example, if you install Fedora in a virtual machine.)
 
-```sh
-cd ~/path/to/name_pn
-./bin/bootstrap
+Once Tilt is running, you should be able to change into your clone of this repo and run:
+
+```
+tilt up
 ```
 
-What this does:
+Press space to open the dashboard in your browser and watch all the services build and deploy to your Kubernetes. Once they're up and running, you'll be able to access the web interface at: <http://localhost:3000> and you can run commands on your pod using the included [`bin/tilt-run`](bin/tilt-run) command.
 
-1. Creates a docker image for your development environment, based on the provided `Dockerfile`
-2. Installs the gems in `Gemfile` to your local repo in `vendor/bundle`.
-3. Installs the yarn packages in `package.json` to your local repo in `node_modules`.
-4. Creates a database and populates it with an initial admin user.
+The [`db/seeds.rb`](db/seeds.rb) includes an admin user and the three most common sets of pronouns. Look in that file for the password.
 
-### Usage
+### Usage and tips
 
-Once you've created your development environment, you can bring it online with:
+Whenever you edit the Gemfile, `bundle` will run automatically and your server will restart. However, you'll need to copy the lockfiles back to your host machine using the *sync lockfiles* resource. Same goes for adding yarn packages.
 
-    docker-compose up
+If you create new DB migrations, you can run them using the action in the dashboard, and you'll need to run the *sync lockfiles* resource to get your `db/schema.rb` back onto the host.
 
-This starts the database, the web server, and a [webpack-dev-server](https://github.com/webpack/webpack-dev-server) with hot module replacement (so you can edit JS/CSS files without having to reload the page).
+You can also completely wipe out the DB and replace it with the contents of `db/seeds.rb` any time by hitting the *Reset database* button.
 
-You can then access your development environment at <http://localhost:3000/>
+If you create any files inside the pod, such as with a `rails generate` command, be sure to copy them back to your host using the *sync app files* resource.
 
-If you need to get a shell, for example to run the Rails console, you can do:
-
-    docker-compose run web bash
-
-The bootstrap script create an admin user who should be able to access the admin interface at <http://localhost:3000/admin>. The email is **admin@example.com** and the password is **password**.
-
-### Installing gems and yarn packages
-
-After updating the `Gemfile` or `package.json`, you'll need to install the new gem or yarn package. To do this:
-
-    docker-compose run web bundle
-    # or
-    docker-compose run web yarn
+If you change the services this repo uses or any environment variables, you'll need to edit the Tilt & Kubernetes configuration, which are in [`Tiltfile`](Tiltfile) and [`k8s/*.yaml`](k8s/).
 
 ## Deploying to Heroku
 
@@ -106,6 +92,8 @@ The app is configured for continuous integration using [GitHub Actions](https://
 
 No special configuration should be necessary - just using GitHub for this repo should be enough to enable the actions on every push.
 
+If tests fail, screenshots are taken and uploaded to the test artifacts, which may be helpful in debugging.
+
 If you're using Heroku it's a good idea to set it to only allow automatic deploys after CI passes.
 
 ## Features
@@ -118,11 +106,11 @@ This is a [Rails](https://rubyonrails.org/) 7.x application, and comes with all 
 
 The user interface is derived from [Bulma](https://bulma.io/documentation/), in its modular Sass mode. The CSS is compiled in Webpack from the `app/javascript/scss/application.scss` file and everything it includes. Remember to include Bulma features before you use them.
 
-### Javascript
+### TypeScript
 
-Frontend Javascript is based on the [Stimulus](https://stimulusjs.org/) framework. You can create a new JS controller by adding a file to `app/javascript/controllers` and then naming that controller in your HTML by adding a `data-controller` attribute to the parent element of the UI feature you want to control.
+Frontend TypeScript is based on the [Stimulus](https://stimulusjs.org/) framework. You can create a new TS controller by adding a file to `app/javascript/controllers` and then naming that controller in your HTML by adding a `data-controller` attribute to the parent element of the UI feature you want to control.
 
-Javascript is bundled using [esbuild](https://esbuild.github.io/) (via jsbundling-rails) and is currently configured to transpile to target browsers with support for es2020 and above, even if you use JS features that are newer than this version. 
+TypeScript is bundled using [esbuild](https://esbuild.github.io/) (via jsbundling-rails) and is currently configured to transpile to target browsers with support for es2020 and above, even if you use JS features that are newer than this version.
 
 ### Haml
 
