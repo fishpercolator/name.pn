@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/aseroff/serviceworker-rails.git
+  revision: 9f5c9c143e4ac2a45d23830a5a0c4b799408add1
+  branch: fix-rack-files
+  specs:
+    serviceworker-rails (0.6.0)
+      rack (>= 2.1)
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -503,8 +512,6 @@ GEM
       tilt
     semantic_logger (4.16.0)
       concurrent-ruby (~> 1.0)
-    serviceworker-rails (0.6.0)
-      railties (>= 3.1)
     simple_form (5.3.1)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -621,7 +628,7 @@ DEPENDENCIES
   rswag-specs (~> 2.4)
   rswag-ui (~> 2.4)
   sass-rails (>= 6)
-  serviceworker-rails (~> 0.6.0)
+  serviceworker-rails (~> 0.6.0)!
   simple_form (~> 5.0)
   spicy-proton (~> 2.1)
   spinach
