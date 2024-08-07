@@ -11,7 +11,7 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
     expect(page).to have_css('.card', text: 'Audrey Horne is pronounced AWD-ree HORN')
     expect(page).to have_css('.card', text: 'Pronouns: she/her Audrey is a great cook. She is really good at cooking.')
     expect(page).to have_css('.card', text: 'What you look like')
-    expect(page).to have_css('.card.is-likeness img')
+    expect(page).to have_css('.card#likeness img')
     expect(page).to have_css('.card', text: 'Your personal links')
     expect(page).to have_css('.card', text: 'LinkedIn Twitter')
   end
