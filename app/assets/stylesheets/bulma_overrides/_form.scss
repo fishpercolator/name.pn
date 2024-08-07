@@ -1,0 +1,13 @@
+@use "bulma/sass/form" as form;
+
+.checkbox {
+  input:first-child {
+    margin-right: 0.5rem;
+  }
+}
+
+.select:not(.is-multiple):not(.is-loading) {
+  &::after {
+    border-color: form.$input-arrow;
+  }
+}

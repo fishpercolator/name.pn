@@ -1,20 +1,20 @@
-%section.hero.is-light
+%section.hero
   .hero-body
     .container.has-text-centered
-      %h1.home__title
-        .home__title__image= image_tag 'logo.svg', alt: t('icon_alt')
-        .home__title__name= t('.title.namedot')
-        .home__title__pn= t('.title.pn')
-        .home__title__examples.has-text-primary.is-size-5
+      %h1.home-title
+        .home-title__image= image_tag 'logo.svg', alt: t('icon_alt')
+        .home-title__name= t('.title.namedot')
+        .home-title__pn= t('.title.pn')
+        .home-title__examples.has-text-primary.is-size-5
           = t('.title.pronouns')
           %br
           = t('.title.pronounce')
       %h2.subtitle.is-3.has-text-primary= t('.subtitle')
 %section.section
   .container
-    .columns.is-multiline.is-centered.home__columns
+    .columns.is-multiline.is-centered
       .column
-        .box
+        .box.is-fullheight
           %article.media
             .media-left
               %span.icon.is-large
@@ -23,7 +23,7 @@
               %h3.title.is-5= t('.get_your_name_right')
               %p.mt-5= t('.name_right_blurb')
       .column
-        .box
+        .box.is-fullheight
           %article.media
             .media-left
               %span.icon.is-large
@@ -32,7 +32,7 @@
               %h3.title.is-5= t('.pronunciation')
               %p.mt-5= t('.pronunciation_blurb')
       .column
-        .box
+        .box.is-fullheight
           %article.media
             .media-left
               %span.icon.is-large

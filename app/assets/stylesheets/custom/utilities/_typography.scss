@@ -1,0 +1,12 @@
+@use "../../brand" as brand;
+
+.is-force-wrapped {
+  overflow-wrap: break-word;
+}
+.can-wrap {
+  white-space: normal;
+  height: auto;
+}
+.is-ipa {
+  font-family: brand.$font-ipa;
+}

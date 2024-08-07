@@ -1,0 +1,15 @@
+$red:       #D62839;
+$yellow:    #BC8034;
+$green:     #4E937A;
+$blue:      #175676;
+$cyan:      #3E8ED0;
+$grey:      #595959;
+
+$red-bg: change-color($red, $lightness: 97%);
+$green-bg: change-color($green, $lightness: 96%);
+$blue-bg: change-color($blue, $lightness: 98%);
+
+$font-sans: 'Raleway', sans-serif;
+$font-handwriting: 'Patrick Hand', cursive;
+$font-ipa: 'Voces', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Raleway:wght@400;700&family=Voces&display=swap');

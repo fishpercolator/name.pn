@@ -1,0 +1,25 @@
+
+@use "bulma/sass/utilities/mixins" as mx;
+@use "bulma/sass/components/navbar" as navbar;
+
+.navbar-item, .navbar-brand {
+  gap: 0.25em;
+}
+
+.navbar-brand {
+  .navbar-item {
+    font-size: 1.5rem;
+    margin-top: -0.25rem;
+    img {
+      max-height: 1em;
+    }
+  }
+}
+@include mx.from(navbar.$navbar-breakpoint) {
+  .navbar-menu:first-child .navbar-item:first-child {
+    margin-left: -0.75rem;
+  }
+}
+.navbar-item > span.icon:first-child {
+  width: 1.25rem;
+}

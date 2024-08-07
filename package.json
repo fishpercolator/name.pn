@@ -14,7 +14,7 @@
     "@uppy/webcam": "^3.0.0",
     "@uppy/xhr-upload": "^3.6.7",
     "animate.css": "^4.1.0",
-    "bulma": "^0.9.0",
+    "bulma": "^1.0.0",
     "bulma-o-steps": "github:octoshrimpy/bulma-o-steps#c21bf10",
     "esbuild": "^0.21.2",
     "extendable-media-recorder": "^9.1.0",
@@ -37,7 +37,7 @@
     "defaults"
   ],
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
+    "build:css": "sass ./app/assets/stylesheets/application.bulma.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
     "build": "esbuild app/javascript/*.* --bundle --minify --sourcemap --target=es2020 --outdir=app/assets/builds --public-path=assets",
     "check-types": "tsc --project tsconfig.json --noEmit"
   }
