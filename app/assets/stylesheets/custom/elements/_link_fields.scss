@@ -1,0 +1,11 @@
+.link-fields, .alternate_name-fields {
+  border: 1px solid var(--bulma-grey-lighter);
+  border-radius: var(--bulma-radius);
+  align-items: center;
+  > * {
+    margin: 0.5rem;
+  }
+  .field { 
+    margin-bottom: 0.5rem;
+  }
+}

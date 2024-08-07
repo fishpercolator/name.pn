@@ -1,0 +1,18 @@
+@use "../../brand";
+
+.field-slug {
+  .field-slug__input {
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0;
+    line-height: 1.5;
+    width: 100%;
+  }
+}
+.field-slug--error .input {
+  border-color: brand.$red;
+  &:focus-within {
+    box-shadow: var(--bulma-input-focus-shadow-size) rgba(brand.$red, 0.25);
+  }
+}

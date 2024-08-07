@@ -1,0 +1,6 @@
+@use "bulma/sass/grid";
+
+// If a card is a cell, it should not have a margin
+.cell.card {
+  margin-bottom: 0;
+}

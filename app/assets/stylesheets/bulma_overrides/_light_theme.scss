@@ -1,0 +1,10 @@
+// The dark theme isn't really ready for us because it doesn't have enough 
+// helpers to make e.g. shades of grey. So we'll import only the light theme
+
+@use "bulma/sass/themes/light";
+@use "bulma/sass/themes/setup";
+
+:root {
+  @include light.light-theme;
+  @include setup.setup-theme;
+}

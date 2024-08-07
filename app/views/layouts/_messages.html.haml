@@ -1,14 +1,14 @@
 - if flash[:notice] || flash[:alert]
   %section#messages{data: {controller: 'messages'}}
     - if flash[:notice]
-      .has-background-info
+      .has-background-info-soft
         .container
-          .notification.is-info.is-radiusless
+          .notification.is-info.has-background-info-soft.has-text-info-soft-invert.is-radiusless
             %button.delete{data: {action: 'messages#close'}}
             = flash[:notice]
     - if flash[:alert]
-      .has-background-danger
+      .has-background-danger-soft
         .container
-          .notification.is-danger.is-radiusless
+          .notification.is-danger.has-background-danger-soft.has-text-danger-soft-invert.is-radiusless
             %button.delete{data: {action: 'messages#close'}}
             = flash[:alert]

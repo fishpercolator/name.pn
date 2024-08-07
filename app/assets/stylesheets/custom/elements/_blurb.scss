@@ -1,0 +1,9 @@
+// A small advertising blurb to put at the bottom of user profiles
+.blurb {
+  text-align: center;
+  padding: 1rem;
+  a {
+    color: var(--bulma-light);
+    text-decoration: underline;
+  }
+}

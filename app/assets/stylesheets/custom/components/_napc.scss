@@ -1,0 +1,38 @@
+@use "../../brand" as brand;
+
+// Styles for the name-and-pronoun-card
+.napc {
+  background-color: brand.$red;
+  color: var(--bulma-white);
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  border-radius: var(--bulma-radius-large);
+}
+.napc__text-box {
+  background-color: var(--bulma-white);
+  color: var(--bulma-black);
+  border-radius: var(--bulma-radius-large);
+  padding: 1rem 2rem;
+  font-family: brand.$font-handwriting;
+  font-size: 3rem;
+  line-height: 4.5rem; // fix it at 1.5 of the original size
+}
+.napc__text-box--name {
+  font-size: 5rem;
+  line-height: 7.5rem; // fix it at 1.5 of the original size
+  height: 9.5rem; // fix it at line-height + 1rem padding at top and bottom
+}
+.napc__greeting {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+}
+.napc__heading {
+  font-size: 2rem;
+  font-weight: normal;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
