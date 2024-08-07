@@ -7,12 +7,13 @@
 
 @use "bulma/sass/utilities" with (
   $family-primary: brand.$font-sans,
-  $red: brand.$red,
   $primary: brand.$red,
+  $red: brand.$red,
   $yellow: brand.$yellow,
   $green: brand.$green,
   $cyan: brand.$cyan,
   $blue: brand.$blue,
+  $grey: brand.$grey,
   $custom-colors: (
     "personal-name": brand.$red,
     "pronouns": brand.$green,
