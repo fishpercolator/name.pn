@@ -6,16 +6,18 @@
       %p= t('.page_description2')
 %section.section
   .container
-    .tile.is-ancestor
-      .tile.is-vertical
-        .tile.is-12.is-parent
-          = render 'url_card'
-        .tile
-          .tile.is-6.is-vertical.is-parent
-            = render 'name_card'
-            = render 'pronouns_card'
-            = render 'pronunciation_card'
-          .tile.is-6.is-vertical.is-parent
-            = render 'name_variants_card'
-            = render 'likeness_card'
-            = render 'links_card'
+    .fixed-grid.has-2-cols
+      .grid
+        .cell.is-col-span-2= render 'url_card'
+        .cell.is-fullheight
+          .fixed-grid.has-1-cols.is-fullheight
+            .grid.is-fullheight
+              = render 'name_card'
+              = render 'pronouns_card'
+              = render 'pronunciation_card'
+        .cell.is-fullheight
+          .fixed-grid.has-1-cols.is-fullheight
+            .grid.is-fullheight
+              = render 'name_variants_card'
+              = render 'likeness_card'
+              = render 'links_card'
