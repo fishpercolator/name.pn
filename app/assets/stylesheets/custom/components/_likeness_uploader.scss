@@ -1,0 +1,13 @@
+.likeness_uploader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.likeness_uploader__buttons {
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  .button:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}

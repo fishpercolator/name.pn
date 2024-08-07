@@ -1,0 +1,33 @@
+@use "bulma/sass/utilities/initial-variables" as iv;
+
+.profile-pronouns {
+  .handle {
+    display: none;
+  }
+  .checkbox {
+    display: block;
+    margin-bottom: 2rem;
+    label {
+      cursor: pointer;
+      font-size: iv.$size-5;
+      line-height: iv.$size-5;
+      font-weight: bold;
+      > input[type=checkbox] {
+        height: iv.$size-5;
+        width: iv.$size-5;
+        margin-right: 0.2rem;
+        vertical-align: top;
+      }
+      > input[type=number] {
+        height: iv.$size-5;
+        width: iv.$size-5 * 2;
+        vertical-align: top;
+      }
+      .help {
+        font-weight: normal;
+        font-size: 1rem;
+        padding-left: 1.5rem;
+      }
+    }
+  }
+}

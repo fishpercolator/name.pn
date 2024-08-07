@@ -1,0 +1,52 @@
+@use "../../brand" as brand;
+
+// These are the cards that appear on the public profile
+.profile-card {
+  border-radius: var(--bulma-radius-large);
+  font-size: 1.5rem;
+}
+.profile-card__header {
+  border-radius: var(--bulma-radius-large) var(--bulma-radius-large) 0 0;
+  background-color: brand.$green;
+  > .card-header-title, > .card-header-icon {
+    color: var(--bulma-white);
+  }
+}
+.profile-card__heading {
+  color: brand.$green;
+  font-weight: normal;
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
+.profile-card__name {
+  font-weight: bold;
+  > * {
+    display: inline-block;
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
+  ul {
+    margin-left: 1.5rem;
+    list-style-type: square;
+  }
+}
+.profile-card__hint {
+  color: var(--bulma-grey);
+  font-size: 1rem;
+}
+.profile-card__pronoun {
+  margin-top: 2rem;
+}
+.profile-card__example {
+  font-size: 1.25rem;
+  margin-top: 0.75rem;
+}
+.profile-card__see-all {
+  display: none;
+  font-size: 1.25rem;
+  .profile-card.is-shown-alone & {
+    display: block;
+  }
+}

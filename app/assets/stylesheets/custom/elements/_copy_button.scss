@@ -1,0 +1,12 @@
+.copy-button {
+  &.copy-button--copied {
+    .copy-button__initial {
+      display: none;
+    }
+  }
+  &:not(.copy-button--copied) {
+    .copy-button__after {
+      display: none;
+    }
+  }
+}
