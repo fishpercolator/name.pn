@@ -1,7 +1,7 @@
 @use "../../brand" as brand;
 
 .is-force-wrapped {
-  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .can-wrap {
   white-space: normal;

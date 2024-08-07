@@ -4,8 +4,8 @@
       = link_to root_path, class: 'navbar-item' do
         = image_tag 'logo.svg', alt: t('icon_alt')
         %b= t('product_name')
-      %a.navbar-burger{role: 'button', aria: {label: 'menu', expanded: 'false'}, data: {navbar_target: 'burger', action: 'navbar#toggleMenu'}}
-        - 3.times do
+      %a.navbar-burger.has-text-white{role: 'button', aria: {label: 'menu', expanded: 'false'}, data: {navbar_target: 'burger', action: 'navbar#toggleMenu'}}
+        - 4.times do
           %span{aria_hidden: true}
     .navbar-menu{data: {navbar_target: 'menu'}}
       .navbar-start
