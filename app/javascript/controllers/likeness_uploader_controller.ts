@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-import Uppy from '@uppy/core'
+import Uppy, { Meta } from '@uppy/core'
 import XHRUpload from '@uppy/xhr-upload'
 import Dashboard from '@uppy/dashboard'
 import ImageEditor from '@uppy/image-editor'
@@ -31,14 +31,12 @@ export default class extends Controller {
   override connect(): void {
     this.uploader
     .use(Dashboard, {
-      autoOpenFileEditor: true,
+      autoOpen: 'imageEditor'
     })
     .use(Webcam, {
-      target: Dashboard,
       modes: ['picture']
     })
     .use(ImageEditor, {
-      target: Dashboard,
       quality: 0.8,
       cropperOptions: {
         aspectRatio: 1,
@@ -58,7 +56,6 @@ export default class extends Controller {
     })
     .use(XHRUpload, {
       endpoint: this.endpointValue,
-      // @ts-expect-error until https://github.com/transloadit/uppy/pull/5279
       method: 'PATCH',
       fieldName: this.fieldNameValue,
       headers: {
@@ -73,20 +70,21 @@ export default class extends Controller {
       this.uploader.cancelAll()
     })
     this.uploader.on('complete', result => {
-      if (result.successful.length > 0) {
+      if (result.successful && result.successful.length > 0) {
         let img = document.createElement('img')
-        img.setAttribute('src', result.successful[0].uploadURL)
+        img.setAttribute('src', result.successful[0].uploadURL ?? '')
         this.previewTarget.innerHTML = ''
         this.previewTarget.appendChild(img)
         this.deleteTarget.disabled = false;
-        (this.uploader.getPlugin('Dashboard') as Dashboard).closeModal()
+        // FIXME: Should have a stricter type than 'any'
+        (this.uploader.getPlugin('Dashboard') as any).closeModal()
         this.uploader.cancelAll()
       }
     })
   }
   
   public start(): void {
-    (this.uploader.getPlugin('Dashboard') as Dashboard).openModal()
+    (this.uploader.getPlugin('Dashboard') as any).openModal()
   }
   
 }

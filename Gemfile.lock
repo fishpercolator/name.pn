@@ -635,7 +635,7 @@ DEPENDENCIES
   rswag-api (~> 2.4)
   rswag-specs (~> 2.4)
   rswag-ui (~> 2.4)
-  sass-rails (>= 6)
+  sass-rails
   serviceworker-rails (~> 0.6.0)!
   simple_form (~> 5.0)
   spicy-proton (~> 2.1)
