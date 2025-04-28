@@ -1,0 +1,47 @@
+const cacheName = "name.pn";
+const contentToCache = <%= raw @cache.to_json %>;
+
+function onInstall(event) {
+  console.log('[Serviceworker]', "Installing!", event);
+  event.waitUntil(
+    (async () => {
+      const cache = await caches.open(cacheName);
+      console.log("[Service Worker] Caching offline assets");
+      await cache.addAll(contentToCache);
+    })(),
+  );
+}
+ 
+function onActivate(event) {
+  console.log('[Serviceworker]', "Activating!", event);
+}
+ 
+function onFetch(event) {
+  event.respondWith(
+    (async () => {
+      const r = await caches.match(event.request);
+      if (r) {
+        console.log('[Serviceworker', "Found in cache!", event);
+        return r;
+      } else {
+        console.log('[Serviceworker]', "Fetching!", event);
+        try {
+          const response = await fetch(event.request);
+         return response;
+        }
+        catch {
+          // We can't find the requested item in the cache and the server is not
+          // responding - return the cached offline_path page instead
+          console.log('[Serviceworker]', "Failed to fetch; serving offline fallback", event);
+          if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
+            return caches.match(<%= raw offline_path.to_json %>);
+          }
+        }
+      }
+    })(),
+  );
+}
+
+self.addEventListener('install', onInstall);
+self.addEventListener('activate', onActivate);
+self.addEventListener('fetch', onFetch);

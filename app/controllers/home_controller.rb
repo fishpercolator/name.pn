@@ -14,6 +14,15 @@ class HomeController < ApplicationController
   end
 
   def service_worker
+    # The list of things to cache for offline mode
+    @cache = [
+      offline_path,
+      manifest_path(format: :json),
+      view_context.asset_path('application.js'),
+      view_context.asset_path('application.css'),
+      view_context.asset_path('favicon.ico'),
+      view_context.asset_path('logo.svg'),
+    ]
   end
 
   def manifest
