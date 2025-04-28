@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/aseroff/serviceworker-rails.git
-  revision: 9f5c9c143e4ac2a45d23830a5a0c4b799408add1
-  branch: fix-rack-files
-  specs:
-    serviceworker-rails (0.6.0)
-      rack (>= 2.1)
-      railties (>= 3.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -646,7 +637,6 @@ DEPENDENCIES
   rswag-specs (~> 2.4)
   rswag-ui (~> 2.4)
   sass-rails
-  serviceworker-rails (~> 0.6.0)!
   simple_form (~> 5.0)
   spicy-proton (~> 2.1)
   spinach

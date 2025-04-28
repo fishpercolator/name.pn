@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  protect_from_forgery except: :service_worker
   skip_after_action :verify_policy_scoped
   skip_after_action :verify_authorized
   
@@ -10,6 +11,9 @@ class HomeController < ApplicationController
     else
       render 'anon_home'
     end
+  end
+
+  def service_worker
   end
 
   def manifest
