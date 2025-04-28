@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'offline', to: 'home#offline'
   get 'manifest', to: 'home#manifest'
-  get 'service-worker', to: 'home#service_worker'
+  get 'serviceworker', to: 'home#service_worker'
   
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'

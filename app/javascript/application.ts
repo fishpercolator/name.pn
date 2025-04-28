@@ -9,7 +9,7 @@ import "@kollegorna/cocoon-vanilla-js";
 
 // Serviceworker
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/service-worker.js", { scope: "/" })
+  navigator.serviceWorker.register("/serviceworker.js", { scope: "/" })
     .then(() => navigator.serviceWorker.ready)
     .then((registration) => {
       if ("SyncManager" in window) {
