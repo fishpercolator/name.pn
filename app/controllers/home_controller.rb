@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  protect_from_forgery except: :service_worker
   skip_after_action :verify_policy_scoped
   skip_after_action :verify_authorized
   
@@ -10,6 +11,18 @@ class HomeController < ApplicationController
     else
       render 'anon_home'
     end
+  end
+
+  def service_worker
+    # The list of things to cache for offline mode
+    @cache = [
+      offline_path,
+      manifest_path(format: :json),
+      view_context.asset_path('application.js'),
+      view_context.asset_path('application.css'),
+      view_context.asset_path('favicon.ico'),
+      view_context.asset_path('logo.svg'),
+    ]
   end
 
   def manifest
