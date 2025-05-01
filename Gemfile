@@ -28,7 +28,6 @@ gem 'jsbundling-rails', '~> 1.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'activeadmin', '~> 4.0.0.beta15'
-gem 'activeadmin_sortable_table', '~> 1.3'
 gem 'active_storage_base64', '~> 3.0'
 gem 'active_storage_validations', '~> 1.0'
 gem 'acts_as_list', '~> 1.0'

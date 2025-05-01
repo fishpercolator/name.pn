@@ -50,7 +50,7 @@ ActiveAdmin.register User do
       f.input :formal_name
       f.input :envelope_name
       f.input :phonetic
-      f.input :pronoun_sets
+      f.input :pronoun_sets, as: :check_boxes, collection: PronounSet.all
       f.input :pronoun_style, as: :select
       f.input :pronounless_style, as: :select
     end

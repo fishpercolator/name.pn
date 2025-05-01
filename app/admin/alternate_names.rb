@@ -1,5 +1,4 @@
 ActiveAdmin.register AlternateName do
-  menu parent: 'Users', priority: 1
   permit_params :user_id, :name, :category
   
   index do
