@@ -3,7 +3,7 @@ module UsersHelper
   def section_link(section)
     link_to("##{section}", class: 'card-header-icon', title: t('users.show.link_to_this_section')) do
       content_tag(:span, class: 'icon') do
-        content_tag(:i, nil, class: 'mdi mdi-link')
+        icon('link')
       end
     end
   end

@@ -2,7 +2,7 @@ module HomeHelper
   
   def you_must
     content_tag(:span, class: 'icon has-text-warning is-medium') do
-      content_tag(:i, '', class: 'mdi mdi-24px mdi-alert')
+      icon('alert', class: 'mdi mdi-24px')
     end +
     content_tag(:span, t('home.user_home.you_must'), class: 'has-text-warning has-text-weight-bold')
   end
