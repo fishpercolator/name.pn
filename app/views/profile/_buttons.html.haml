@@ -5,8 +5,7 @@
         .field
           .control
             = link_to previous_wizard_path, class: 'button' do
-              %span.icon
-                %i.mdi.mdi-chevron-left
+              %span.icon= icon 'chevron-left'
               %span= t('.previous')
   .level-right
     .level-item
@@ -15,11 +14,9 @@
           .control
           = f.button :button, value: 'finish', class: 'is-primary' do
             %span= t('.finish')
-            %span.icon
-              %i.mdi.mdi-page-last
+            %span.icon= icon 'page-last'
         - else
           .control
             = f.button :button, class: 'is-link' do
               %span= t('.next')
-              %span.icon
-                %i.mdi.mdi-chevron-right
+              %span.icon= icon 'chevron-right'

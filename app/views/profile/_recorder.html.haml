@@ -6,34 +6,28 @@
   .recorder__available
     .recorder__buttons
       %button.button.is-danger.is-medium.recorder__button{type: 'button', data: {recorder_target: 'button', action: 'pointerdown->recorder#start pointerup->recorder#stop pointerleave->recorder#stop'}}
-        %span.icon.recorder__button-icon
-          %i.mdi.mdi-record-circle
-        %span.icon.recorder__button-wait
-          %i.mdi.mdi-timer-sand
+        %span.icon.recorder__button-icon= icon 'record-circle'
+        %span.icon.recorder__button-wait= icon 'timer-sand'
         %span.recorder__button-text-idle= t('.record')
         %span.recorder__button-text-waiting= t('.please_wait')
         %span.recorder__button-text-active= t('.recording')
       = render 'users/player', data: {recorder_target: 'player', player_url_value: (url_for(f.object.pronunciation) if f.object.pronunciation.attached? && !f.object.errors[:pronunciation].any?)}, button_class: 'is-success is-medium'
       %button.button.is-link.is-medium{type: 'button', disabled: true, data: {recorder_target: 'delete', action: 'recorder#delete'}}
-        %span.icon
-          %i.mdi.mdi-delete
+        %span.icon= icon 'delete'
         %span= t('.delete_audio')
   %p.help.is-danger= f.error :pronunciation
   %p.help= t('.hint')
   .recorder__prompt-form
     .recorder__buttons
       %button.button.is-danger.is-medium{type: 'button', data: {action: 'recorder#prompt'}}
-        %span.icon
-          %i.mdi.mdi-microphone-question
+        %span.icon= icon 'microphone-question'
         %span= t('.prompt')
     %p.help= t('.prompt_hint')
   .recorder__denied.mt-3
     %article.notification.is-danger
-      %span.icon.is-medium
-        %i.mdi.mdi-24px.mdi-alert
+      %span.icon.is-medium= icon 'alert', class: 'mdi mdi-24px'
       %span= t('.recorder_denied')
   .recorder__unavailable.mt-3
     %article.notification.is-warning
-      %span.icon.is-medium
-        %i.mdi.mdi-24px.mdi-alert
+      %span.icon.is-medium= icon 'alert', class: 'mdi mdi-24px'
       %span= t('.recorder_unavailable')

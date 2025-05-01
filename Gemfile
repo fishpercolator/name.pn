@@ -101,3 +101,5 @@ group :production do
 end
 
 gem "importmap-rails", "~> 2.1"
+
+gem "inline_svg", "~> 1.10"

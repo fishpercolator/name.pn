@@ -1,10 +1,6 @@
 // Config goes here
 @use "brand" as brand;
 
-@use "@mdi/font/scss/materialdesignicons" with (
-  $mdi-font-path: "@mdi/font/fonts"
-);
-
 @use "bulma/sass/utilities" with (
   $family-primary: brand.$font-sans,
   $primary: brand.$red,
@@ -59,10 +55,8 @@
 @use "custom";
 
 @import "animate.css/animate";
-
 @import "@uppy/core/dist/style";
 @import "@uppy/dashboard/dist/style";
 @import "@uppy/image-editor/dist/style";
 @import "@uppy/webcam/dist/style";
-
 @import "luminous-lightbox/dist/luminous-basic";

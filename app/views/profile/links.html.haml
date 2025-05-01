@@ -12,7 +12,6 @@
                 = render 'link_fields', f: link
               .links
                 = link_to_add_association f, :links, class: 'button is-success' do
-                  %span.icon
-                    %i.mdi.mdi-plus-box
+                  %span.icon= icon 'plus-box'
                   %span= t('.add_link')
             = render 'buttons', f: f

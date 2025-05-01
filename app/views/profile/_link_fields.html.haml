@@ -2,6 +2,5 @@
   = f.input :title
   = f.input :url
   = link_to_remove_association f, class: 'button is-danger' do
-    %span.icon
-      %i.mdi.mdi-delete
+    %span.icon= icon 'delete'
     %span= t('.remove_link')

@@ -18,7 +18,6 @@
                 = render 'alternate_name_fields', f: alternate_name
               .alternate_names
                 = link_to_add_association f, :alternate_names, class: 'button is-success' do
-                  %span.icon
-                    %i.mdi.mdi-plus-box
+                  %span.icon= icon 'plus-box'
                   %span= t('.add_alternate_name')
             = render 'buttons', f: f

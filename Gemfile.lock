@@ -300,6 +300,9 @@ GEM
       has_scope (>= 0.6)
       railties (>= 7.0)
       responders (>= 2)
+    inline_svg (1.10.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     interception (0.5)
     io-console (0.8.0)
     irb (1.15.2)
@@ -609,6 +612,7 @@ DEPENDENCIES
   high_voltage (~> 4.0)
   image_processing (~> 1.11)
   importmap-rails (~> 2.1)
+  inline_svg (~> 1.10)
   jsbundling-rails (~> 1.1)
   listen
   meta-tags (~> 2.13)

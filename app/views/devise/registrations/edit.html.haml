@@ -37,8 +37,7 @@
                     = f.text_field(:name, class: 'input', required: true, placeholder: t('.new_client_placeholder'), aria: {labelledby: 'client-name-th'})
                 %td
                   %button.button.is-success{type: 'submit', form: 'new_client'}
-                    %span.icon
-                      %i.mdi.mdi-plus
+                    %span.icon= icon 'plus'
                     %span= t('.new_client')
 %section.section
   .container

@@ -4,7 +4,7 @@
 .checkbox
   = f.label :_destroy do
     %span.icon.handle{data: {pronoun_form_target: 'handle'}}
-      %i.mdi.mdi-drag
+      = icon 'drag'
     = f.number_field :position, title: t('.position_hint'), data: {pronoun_form_target: 'position'}
     = f.check_box :_destroy, {checked: f.object.persisted?, data: {pronoun_form_target: 'option'}}, '0', '1'
     %span= ps.to_s
