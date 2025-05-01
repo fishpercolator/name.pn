@@ -1,12 +1,10 @@
 .likeness_uploader{data: {controller: 'likeness-uploader'}}
   .likeness_uploader__buttons
     %button.button.is-success.is-medium{type: 'button', data: {action: 'likeness-uploader#start'}}
-      %span.icon
-        %i.mdi.mdi-file-upload-outline
+      %span.icon= icon 'file-upload-outline'
       %span= t('.upload_button')
     = f.button :button, value: 'delete_likeness', class: 'button is-danger is-medium', disabled: !f.object.likeness.attached?, data: {likeness_uploader_target: 'delete'} do
-      %span.icon
-        %i.mdi.mdi-delete
+      %span.icon= icon 'delete'
       %span= t('.delete_button')
   .likeness{data: {likeness_uploader_target: 'preview'}}
     - if f.object.likeness.attached?

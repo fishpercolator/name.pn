@@ -9,8 +9,8 @@ gem 'rails', '~> 7.1.3'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 6.0'
-# We still use Sprockets/Sass for serviceworker-rails/activeadmin FIXME
-gem 'sass-rails'
+# Sprockets is still used for image assets, for now
+gem 'sprockets-rails', '~> 3.5'
 # Transpile JavaScript/CSS
 gem 'cssbundling-rails', '~> 1.1'
 gem 'jsbundling-rails', '~> 1.1'
@@ -27,8 +27,7 @@ gem 'jsbundling-rails', '~> 1.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'activeadmin', '~> 3.0'
-gem 'activeadmin_sortable_table', '~> 1.3'
+gem 'activeadmin', '~> 4.0.0.beta15'
 gem 'active_storage_base64', '~> 3.0'
 gem 'active_storage_validations', '~> 1.0'
 gem 'acts_as_list', '~> 1.0'
@@ -100,3 +99,7 @@ group :production do
   gem 'aws-sdk-s3', '~> 1.73'
   gem 'rails_12factor', '~> 0.0.3'
 end
+
+gem "importmap-rails", "~> 2.1"
+
+gem "inline_svg", "~> 1.10"

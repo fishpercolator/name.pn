@@ -16,6 +16,7 @@ ActiveAdmin.register PronounSet do
     column :possessive
     column :reflexive
     column(:users) {|ps| ps.users.size}
+    handle_column_js
   end
 
   show do |pronoun_set|
@@ -45,6 +46,5 @@ ActiveAdmin.register PronounSet do
       end
     end
   end
-      
 
 end

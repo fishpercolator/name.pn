@@ -1,5 +1,4 @@
 ActiveAdmin.register Link do
-  menu parent: 'Users', priority: 2
   permit_params :user_id, :title, :url
   
   index do

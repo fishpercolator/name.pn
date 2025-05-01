@@ -3,7 +3,7 @@
     .card-header-title= t('.title')
     .card-header-icon
       = link_to profile_path(:slug), class: 'icon', title: t('actions.edit') do
-        %i.mdi.mdi-pencil
+        = icon 'pencil'
   .card-content
     %p.is-size-4.has-text-centered.is-force-wrapped
       - if current_user.slug.present?
@@ -18,27 +18,21 @@
           %p.is-force-wrapped= user_url(current_user, only_path: false, nominative: ps.nominative, oblique: ps.oblique)
   .card-footer
     = link_to profile_path(:slug),  class: 'button card-footer-item has-text-link' do
-      %span.icon
-        %i.mdi.mdi-pencil
+      %span.icon= icon 'pencil'
       %span= t('actions.edit')
     - if current_user.profile_complete?
       = link_to user_url(current_user), class: 'button card-footer-item', target: '_blank' do
-        %span.icon
-          %i.mdi.mdi-open-in-new
+        %span.icon= icon 'open-in-new'
         %span= t('.view_your_page')
       %button.button.card-footer-item.copy-button#copyButton{data: {url_target: 'copyButton', action: 'url#copy'}}
-        %span.icon.copy-button__initial
-          %i.mdi.mdi-clipboard-outline
+        %span.icon.copy-button__initial= icon 'clipboard-outline'
         %span.copy-button__initial= t('.copy_to_clipboard')
-        %span.icon.copy-button__after
-          %i.mdi.mdi-clipboard-check-outline
+        %span.icon.copy-button__after= icon 'clipboard-check-outline'
         %span.copy-button__after= t('.copied')
     - else
       %button.button.card-footer-item{disabled: true, title: t('.you_must_complete')}
-        %span.icon
-          %i.mdi.mdi-open-in-new
+        %span.icon= icon 'open-in-new'
         %span= t('.view_your_page')
       %button.button.card-footer-item{disabled: true, title: t('.you_must_complete')}
-        %span.icon
-          %i.mdi.mdi-clipboard-outline
+        %span.icon= icon 'clipboard-outline'
         %span= t('.copy_to_clipboard')

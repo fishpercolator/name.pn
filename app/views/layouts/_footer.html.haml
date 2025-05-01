@@ -3,23 +3,18 @@
     .navbar-menu.is-active
       .navbar-start
         = link_to page_path('terms'), class: 'navbar-item' do
-          %span.icon
-            %i.mdi.mdi-file-sign
+          %span.icon= icon 'file-sign'
           %span= t('.terms')
         = link_to page_path('privacy'), class: 'navbar-item' do
-          %span.icon
-            %i.mdi.mdi-shield-account
+          %span.icon= icon 'shield-account'
           %span= t('.privacy')
       .navbar-end
         = link_to 'https://github.com/fishpercolator/name.pn', class: 'navbar-item' do
-          %span.icon
-            %i.mdi.mdi-github
+          %span.icon= icon 'github'
           %span= t('.github')
         = link_to 'https://github.com/orgs/fishpercolator/projects/1', class: 'navbar-item' do
-          %span.icon
-            %i.mdi.mdi-map
+          %span.icon= icon 'map'
           %span= t('.roadmap')
         = link_to rswag_ui_path, class: 'navbar-item', data: {turbolinks: false} do
-          %span.icon
-            %i.mdi.mdi-cogs
+          %span.icon= icon 'cogs'
           %span= t('.api')

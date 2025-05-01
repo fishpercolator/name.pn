@@ -13,8 +13,7 @@
             %h2.title.is-5.mb-3= t('.the_rest_is_optional')
             %p.mb-3.has-text-grey= t('.optional_blurb')
             = f.button :button, value: 'finish', class: 'is-success mb-3' do
-              %span.icon
-                %i.mdi.mdi-content-save
+              %span.icon= icon 'content-save'
               %span= t('.save_and_exit')
             %p.has-text-grey= t('.or_continue')
             = render 'buttons', f: f

@@ -5,6 +5,5 @@
     .level-left
     .level-right
       = link_to_remove_association f, class: 'button is-danger level-item' do
-        %span.icon
-          %i.mdi.mdi-delete
+        %span.icon= icon 'delete'
         %span= t('.remove_alternate_name')

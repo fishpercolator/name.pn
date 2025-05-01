@@ -3,7 +3,7 @@
     .card-header-title= t('.title')
     .card-header-icon
       = link_to profile_path(:pronunciation), class: 'icon', title: t('actions.edit') do
-        %i.mdi.mdi-pencil
+        = icon 'pencil'
   .card-content
     %p.mb-4.has-text-grey= t('profile.pronunciation.blurb')
     .content
