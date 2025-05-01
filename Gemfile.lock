@@ -505,16 +505,6 @@ GEM
     ruby-vips (2.2.3)
       ffi (~> 1.12)
       logger
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     securerandom (0.4.1)
     semantic_logger (4.16.1)
       concurrent-ruby (~> 1.0)
@@ -530,8 +520,9 @@ GEM
       capybara (>= 2.0.0)
       railties (>= 3)
       spinach (>= 0.4)
-    sprockets (4.2.1)
+    sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
+      logger
       rack (>= 2.2.4, < 4)
     sprockets-rails (3.5.2)
       actionpack (>= 6.1)
@@ -633,11 +624,11 @@ DEPENDENCIES
   rswag-api (~> 2.4)
   rswag-specs (~> 2.4)
   rswag-ui (~> 2.4)
-  sass-rails
   simple_form (~> 5.0)
   spicy-proton (~> 2.1)
   spinach
   spinach-rails
+  sprockets-rails (~> 3.5)
   timecop
   web-console (>= 3.3.0)
   webmock

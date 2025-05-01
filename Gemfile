@@ -9,8 +9,8 @@ gem 'rails', '~> 7.1.3'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 6.0'
-# We still use Sprockets/Sass for serviceworker-rails/activeadmin FIXME
-gem 'sass-rails'
+# Sprockets is still used for image assets, for now
+gem 'sprockets-rails', '~> 3.5'
 # Transpile JavaScript/CSS
 gem 'cssbundling-rails', '~> 1.1'
 gem 'jsbundling-rails', '~> 1.1'
