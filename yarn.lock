@@ -341,11 +341,6 @@
   resolved "https://registry.yarnpkg.com/@transloadit/prettier-bytes/-/prettier-bytes-0.3.5.tgz#0cca83975293e3f4990229914942c69714122ede"
   integrity sha512-xF4A3d/ZyX2LJWeQZREZQw+qFX4TGQ8bGVP97OLRt6sPO6T0TNHBFTuRHOJh7RNmYOBmQ9MHxpolD9bXihpuVA==
 
-"@types/rails__ujs@^6.0.4":
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/@types/rails__ujs/-/rails__ujs-6.0.4.tgz#c5fc210e1a1fe186d9a4386280490f3ceb17d0e9"
-  integrity sha512-4A8+Xp+2bd4E/mLjfwldc46katQQJfLfwTRbhDBoQyj4timlpWfJ6uHqwyre/qwcapgjKtVd365pt9ovD/3tRw==
-
 "@types/retry@0.12.2":
   version "0.12.2"
   resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.2.tgz#ed279a64fa438bb69f2480eda44937912bb7480a"
@@ -355,11 +350,6 @@
   version "1.15.8"
   resolved "https://registry.yarnpkg.com/@types/sortablejs/-/sortablejs-1.15.8.tgz#11ed555076046e00869a5ef85d1e7651e7a66ef6"
   integrity sha512-b79830lW+RZfwaztgs1aVPgbasJ8e7AXtZYHTELNXZPsERt4ymJdjV4OccDbHQAvHrCcFpbF78jkm0R6h/pZVg==
-
-"@types/turbolinks@^5.2.2":
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/@types/turbolinks/-/turbolinks-5.2.2.tgz#8f9f1d4bfb5e53ea599f79c393779ca8b92cf6e0"
-  integrity sha512-FaCObYvhT7GtQ9a1SLW/DyYb7qxC2tBc5QJx7/xnBED0uBngfJHsIJ4mGT6u5dRTy+VAi0QvzdK7EUEQAeOdfw==
 
 "@uppy/companion-client@^4.4.1":
   version "4.4.1"

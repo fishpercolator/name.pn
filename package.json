@@ -26,9 +26,7 @@
     "tailwindcss": "3"
   },
   "devDependencies": {
-    "@types/rails__ujs": "^6.0.4",
     "@types/sortablejs": "^1.15.8",
-    "@types/turbolinks": "^5.2.2",
     "improved-yarn-audit": "^3.0.0",
     "typescript": "^5.4.5"
   },
