@@ -22,28 +22,29 @@
       .column.is-three-fifths.is-offset-one-fifth
         %h2.title= t('.api_keys')
         %p.subtitle= t('.api_keys_blurb_html', href: link_to(t('.api'), rswag_ui_path, data: {turbolinks: false}))
-        .box
-          %table.table.is-fullwidth.is-hoverable
-            %thead
-              %tr
-                %th#client-name-th= Client.human_attribute_name(:name)
-                %th= Client.human_attribute_name(:created_at)
-                %th
-            %tbody
-              = render partial: 'clients/client', collection: @clients
-              %tr.new-api-key
-                %td
-                  = form_for @new_client do |f|
-                    = f.text_field(:name, class: 'input', required: true, placeholder: t('.new_client_placeholder'), aria: {labelledby: 'client-name-th'})
-                %td
-                  %button.button.is-success{type: 'submit', form: 'new_client'}
-                    %span.icon= icon 'plus'
-                    %span= t('.new_client')
+        = turbo_frame_tag [current_user, 'api'] do
+          .box
+            %table.table.is-fullwidth.is-hoverable
+              %thead
+                %tr
+                  %th#client-name-th= Client.human_attribute_name(:name)
+                  %th= Client.human_attribute_name(:created_at)
+                  %th
+              %tbody
+                = render partial: 'clients/client', collection: @clients
+                %tr.new-api-key
+                  %td
+                    = form_for @new_client do |f|
+                      = f.text_field(:name, class: 'input', required: true, placeholder: t('.new_client_placeholder'), aria: {labelledby: 'client-name-th'})
+                  %td
+                    %button.button.is-success{type: 'submit', form: 'new_client'}
+                      %span.icon= icon 'plus'
+                      %span= t('.new_client')
 %section.section
   .container
     .columns
       .column.is-three-fifths.is-offset-one-fifth
-        %p= link_to t('.cancel'), registration_path(resource_name), data: {confirm: t('.cancel_confirm')}, method: :delete
+        %p= link_to t('.cancel'), registration_path(resource_name), data: {turbo_confirm: t('.cancel_confirm'), turbo_method: :delete}
 
 -# If we've been redirected here after creating a key
 - if @new_key.present?
