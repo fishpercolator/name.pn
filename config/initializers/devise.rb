@@ -300,4 +300,8 @@ Devise.setup do |config|
     jwt.secret = Figaro.env.jwt_secret!
     jwt.expiration_time = 100.years
   end
+
+  # Turbo integration as described in https://github.com/heartcombo/devise/blob/v4.9.0/CHANGELOG.md
+  config.responder.error_status = :unprocessable_entity
+  config.responder.redirect_status = :see_other
 end

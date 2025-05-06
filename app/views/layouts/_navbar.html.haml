@@ -15,7 +15,7 @@
           - if current_user.role_admin?
             = link_to t('.admin'), admin_root_path, class: 'navbar-item', data: {turbolinks: false}
           = link_to t('devise.registrations.edit.title'), edit_user_registration_path, class: 'navbar-item'
-          = link_to t('devise.sessions.destroy.title'), destroy_user_session_path, class: 'navbar-item', method: :delete
+          = link_to t('devise.sessions.destroy.title'), destroy_user_session_path, class: 'navbar-item', data: {turbo_method: :delete}
         - else
           = link_to t('devise.sessions.new.title'), new_user_session_path, class: 'navbar-item'
           = link_to t('devise.registrations.new.title'), new_user_registration_path, class: 'navbar-item'
