@@ -98,6 +98,7 @@ end
 
 group :production do
   gem 'aws-sdk-rails', '~> 5.1'
+  gem 'aws-actionmailer-ses', '~> 1.0'
   gem 'aws-sdk-s3', '~> 1.183'
   gem 'rails_12factor', '~> 0.0.3'
 end

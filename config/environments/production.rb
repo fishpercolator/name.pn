@@ -96,6 +96,5 @@ Rails.application.configure do
   config.semantic_logger.add_appender(io: $stdout, level: config.log_level, formatter: :json)
   
   # Use SES in production
-  Aws::Rails.add_action_mailer_delivery_method(:ses)
   config.action_mailer.delivery_method = :ses
 end
