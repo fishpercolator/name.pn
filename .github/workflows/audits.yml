@@ -10,7 +10,7 @@ jobs:
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3.0'
+          ruby-version: '3.4.3'
           bundler-cache: true
       - name: Run bundle audit
         run: bundle exec bundle-audit check --update

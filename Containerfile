@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
-ARG RUBY_VERSION=3.3.0
+ARG RUBY_VERSION=3.4.3
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
 # Rails app lives here
@@ -12,10 +12,10 @@ ENV BUNDLE_PATH="/usr/local/bundle"
 
 # Install packages needed to build gems and node modules
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential chromium curl git libpq-dev libvips node-gyp pkg-config postgresql-common python-is-python3 rsync
+    apt-get install --no-install-recommends -y build-essential chromium curl git libpq-dev libvips libyaml-dev node-gyp pkg-config postgresql-common python-is-python3 rsync
 
 # Install JavaScript dependencies
-ARG NODE_VERSION=22.1.0
+ARG NODE_VERSION=22.15.0
 ARG YARN_VERSION=1.22.22
 ENV PATH=/usr/local/node/bin:$PATH
 RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \

@@ -34,7 +34,7 @@ jobs:
       - name: Install Ruby & gem dependencies
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3.0'
+          ruby-version: '3.4.3'
           bundler-cache: true
       - name: Install Node
         uses: actions/setup-node@v4
