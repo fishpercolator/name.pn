@@ -1,6 +1,8 @@
 name: tests
 run-name: ${{ github.actor }} is running the tests
 on: [push]
+permissions:
+  contents: read
 jobs:
   run-tests:
     name: Run ${{ matrix.command }} tests

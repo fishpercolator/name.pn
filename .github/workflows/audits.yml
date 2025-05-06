@@ -1,6 +1,8 @@
 name: audits
 run-name: ${{ github.actor }} is running dependency audits
 on: [push]
+permissions:
+  contents: read
 jobs:
   ruby:
     name: Ruby (bundle audit)
