@@ -5,7 +5,6 @@ import XHRUpload from '@uppy/xhr-upload'
 import Dashboard from '@uppy/dashboard'
 import ImageEditor from '@uppy/image-editor'
 import Webcam from '@uppy/webcam'
-import Rails from '@rails/ujs'
 
 export default class extends Controller {
   static targets = ['preview', 'delete']
@@ -60,7 +59,7 @@ export default class extends Controller {
       fieldName: this.fieldNameValue,
       headers: {
         accept: 'application/json',
-        'x-csrf-token': Rails.csrfToken() ?? ''
+        'x-csrf-token': document.head.querySelector("meta[name=csrf-token]")?.getAttribute('content') ?? ''
       }
     })
     this.uploader.on('file-editor:complete', () => {
