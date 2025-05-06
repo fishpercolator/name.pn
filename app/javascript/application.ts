@@ -1,7 +1,5 @@
-// Start Turbo and UJS
-import UJS from "@rails/ujs";
+// Start Turbo
 import "@hotwired/turbo";
-UJS.start();
 
 // Cocoon
 import "@kollegorna/cocoon-vanilla-js";
