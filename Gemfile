@@ -97,7 +97,7 @@ group :test do
 end
 
 group :production do
-  gem 'aws-sdk-rails', '~> 3.1'
-  gem 'aws-sdk-s3', '~> 1.73'
+  gem 'aws-sdk-rails', '~> 5.1'
+  gem 'aws-sdk-s3', '~> 1.183'
   gem 'rails_12factor', '~> 0.0.3'
 end
