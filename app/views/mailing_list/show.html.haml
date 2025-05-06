@@ -1,0 +1,11 @@
+= turbo_frame_tag [current_user, 'mailing_list'] do
+  %h3.title.is-4= t('.title')
+  .box
+    - if current_user.subscribed_to_mailing_list?
+      %p= raw t('.currently_subscribed')
+      .mt-5
+        = button_to t('.unsubscribe'), users_mailing_list_unsubscribe_path, class: 'button is-danger'
+    - else
+      %p= raw t('.currently_unsubscribed')
+      .mt-5
+        = button_to t('.subscribe'), users_mailing_list_subscribe_path, class: 'button is-success'

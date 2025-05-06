@@ -67,7 +67,7 @@ en:
       you_must_complete: You must complete the highlighted parts before you can preview your page
       or_with_pronouns: 'or, if you prefer a URL containing your pronouns:'
   mailing_list:
-    mailing_list_form:
+    show:
       title: Mailing list preference
       currently_subscribed: '<b>Subscribed:</b> You are currently subscribed to our mailing list for news about new features. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.'
       currently_unsubscribed: '<b>Not subscribed:</b> You are currently not subscribed to our mailing list. The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.'

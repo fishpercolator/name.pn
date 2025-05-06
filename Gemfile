@@ -11,6 +11,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 6.0'
 # Sprockets is still used for image assets, for now
 gem 'sprockets-rails', '~> 3.5'
+# Turbo Rails components
+gem 'turbo-rails', '~> 2.0'
+
 # Transpile JavaScript/CSS
 gem 'cssbundling-rails', '~> 1.1'
 gem 'jsbundling-rails', '~> 1.1'
@@ -50,7 +53,6 @@ gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 5.2'
 gem 'pundit', '~> 2.1'
 gem 'rails_semantic_logger', '~> 4.6'
-gem 'render_async', '~> 2.1'
 gem 'rswag-api', '~> 2.4'
 gem 'rswag-ui', '~> 2.4'
 gem 'simple_form', '~> 5.0'

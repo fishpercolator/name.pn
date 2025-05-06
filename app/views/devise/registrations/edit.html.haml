@@ -15,7 +15,7 @@
   .container
     .columns
       .column.is-three-fifths.is-offset-one-fifth
-        = render_async users_mailing_list_path, container_class: 'mailing-list-form', replace_container: false
+        = turbo_frame_tag [current_user, "mailing_list"], src: users_mailing_list_path
 %section.section
   .container
     .columns
