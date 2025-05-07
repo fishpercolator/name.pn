@@ -7,7 +7,7 @@
     "@hotwired/stimulus": "^3.1.0",
     "@hotwired/turbo": "^8.0.13",
     "@kollegorna/cocoon-vanilla-js": "^1.0.7",
-    "@rails/activestorage": "^7.0.2",
+    "@rails/activestorage": "^8.0.200",
     "@uppy/core": "^4.3.1",
     "@uppy/dashboard": "^4.1.3",
     "@uppy/image-editor": "^3.2.1",
