@@ -52,6 +52,9 @@
   $green: brand.$green,
 );
 
+// Import the themes so that all CSS variables have a value
+@forward "bulma/sass/themes";
+
 @use "custom";
 
 @import "animate.css/animate";
