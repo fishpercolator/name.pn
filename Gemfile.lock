@@ -359,6 +359,7 @@ GEM
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    ostruct (0.6.1)
     pg (1.5.9)
     pp (0.6.2)
       prettyprint
@@ -594,6 +595,7 @@ DEPENDENCIES
   listen
   meta-tags (~> 2.13)
   mini_magick (~> 5.2)
+  ostruct (~> 0.6.1)
   pg (>= 0.18, < 2.0)
   pry-rails
   pry-rescue

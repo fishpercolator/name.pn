@@ -51,6 +51,7 @@ gem "importmap-rails", "~> 2.1"
 gem "inline_svg", "~> 1.10"
 gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 5.2'
+gem 'ostruct', '~> 0.6.1' # dependency of gaffe
 gem 'pundit', '~> 2.1'
 gem 'rails_semantic_logger', '~> 4.6'
 gem 'rswag-api', '~> 2.4'
