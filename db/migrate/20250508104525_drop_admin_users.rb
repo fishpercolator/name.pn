@@ -34,8 +34,8 @@ class DropAdminUsers < ActiveRecord::Migration[8.0]
       t.timestamps null: false
     end
 
-    remove_index :admin_users, :email,                unique: true
-    remove_index :admin_users, :reset_password_token, unique: true
+    remove_index :admin_users, :email,                unique: true, if_exists: true
+    remove_index :admin_users, :reset_password_token, unique: true, if_exists: true
     # remove_index :admin_users, :confirmation_token,   unique: true
     # remove_index :admin_users, :unlock_token,         unique: true
   end
