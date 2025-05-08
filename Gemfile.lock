@@ -361,6 +361,11 @@ GEM
     orm_adapter (0.5.0)
     ostruct (0.6.1)
     pg (1.5.9)
+    phlex (2.2.1)
+      zeitwerk (~> 2.7)
+    phlex-rails (2.2.0)
+      phlex (~> 2.2.1)
+      railties (>= 7.1, < 9)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -487,12 +492,14 @@ GEM
     ruby-vips (2.2.3)
       ffi (~> 1.12)
       logger
+    ruby_ui (1.0.1)
     securerandom (0.4.1)
     semantic_logger (4.16.1)
       concurrent-ruby (~> 1.0)
     simple_form (5.3.1)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    sin_lru_redux (2.5.2)
     spicy-proton (2.1.15)
       bindata (~> 2.3)
     spinach (0.12.0)
@@ -511,6 +518,8 @@ GEM
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
     stringio (3.1.7)
+    tailwind_merge (1.2.0)
+      sin_lru_redux (~> 2.5)
     tailwindcss-rails (4.2.3)
       railties (>= 7.0.0)
       tailwindcss-ruby (~> 4.0)
@@ -601,6 +610,7 @@ DEPENDENCIES
   mini_magick (~> 5.2)
   ostruct (~> 0.6.1)
   pg (>= 0.18, < 2.0)
+  phlex-rails (~> 2.2)
   pry-rails
   pry-rescue
   puma (~> 6.0)
@@ -615,11 +625,13 @@ DEPENDENCIES
   rswag-api (~> 2.4)
   rswag-specs (~> 2.4)
   rswag-ui (~> 2.4)
+  ruby_ui
   simple_form (~> 5.0)
   spicy-proton (~> 2.1)
   spinach
   spinach-rails
   sprockets-rails (~> 3.5)
+  tailwind_merge (~> 1.2)
   tailwindcss-rails (~> 4.2)
   tailwindcss-ruby (~> 4.1)
   timecop

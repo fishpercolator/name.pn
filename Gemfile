@@ -52,12 +52,16 @@ gem "inline_svg", "~> 1.10"
 gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 5.2'
 gem 'ostruct', '~> 0.6.1' # dependency of gaffe
+gem 'phlex-rails', '~> 2.2'
 gem 'pundit', '~> 2.1'
 gem 'rails_semantic_logger', '~> 4.6'
 gem 'rswag-api', '~> 2.4'
 gem 'rswag-ui', '~> 2.4'
 gem 'simple_form', '~> 5.0'
 gem 'spicy-proton', '~> 2.1'
+gem 'tailwindcss-rails', '~> 4.2'
+gem 'tailwindcss-ruby', '~> 4.1'
+gem 'tailwind_merge', '~> 1.2'
 gem 'wicked', '~> 2.0'
 
 # gems for buttondown - eventually move this to its own gem
@@ -86,6 +90,7 @@ group :development do
   gem 'better_errors'
   gem 'foreman'
   gem 'haml-rails'
+  gem 'ruby_ui', require: false
 end
 
 group :test do
@@ -105,7 +110,3 @@ group :production do
   gem 'aws-sdk-s3', '~> 1.183'
   gem 'rails_12factor', '~> 0.0.3'
 end
-
-gem "tailwindcss-ruby", "~> 4.1"
-
-gem "tailwindcss-rails", "~> 4.2"
