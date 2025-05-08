@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Components::Base < Phlex::HTML
+  extend Literal::Properties
   include Components
   include RubyUI
 

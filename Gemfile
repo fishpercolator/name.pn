@@ -49,6 +49,7 @@ gem 'high_voltage', '~> 4.0'
 gem 'image_processing', '~> 1.11'
 gem "importmap-rails", "~> 2.1"
 gem "inline_svg", "~> 1.10"
+gem "literal", "~> 1.7"
 gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 5.2'
 gem 'ostruct', '~> 0.6.1' # dependency of gaffe
