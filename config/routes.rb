@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
   get 'offline', to: 'home#offline'
   get 'manifest', to: 'home#manifest'
   get 'serviceworker', to: 'home#service_worker'
