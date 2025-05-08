@@ -9,6 +9,9 @@ class Components::Base < Phlex::HTML
   include Phlex::Rails::Helpers::Routes
   include Phlex::Rails::Helpers::T
 
+  register_output_helper :icon
+  register_output_helper :inline_svg_tag
+
   if Rails.env.development?
     def before_template
       comment { "Before #{self.class.name}" }

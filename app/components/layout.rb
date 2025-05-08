@@ -13,6 +13,7 @@ class Components::Layout < Components::Base
       end
 
       body do
+        PageHeader { }
         yield
       end
     end
