@@ -81,7 +81,7 @@ ActiveAdmin.setup do |config|
   # If you wish to maintain a separate set of Pundit policies for admin
   # resources, you may set a namespace here that Pundit will search
   # within when looking for a resource's policy.
-  # config.pundit_policy_namespace = :admin
+  config.pundit_policy_namespace = :admin
 
   # You can customize your CanCan Ability class name here.
   # config.cancan_ability_class = "Ability"

@@ -1,27 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe Admin::ApplicationPolicy, type: :policy do
-  let(:user) { User.new }
+  subject { described_class.new(user, user_obj) }
+  let!(:record) { create :pronoun_set } # could be any record type
 
-  subject { described_class }
+  subject { described_class.new(user, record) }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+  let(:resolved_scope) do
+    described_class::Scope.new(user, PronounSet.all).resolve
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'being anonymous' do
+    let(:user) { nil }
+    it { is_expected.to forbid_actions(%i[index create show update destroy]) }
+    it { expect(resolved_scope).to be_empty }
   end
-
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  
+  context 'being a normal user' do
+    let(:user) { create :user }
+    it { is_expected.to forbid_actions(%i[index create show update destroy]) }
+    it { expect(resolved_scope).to be_empty }
   end
-
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  
+  context 'being an admin user' do
+    let(:user) { create :user, role: :admin }
+    it { is_expected.to permit_actions(%i[index create show update destroy]) }
+    it { expect(resolved_scope).to include(record) }
   end
 end
