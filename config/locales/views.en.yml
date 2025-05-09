@@ -1,4 +1,7 @@
 en:
+  components:
+    page_header:
+      about: About
   layouts:
     navbar:
       label: main navigation

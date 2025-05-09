@@ -5,16 +5,23 @@ class Components::PageHeader < Components::Base
 
   def view_template
     header(class: 'bg-secondary text-secondary-foreground') do
-      div(class: 'mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8') do
+      div(class: container_classes + %w[flex h-16 items-center gap-8]) do
         render_logo
         div(class: 'flex flex-1 items-center justify-end md:justify-between') do
           render_links
+          render_actions
         end
       end
     end
   end
 
   protected
+
+  def links
+    [
+      {text: t('.about'), href: page_path('about')},
+    ]
+  end
 
   def render_logo
     a(class: 'flex justify-start items-center gap-2', href: root_path) do
@@ -24,9 +31,6 @@ class Components::PageHeader < Components::Base
   end
 
   def render_links
-    links = [
-      {text: 'About', href: page_path('about')}
-    ]
     nav(aria_label: 'Global', class: 'hidden md:block') do
       ul(class: 'flex items-center gap-6 text-sm') do
         links.each do |l|
@@ -36,4 +40,36 @@ class Components::PageHeader < Components::Base
     end
   end
 
+  def render_actions
+    div(class: 'flex items-center gap-4') do
+      # Links that are visible on mobile and desktop
+      div(class: 'sm:flex items-center sm:gap-4') do
+        Link(variant: :primary, href: new_user_session_path) { "Login" }
+      end
+      # Links that are hidden behind the burger on mobile
+      div(class: 'hidden sm:flex') do
+        Link(variant: :primary, href: new_user_registration_path) { "Sign up" }
+        render_theme_toggle
+      end
+      # The burger itself
+      div(class: 'block md:hidden') do
+        Button { icon('menu', class: 'fill-current') }
+      end
+    end
+  end
+
+  def render_theme_toggle
+    ThemeToggle do |toggle|
+      SetLightMode(class: 'flex items-center') do
+        Button(variant: :ghost, icon: true) do
+          icon('white-balance-sunny', class: 'fill-current p-2')
+        end
+      end
+      SetDarkMode(class: 'dark:flex items-center') do
+        Button(variant: :ghost, icon: true) do
+          icon('weather-night', class: 'fill-current p-2')
+        end
+      end
+    end
+  end
 end

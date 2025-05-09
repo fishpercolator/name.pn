@@ -2,6 +2,9 @@
 
 class Components::Layout < Components::Base
   include Phlex::Rails::Layout
+
+  register_output_helper :display_meta_tags
+  
   prop :title, String
 
   def view_template
@@ -12,8 +15,7 @@ class Components::Layout < Components::Base
         title { @title }
       end
 
-      body do
-        PageHeader { }
+      body(class: 'bg-background text-foreground') do
         yield
       end
     end
@@ -23,7 +25,7 @@ class Components::Layout < Components::Base
 
   def render_head
     head do
-      helpers.display_meta_tags default_meta_tags
+      display_meta_tags default_meta_tags
       csrf_meta_tags
       csp_meta_tag
       favicon_link_tag

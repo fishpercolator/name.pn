@@ -18,4 +18,9 @@ class Components::Base < Phlex::HTML
       super
     end
   end
+
+  def container_classes
+    %w[mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8]
+  end
+
 end
