@@ -2,31 +2,40 @@
 
 class Components::PageHeader < Components::Base
   # From https://github.com/ruby-ui/web/blob/main/app/components/shared/navbar.rb
-  register_value_helper :user_signed_in?
-  register_output_helper :current_user
+  
+  def initialize
+    @main_links = []
+    @action_links = []
+  end
 
-  def view_template
+  def view_template(&)
+    vanish(&)
     header(class: 'supports-backdrop-blur:bg-background/80 sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-2xl backdrop-saturate-200') do
       div(class: 'px-2 sm:px-4 sm:container flex h-14 items-center justify-between') do
         div(class: 'mr-4 flex items-center') do
           render_logo
-          nav_link(page_path('about')) { t('.about') }
+          @main_links.each { render_link(it) }
         end
-        div(class: 'flex items-center gap-x-2 md:divide-x') do
+        div(class: 'flex items-center gap-x-2 divide-x md:divide-none') do
           div(class: 'flex items-center') do
-            render_user_links
+            @action_links.each { render_link(it) }
             render_theme_toggle
           end
+          render_dropdown_menu
         end
       end
     end
   end
 
-  protected
-
-  def nav_link(href, **args, &)
-    Link(**mix(args, {href: href, variant: :ghost, class: 'hidden md:inline-block'}), &)
+  def main_link(href, **args, &content)
+    @main_links << {href:, content:, **args}
   end
+
+  def action_link(href, **args, &content)
+    @action_links << {href:, content:, **args}
+  end
+
+  protected
 
   def render_logo
     a(class: 'mr-6 flex items-center space-x-2', href: root_path) do
@@ -34,29 +43,33 @@ class Components::PageHeader < Components::Base
       span(class: 'text-lg font-bold') { t('product_name') }
     end
   end
+  
+  def render_link(link)
+    Link(**mix(link.except(:content), {variant: :ghost, class: 'hidden md:inline-block'}), &link[:content])
+  end
 
-  def render_user_links
-    if user_signed_in?
-      nav_link(admin_root_path) { t('.admin') } if current_user.role_admin?
-      nav_link(edit_user_registration_path) { t('devise.registrations.edit.title') }
-      nav_link(destroy_user_session_path, data: {turbo_method: :delete}) { t('devise.sessions.destroy.title') }
-    else
-      nav_link(new_user_session_path) { t('devise.sessions.new.title') }
-      nav_link(new_user_registration_path) { t('devise.registrations.new.title') }
+  def render_dropdown_menu
+    DropdownMenu(class: 'md:hidden', options: {placement: 'bottom-end'}) do
+      DropdownMenuTrigger(class: 'flex items-center') do
+        Button(variant: :ghost, icon: true) { icon('menu', class: 'fill-current') }
+      end
+      DropdownMenuContent do
+        (@main_links + @action_links).each { render_dropdown_link(it) }
+      end
     end
   end
 
+  def render_dropdown_link(link)
+    DropdownMenuItem(**link.except(:content), &link[:content])
+  end
+
   def render_theme_toggle
-    ThemeToggle(class: 'hidden md:block') do |toggle|
+    ThemeToggle do |toggle|
       SetLightMode(class: 'flex items-center') do
-        Button(variant: :ghost, icon: true) do
-          icon('white-balance-sunny', class: 'fill-current p-2')
-        end
+        Button(variant: :ghost, icon: true) { icon('white-balance-sunny', class: 'fill-current p-2') }
       end
       SetDarkMode(class: 'dark:flex items-center') do
-        Button(variant: :ghost, icon: true) do
-          icon('weather-night', class: 'fill-current p-2')
-        end
+        Button(variant: :ghost, icon: true) { icon('weather-night', class: 'fill-current p-2') }
       end
     end
   end

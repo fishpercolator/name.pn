@@ -37,6 +37,9 @@ application.register("public-profile", PublicProfileController)
 import RecorderController from "./recorder_controller"
 application.register("recorder", RecorderController)
 
+import RubyUi__DropdownMenuController from "./ruby_ui/dropdown_menu_controller"
+application.register("ruby-ui--dropdown-menu", RubyUi__DropdownMenuController)
+
 import RubyUi__ThemeToggleController from "./ruby_ui/theme_toggle_controller"
 application.register("ruby-ui--theme-toggle", RubyUi__ThemeToggleController)
 

@@ -4,6 +4,7 @@
   "license": "AGPL-3.0-or-later",
   "dependencies": {
     "@activeadmin/activeadmin": "4.0.0-beta15",
+    "@floating-ui/dom": "^1.7.0",
     "@hotwired/stimulus": "^3.1.0",
     "@hotwired/turbo": "^8.0.13",
     "@kollegorna/cocoon-vanilla-js": "^1.0.7",

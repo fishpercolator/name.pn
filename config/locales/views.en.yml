@@ -1,6 +1,6 @@
 en:
   components:
-    page_header:
+    shell_layout:
       about: About
       admin: Admin
   layouts:
