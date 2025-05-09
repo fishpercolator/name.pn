@@ -5,7 +5,7 @@ class Components::ShellLayout < Components::Layout
     super do
       PageHeader()
       main do
-        div(class: container_classes + %w[py-8 lg:py-12]) do
+        div(class: 'px-2 sm:px-4 sm:container py-4 sm:py-8') do
           yield
         end
       end

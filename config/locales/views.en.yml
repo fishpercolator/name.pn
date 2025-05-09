@@ -2,6 +2,7 @@ en:
   components:
     page_header:
       about: About
+      admin: Admin
   layouts:
     navbar:
       label: main navigation
