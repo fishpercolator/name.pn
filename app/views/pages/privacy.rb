@@ -129,25 +129,10 @@ class Views::Pages::Privacy < Views::Base
     | Purpose | Type of data | Lawful basis for processing |
     |---------|--------------|-----------------------------|
     | To register you as a new user	| <ol><li>Identity</li><li>Contact</li></ol> | Legitimate interest |
-    
-    To manage our relationship with you which will include:
-    Notifying you about changes to our terms or privacy policy
-    Receiving email updates
-    Identity
-    Contact
-    Profile
-    Marketing and Communications
-    Legitimate interest
-    To administer and protect our business and this website (including troubleshooting, data analysis, testing, system maintenance, support, reporting and hosting of data)	
-    Identity
-    Contact
-    Technical
-    Legitimate interest; Necessary to comply with a legal obligation
-    To use data analytics to improve our website, products/services, marketing, customer relationships and experiences	
-    Technical
-    Usage
-    Necessary for our legitimate interests (to define types of customers for our products and services, to keep our website updated and relevant, to develop our business and to inform our marketing strategy)
-    
+    | To manage our relationship with you which will include: <ul><li>Notifying you about changes to our terms or privacy policy</li><li>Receiving email updates</li></ul> | <ol><li>Identity</li><li>Contact</li><li>Profile</li><li>Marketing and Communications</li></ul> | Legitimate interest |
+    | To administer and protect our business and this website (including troubleshooting, data analysis, testing, system maintenance, support, reporting and hosting of data)	| <ol><li>Identity</li><li>Contact</li><li>Technical</li></ol> | Legitimate interest; Necessary to comply with a legal obligation |
+    | To use data analytics to improve our website, products/services, marketing, customer relationships and experiences | <ol><li>Technical</li><li>Usage</li></ol> | Necessary for our legitimate interests (to define types of customers for our products and services, to keep our website updated and relevant, to develop our business and to inform our marketing strategy) |
+        
     ### Opting out
     
     You can ask us or third parties to stop sending you marketing messages at any time by logging into the website and unsubscribing from [your account page](#{edit_user_registration_path}) OR by following the opt-out links on any marketing message sent to you OR by contacting us at any time.
@@ -183,9 +168,10 @@ class Views::Pages::Privacy < Views::Base
     
     We may share your personal data with the parties set out below for the purposes set out in the table above.
 
-    Internal Third Parties as set out in the Glossary.
-    External Third Parties as set out in the Glossary.
-    Third parties to whom we may choose to sell, transfer or merge parts of our business or our assets. Alternatively, we may seek to acquire other businesses or merge with them. If a change happens to our business, then the new owners may use your personal data in the same way as set out in this privacy policy.
+    * Internal Third Parties as set out in the [Glossary](#1-important-information-and-who-we-are).
+    * External Third Parties as set out in the [Glossary](#1-important-information-and-who-we-are).
+    * Third parties to whom we may choose to sell, transfer or merge parts of our business or our assets. Alternatively, we may seek to acquire other businesses or merge with them. If a change happens to our business, then the new owners may use your personal data in the same way as set out in this privacy policy.
+    
     We require all third parties to respect the security of your personal data and to treat it in accordance with the law. We do not allow our third-party service providers to use your personal data for their own purposes and only permit them to process your personal data for specified purposes and in accordance with our instructions.
 
     ## 6. International transfers
@@ -194,8 +180,9 @@ class Views::Pages::Privacy < Views::Base
 
     Whenever we transfer your personal data out of the UK, we ensure a similar degree of protection is afforded to it by ensuring at least one of the following safeguards is implemented:
 
-    We will only transfer your personal data to countries that have been deemed to provide an adequate level of protection for personal data.
-    Where we use certain service providers, we may use specific contracts approved for use in the UK which give personal data the same protection it has in the UK.
+    * We will only transfer your personal data to countries that have been deemed to provide an adequate level of protection for personal data.
+    * Where we use certain service providers, we may use specific contracts approved for use in the UK which give personal data the same protection it has in the UK.
+    
     Please contact us if you want further information on the specific mechanism used by us when transferring your personal data out of the UK.
 
     ## 7. Data security
@@ -208,14 +195,15 @@ class Views::Pages::Privacy < Views::Base
 
     ## 8. Data retention
     
-    How long will you use my personal data for?
+    ### How long will you use my personal data for?
+    
     We will only keep your personal data for as long as reasonably necessary to fulfil the purposes we collected it for. You can choose to keep using name.pn as long as you like, and while using it your personal data will be retained. If you want to stop using name.pn, your data will be deleted from the main application immediately and from backups in 4 weeks.
 
     We may keep your personal data for a longer period in the event of a complaint or if we reasonably believe there is a prospect of litigation in respect to our relationship with you.
 
     To determine the appropriate retention period for personal data, we consider the amount, nature and sensitivity of the personal data, the potential risk of harm from unauthorised use or disclosure of your personal data, the purposes for which we process your personal data and whether we can achieve those purposes through other means.
 
-    In some circumstances you can ask us to delete your data: see your legal rights below for further information.
+    In some circumstances you can ask us to delete your data: see [your legal rights](#9-your-legal-rights) below for further information.
 
     In some circumstances we will anonymise your personal data (so that it can no longer be associated with you) for research or statistical purposes, in which case we may use this information indefinitely without further notice to you.
 
@@ -223,21 +211,25 @@ class Views::Pages::Privacy < Views::Base
     
     You have rights under data protection laws in relation to your personal data. Please click on the links below to find out more about these rights:
 
-    Request access to your personal data - you can view most of your personal data by using our service. You can request a copy of any other information we hold about you.
-    Request correction of your personal data - you can correct most of your personal data by using our service. You can request a correction of any other information we hold about you.
-    Request erasure of your personal data - you can erase or delete most of your personal data by using our service. You can request erasure of any other information we hold about you.
-    Object to processing of your personal data - you can object to our use of your personal data where this is outside the use of our service, which you are in control of.
-    Request restriction of processing your personal data - you can request that we restrict the further use of your personal data.
-    Request transfer of your personal data - you can use our service to receive a transfer of your personal data.
+    * [Request access to your personal data](https://ico.org.uk/your-data-matters/your-right-to-get-copies-of-your-data/) - you can view most of your personal data by using our service. You can request a copy of any other information we hold about you.
+    * [Request correction of your personal data](https://ico.org.uk/your-data-matters/your-right-to-get-your-data-corrected/) - you can correct most of your personal data by using our service. You can request a correction of any other information we hold about you.
+    * [Request erasure of your personal data](https://ico.org.uk/your-data-matters/your-right-to-get-your-data-deleted/) - you can erase or delete most of your personal data by using our service. You can request erasure of any other information we hold about you.
+    * [Object to processing of your personal data](https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/) - you can object to our use of your personal data where this is outside the use of our service, which you are in control of.
+    * [Request restriction of processing your personal data](https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/) - you can request that we restrict the further use of your personal data.
+    * [Request transfer of your personal data](https://ico.org.uk/your-data-matters/your-right-to-data-portability/) - you can use our service to receive a transfer of your personal data.
+    
     If you wish to request any of the rights set out above, please contact privacy@fishpercolator.co.uk.
 
-    No fee usually required
+    ### No fee usually required
+   
     You will not have to pay a fee to access your personal data (or to exercise any of the other rights). However, we may charge a reasonable fee if your request is clearly unfounded, repetitive or excessive. Alternatively, we could refuse to comply with your request in these circumstances.
 
-    What we may need from you
+    ### What we may need from you
+    
     We may need to request specific information from you to help us confirm your identity and ensure your right to access your personal data (or to exercise any of your other rights). This is a security measure to ensure that personal data is not disclosed to any person who has no right to receive it. We may also contact you to ask you for further information in relation to your request to speed up our response.
 
-    Time limit to respond
+    ### Time limit to respond
+    
     We try to respond to all legitimate requests within one month. Occasionally it could take us longer than a month if your request is particularly complex or you have made a number of requests. In this case, we will notify you and keep you updated.
     MD
   end
