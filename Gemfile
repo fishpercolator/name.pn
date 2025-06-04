@@ -50,6 +50,7 @@ gem 'image_processing', '~> 1.11'
 gem "importmap-rails", "~> 2.1"
 gem "inline_svg", "~> 1.10"
 gem "literal", "~> 1.7"
+gem "markdown_views", "~> 3.1"
 gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 5.2'
 gem 'ostruct', '~> 0.6.1' # dependency of gaffe
@@ -112,3 +113,4 @@ group :production do
   gem 'aws-sdk-s3', '~> 1.183'
   gem 'rails_12factor', '~> 0.0.3'
 end
+

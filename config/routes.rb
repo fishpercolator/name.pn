@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'users/mailing_list', to: 'mailing_list#show'
   post 'users/mailing_list/subscribe', to: 'mailing_list#subscribe'
   post 'users/mailing_list/unsubscribe', to: 'mailing_list#unsubscribe'
-  get "/pages/*id" => 'high_voltage/pages#show', as: :page, format: false
+  get "/pages/about" => 'pages#about', as: :page
   
   resources :profile
   resources :clients, only: %i[create destroy]

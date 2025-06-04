@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def framework_controller?
-    devise_controller? || kind_of?(ActiveAdmin::BaseController) || kind_of?(HighVoltage::PagesController)
+    devise_controller? || kind_of?(ActiveAdmin::BaseController)
   end
   
   def user_not_authorized

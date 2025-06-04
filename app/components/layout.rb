@@ -5,16 +5,10 @@ class Components::Layout < Components::Base
 
   register_output_helper :display_meta_tags
   
-  prop :title, String
-
   def view_template
     doctype
     html(lang: 'en') do
       render_head
-      head do
-        title { @title }
-      end
-
       body(class: 'bg-background text-foreground') do
         yield
       end
