@@ -2,8 +2,8 @@
 
 class Views::Pages::Terms < Views::Base
   def view_template
-    Prose do <<~MD
-    # Terms and conditions of use
+    Prose <<~MD
+    # #{title 'Terms and conditions of use'}
 
     ## 1. Introduction
     
@@ -262,6 +262,5 @@ class Views::Pages::Terms < Views::Base
     * (a) by post, to the postal address given above;
     * (b) by email, using support@name.pn.
     MD
-    end
   end
 end

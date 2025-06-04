@@ -7,7 +7,7 @@ class Components::Layout < Components::Base
   
   def view_template
     doctype
-    html(lang: 'en') do
+    html(lang: 'en', class: html_class) do
       render_head
       body(class: 'bg-background text-foreground') do
         yield
@@ -16,6 +16,10 @@ class Components::Layout < Components::Base
   end
 
   protected
+
+  def html_class
+    nil
+  end
 
   def render_head
     head do

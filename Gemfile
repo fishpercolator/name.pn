@@ -37,6 +37,7 @@ gem 'acts_as_list', '~> 1.0'
 gem 'amazing_print', '~> 1.3'
 gem 'blueprinter', '~> 1.0'
 gem 'cocoon', '~> 1.2'
+gem "commonmarker", "~> 2.3"
 gem 'datadog', '~> 2.2', require: 'datadog/auto_instrument'
 gem 'devise', '~> 4.7'
 gem 'devise-jwt', '~> 0.12.0'
@@ -50,7 +51,6 @@ gem 'image_processing', '~> 1.11'
 gem "importmap-rails", "~> 2.1"
 gem "inline_svg", "~> 1.10"
 gem "literal", "~> 1.7"
-gem "markdown_views", "~> 3.1"
 gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 5.2'
 gem 'ostruct', '~> 0.6.1' # dependency of gaffe
@@ -113,4 +113,3 @@ group :production do
   gem 'aws-sdk-s3', '~> 1.183'
   gem 'rails_12factor', '~> 0.0.3'
 end
-

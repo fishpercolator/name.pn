@@ -2,8 +2,8 @@
 
 class Views::Pages::About < Views::Base
   def view_template
-    Prose do <<~MD
-      # About name.pn
+    Prose <<~MD
+      # #{title 'About name.pn'}
 
       Like most useful products, name.pn was born out of necessity. Developer **Quinn** [name.pn/quinn-daley](https://name.pn/quinn-daley) is trans & non-binary and uses they/them pronouns and needed a nice way to share how to use those pronouns with business contacts.
 
@@ -18,20 +18,18 @@ class Views::Pages::About < Views::Base
 
       It's free and always will be (although we might add some cool additional paid features in the future for businesses). It's still early in development but it works and it's ready to use now.
     MD
-    end
     div(class: 'py-5') do
       cta(new_user_registration_path, variant: :primary) do
         'Sign up for your free name.pn page'
       end
     end
-    Prose do <<~MD
+    Prose <<~MD
     ## Working in the open
 
     name.pn is an open source product and we are working in the open.
 
     We welcome contributions to our roadmap, including bug reports, feature requests and even code changes! Follow the links below for more information.
     MD
-    end
     div(class: 'py-5') do
       cta('https://github.com/fishpercolator/name.pn/issues', icon_name: 'bug') do
         'Report a bug or make a feature request'
@@ -46,12 +44,11 @@ class Views::Pages::About < Views::Base
         'Browse our source code on GitHub'
       end
     end
-    Prose do <<~MD
+    Prose <<~MD
     ## Get in touch
 
     If you'd like to report an issue or feature request, please use [our issues board](https://github.com/fishpercolator/name.pn/issues). But to get in touch for any other reason, our email address is below.
     MD
-    end
     div(class: 'py-5') do
       cta('mailto:support@name.pn', icon_name: 'email') do
         'support@name.pn'

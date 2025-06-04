@@ -24,4 +24,8 @@ class Components::ShellLayout < Components::Layout
       end
     end
   end
+
+  def html_class
+    'scroll-pt-15'
+  end
 end
