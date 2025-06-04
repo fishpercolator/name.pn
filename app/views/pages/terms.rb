@@ -17,7 +17,7 @@ class Views::Pages::Terms < Views::Base
 
     ## 2. Copyright notice
     
-    2.1 Copyright (c) 2021 Fish Percolator Limited.
+    2.1 Copyright (c) 2021-#{Date.today.year} Fish Percolator Limited.
 
     2.2 Subject to the express provisions of these terms and conditions:
 
