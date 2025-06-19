@@ -3,16 +3,17 @@ class PagesController < ApplicationController
 
   layout -> { Components::ShellLayout.new }
 
-  VALID_PAGES = %w[
+  # A frozen hash of valid pages converted to their Component names
+  PAGES = %w[
     about
     privacy
     terms
     guides/phonetic
-  ]
+  ].to_h { [it, Views::Pages.const_get(it.camelize)] }.freeze
 
   def page
-    if params[:path].in? VALID_PAGES
-      render Views::Pages.const_get(params[:path].camelize)
+    if PAGES.key? params[:path]
+      render PAGES[params[:path]]
     else
       raise AbstractController::ActionNotFound
     end
