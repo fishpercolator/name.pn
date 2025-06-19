@@ -3,10 +3,18 @@ class PagesController < ApplicationController
 
   layout -> { Components::ShellLayout.new }
 
-  def show
-    render Views::Pages.const_get(params[:id].camelize)
-  # rescue NameError
-  #   # If const_get fails, raise a 404
-  #   raise AbstractController::ActionNotFound
+  VALID_PAGES = %w[
+    about
+    privacy
+    terms
+    guides/phonetic
+  ]
+
+  def page
+    if params[:path].in? VALID_PAGES
+      render Views::Pages.const_get(params[:path].camelize)
+    else
+      raise AbstractController::ActionNotFound
+    end
   end
 end

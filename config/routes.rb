@@ -18,14 +18,14 @@ Rails.application.routes.draw do
   
   resources :profile
   resources :clients, only: %i[create destroy]
-  resources :pages, only: %i[show]
   
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       resources :users, only: [:show]
     end
   end  
-  
+
+  get "/pages/*path", to: 'pages#page', as: :page
   get "/:id(/:nominative/:oblique)", to: 'users#show', constraints: { id: %r{[-a-z\d]+}i, nominative: %r{[a-z]+}i, oblique: %r{[a-z]+}i, format: %r{html|png} }, as: :user
   root to: 'home#index'
 end
