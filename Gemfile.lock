@@ -47,7 +47,7 @@ GEM
     active_storage_base64 (3.0.0)
       activestorage (> 7.0)
       activesupport (> 7.0)
-    active_storage_validations (2.0.3)
+    active_storage_validations (3.0.0)
       activejob (>= 6.1.4)
       activemodel (>= 6.1.4)
       activestorage (>= 6.1.4)
@@ -577,7 +577,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_base64 (~> 3.0)
-  active_storage_validations (~> 2.0)
+  active_storage_validations (~> 3.0)
   activeadmin (~> 4.0.0.beta15)
   acts_as_list (~> 1.0)
   addressable (~> 2.8)

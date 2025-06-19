@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'activeadmin', '~> 4.0.0.beta15'
 gem 'active_storage_base64', '~> 3.0'
-gem 'active_storage_validations', '~> 2.0'
+gem 'active_storage_validations', '~> 3.0'
 gem 'acts_as_list', '~> 1.0'
 gem 'amazing_print', '~> 1.3'
 gem 'blueprinter', '~> 1.0'
