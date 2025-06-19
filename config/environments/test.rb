@@ -50,4 +50,8 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions.
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # Use our own fixture support rather than FactoryBot's, which is currently
+  # not compatible with Spinach
+  config.factory_bot.file_fixture_support = false
 end
