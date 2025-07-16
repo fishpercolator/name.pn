@@ -1,4 +1,8 @@
 en:
+  components:
+    shell_layout:
+      about: About
+      admin: Admin
   layouts:
     navbar:
       label: main navigation
