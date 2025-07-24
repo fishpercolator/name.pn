@@ -221,3 +221,18 @@ en:
     key_modal:
       title: Your new API key
       blurb: Be sure to copy this key before closing this box. After closing the box there will be no way to retrieve this key.
+  views:
+    home:
+      anon:
+        promo1:
+          title: Share how you'd like people to use your name
+          description: Not everyone wants to be "title surname". Your name.pn page tells people how you like to be addressed in different situations and which nicknames you like and dislike.
+          icon_name: sticker-check-outline
+        promo2:
+          title: Your name spoken in your voice
+          description: You can use name.pn to share how your name is pronounced. Let all your contacts hear you saying your name in your own voice.
+          icon_name: bullhorn
+        promo3:
+          title: Display your pronouns to reduce misgendering
+          description: You can't guess someone's pronouns (they, she, he, etc.) from their name. Sharing your pronouns helps to create a world where fewer people are misgendered.
+          icon_name: gender-male-female
