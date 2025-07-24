@@ -2,9 +2,6 @@
 
 class Views::Home::Anon < Views::Base
   def view_template
-    ShellLayout do
-      h1 { "This is the homepage" }
-      Button { "Hello" }
-    end
+    div(class: 'flex justify-center') { Home::Logo() }
   end
 end

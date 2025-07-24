@@ -29,7 +29,7 @@ helm_resource(
 podman_build('name-pn', '.', 
   ignore=['log', 'tmp'],
   live_update=[
-    fall_back_on(['./config', './Containerfile', './k8s.yaml']),
+    fall_back_on(['./config/environments', './config/initializers', './config/environment.rb', './config/application.rb', './Containerfile', './k8s.yaml']),
     sync('.', '/rails'),
     run('bundle && touch tmp/restart.txt', trigger=['./Gemfile', './Gemfile.lock']),
     run('yarn', trigger=['./package.json', './yarn.lock']),

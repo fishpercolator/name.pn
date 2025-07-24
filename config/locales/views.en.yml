@@ -3,6 +3,13 @@ en:
     shell_layout:
       about: About
       admin: Admin
+    home:
+      logo:
+        namedot: name.
+        pn: pn
+        pronouns: pronouns
+        pronounce: pronunciation
+        subtitle: Your name – your rules
   layouts:
     navbar:
       label: main navigation
