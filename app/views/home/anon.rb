@@ -2,7 +2,7 @@
 
 class Views::Home::Anon < Views::Base
   def view_template
-    div(class: 'flex justify-center') { Home::Logo() }
+    div(class: 'flex justify-center mt-6') { Home::Logo() }
     div(class: 'grid md:grid-cols-3 gap-6 my-20') do
       %w[promo1 promo2 promo3].each do |p|
         args = %i[title icon_name description].to_h {[_1, t(_1, scope: ['views.home.anon', p])]}
