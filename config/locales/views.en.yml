@@ -33,22 +33,6 @@ en:
     support:
       report_a_bug: Report a bug on our issues board
   home:
-    anon_home:
-      title:
-        namedot: name.
-        pn: pn
-        pronouns: pronouns
-        pronounce: pronunciation
-      subtitle: Your name – your rules
-      sign_up_free: Sign up – it's free
-      get_your_name_right: Share how you'd like people to use your name
-      name_right_blurb: Not everyone wants to be "title surname". Your name.pn page tells people how you like to be addressed in different situations and which nicknames you like and dislike.
-      pronunciation: Your name spoken in your voice
-      pronunciation_blurb: You can use name.pn to share how your name is pronounced. Let all your contacts hear you saying your name in your own voice.
-      pronouns: Display your pronouns to reduce misgendering
-      pronouns_blurb: You can't guess someone's pronouns (they, she, he, etc.) from their name. Sharing your pronouns helps to create a world where fewer people are misgendered. 
-      warning: 'Note: name.pn is pre-alpha software and is changing all the time. Feel free to use it but expect changes and bugs!'
-      learn_more: Learn more about name.pn
     user_home:
       title: Your name dashboard
       page_description1: Here you can create a page that describes the different ways you would like to be addressed in English.
