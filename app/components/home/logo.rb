@@ -7,12 +7,12 @@ class Components::Home::Logo < Components::Base
         div(class: 'pr-[0.15em]') { image_tag 'logo.svg', alt: t('icon_alt') }
         div(class: 'text-right') { t('.namedot') }
         div { t('.pn') }
-        div(class: 'text-xl leading-none text-primary mt-2 pl-[2px] col-start-3 flex flex-col') do
+        div(class: 'text-xl leading-none text-accent mt-2 pl-[2px] col-start-3 flex flex-col') do
           span { t('.pronouns') }
           span { t('.pronounce') }
         end
       end
-      h2(class: 'text-2xl md:text-4xl text-primary') { t('.subtitle') }
+      h2(class: 'text-2xl md:text-4xl text-accent') { t('.subtitle') }
     end
   end
 end

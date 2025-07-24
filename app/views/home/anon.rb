@@ -9,13 +9,19 @@ class Views::Home::Anon < Views::Base
         promo(**args)
       end
     end
+    div(class: 'flex justify-center') do
+      Link(href: new_user_registration_path, variant: :primary, class: 'px-6 py-3 h-14 text-2xl') { t('.sign_up') }
+    end
+    div(class: 'text-center mt-10') do
+      Link(href: page_path('about'), size: :lg) { t('.learn_more') }
+    end
   end
 
   private
 
   def promo(title:, icon_name:, description:)
     div(class: 'rounded-xl border bg-background shadow p-4 md:p-6 grid grid-cols-[48px_auto] gap-3 items-center') do
-      icon(icon_name, class: 'w-12 h-12')
+      icon(icon_name, class: 'w-12 h-12 fill-current')
       h3(class: 'col-start-2 text-lg font-bold') { title }
       p(class: 'col-start-2') { description }
     end
