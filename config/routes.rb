@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get 'users/mailing_list', to: 'mailing_list#show'
   post 'users/mailing_list/subscribe', to: 'mailing_list#subscribe'
   post 'users/mailing_list/unsubscribe', to: 'mailing_list#unsubscribe'
-  get "/pages/*id" => 'high_voltage/pages#show', as: :page, format: false
   
   resources :profile
   resources :clients, only: %i[create destroy]
@@ -25,7 +24,8 @@ Rails.application.routes.draw do
       resources :users, only: [:show]
     end
   end  
-  
+
+  get "/pages/*path", to: 'pages#page', as: :page
   get "/:id(/:nominative/:oblique)", to: 'users#show', constraints: { id: %r{[-a-z\d]+}i, nominative: %r{[a-z]+}i, oblique: %r{[a-z]+}i, format: %r{html|png} }, as: :user
   root to: 'home#index'
 end

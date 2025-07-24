@@ -2,6 +2,8 @@ class HomeController < ApplicationController
   protect_from_forgery except: :service_worker
   skip_after_action :verify_policy_scoped
   skip_after_action :verify_authorized
+
+  layout -> { user_signed_in? ? 'application' : Components::ShellLayout.new }
   
   def index
     if user_signed_in?
@@ -9,7 +11,7 @@ class HomeController < ApplicationController
       return redirect_to(profile_index_path) if !current_user.basic_names_complete?
       render 'user_home'
     else
-      render 'anon_home'
+      render Views::Home::Anon
     end
   end
 
