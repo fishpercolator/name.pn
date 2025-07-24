@@ -25,7 +25,11 @@ class Components::ShellLayout < Components::Layout
     end
   end
 
+  def body_class
+    'bg-linear-to-b bg-fixed from-zinc-100 to-zinc-200 dark:from-black dark:to-zinc-800 text-foreground'
+  end
+
   def html_class
-    'scroll-pt-15'
+    'h-full scroll-pt-15'
   end
 end

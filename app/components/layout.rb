@@ -9,7 +9,7 @@ class Components::Layout < Components::Base
     doctype
     html(lang: 'en', class: html_class) do
       render_head
-      body(class: 'bg-background text-foreground') do
+      body(class: body_class) do
         yield
       end
     end
@@ -18,7 +18,11 @@ class Components::Layout < Components::Base
   protected
 
   def html_class
-    nil
+    'h-full'
+  end
+
+  def body_class
+    'bg-background text-foreground'
   end
 
   def render_head
