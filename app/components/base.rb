@@ -25,3 +25,5 @@ class Components::Base < Phlex::HTML
   end
 
 end
+
+ApplicationComponent = Components::Base

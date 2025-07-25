@@ -4,7 +4,7 @@ class Components::ShellLayout < Components::Layout
   register_value_helper :user_signed_in?
   register_value_helper :current_user
 
-  def view_template
+  def view_template(&)
     super do
       PageHeader do |header|
         header.main_link(page_path('about')) { t('.about') }
@@ -17,19 +17,15 @@ class Components::ShellLayout < Components::Layout
           header.action_link(new_user_registration_path) { t('devise.registrations.new.title') }
         end
       end
-      main do
-        div(class: 'px-2 sm:px-4 sm:container py-4 sm:py-8') do
-          yield
-        end
-      end
+      main(class: 'flex flex-col grow px-2 sm:px-4 sm:container py-4 sm:py-8', &)
     end
   end
 
   def body_class
-    'bg-linear-to-b bg-fixed from-zinc-100 to-zinc-200 dark:from-black dark:to-zinc-800 text-foreground'
+    'min-h-screen flex flex-col bg-linear-to-b bg-fixed from-zinc-100 to-zinc-200 dark:from-black dark:to-zinc-800 text-foreground'
   end
 
   def html_class
-    'h-full scroll-pt-15'
+    'min-h-screen scroll-pt-15'
   end
 end

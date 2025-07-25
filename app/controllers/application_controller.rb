@@ -1,9 +1,13 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
+  include Phlexible::Rails::ActionController::ImplicitRender
+
   after_action :verify_authorized, except: :index, unless: :framework_controller?
   after_action :verify_policy_scoped, only: :index, unless: :framework_controller?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  layout -> { Components::ShellLayout }
 
   def authenticate_admin!
     if !current_user&.role_admin?

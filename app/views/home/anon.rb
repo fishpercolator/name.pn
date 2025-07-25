@@ -20,7 +20,7 @@ class Views::Home::Anon < Views::Base
   private
 
   def promo(title:, icon_name:, description:)
-    div(class: 'rounded-xl border bg-background shadow p-4 md:p-6 grid grid-cols-[48px_auto] gap-3 items-center') do
+    Box(class: 'grid grid-cols-[48px_auto] gap-3 items-center') do
       icon(icon_name, class: 'w-12 h-12 fill-current')
       h3(class: 'col-start-2 text-lg font-bold') { title }
       p(class: 'col-start-2') { description }
