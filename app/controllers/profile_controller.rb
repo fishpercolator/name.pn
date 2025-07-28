@@ -1,5 +1,7 @@
 class ProfileController < ApplicationController
   include Wicked::Wizard
+
+  layout 'application'
   
   before_action :authenticate_user!
   before_action :set_user
