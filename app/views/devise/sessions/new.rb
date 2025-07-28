@@ -8,7 +8,7 @@ class Views::Devise::Sessions::New < Views::Base
   def view_template
     CenteredForm do |cf|
       cf.title { title t('devise.sessions.new.title') }
-      cf.section { render SessionForm.new(@resource) }
+      render SessionForm.new(@resource, cf:)
     end
   end
 end

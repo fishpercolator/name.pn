@@ -12,10 +12,10 @@ class Components::CenteredForm < Components::Base
   end
 
   def section(&)
-    Box(class: 'mx-3 sm:mx-0 my-6', &)
+    Box(class: 'mx-3 sm:mx-0 my-6 space-y-4', &)
   end
 
   def footer(&)
-    div(class: 'mx-3 sm:mx-0 my-6', &)
+    div(class: 'mx-3 sm:mx-0 my-6 space-y-4', &)
   end
 end
