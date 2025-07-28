@@ -2,16 +2,20 @@
 
 class Components::CenteredForm < Components::Base
   def view_template(&)
-    div(class: 'grow flex items-center justify-center') do
-      div(&)
+    ShellLayout(main_class: 'grow flex items-center justify-center') do
+      div(class: 'w-screen max-w-lg', &)
     end
   end
 
   def title(&)
-    h1(class: 'text-3xl font-bold mb-6', &)
+    h1(class: 'text-3xl font-bold mx-3 sm:mx-0', &)
   end
 
-  def main(&)
-    Box(&)
+  def section(&)
+    Box(class: 'mx-3 sm:mx-0 my-6', &)
+  end
+
+  def footer(&)
+    div(class: 'mx-3 sm:mx-0 my-6', &)
   end
 end

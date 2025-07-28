@@ -2,18 +2,20 @@
 
 class Views::Home::Anon < Views::Base
   def view_template
-    div(class: 'flex justify-center mt-6') { Home::Logo() }
-    div(class: 'grid md:grid-cols-3 gap-6 my-20') do
-      %w[promo1 promo2 promo3].each do |p|
-        args = %i[title icon_name description].to_h {[_1, t(_1, scope: ['views.home.anon', p])]}
-        promo(**args)
+    ShellLayout do
+      div(class: 'flex justify-center mt-6') { Home::Logo() }
+      div(class: 'grid md:grid-cols-3 gap-6 my-20') do
+        %w[promo1 promo2 promo3].each do |p|
+          args = %i[title icon_name description].to_h {[_1, t(_1, scope: ['views.home.anon', p])]}
+          promo(**args)
+        end
       end
-    end
-    div(class: 'flex justify-center') do
-      Link(href: new_user_registration_path, variant: :primary, class: 'px-6 py-3 h-14 text-2xl') { t('.sign_up') }
-    end
-    div(class: 'text-center mt-10') do
-      Link(href: page_path('about'), size: :lg) { t('.learn_more') }
+      div(class: 'flex justify-center') do
+        Link(href: new_user_registration_path, variant: :primary, class: 'px-6 py-3 h-14 text-2xl') { t('.sign_up') }
+      end
+      div(class: 'text-center mt-10') do
+        Link(href: page_path('about'), size: :lg) { t('.learn_more') }
+      end
     end
   end
 

@@ -8,7 +8,7 @@ class Views::Devise::Registrations::New < Views::Base
   def view_template
     CenteredForm do |cf|
       cf.title { title t('devise.registrations.new.title') }
-      cf.main { render RegistrationForm.new(@resource) }
+      cf.section { render RegistrationForm.new(@resource) }
     end
   end
 end

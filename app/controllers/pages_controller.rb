@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_after_action :verify_authorized
 
-  layout -> { Components::ShellLayout.new }
+  layout -> { Components::ShellLayout }
 
   # A frozen hash of valid pages converted to their Component names
   PAGES = %w[

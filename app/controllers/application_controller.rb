@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  layout -> { Components::ShellLayout }
+  layout false
 
   def authenticate_admin!
     if !current_user&.role_admin?
