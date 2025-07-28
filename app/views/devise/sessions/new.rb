@@ -1,15 +1,7 @@
 # frozen_string_literal: true
 
-class Views::Devise::Sessions::New < Views::Base
-  include Phlex::Rails::Helpers::FormFor
-
-  attr_reader :resource, :resource_name
-
-  def initialize(resource:, resource_name:)
-    @resource = resource
-    @resource_name = resource_name
-  end
-
+class Views::Devise::Sessions::New < Views::Devise::Base
+  include Phlex::Rails::Helpers::Debug
   def view_template
     CenteredForm do |cf|
       cf.title { title t('devise.sessions.new.title') }
