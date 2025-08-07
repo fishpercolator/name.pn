@@ -10,6 +10,9 @@ en:
         pronouns: pronouns
         pronounce: pronunciation
         subtitle: Your name – your rules
+      card:
+        not_set: Not set
+        edit: Edit
   layouts:
     navbar:
       label: main navigation
@@ -222,3 +225,30 @@ en:
           icon_name: gender-male-female
         sign_up: Sign up – it's free
         learn_more: Learn more about name.pn
+      index:
+        title: Your name dashboard
+        page_description1: Here you can create a page that describes the different ways you would like to be addressed in English.
+        page_description2: Once you're happy with the page, you can share it with people and put it in your email signature so that everyone knows.
+        you_must: You must set this before you can share your page
+        name_card:
+          title: Your name
+        variants_card:
+          title: Variants of your name
+        pronunciation_card:
+          title: How to pronounce your name
+          name_is_pronounced: '%{name} is pronounced'
+          ipa: 'IPA pronunciation of %{name}'
+          audio_clip: Audio clip of '%{name}'
+        pronouns_card:
+          title: Your pronouns
+        likeness_card:
+          title: What you look like
+        links_card:
+          title: Your personal links  
+        url_card:
+          title: Your unique URL
+          view_your_page: View
+          copy_to_clipboard: Copy
+          copied: Copied!
+          you_must_complete: You must complete the highlighted parts before you can preview your page
+          or_with_pronouns: 'or, if you prefer a URL containing your pronouns:'

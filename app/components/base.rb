@@ -13,6 +13,8 @@ class Components::Base < Phlex::HTML
   register_output_helper :icon
   register_output_helper :inline_svg_tag
 
+  delegate :current_user, :user_signed_in?, to: :helpers
+
   if Rails.env.development?
     def before_template
       comment { "Before #{self.class.name}" }
