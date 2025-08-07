@@ -59,7 +59,11 @@ class Views::Home::Index < Views::Base
     render Home::Card.new(title: t('.variants_card.title'), edit: profile_path(:variants), class: 'bg-green-50 dark:bg-green-950') do |hc|
       hc.content do
         hc.blurb { t('profile.variants.blurb') }
-        hc.list(user_attributes_hash %i[envelope_name formal_name email_name])
+        attributes = user_attributes_hash %i[envelope_name formal_name email_name]
+        current_user.alternate_names.grouped_by_category.each do |category, ans|
+          attributes[t(category, scope: 'alternate_name_categories')] = ans.map(&:name)
+        end
+        hc.list(attributes)
       end
     end
   end

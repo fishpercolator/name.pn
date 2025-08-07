@@ -12,7 +12,7 @@ class Components::Home::Card < Components::Base
       CardHeader(class: 'flex-row justify-between items-center') do
         CardTitle { @title }
         if @edit.present?
-          Link(variant: :outline, icon: true, href: @edit, title: t('.edit')) { icon 'pencil', class: 'w-6 h-6' }
+          Link(variant: :outline, icon: true, href: @edit, title: t('.edit')) { icon 'pencil', class: 'p-2 fill-current' }
         end
       end
       content&.call
@@ -42,7 +42,9 @@ class Components::Home::Card < Components::Base
           when nil, ''
             em(class: 'text-muted-foreground font-italic') { t('.not_set') }
           when Array
-            ul { v.each { li { _1 }}}
+            ul(class: 'list-disc') do
+              v.each {|name| li { name }}
+            end
           else
             v
           end
