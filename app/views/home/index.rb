@@ -60,10 +60,7 @@ class Views::Home::Index < Views::Base
       hc.content do
         hc.blurb { t('profile.variants.blurb') }
         attributes = user_attributes_hash %i[envelope_name formal_name email_name]
-        current_user.alternate_names.grouped_by_category.each do |category, ans|
-          attributes[t(category, scope: 'alternate_name_categories')] = ans.map(&:name)
-        end
-        hc.list(attributes)
+        hc.list(attributes.merge(human_alternate_names))
       end
     end
   end
@@ -82,6 +79,16 @@ class Views::Home::Index < Views::Base
       User.human_attribute_name(_1), 
       current_user.public_send(_1),
     ] }
+  end
+
+  # Convert current_user.alternate_names.grouped_by_category to human-readable form
+  def human_alternate_names
+    current_user.alternate_names.grouped_by_category.to_h do |cat,v|
+      [
+        t(cat, scope: 'alternate_name_categories'),
+        v.map(&:name)
+      ]
+    end
   end
 
 end
