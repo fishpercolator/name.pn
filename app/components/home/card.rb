@@ -10,7 +10,7 @@ class Components::Home::Card < Components::Base
   def view_template(&content)
     render RubyUI::Card.new(**@attributes) do
       CardHeader(class: 'flex-row justify-between items-center') do
-        CardTitle { @title }
+        CardTitle(class: 'm-0') { @title }
         Link(variant: :outline, icon: true, href: @edit, title: t('.edit')) { icon 'pencil', class: 'p-2 fill-current' } if @edit.present?
       end
       content&.call

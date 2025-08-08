@@ -48,7 +48,12 @@ class Views::Home::Index < Views::Base
   end
 
   def pronouns_card
-    render Home::Card.new(title: t('.pronouns_card.title'), edit: profile_path(:pronouns), class: 'bg-green-50 dark:bg-green-950')
+    render Home::Card.new(title: t('.pronouns_card.title'), edit: profile_path(:pronouns), class: 'bg-green-50 dark:bg-green-950') do |hc|
+      hc.content do
+        hc.blurb { t('profile.pronouns.blurb')&.first }
+        render PronounSet::Table.new(pronoun_sets: current_user.pronoun_sets, user: current_user)
+      end
+    end
   end
 
   def pronunciation_card

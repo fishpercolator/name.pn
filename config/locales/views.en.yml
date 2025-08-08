@@ -13,6 +13,9 @@ en:
       card:
         not_set: Not set
         edit: Edit
+    pronoun_set:
+      table:
+        header: 'Pronouns: %{pronoun}'
   layouts:
     navbar:
       label: main navigation
