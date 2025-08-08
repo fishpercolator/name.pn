@@ -4,6 +4,7 @@
 @plugin "@tailwindcss/typography";
 
 @import "tw-animate-css";
+@import "luminous-lightbox/dist/luminous-basic";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -153,5 +154,14 @@
   }
   b {
     @apply font-semibold;
+  }
+  .lum-lightbox {
+    @apply z-100;
+  }
+  .lum-lightbox-image-wrapper {
+    @apply !flex items-center justify-center;
+  }
+  .lum-img {
+    @apply rounded-lg;
   }
 }

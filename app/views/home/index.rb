@@ -71,7 +71,16 @@ class Views::Home::Index < Views::Base
   end
 
   def likeness_card
-    render Home::Card.new(title: t('.likeness_card.title'), edit: profile_path(:likeness), class: 'bg-indigo-50 dark:bg-indigo-950')
+    render Home::Card.new(title: t('.likeness_card.title'), edit: profile_path(:likeness), class: 'bg-indigo-50 dark:bg-indigo-950') do |hc|
+      hc.content do
+        hc.blurb { t('profile.likeness.blurb') }
+        if current_user.likeness.attached?
+          render Components::User::Likeness.new(user: current_user)
+        else
+          hc.not_set
+        end
+      end
+    end
   end
 
   def links_card
@@ -81,7 +90,7 @@ class Views::Home::Index < Views::Base
   # Convert a list of attribute names to a hash of human name to value
   def user_attributes_hash(attributes)
     attributes.to_h { [
-      User.human_attribute_name(_1), 
+      ::User.human_attribute_name(_1), 
       current_user.public_send(_1),
     ] }
   end

@@ -43,7 +43,7 @@ class Components::Home::Card < Components::Base
   def list_value(v)
     case v
     when nil, ''
-      em(class: 'text-muted-foreground font-italic') { t('.not_set') }
+      not_set
     when Array
       ul(class: 'list-disc') do
         v.each {|name| li { name }}
@@ -52,5 +52,10 @@ class Components::Home::Card < Components::Base
       v
     end
   end
+
+  def not_set
+    em(class: 'text-muted-foreground font-italic') { t('.not_set') }
+  end
+
 
 end

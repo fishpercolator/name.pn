@@ -16,6 +16,10 @@ en:
     pronoun_set:
       table:
         header: 'Pronouns: %{pronoun}'
+    user:
+      likeness:
+        expand: Expand
+        alt: A picture of %{name}
   layouts:
     navbar:
       label: main navigation
