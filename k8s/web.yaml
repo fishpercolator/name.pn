@@ -13,11 +13,18 @@ spec:
       labels:
         app: name-pn
     spec:
+      volumes:
+        - name: name-pn-storage
+          persistentVolumeClaim:
+            claimName: name-pn-storage-claim
       containers:
         - name: name-pn
           image: name-pn
           ports:
             - containerPort: 3000
+          volumeMounts:
+            - mountPath: /rails/storage
+              name: name-pn-storage
           env:
             - name: JWT_SECRET
               valueFrom:
