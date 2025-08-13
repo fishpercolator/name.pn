@@ -52,6 +52,8 @@ class Components::Home::Card < Components::Base
       ul(class: 'list-disc') do
         v.each {|name| li { name }}
       end
+    when Phlex::HTML
+      render v
     else
       v
     end

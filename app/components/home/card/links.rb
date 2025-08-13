@@ -8,7 +8,7 @@ class Components::Home::Card::Links < Components::Base
         if current_user.links.present?
           ul(class: 'list-disc pl-5') do
             current_user.links.order(:title).each do |link|
-              li(class: 'mb-4') { Link(class: '-ml-4 py-1 h-auto underline', href: link.url, rel: 'noopener') { link.title } }
+              li(class: 'mb-2') { Link(class: '-ml-4 py-1 h-auto underline', href: link.url, rel: 'noopener') { link.title } }
             end
           end
         else

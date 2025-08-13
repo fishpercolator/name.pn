@@ -39,6 +39,9 @@ en:
     pronoun_set:
       table:
         header: 'Pronouns: %{pronoun}'
+    pronunciation:
+      player:
+        listen: Listen
     user:
       likeness:
         expand: Expand
