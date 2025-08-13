@@ -2,7 +2,7 @@
 
 class Components::Home::Card::Url < Components::Base
   def view_template
-    render Home::Card.new(title: t('.title'), edit: profile_path(:slug), class: 'md:col-span-2 bg-indigo-50 dark:bg-indigo-950', data: {controller: 'url', url_copied_class: 'is-copied'}) do |hc|
+    render Home::Card.new(title: t('.title'), edit: profile_path(:slug), class: 'md:col-span-2 bg-url', data: {controller: 'url', url_copied_class: 'is-copied'}) do |hc|
       hc.content do
         div(class: 'flex flex-col items-center') do
           p(class: 'text-2xl font-semibold wrap-anywhere', data: {url_target: 'url'}) { user_url(current_user, only_path: false) }

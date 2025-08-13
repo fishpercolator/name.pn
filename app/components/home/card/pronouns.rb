@@ -2,7 +2,7 @@
 
 class Components::Home::Card::Pronouns < Components::Base
   def view_template
-    render Home::Card.new(title: t('.title'), edit: profile_path(:pronouns), class: 'bg-green-50 dark:bg-green-950') do |hc|
+    render Home::Card.new(title: t('.title'), edit: profile_path(:pronouns), class: 'bg-pronouns') do |hc|
       hc.content do
         hc.blurb { t('profile.pronouns.blurb')&.first }
         if current_user.pronoun_sets.any?

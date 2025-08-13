@@ -50,6 +50,11 @@
   --warning-foreground: hsl(0 0% 100%);
   --success: hsl(87 100% 37%);
   --success-foreground: hsl(0 0% 100%);
+
+  /* section accents */
+  --section-accent-1: oklch(96.9% 0.015 12.422);
+  --section-accent-2: oklch(98.2% 0.018 155.826);
+  --section-accent-3: oklch(96.2% 0.018 272.314);
 }
 
 .dark {
@@ -91,6 +96,11 @@
   --warning-foreground: hsl(0 0% 100%);
   --success: hsl(84 81% 44%);
   --success-foreground: hsl(0 0% 100%);
+
+  /* section accents */
+  --section-accent-1: oklch(27.1% 0.105 12.094);
+  --section-accent-2: oklch(26.6% 0.065 152.934);
+  --section-accent-3: oklch(25.7% 0.09 281.288);
 }
 
 @theme inline {
@@ -136,6 +146,15 @@
   --color-warning-foreground: var(--warning-foreground);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
+
+  /* section colors */
+  --color-name: var(--section-accent-1);
+  --color-pronouns: var(--section-accent-2);
+  --color-pronunciation: var(--section-accent-1);
+  --color-variants: var(--section-accent-2);
+  --color-likeness: var(--section-accent-3);
+  --color-links: var(--section-accent-1);
+  --color-url: var(--section-accent-3);
 
   /* Taken from animate.css https://github.com/animate-css/animate.css/blob/main/LICENSE */
   --animate-bounce-in: bounce-in 0.75s 1;

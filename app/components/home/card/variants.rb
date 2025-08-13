@@ -2,7 +2,7 @@
 
 class Components::Home::Card::Variants < Components::Base
   def view_template
-    render Home::Card.new(title: t('.title'), edit: profile_path(:variants), class: 'bg-green-50 dark:bg-green-950') do |hc|
+    render Home::Card.new(title: t('.title'), edit: profile_path(:variants), class: 'bg-variants') do |hc|
       hc.content do
         hc.blurb { t('profile.variants.blurb') }
         attributes = hc.user_attributes_hash %i[envelope_name formal_name email_name]
