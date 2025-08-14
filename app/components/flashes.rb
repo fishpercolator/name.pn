@@ -3,15 +3,15 @@
 class Components::Flashes < Components::Base
   include Phlex::Rails::Helpers::Flash
 
-  def initialize(class: nil)
-    @class = grab(class:)
+  def initialize(**attributes)
+    @attributes = attributes
   end
 
   def view_template(&)
     if flash[:notice] || flash[:alert]
-      div(class: @class) do
+      div(**@attributes) do
         if flash[:notice]
-          Alert do
+          Alert(variant: :success) do
             AlertTitle { flash[:notice] }
           end
         end

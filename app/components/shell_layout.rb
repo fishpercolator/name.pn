@@ -4,7 +4,7 @@ class Components::ShellLayout < Components::Layout
   register_value_helper :user_signed_in?
   register_value_helper :current_user
 
-  def initialize(main_class: 'flex flex-col grow px-2 sm:px-4 sm:container py-4 sm:py-8', flashes_class: 'sm:px-4 sm:container py-4 sm:py-8')
+  def initialize(main_class: 'flex flex-col grow px-2 sm:px-4 sm:container py-4 sm:py-8', flashes_class: '')
     @main_class = main_class
     @flashes_class = flashes_class
   end

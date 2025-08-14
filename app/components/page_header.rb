@@ -10,7 +10,7 @@ class Components::PageHeader < Components::Base
 
   def view_template(&)
     vanish(&)
-    header(class: 'supports-backdrop-blur:bg-background/80 sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-2xl backdrop-saturate-200') do
+    header(class: 'sticky top-0 z-50 w-full bg-linear-to-b from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 text-white') do
       div(class: 'px-2 sm:px-4 sm:container flex h-14 items-center justify-between') do
         div(class: 'mr-4 flex items-center') do
           render_logo
@@ -45,7 +45,7 @@ class Components::PageHeader < Components::Base
   end
   
   def render_link(link)
-    Link(**mix(link.except(:content), {variant: :ghost, class: 'hidden md:inline-block'}), &link[:content])
+    Link(**mix(link.except(:content), {variant: :ghost, size: :lg, class: 'hidden md:inline-flex'}), &link[:content])
   end
 
   def render_dropdown_menu
