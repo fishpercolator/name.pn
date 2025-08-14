@@ -3,6 +3,11 @@ en:
     shell_layout:
       about: About
       admin: Admin
+      terms: Terms of use
+      privacy: Privacy policy
+      github: GitHub
+      roadmap: Public roadmap
+      api: API
     home:
       logo:
         namedot: name.

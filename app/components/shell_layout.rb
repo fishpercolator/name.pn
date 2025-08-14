@@ -26,6 +26,28 @@ class Components::ShellLayout < Components::Layout
         Flashes(class: @flashes_class)
         yield
       end
+      PageFooter do |footer|
+        footer.left_link(page_path('terms')) do
+          icon 'file-sign', class: 'h-4 w-4 fill-current mr-1'
+          span { t('.terms') }
+        end
+        footer.left_link(page_path('privacy')) do 
+          icon 'shield-account', class: 'h-4 w-4 fill-current mr-1'
+          span { t('.privacy') }
+        end
+        footer.right_link('https://github.com/fishpercolator/name.pn') do
+          icon 'github', class: 'h-4 w-4 fill-current mr-1'
+          span { t('.github') }
+        end
+        footer.right_link('https://github.com/orgs/fishpercolator/projects/1') do
+          icon 'map', class: 'h-4 w-4 fill-current mr-1'
+          span { t('.roadmap') }
+        end
+        footer.right_link(rswag_ui_path) do
+          icon 'cogs', class: 'h-4 w-4 fill-current mr-1'
+          span { t('.api') }
+        end
+      end
     end
   end
 
