@@ -16,6 +16,6 @@ export default class extends Controller {
 
   public async copy (): Promise<void> {
     await navigator.clipboard.writeText(this.url)
-    this.copyButtonTarget.classList.add(this.copiedClass, 'animate__animated', 'animate__bounceIn')
+    this.copyButtonTarget.classList.add(this.copiedClass, 'animate-bounce-in')
   }
 }

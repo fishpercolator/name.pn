@@ -1,4 +1,56 @@
 en:
+  components:
+    shell_layout:
+      about: About
+      admin: Admin
+      terms: Terms of use
+      privacy: Privacy policy
+      github: GitHub
+      roadmap: Public roadmap
+      api: API
+    home:
+      logo:
+        namedot: name.
+        pn: pn
+        pronouns: pronouns
+        pronounce: pronunciation
+        subtitle: Your name – your rules
+      card:
+        not_set: Not set
+        edit: Edit
+        you_must: You must set this before you can share your page
+        name:
+          title: Your name
+        variants:
+          title: Variants of your name
+        pronunciation:
+          title: How to pronounce your name
+          name_is_pronounced: '%{name} is pronounced'
+          ipa: 'IPA pronunciation of %{name}'
+          audio_clip: Audio clip of '%{name}'
+        pronouns:
+          title: Your pronouns
+        likeness:
+          title: What you look like
+        links:
+          title: Your personal links  
+        url:
+          title: Your unique URL
+          view_your_page: View
+          copy_to_clipboard: Copy
+          copied: Copied!
+          you_must_complete: You must complete the highlighted parts before you can preview your page
+          or_with_pronouns: 'or, if you prefer a URL containing your pronouns:'
+    pronoun_set:
+      table:
+        header: 'Pronouns: %{pronoun}'
+    pronunciation:
+      player:
+        listen: Listen
+    user:
+      likeness:
+        expand: Expand
+        alt: A picture of %{name}
   layouts:
     navbar:
       label: main navigation
@@ -21,51 +73,6 @@ en:
       blurb: Argh! Something happened on the server that shouldn't have happened. If you have time, it would be really helpful to us to hear a description of what you were doing when this happened, so we can fix it!
     support:
       report_a_bug: Report a bug on our issues board
-  home:
-    anon_home:
-      title:
-        namedot: name.
-        pn: pn
-        pronouns: pronouns
-        pronounce: pronunciation
-      subtitle: Your name – your rules
-      sign_up_free: Sign up – it's free
-      get_your_name_right: Share how you'd like people to use your name
-      name_right_blurb: Not everyone wants to be "title surname". Your name.pn page tells people how you like to be addressed in different situations and which nicknames you like and dislike.
-      pronunciation: Your name spoken in your voice
-      pronunciation_blurb: You can use name.pn to share how your name is pronounced. Let all your contacts hear you saying your name in your own voice.
-      pronouns: Display your pronouns to reduce misgendering
-      pronouns_blurb: You can't guess someone's pronouns (they, she, he, etc.) from their name. Sharing your pronouns helps to create a world where fewer people are misgendered. 
-      warning: 'Note: name.pn is pre-alpha software and is changing all the time. Feel free to use it but expect changes and bugs!'
-      learn_more: Learn more about name.pn
-    user_home:
-      title: Your name dashboard
-      page_description1: Here you can create a page that describes the different ways you would like to be addressed in English.
-      page_description2: Once you're happy with the page, you can share it with people and put it in your email signature so that everyone knows.
-      you_must: You must set this before you can share your page
-      not_set: Not set
-    name_card:
-      title: Your name
-    name_variants_card:
-      title: Variants of your name
-    pronunciation_card:
-      title: How to pronounce your name
-      name_is_pronounced: '%{name} is pronounced'
-      ipa: 'IPA pronunciation of %{name}'
-      audio_clip: Audio clip of '%{name}'
-    pronouns_card:
-      title: Your pronouns
-    likeness_card:
-      title: What you look like
-    links_card:
-      title: Your personal links  
-    url_card:
-      title: Your unique URL
-      view_your_page: View
-      copy_to_clipboard: Copy
-      copied: Copied!
-      you_must_complete: You must complete the highlighted parts before you can preview your page
-      or_with_pronouns: 'or, if you prefer a URL containing your pronouns:'
   mailing_list:
     show:
       title: Mailing list preference
@@ -210,3 +217,24 @@ en:
     key_modal:
       title: Your new API key
       blurb: Be sure to copy this key before closing this box. After closing the box there will be no way to retrieve this key.
+  views:
+    home:
+      anon:
+        promo1:
+          title: Share how you'd like people to use your name
+          description: Not everyone wants to be "title surname". Your name.pn page tells people how you like to be addressed in different situations and which nicknames you like and dislike.
+          icon_name: sticker-check-outline
+        promo2:
+          title: Your name spoken in your voice
+          description: You can use name.pn to share how your name is pronounced. Let all your contacts hear you saying your name in your own voice.
+          icon_name: bullhorn
+        promo3:
+          title: Display your pronouns to reduce misgendering
+          description: You can't guess someone's pronouns (they, she, he, etc.) from their name. Sharing your pronouns helps to create a world where fewer people are misgendered.
+          icon_name: gender-male-female
+        sign_up: Sign up – it's free
+        learn_more: Learn more about name.pn
+      index:
+        title: Your name dashboard
+        page_description1: Here you can create a page that describes the different ways you would like to be addressed in English.
+        page_description2: Once you're happy with the page, you can share it with people and put it in your email signature so that everyone knows.
