@@ -1,7 +1,5 @@
 class ProfileController < ApplicationController
   include Wicked::Wizard
-
-  layout 'application'
   
   before_action :authenticate_user!
   before_action :set_user
@@ -56,6 +54,13 @@ class ProfileController < ApplicationController
     (@user.full_name.blank? || @user.personal_name.blank?)
   end
   helper_method :stuck_on_first_step?
+
+  # Monkeypatch the wizard_value method. phlex_view is actually a private method
+  # but it works well for converting action names to views - at least for now
+  def wizard_value(step_name)
+    orig = super(step_name)
+    phlex_view(orig) || orig
+  end
   
   private
   
@@ -65,6 +70,7 @@ class ProfileController < ApplicationController
 
     # Get the set of pronoun_sets the user hasn't selected and render them as user_pronoun_sets
     @additional_ups = PronounSet.where.not(id: @user.pronoun_sets).map {|ps| UserPronounSet.new(pronoun_set: ps, user: @user)}
+
   end
 
   def pronunciation

@@ -10,7 +10,7 @@ class Components::PageFooter < Components::Base
 
   def view_template(&)
     vanish(&)
-    header(class: 'top-0 z-50 w-full border-b bg-background') do
+    footer(class: 'top-0 z-50 w-full border-b bg-background') do
       div(class: 'px-2 sm:px-4 sm:container flex flex-col sm:flex-row sm:h-14 items-center justify-between') do
         div(class: 'mr-4 flex flex-wrap items-center') do
           @left_links.each { render_link(it) }

@@ -32,4 +32,9 @@ class ApplicationController < ActionController::Base
     super
     payload[:user_id] = current_user&.id
   end
+
+  # Override this from Phlexible::...::ImplicitRender to not include the 'view'
+  def phlex_view_path(action_name)
+    "views/#{controller_path}/#{action_name}"
+  end
 end

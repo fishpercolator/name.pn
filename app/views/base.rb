@@ -6,6 +6,7 @@ class Views::Base < Components::Base
   # By default, it inherits from `Components::Base`, but you
   # can change that to `Phlex::HTML` if you want to keep views and
   # components independent.
+  include Phlexible::Rails::ControllerVariables
 
   # Safe version of the equivalent helper in MetaTags
   def title(title = nil)
