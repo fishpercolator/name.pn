@@ -100,7 +100,7 @@ If you're using Heroku it's a good idea to set it to only allow automatic deploy
 
 ### Rails
 
-This is a [Rails](https://rubyonrails.org/) 7.x application, and comes with all the usual Rails stuff, plus the following additional important components.
+This is a [Rails](https://rubyonrails.org/) 8.x application, and comes with all the usual Rails stuff, plus the following additional important components.
 
 ### Bulma UI
 
