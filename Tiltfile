@@ -16,11 +16,10 @@ k8s_yaml(secret_from_dict('name-pn-tiltfile', inputs = env))
 # Use Helm to spin up postgres
 helm_resource(
   name='name-pn-postgresql',
-  chart='oci://registry-1.docker.io/bitnamicharts/postgresql',
+  chart='oci://registry-1.docker.io/cloudpirates/postgres',
   flags=[
-      '--version=^14.0',
-      '--set=image.tag=16',
-      '--set=global.postgresql.auth.existingSecret=name-pn-tiltfile',
+      '--set=image.tag=18.1',
+      '--set=auth.existingSecret=name-pn-tiltfile',
   ],
   labels=['database'],
 )
