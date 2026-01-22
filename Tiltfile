@@ -24,11 +24,16 @@ helm_resource(
   labels=['database'],
 )
 
+# Set up a persistent volume for ActiveStorage so files are not deleted on
+# restart
+k8s_yaml('k8s/storage-pv.yaml')
+k8s_yaml('k8s/storage-pvc.yaml')
+
 # The Rails app itself is built and served by app.yaml
 podman_build('name-pn', '.', 
   ignore=['log', 'tmp'],
   live_update=[
-    fall_back_on(['./config', './Containerfile', './k8s.yaml']),
+    fall_back_on(['./config/environments', './config/initializers', './config/environment.rb', './config/application.rb', './Containerfile', './k8s.yaml']),
     sync('.', '/rails'),
     run('bundle && touch tmp/restart.txt', trigger=['./Gemfile', './Gemfile.lock']),
     run('yarn', trigger=['./package.json', './yarn.lock']),
@@ -36,7 +41,7 @@ podman_build('name-pn', '.',
     run('yarn build:css', trigger=['./app/assets/stylesheets', './app/admin']),
     run('yarn check-types', trigger=["./app/javascript"]),
 ])
-k8s_yaml('k8s.yaml')
+k8s_yaml('k8s/web.yaml')
 k8s_resource('name-pn', 
   labels=['app'],
   resource_deps=['name-pn-postgresql'],

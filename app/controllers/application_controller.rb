@@ -1,9 +1,13 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
+  include Phlexible::Rails::ActionController::ImplicitRender
+
   after_action :verify_authorized, except: :index, unless: :framework_controller?
   after_action :verify_policy_scoped, only: :index, unless: :framework_controller?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  layout false
 
   def authenticate_admin!
     if !current_user&.role_admin?
@@ -16,7 +20,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def framework_controller?
-    devise_controller? || kind_of?(ActiveAdmin::BaseController) || kind_of?(HighVoltage::PagesController)
+    devise_controller? || kind_of?(ActiveAdmin::BaseController)
   end
   
   def user_not_authorized
@@ -27,5 +31,10 @@ class ApplicationController < ActionController::Base
   def append_info_to_payload(payload)
     super
     payload[:user_id] = current_user&.id
+  end
+
+  # Override this from Phlexible::...::ImplicitRender to not include the 'view'
+  def phlex_view_path(action_name)
+    "views/#{controller_path}/#{action_name}"
   end
 end

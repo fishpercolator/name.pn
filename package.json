@@ -4,10 +4,13 @@
   "license": "AGPL-3.0-or-later",
   "dependencies": {
     "@activeadmin/activeadmin": "4.0.0-beta15",
+    "@floating-ui/dom": "^1.7.0",
     "@hotwired/stimulus": "^3.1.0",
     "@hotwired/turbo": "^8.0.13",
     "@kollegorna/cocoon-vanilla-js": "^1.0.7",
     "@rails/activestorage": "^8.0.200",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
     "@uppy/core": "^4.3.1",
     "@uppy/dashboard": "^4.1.3",
     "@uppy/image-editor": "^3.2.1",
@@ -23,7 +26,8 @@
     "luminous-lightbox": "^2.3.2",
     "sass": "^1.60.0",
     "sortablejs": "^1.15.0",
-    "tailwindcss": "3"
+    "tailwindcss": "3",
+    "tw-animate-css": "^1.2.9"
   },
   "devDependencies": {
     "@types/sortablejs": "^1.15.8",

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: name-pn
+  labels:
+    app: name-pn
+spec:
+  selector:
+    matchLabels:
+      app: name-pn
+  template:
+    metadata:
+      labels:
+        app: name-pn
+    spec:
+      volumes:
+        - name: name-pn-storage
+          persistentVolumeClaim:
+            claimName: name-pn-storage-claim
+      containers:
+        - name: name-pn
+          image: name-pn
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - mountPath: /rails/storage
+              name: name-pn-storage
+          env:
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: name-pn-tiltfile
+                  key: jwt-secret
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: name-pn-tiltfile
+                  key: postgres-password
+            - name: BUTTONDOWN_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: name-pn-tiltfile
+                  key: buttondown-api-key
+                  optional: true

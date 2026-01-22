@@ -37,6 +37,7 @@ gem 'acts_as_list', '~> 1.0'
 gem 'amazing_print', '~> 1.3'
 gem 'blueprinter', '~> 1.0'
 gem 'cocoon', '~> 1.2'
+gem "commonmarker", "~> 2.3"
 gem 'datadog', '~> 2.2', require: 'datadog/auto_instrument'
 gem 'devise', '~> 4.7'
 gem 'devise-jwt', '~> 0.12.0'
@@ -49,15 +50,22 @@ gem 'high_voltage', '~> 4.0'
 gem 'image_processing', '~> 1.11'
 gem "importmap-rails", "~> 2.1"
 gem "inline_svg", "~> 1.10"
+gem "literal", "~> 1.7"
 gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 5.2'
 gem 'ostruct', '~> 0.6.1' # dependency of gaffe
+gem 'phlex-rails', '~> 2.2'
+gem 'phlexible', '~> 3.0'
 gem 'pundit', '~> 2.1'
 gem 'rails_semantic_logger', '~> 4.6'
 gem 'rswag-api', '~> 2.4'
 gem 'rswag-ui', '~> 2.4'
 gem 'simple_form', '~> 5.0'
 gem 'spicy-proton', '~> 2.1'
+gem 'stimulus-rails', '~> 1.3'
+gem 'tailwindcss-rails', '~> 4.2'
+gem 'tailwindcss-ruby', '~> 4.1'
+gem 'tailwind_merge', '~> 1.2'
 gem 'wicked', '~> 2.0'
 
 # gems for buttondown - eventually move this to its own gem
@@ -86,6 +94,7 @@ group :development do
   gem 'better_errors'
   gem 'foreman'
   gem 'haml-rails'
+  gem 'ruby_ui', require: false
 end
 
 group :test do

@@ -1,0 +1,266 @@
+# frozen_string_literal: true
+
+class Views::Pages::Terms < Views::Base
+  def view_template
+    Prose <<~MD
+    # #{title 'Terms and conditions of use'}
+
+    ## 1. Introduction
+    
+    1.1 These terms and conditions shall govern your use of our website.
+
+    1.2 By using our website, you accept these terms and conditions in full; accordingly, if you disagree with these terms and conditions or any part of these terms and conditions, you must not use our website.
+
+    1.3 If you register with our website, submit any material to our website or use any of our website services, we will ask you to expressly agree to these terms and conditions.
+
+    1.4 You must be at least 15 years of age to use our website; by using our website or agreeing to these terms and conditions, you warrant and represent to us that you are at least 15 years of age.
+
+    ## 2. Copyright notice
+    
+    2.1 Copyright (c) 2021-#{Date.today.year} Fish Percolator Limited.
+
+    2.2 Subject to the express provisions of these terms and conditions:
+
+    * (a) we, together with our licensors and other contributors to our codebase, own and control all the copyright and other intellectual property rights in our website and the material on our website;
+    * (b) this program is free software: you can redistribute it and/or modify it under the terms of the [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.en.html) as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version; and
+    * (c) all other copyright and other intellectual property rights in our website and the material on our website are reserved.
+    
+    ## 3. Permission to use website
+    
+    3.1 You may:
+
+    * (a) view pages from our website in a web browser;
+    * (b) download pages from our website for caching in a web browser;
+    * (c) print pages from our website for your own personal and non-commercial use, providing that such printing is not systematic or excessive;
+    * (d) stream audio files from our website using the media player on our website;
+    * (e) use our website services by means of a web browser; and
+    * (f) share your own personal content on our website,
+    
+    subject to the other provisions of these terms and conditions.
+
+    3.2 Except as expressly permitted by Section 3.1 or the other provisions of these terms and conditions, you must not download any material from our website or save any such material to your computer.
+
+    3.3 You may only use our website for your own personal and business purposes; you must not use our website for any other purposes.
+
+    3.4 Except as expressly permitted by these terms and conditions, you must not edit or otherwise modify any material on our website.
+
+    3.5 Unless you own or control the relevant rights in the material, you must not:
+
+    * (a) republish material from our website (including republication on another website);
+    * (b) sell, rent or sub-license material from our website;
+    * (c) show any material from our website in public;
+    * (d) exploit material from our website for a commercial purpose; or
+    * (e) redistribute material from our website.
+    
+    3.6 Notwithstanding Section 3.5, you may redistribute our newsletter in print and electronic form to any person.
+
+    3.7 We reserve the right to suspend or restrict access to our website, to areas of our website and/or to functionality upon our website. We may, for example, suspend access to the website during server maintenance or when we update the website. You must not circumvent or bypass, or attempt to circumvent or bypass, any access restriction measures on the website.
+
+    ## 4. Misuse of website
+    
+    4.1 You must not:
+
+    * (a) use our website in any way or take any action that causes, or may cause, damage to the website or impairment of the performance, availability, accessibility, integrity or security of the website;
+    * (b) use our website in any way that is unlawful, illegal, fraudulent or harmful, or in connection with any unlawful, illegal, fraudulent or harmful purpose or activity;
+    * (c) hack or otherwise tamper with our website;
+    * (d) probe, scan or test the vulnerability of our website without our permission;
+    * (e) circumvent any authentication or security systems or processes on or relating to our website;
+    * (f) use our website to copy, store, host, transmit, send, use, publish or distribute any material which consists of (or is linked to) any spyware, computer virus, Trojan horse, worm, keystroke logger, rootkit or other malicious computer software;
+    * (g) impose an unreasonably large load on our website resources (including bandwidth, storage capacity, processing capacity and automation using the provided API);
+    * (h) decrypt or decipher any communications sent by or to our website without our permission;
+    * (i) conduct any systematic or automated data collection activities (including without limitation scraping, data mining, data extraction and data harvesting) on or in relation to our website without our express written consent;
+    * (j) access or otherwise interact with our website using any robot, spider or other automated means, except by using the provided API, or for the purpose of search engine indexing;
+    * (l) violate the directives set out in the robots meta tag on each page of our website;
+    * (m) use data collected from our website for any direct marketing activity (including without limitation email marketing, SMS marketing, telemarketing and direct mailing); or
+    * (n) do anything that interferes with the normal use of our website.
+    
+    4.2 You must not use data collected from our website to contact individuals, companies or other persons or entities, except where users have chosen to provide links to their contact details.
+
+    4.3 You must ensure that all the information you supply to us through our website, or in relation to our website, is true, accurate, current, complete and non-misleading. Your name is true if it is the one you use in your day-to-day life; you are not in violation of this clause by using a true name other than the one legally recognised in your jurisdiction.
+
+    ## 5. Registration and accounts
+    
+    5.1 You may register for an account with our website by completing and submitting the account registration form on our website.
+
+    5.2 You must not allow any other person to use your account to access the website.
+
+    5.3 You must notify us in writing immediately if you become aware of any unauthorised use of your account.
+
+    5.4 You must not use any other person's account to access the website, unless you have that person's express permission to do so.
+
+    ## 6. User login details
+    
+    6.1 If you register for an account with our website, you will be asked to choose a login email address and password.
+
+    6.2 You must not use your account or user ID for or in connection with the impersonation of any person.
+
+    6.3 You must keep your password confidential.
+
+    6.4 You must notify us in writing immediately if you become aware of any disclosure of your password.
+
+    6.5 You are responsible for any activity on our website arising out of any failure to keep your password confidential, and may be held liable for any losses arising out of such a failure.
+
+    ## 7. Cancellation and suspension of account
+    
+    7.1 We may:
+
+    * (a) suspend your account;
+    * (b) cancel your account; and/or
+    * (c) edit your account details,
+    
+    at any time in our sole discretion with or without notice to you.
+
+    7.2 You may cancel your account on our website using your account control panel on the website.
+
+    ## 8. Our rights to use your content
+    
+    8.1 In these terms and conditions, "your content" means all works and materials (including without limitation text, graphics, images, audio material, video material, audio-visual material, scripts, software and files) that you submit to us or our website for storage or publication on, processing by, or transmission via, our website.
+
+    8.2 You grant to us a worldwide, non-exclusive, royalty-free licence to reproduce, store and publish your content on and in relation to this website and any successor website.
+
+    8.3 You grant to us the right to sub-license the rights licensed under Section 8.2.
+
+    8.4 You grant to us the right to bring an action for infringement of the rights licensed under Section 8.2.
+
+    8.5 You may edit your content to the extent permitted using the editing functionality made available on our website.
+
+    8.6 Without prejudice to our other rights under these terms and conditions, if you breach any provision of these terms and conditions in any way, or if we reasonably suspect that you have breached these terms and conditions in any way, we may delete, unpublish or edit any or all of your content.
+
+    ## 9. Rules about your content
+    
+    9.1 You warrant and represent that your content will comply with these terms and conditions.
+
+    9.2 Your content must not be illegal or unlawful, must not infringe any person's legal rights, and must not be capable of giving rise to legal action against any person (in each case in any jurisdiction and under any applicable law).
+
+    9.3 Your content, and the use of your content by us in accordance with these terms and conditions, must not:
+
+    * (a) be libellous or maliciously false;
+    * (b) be obscene or indecent;
+    * (c) infringe any copyright, moral right, database right, trade mark right, design right, right in passing off or other intellectual property right;
+    * (d) infringe any right of confidence, right of privacy or right under data protection legislation;
+    * (e) constitute negligent advice or contain any negligent statement;
+    * (f) constitute an incitement to commit a crime, instructions for the commission of a crime or the promotion of criminal activity;
+    * (g) be in contempt of any court or in breach of any court order;
+    * (h) be in breach of racial or religious hatred or discrimination legislation;
+    * (i) be in breach of official secrets legislation;
+    * (j) be in breach of any contractual obligation owed to any person;
+    * (k) depict violence;
+    * (l) be pornographic or sexually explicit;
+    * (m) be untrue, false, inaccurate or misleading;
+    * (n) consist of or contain any instructions, advice or other information which may be acted upon and could, if acted upon, cause illness, injury or death, or any other loss or damage;
+    * (o) constitute spam;
+    * (p) be offensive, deceptive, fraudulent, threatening, abusive, harassing, anti-social, menacing, hateful, discriminatory or inflammatory; or
+    * (r) cause annoyance, inconvenience or needless anxiety to any person.
+    
+    ## 10. Limited warranties
+    
+    10.1 We do not warrant or represent:
+
+    * (a) the completeness or accuracy of the information published on our website;
+    * (b) that the material on the website is up to date;
+    * (c) that the website will operate without fault; or
+    * (d) that the website or any service on the website will remain available.
+    
+    10.2 We reserve the right to discontinue or alter any or all of our website services, and to stop publishing our website, at any time in our sole discretion without notice or explanation; and save to the extent expressly provided otherwise in these terms and conditions, you will not be entitled to any compensation or other payment upon the discontinuance or alteration of any website services, or if we stop publishing the website.
+
+    10.3 To the maximum extent permitted by applicable law and subject to Section 11.1, we exclude all representations and warranties relating to the subject matter of these terms and conditions, our website and the use of our website.
+
+    ## 11. Limitations and exclusions of liability
+    
+    11.1 Nothing in these terms and conditions will:
+
+    * (a) limit or exclude any liability for death or personal injury resulting from negligence;
+    * (b) limit or exclude any liability for fraud or fraudulent misrepresentation;
+    * (c) limit any liabilities in any way that is not permitted under applicable law; or
+    * (d) exclude any liabilities that may not be excluded under applicable law.
+    
+    11.2 The limitations and exclusions of liability set out in this Section 11 and elsewhere in these terms and conditions:
+
+    * (a) are subject to Section 11.1; and
+    * (b) govern all liabilities arising under these terms and conditions or relating to the subject matter of these terms and conditions, including liabilities arising in contract, in tort (including negligence) and for breach of statutory duty, except to the extent expressly provided otherwise in these terms and conditions.
+    
+    11.3 To the extent that our website and the information and services on our website are provided free of charge, we will not be liable for any loss or damage of any nature.
+
+    11.4 We will not be liable to you in respect of any losses arising out of any event or events beyond our reasonable control.
+
+    11.5 We will not be liable to you in respect of any business losses, including (without limitation) loss of or damage to profits, income, revenue, use, production, anticipated savings, business, contracts, commercial opportunities or goodwill.
+
+    11.6 We will not be liable to you in respect of any loss or corruption of any data, database or software.
+
+    11.7 We will not be liable to you in respect of any special, indirect or consequential loss or damage.
+
+    11.8 You accept that we have an interest in limiting the personal liability of our officers and employees and, having regard to that interest, you acknowledge that we are a limited liability entity; you agree that you will not bring any claim personally against our officers or employees in respect of any losses you suffer in connection with the website or these terms and conditions (this will not, of course, limit or exclude the liability of the limited liability entity itself for the acts and omissions of our officers and employees).
+
+    ## 12. Breaches of these terms and conditions
+    
+    12.1 Without prejudice to our other rights under these terms and conditions, if you breach these terms and conditions in any way, or if we reasonably suspect that you have breached these terms and conditions in any way, we may:
+
+    * (a) send you one or more formal warnings;
+    * (b) temporarily suspend your access to our website;
+    * (c) permanently prohibit you from accessing our website;
+    * (d) block computers using your IP address from accessing our website;
+    * (e) contact any or all of your internet service providers and request that they block your access to our website;
+    * (f) commence legal action against you, whether for breach of contract or otherwise; and/or
+    * (g) suspend or delete your account on our website.
+    
+    12.2 Where we suspend or prohibit or block your access to our website or a part of our website, you must not take any action to circumvent such suspension or prohibition or blocking (including without limitation creating and/or using a different account).
+
+    ## 13. Variation
+    
+    13.1 We may revise these terms and conditions from time to time.
+
+    13.2 The revised terms and conditions shall apply to the use of our website from the date of publication of the revised terms and conditions on the website, and you hereby waive any right you may otherwise have to be notified of, or to consent to, revisions of these terms and conditions.
+
+    13.3 If you have given your express agreement to these terms and conditions, we will ask for your express agreement to any revision of these terms and conditions; and if you do not give your express agreement to the revised terms and conditions within such period as we may specify, we will disable or delete your account on the website, and you must stop using the website.
+
+    ## 14. Assignment
+    
+    14.1 You hereby agree that we may assign, transfer, sub-contract or otherwise deal with our rights and/or obligations under these terms and conditions.
+
+    14.2 You may not without our prior written consent assign, transfer, sub-contract or otherwise deal with any of your rights and/or obligations under these terms and conditions.
+
+    ## 15. Severability
+    
+    15.1 If a provision of these terms and conditions is determined by any court or other competent authority to be unlawful and/or unenforceable, the other provisions will continue in effect.
+
+    15.2 If any unlawful and/or unenforceable provision of these terms and conditions would be lawful or enforceable if part of it were deleted, that part will be deemed to be deleted, and the rest of the provision will continue in effect.
+
+    ## 16. Third party rights
+    
+    16.1 A contract under these terms and conditions is for our benefit and your benefit, and is not intended to benefit or be enforceable by any third party.
+
+    16.2 The exercise of the parties' rights under a contract under these terms and conditions is not subject to the consent of any third party.
+
+    ## 17. Entire agreement
+    
+    17.1 Subject to Section 11.1, these terms and conditions, together with [our privacy and cookies policy](#{page_path 'privacy'}), shall constitute the entire agreement between you and us in relation to your use of our website and shall supersede all previous agreements between you and us in relation to your use of our website.
+
+    ## 18. Law and jurisdiction
+    
+    18.1 These terms and conditions shall be governed by and construed in accordance with English law.
+
+    18.2 Any disputes relating to these terms and conditions shall be subject to the exclusive jurisdiction of the courts of England.
+
+    ## 19. Statutory and regulatory disclosures
+    
+    19.1 We are registered with the [Information Commissioner's Office](https://ico.org.uk/) and our registration number is ZB138365.
+
+    19.2 We subscribe to the Contributor Covenant Code of Conduct, which can be consulted electronically at [contributor-covenant.org](https://www.contributor-covenant.org/).
+
+    19.3 Our VAT number is GB 218804800.
+
+    ## 20. Our details
+    
+    20.1 This website is owned and operated by [Fish Percolator Limited](https://www.fishpercolator.co.uk/).
+
+    20.2 We are registered in England and Wales under registration number 09617660, and our registered office is our principal place of business.
+
+    20.3 Our principal place of business is at International House, 14 King Street, Leeds LS1 2HL, United Kingdom.
+
+    20.4 You can contact us:
+
+    * (a) by post, to the postal address given above;
+    * (b) by email, using support@name.pn.
+    MD
+  end
+end
