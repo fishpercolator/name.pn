@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.4.5'
+ruby '4.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 8.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 7.2'
 # Sprockets is still used for image assets, for now
 gem 'sprockets-rails', '~> 3.5'
 # Turbo Rails components
@@ -34,18 +34,18 @@ gem 'activeadmin', '~> 4.0.0.beta15'
 gem 'active_storage_base64', '~> 3.0'
 gem 'active_storage_validations', '~> 3.0'
 gem 'acts_as_list', '~> 1.0'
-gem 'amazing_print', '~> 1.3'
+gem 'amazing_print', '~> 2.0'
 gem 'blueprinter', '~> 1.0'
 gem 'cocoon', '~> 1.2'
 gem 'datadog', '~> 2.2', require: 'datadog/auto_instrument'
-gem 'devise', '~> 4.7'
-gem 'devise-jwt', '~> 0.12.0'
+gem 'devise', '~> 5.0'
+gem 'devise-jwt', '~> 0.13.0'
 gem 'figaro', '~> 1.2'
 gem 'friendly_id', '~> 5.3'
 gem 'gaffe', '~> 1.2'
 gem 'gibbon', '~> 3.4', '>= 3.4.3'
-gem 'haml', '~> 6.0'
-gem 'high_voltage', '~> 4.0'
+gem 'haml', '~> 7.2'
+gem 'high_voltage', '~> 5.0'
 gem 'image_processing', '~> 1.11'
 gem "importmap-rails", "~> 2.1"
 gem "inline_svg", "~> 1.10"
