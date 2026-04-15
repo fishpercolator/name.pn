@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "@types/sortablejs": "^1.15.8",
-    "improved-yarn-audit": "^3.0.0",
     "typescript": "^5.4.5"
   },
   "version": "0.1.0",
@@ -36,7 +35,8 @@
   ],
   "scripts": {
     "build:css": "sass ./app/assets/stylesheets/application.bulma.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --style=compressed && tailwindcss -i ./app/assets/stylesheets/active_admin.css -o ./app/assets/builds/active_admin.css --minify -c tailwind-active_admin.config.js",
-    "build": "esbuild app/javascript/*.* --bundle --minify --sourcemap --target=es2020 --outdir=app/assets/builds --public-path=assets",
+    "build": "bun bun.config.js",
     "check-types": "tsc --project tsconfig.json --noEmit"
-  }
+  },
+  "packageManager": "yarn@4.13.0"
 }

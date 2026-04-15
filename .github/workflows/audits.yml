@@ -17,16 +17,13 @@ jobs:
       - name: Run bundle audit
         run: bundle exec bundle-audit check --update
   js:
-    name: JS (improved-yarn-audit)
+    name: JS (bun audit)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.x'
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Run improved-yarn-audit 
-        run: yarn run improved-yarn-audit --fail-on-missing-exclusions --ignore-dev-deps
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install bun dependencies
+        run: bun install --frozen-lockfile
+      - name: Run bun audit
+        run: bun audit

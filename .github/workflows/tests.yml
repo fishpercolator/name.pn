@@ -38,13 +38,10 @@ jobs:
         with:
           ruby-version: '4.0.1'
           bundler-cache: true
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.x'
-          cache: 'yarn'
-      - name: Install yarn dependencies
-        run: yarn install --frozen-lockfile
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install bun dependencies
+        run: bun install --frozen-lockfile
       - name: Set up database
         run: bin/rails db:setup
       - name: Build assets

@@ -12,16 +12,13 @@ ENV BUNDLE_PATH="/usr/local/bundle"
 
 # Install packages needed to build gems and node modules
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential chromium curl git libpq-dev libvips libyaml-dev node-gyp pkg-config postgresql-common python-is-python3 rsync
+    apt-get install --no-install-recommends -y build-essential chromium curl git libpq-dev libvips libyaml-dev pkg-config postgresql-common rsync unzip
 
 # Install JavaScript dependencies
-ARG NODE_VERSION=22.15.0
-ARG YARN_VERSION=1.22.22
-ENV PATH=/usr/local/node/bin:$PATH
-RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
-    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
-    npm install -g yarn@$YARN_VERSION && \
-    rm -rf /tmp/node-build-master
+ENV BUN_INSTALL=/usr/local/bun
+ENV PATH=/usr/local/bun/bin:$PATH
+ARG BUN_VERSION=1.3.8
+RUN curl -fsSL https://bun.sh/install | bash -s -- "bun-v${BUN_VERSION}"
 
 # Install postgresql-client-16
 RUN /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -v 16 && \
@@ -32,15 +29,15 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
 # Install node modules
-COPY package.json yarn.lock ./
-RUN yarn install
+COPY package.json bun.lock ./
+RUN bun install
 
 # Copy application code
 COPY . .
 
 # Build assets in dev mode
-RUN yarn build
-RUN yarn build:css
+RUN bun run build
+RUN bun run build:css
 
 ENV DEFAULT_DOMAIN localhost
 

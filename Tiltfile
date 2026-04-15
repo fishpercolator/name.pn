@@ -31,10 +31,10 @@ podman_build('name-pn', '.',
     fall_back_on(['./config', './Containerfile', './k8s.yaml']),
     sync('.', '/rails'),
     run('bundle && touch tmp/restart.txt', trigger=['./Gemfile', './Gemfile.lock']),
-    run('yarn', trigger=['./package.json', './yarn.lock']),
-    run('yarn build', trigger=['./app/javascript']),
-    run('yarn build:css', trigger=['./app/assets/stylesheets', './app/admin']),
-    run('yarn check-types', trigger=["./app/javascript"]),
+    run('bun install', trigger=['./package.json', './bun.lock']),
+    run('bun run build', trigger=['./app/javascript']),
+    run('bun run build:css', trigger=['./app/assets/stylesheets', './app/admin']),
+    run('bun run check-types', trigger=["./app/javascript"]),
 ])
 k8s_yaml('k8s.yaml')
 k8s_resource('name-pn', 
@@ -45,7 +45,7 @@ k8s_resource('name-pn',
 syncback('sync lockfiles', 'deploy/name-pn', '/rails/', 
   rsync_options=[
     '--include=db/', '--include=db/schema.rb',
-    '--include=Gemfile.lock', '--include=yarn.lock', 
+    '--include=Gemfile.lock', '--include=bun.lock', 
     '--include=tmp', '--include=tmp/local_secret.txt', 
     '--exclude=*'
   ],

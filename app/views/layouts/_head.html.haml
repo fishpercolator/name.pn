@@ -4,7 +4,7 @@
 = favicon_link_tag
 = favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
 = tag 'link', rel: 'manifest', href: manifest_path(format: :json)
-= javascript_include_tag 'application', defer: true
+= javascript_include_tag 'application', type: 'module', defer: true, data: {turbo_track: 'reload'}
 %link{rel: 'preconnect', href: 'https://fonts.googleapis.com', crossorigin: true}
 = stylesheet_link_tag 'application', media: 'all'
 = render 'layouts/ga'
