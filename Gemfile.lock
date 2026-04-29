@@ -224,7 +224,7 @@ GEM
       htmlentities (~> 4.3.3)
       launchy (>= 2.1, < 4.0)
       mail (~> 2.7)
-    erb (6.0.2)
+    erb (6.0.4)
     erubi (1.13.1)
     factory_bot (6.5.6)
       activesupport (>= 6.1.0)
