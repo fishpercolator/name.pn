@@ -21,6 +21,7 @@
     "extendable-media-recorder-wav-encoder": "^7.0.81",
     "fitty": "^2.3.0",
     "luminous-lightbox": "^2.3.2",
+    "postcss": "^8.5.12",
     "sass": "^1.60.0",
     "sortablejs": "^1.15.0",
     "tailwindcss": "3"
