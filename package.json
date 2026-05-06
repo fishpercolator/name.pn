@@ -16,19 +16,19 @@
     "animate.css": "^4.1.0",
     "bulma": "^1.0.0",
     "bulma-o-steps": "github:octoshrimpy/bulma-o-steps#c21bf10",
-    "esbuild": "^0.27.2",
+    "esbuild": "0.28",
     "extendable-media-recorder": "^9.1.0",
     "extendable-media-recorder-wav-encoder": "^7.0.81",
     "fitty": "^2.3.0",
     "luminous-lightbox": "^2.3.2",
-    "postcss": "^8.5.12",
+    "postcss": "^8.5.14",
     "sass": "^1.60.0",
     "sortablejs": "^1.15.0",
     "tailwindcss": "3"
   },
   "devDependencies": {
     "@types/sortablejs": "^1.15.8",
-    "typescript": "^5.4.5"
+    "typescript": "6"
   },
   "version": "0.1.0",
   "browserslist": [
