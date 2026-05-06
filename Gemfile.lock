@@ -189,10 +189,10 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0)
     database_cleaner-core (2.0.1)
-    datadog (2.31.0)
+    datadog (2.30.0)
       cgi
       datadog-ruby_core_source (~> 3.5, >= 3.5.2)
-      libdatadog (~> 30.0.0.1.0)
+      libdatadog (~> 29.0.0.1.0)
       libddwaf (~> 1.30.0.0.0)
       logger
       msgpack
@@ -335,10 +335,10 @@ GEM
       addressable (~> 2.8)
       childprocess (~> 5.0)
       logger (~> 1.6)
-    libdatadog (30.0.0.1.0)
-    libdatadog (30.0.0.1.0-aarch64-linux)
-    libdatadog (30.0.0.1.0-arm64-darwin)
-    libdatadog (30.0.0.1.0-x86_64-linux)
+    libdatadog (29.0.0.1.0)
+    libdatadog (29.0.0.1.0-aarch64-linux)
+    libdatadog (29.0.0.1.0-arm64-darwin)
+    libdatadog (29.0.0.1.0-x86_64-linux)
     libddwaf (1.30.0.0.2)
       ffi (~> 1.0)
     libddwaf (1.30.0.0.2-aarch64-linux)
@@ -647,7 +647,7 @@ DEPENDENCIES
   cssbundling-rails (~> 1.1)
   cuprite
   database_cleaner
-  datadog (~> 2.2)
+  datadog (= 2.30.0)
   devise (~> 5.0)
   devise-jwt (~> 0.13.0)
   email_spec
