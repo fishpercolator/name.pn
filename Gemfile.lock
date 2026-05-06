@@ -629,7 +629,7 @@ PLATFORMS
 DEPENDENCIES
   active_storage_base64 (~> 3.0)
   active_storage_validations (~> 3.0)
-  activeadmin (~> 4.0.0.beta15)
+  activeadmin (~> 4.0.0.beta22)
   acts_as_list (~> 1.0)
   addressable (~> 2.8)
   amazing_print (~> 2.0)
