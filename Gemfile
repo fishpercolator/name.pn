@@ -30,7 +30,7 @@ gem 'jsbundling-rails', '~> 1.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'activeadmin', '~> 4.0.0.beta15'
+gem 'activeadmin', '~> 4.0.0.beta22'
 gem 'active_storage_base64', '~> 3.0'
 gem 'active_storage_validations', '~> 3.0'
 gem 'acts_as_list', '~> 1.0'

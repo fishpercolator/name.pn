@@ -26,4 +26,5 @@ jobs:
       - name: Install bun dependencies
         run: bun install --frozen-lockfile
       - name: Run bun audit
-        run: bun audit
+        # Ignore https://github.com/advisories/GHSA-qx2v-qp2m-jg93 until we can get activeadmin on Tailwind 4 https://github.com/activeadmin/activeadmin/discussions/8621
+        run: bun audit --ignore GHSA-qx2v-qp2m-jg93
