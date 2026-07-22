@@ -29,10 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install libvips
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: libvips-dev
-          version: 1.0
+        run: sudo apt-get update && sudo apt-get install -y libvips
       - name: Install Ruby & gem dependencies
         uses: ruby/setup-ruby@v1
         with:
