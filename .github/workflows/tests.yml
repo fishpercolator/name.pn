@@ -33,7 +33,7 @@ jobs:
       - name: Install Ruby & gem dependencies
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '4.0.1'
+          ruby-version: '4.0.7'
           bundler-cache: true
       - name: Install Bun
         uses: oven-sh/setup-bun@v2

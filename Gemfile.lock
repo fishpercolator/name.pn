@@ -699,7 +699,7 @@ DEPENDENCIES
   wicked (~> 2.0)
 
 RUBY VERSION
-   ruby 4.0.1p0
+   ruby 4.0.7p0
 
 BUNDLED WITH
    2.7.1
