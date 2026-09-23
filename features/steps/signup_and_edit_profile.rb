@@ -125,7 +125,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I click the edit button in the pronouns box' do
-    within '.card#pronouns' do
+    within '#pronouns' do
       click_on 'Edit'
     end
   end
@@ -184,7 +184,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click the edit button in the links box' do
-    within '.card#links' do
+    within '#links' do
       click_on 'Edit'
     end
   end
@@ -201,7 +201,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click the edit button in the pronunciation box' do
-    within '.card#pronunciation' do
+    within '#pronunciation' do
       click_on 'Edit'
     end
   end
@@ -241,7 +241,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I should see the dashboard' do
-    expect(page).to have_css('.title', text: 'Your name dashboard')
+    expect(page).to have_css('h1', text: 'Your name dashboard')
   end
 
   step 'I go to the profile editor' do
@@ -281,7 +281,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click the edit button in the variants box' do
-    within '.card#variants' do
+    within '#variants' do
       click_on 'Edit'
     end
   end
@@ -298,7 +298,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click the edit button in the URL box' do
-    within '.card#url' do
+    within '#url' do
       click_on 'Edit', match: :first
     end
   end
@@ -313,7 +313,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click the edit button in the likeness box' do
-    within '.card#likeness' do
+    within '#likeness' do
       click_on 'Edit', match: :first
     end
   end

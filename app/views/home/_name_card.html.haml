@@ -1,22 +1,14 @@
-.cell.card.has-background-personal-name-light#personal-name
-  .card-header
-    .card-header-title= t('.title')
-    .card-header-icon
-      = link_to profile_path(:personal_name), class: 'icon', title: t('actions.edit') do
-        = icon 'pencil'
-  .card-content
-    %p.mb-4.has-text-grey= t('profile.personal_name.blurb')
-    .content
-      %dl
-        %dt= User.human_attribute_name(:personal_name)
-        %dd
-          - if current_user.personal_name?
-            = current_user.personal_name
-          - else
-            = you_must
-        %dt= User.human_attribute_name(:full_name)
-        %dd
-          - if current_user.full_name?
-            = current_user.full_name
-          - else
-            = you_must
+= render layout: 'card', locals: {id: 'personal-name', step: :personal_name, colour: 'bg-personal-name/10', title: t('.title'), blurb: t('profile.personal_name.blurb')} do
+  %dl.prose.max-w-none{class: 'prose-dd:mt-1 prose-ul:my-0 prose-li:my-0'}
+    %dt= User.human_attribute_name(:personal_name)
+    %dd
+      - if current_user.personal_name?
+        = current_user.personal_name
+      - else
+        = you_must
+    %dt= User.human_attribute_name(:full_name)
+    %dd
+      - if current_user.full_name?
+        = current_user.full_name
+      - else
+        = you_must

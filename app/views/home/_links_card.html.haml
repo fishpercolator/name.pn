@@ -1,15 +1,8 @@
-.cell.card.has-background-links-light#links
-  .card-header
-    .card-header-title= t('.title')
-    .card-header-icon
-      = link_to profile_path(:links), class: 'icon', title: t('actions.edit') do
-        = icon 'pencil'
-  .card-content
-    %p.mb-4.has-text-grey= t('profile.links.blurb')
-    .content
-      - if current_user.links.present?
-        %ul
-          - current_user.links.order(:title).each do |link|
-            %li= link_to link.title, link.url, rel: 'noopener'
-      - else
-        %p= not_set
+= render layout: 'card', locals: {id: 'links', step: :links, colour: 'bg-links/10', title: t('.title'), blurb: t('profile.links.blurb')} do
+  - if current_user.links.present?
+    .prose.max-w-none
+      %ul.ps-0
+        - current_user.links.order(:title).each do |link|
+          %li.ps-0= link_to link.title, link.url, rel: 'noopener'
+  - else
+    %p= not_set
