@@ -1,4 +1,4 @@
 web: bin/rails server
 js: bun run build --watch
 css: bunx sass ./app/assets/stylesheets/application.bulma.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --watch
-admin_css: bunx tailwindcss -i ./app/assets/stylesheets/active_admin.css -o ./app/assets/builds/active_admin.css -c tailwind-active_admin.config.js --watch=always
+admin_css: bunx tailwindcss -i ./app/assets/stylesheets/active_admin.css -o ./app/assets/builds/active_admin.css --watch=always
