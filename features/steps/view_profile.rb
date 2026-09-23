@@ -14,7 +14,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should not see the navbar' do
-    expect(page).not_to have_css('.navbar')
+    expect(page).not_to have_css('.site-navbar')
   end
 
   step 'I should see a \'hello\' card with the user\'s personal name and pronouns' do
@@ -31,7 +31,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should not see a pronunciation guide' do
-    expect(page).not_to have_css('.profile-card .card-header-title', text: 'How to pronounce my name')
+    expect(page).not_to have_css('.profile-card__title', text: 'How to pronounce my name')
     expect(page).not_to have_content('is pronounced')
   end
 
@@ -44,9 +44,9 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should see a pronunciation guide' do
-    expect(page).to have_css('.profile-card .card-header-title', text: 'How to pronounce my name')
+    expect(page).to have_css('.profile-card__title', text: 'How to pronounce my name')
     expect(page).to have_content("'Audrey Horne' is pronounced\nAWD-ree HORN")
-    expect(page).to have_css('span.is-ipa', text: '/ˈɔːdri hɔːn/')
+    expect(page).to have_css('.profile-card__ipa', text: '/ˈɔːdri hɔːn/')
   end
 
   step 'I should see the formal name' do
@@ -79,7 +79,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should be redirected to the homepage with a forbidden error' do
-    expect(page).to have_css('.navbar')
+    expect(page).to have_css('.site-navbar')
     expect(page).to have_content('Sorry - you are not permitted to do that')
   end
   

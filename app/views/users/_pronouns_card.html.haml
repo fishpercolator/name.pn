@@ -1,14 +1,14 @@
-.card.profile-card.mt-6#pronouns{data: {public_profile_target: 'card'}}
-  .card-header.profile-card__header
-    .card-header-title= t('.how_to_use_my_pronouns')
+%article.profile-card.group.card.mt-6.overflow-hidden.bg-base-100.shadow-md#pronouns{data: {public_profile_target: 'card'}}
+  %header.flex.items-center.justify-between.bg-accent.px-4.py-3.text-accent-content
+    %h2.profile-card__title.text-2xl.font-bold= t('.how_to_use_my_pronouns')
     = section_link 'pronouns'
-  .card-content
-    .profile-card__hint= t('.pronoun_hint')
+  .card-body.gap-0.text-2xl
+    .profile-card__hint.text-base.text-muted= t('.pronoun_hint')
     - case user.pronounless_style&.to_sym
     - when :none, :unknown
-      %p.is-size-5.mt-5= t(".pronounless_blurbs.#{user.pronounless_style}_html")
+      %p.mt-5.text-xl= t(".pronounless_blurbs.#{user.pronounless_style}_html")
     - when :any
-      %p.is-size-5.mt-5= t('.pronounless_blurbs.any_html')
+      %p.mt-5.text-xl= t('.pronounless_blurbs.any_html')
     - pronoun_sets.each do |pronoun_set|
       = render 'pronoun_set', pronoun_set: pronoun_set, user: user
   = see_all
