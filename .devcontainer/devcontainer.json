@@ -17,6 +17,9 @@
     "ghcr.io/devcontainers-extra/features/heroku-cli:1": {}
   },
 
+  // Do not include any secrets here! These should all be set to values that
+  // are only true in development environments. Real secrets in development
+  // should be added to config/application.yml
   "containerEnv": {
     "DB_HOST": "postgres",
     "POSTGRES_PASSWORD": "postgres",
