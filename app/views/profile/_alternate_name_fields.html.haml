@@ -1,9 +1,7 @@
-.alternate_name-fields.nested-fields.field
+.alternate_name-fields.nested-fields.rounded-box.border.border-base-300.bg-base-100.p-4
   = f.input :name
   = f.input :category, as: :select, collection: AlternateName.categories.keys.map {|c| [t(c, scope: 'alternate_name_form_categories'), c]}, include_blank: false
-  .level
-    .level-left
-    .level-right
-      = link_to_remove_association f, class: 'button is-danger level-item' do
-        %span.icon= icon 'delete'
-        %span= t('.remove_alternate_name')
+  .mt-2.flex.justify-end
+    = link_to_remove_association f, class: 'btn btn-error' do
+      = icon 'delete'
+      = t('.remove_alternate_name')

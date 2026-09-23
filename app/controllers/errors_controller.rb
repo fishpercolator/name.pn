@@ -5,7 +5,7 @@ class ErrorsController < ApplicationController
 
   skip_after_action :verify_authorized
 
-  layout 'tailwind'
+  layout 'application'
   
   private
   

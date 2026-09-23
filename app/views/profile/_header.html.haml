@@ -1,18 +1,15 @@
-%section.section
-  .container
-    - if @user.basic_names_complete?
-      = f.button :button, value: 'finish', class: 'is-pulled-right' do
-        %span= t('.save_and_exit')
-        %span.icon= icon 'close'
-    %ul.steps.has-content-centered.is-small
-      - wizard_steps.each do |each_step|
-        - if @user.basic_names_complete?
-          %li.steps-segment{class: ('is-active' if each_step == step)}
-            = link_to '', wizard_path(each_step), class: 'steps-marker'
-            .steps-content
-              %p.is-size-6= t("profile.#{each_step}.title")
-        - else
-          %li.steps-segment.is-dashed{class: ('is-active' if each_step == step)}
-            .steps-marker
-            .steps-content
-              %p.is-size-6= t("profile.#{each_step}.title")
+%section.container.mx-auto.flex.items-start.gap-4.px-4.pt-8
+  .grow.overflow-x-auto
+    %ul.steps.steps-vertical.profile-steps.w-full.text-sm{class: 'md:steps-horizontal'}
+      - current = wizard_steps.index(step)
+      - wizard_steps.each_with_index do |each_step, i|
+        %li.step.profile-steps__step.relative{class: ['text-start md:text-center', ('step-accent' if i <= current)]}
+          - if @user.basic_names_complete?
+            -# The link covers the whole step, including its marker
+            = link_to t("profile.#{each_step}.title"), wizard_path(each_step), class: 'profile-steps__link link-hover after:absolute after:inset-0 after:z-10'
+          - else
+            = t("profile.#{each_step}.title")
+  - if @user.basic_names_complete?
+    = f.button :button, value: 'finish', class: 'btn-outline shrink-0' do
+      = t('.save_and_exit')
+      = icon 'close'

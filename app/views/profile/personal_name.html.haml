@@ -1,13 +1,11 @@
 = simple_form_for @user, url: wizard_path, method: :patch do |f|
   = render 'header', f: f
-  %section.section.is-collapsed
-    .container
-      .columns.is-centered
-        .column.is-half
-          .box.profile-form.has-background-personal-name-light#personal-name
-            %h1.title= title t('.title')
-            %p.mb-3.has-text-grey= t('.blurb')
-            %p.mb-5.has-text-grey= t('profile.show.you_must_complete')
-            = f.input :full_name
-            = f.input :personal_name
-            = render 'buttons', f: f
+  %section.container.mx-auto.px-4.py-8
+    .profile-form.card.mx-auto.overflow-hidden.bg-base-100.shadow-md#personal-name{class: 'md:w-1/2'}
+      .card-body{class: 'bg-personal-name'}
+        %h1.text-3xl.font-bold= title t('.title')
+        %p.text-muted= t('.blurb')
+        %p.mb-2.text-muted= t('profile.show.you_must_complete')
+        = f.input :full_name
+        = f.input :personal_name
+        = render 'buttons', f: f

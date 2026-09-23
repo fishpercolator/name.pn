@@ -1,21 +1,20 @@
-%nav.navbar.is-dark{role: 'navigation', aria: {label: t('.label')}, data: {controller: 'navbar', navbar_active_class: 'is-active'}}
-  .container
-    .navbar-brand
-      = link_to root_path, class: 'navbar-item' do
-        = image_tag 'logo.svg', alt: t('icon_alt')
-        %b= t('product_name')
-      %a.navbar-burger.has-text-white{role: 'button', aria: {label: 'menu', expanded: 'false'}, data: {navbar_target: 'burger', action: 'navbar#toggleMenu'}}
-        - 4.times do
-          %span{aria_hidden: true}
-    .navbar-menu{data: {navbar_target: 'menu'}}
-      .navbar-start
-        = link_to t('.about'), page_path('about'), class: 'navbar-item'
-      .navbar-end
+%nav.site-navbar.navbar.flex-wrap.bg-neutral.text-neutral-content{role: 'navigation', aria: {label: t('.label')}}
+  .container.mx-auto.flex.flex-wrap.items-center
+    = link_to root_path, class: 'flex flex-1 items-center gap-1 px-2 text-2xl md:flex-none' do
+      = image_tag 'logo.svg', alt: t('icon_alt'), class: 'h-[1em]'
+      %b= t('product_name')
+    %label.btn.btn-square.btn-ghost.text-neutral-content{for: 'navbar-toggle', aria: {label: 'menu'}, class: 'md:hidden'}
+      = icon 'menu', class: 'size-6 fill-current'
+    %input#navbar-toggle.peer.hidden{type: 'checkbox'}
+    %div{class: 'hidden w-full flex-col peer-checked:flex md:flex md:w-auto md:grow md:flex-row md:justify-between'}
+      %ul{class: 'menu text-base md:menu-horizontal'}
+        %li= link_to t('.about'), page_path('about')
+      %ul{class: 'menu text-base md:menu-horizontal'}
         - if user_signed_in?
           - if current_user.role_admin?
-            = link_to t('.admin'), admin_root_path, class: 'navbar-item', data: {turbolinks: false}
-          = link_to t('devise.registrations.edit.title'), edit_user_registration_path, class: 'navbar-item'
-          = link_to t('devise.sessions.destroy.title'), destroy_user_session_path, class: 'navbar-item', data: {turbo_method: :delete}
+            %li= link_to t('.admin'), admin_root_path
+          %li= link_to t('devise.registrations.edit.title'), edit_user_registration_path
+          %li= link_to t('devise.sessions.destroy.title'), destroy_user_session_path, data: {turbo_method: :delete}
         - else
-          = link_to t('devise.sessions.new.title'), new_user_session_path, class: 'navbar-item'
-          = link_to t('devise.registrations.new.title'), new_user_registration_path, class: 'navbar-item'
+          %li= link_to t('devise.sessions.new.title'), new_user_session_path
+          %li= link_to t('devise.registrations.new.title'), new_user_registration_path
