@@ -3,41 +3,27 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
-  themes: false;
+  themes: light --default;
 }
 
+/* daisyUI's light theme, with the name.pn brand colours */
 @plugin "daisyui/theme" {
-  name: "namepn";
+  name: "light";
   default: true;
-  color-scheme: light;
-  --color-base-100: hsl(0 0% 100%);
-  --color-base-200: hsl(221 14% 96%);
-  --color-base-300: hsl(221 14% 86%);
-  --color-base-content: hsl(221 14% 29%);
   --color-primary: #D62839;
-  --color-primary-content: hsl(0 0% 100%);
+  --color-primary-content: #fff;
   --color-secondary: #175676;
-  --color-secondary-content: hsl(0 0% 100%);
+  --color-secondary-content: #fff;
   --color-accent: #4E937A;
-  --color-accent-content: hsl(0 0% 100%);
-  --color-neutral: hsl(221 14% 21%);
-  --color-neutral-content: hsl(0 0% 100%);
+  --color-accent-content: #fff;
   --color-info: #3E8ED0;
-  --color-info-content: hsl(0 0% 100%);
+  --color-info-content: #fff;
   --color-success: #4E937A;
-  --color-success-content: hsl(0 0% 100%);
+  --color-success-content: #fff;
   --color-warning: #BC8034;
-  --color-warning-content: hsl(0 0% 100%);
+  --color-warning-content: #fff;
   --color-error: #D62839;
-  --color-error-content: hsl(0 0% 100%);
-  --radius-selector: 1rem;
-  --radius-field: 0.375rem;
-  --radius-box: 0.5rem;
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-  --border: 1px;
-  --depth: 1;
-  --noise: 0;
+  --color-error-content: #fff;
 }
 
 @theme {
