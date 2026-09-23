@@ -98,9 +98,13 @@ If you're using Heroku it's a good idea to set it to only allow automatic deploy
 
 This is a [Rails](https://rubyonrails.org/) 8.x application, and comes with all the usual Rails stuff, plus the following additional important components.
 
-### Bulma UI
+### Tailwind and daisyUI
 
-The user interface is derived from [Bulma](https://bulma.io/documentation/), in its modular Sass mode. The CSS is compiled in Webpack from the `app/javascript/scss/application.scss` file and everything it includes. Remember to include Bulma features before you use them.
+The user interface is styled with [Tailwind CSS](https://tailwindcss.com/) utilities and the [daisyUI](https://daisyui.com/) component classes. The CSS is compiled by the Tailwind CLI from `app/assets/stylesheets/application.tailwind.css`, which also holds the name.pn daisyUI theme and the colour for each section of a profile. The Active Admin interface uses the same Tailwind installation, compiled separately from `app/assets/stylesheets/active_admin.css`.
+
+### Content pages
+
+Static content pages such as the privacy policy are written in Markdown (with ERB where they need helpers) in `app/views/pages`, rendered by [markdown-rails](https://github.com/sitepress/markdown-rails) and served by [High Voltage](https://github.com/thoughtbot/high_voltage).
 
 ### TypeScript
 
@@ -134,7 +138,7 @@ Policies are located in `app/policies` and can be applied using the `policy_scop
 
 ### Simple form
 
-Forms are normally managed by [Simple Form](https://github.com/plataformatec/simple_form), with a custom integration into the Bulma widget set. The customizations are in the `config/initializers/simple_form_bulma.rb` file.
+Forms are normally managed by [Simple Form](https://github.com/plataformatec/simple_form), with wrappers for the daisyUI form classes. The customizations are in the `config/initializers/simple_form_daisyui.rb` file.
 
 ### Meta tags
 
