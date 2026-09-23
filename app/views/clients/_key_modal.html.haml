@@ -1,12 +1,10 @@
 - content_for :modal do
-  .modal.is-active{data: {controller: 'modal'}}
-    .modal-background{data: {action: 'click->modal#close'}}
-    .modal-card
-      %header.modal-card-head
-        %p.modal-card-title= t('.title')
-        %button.delete{aria: {label: t('actions.close')}, data: {action: 'modal#close'}}
-      %section.modal-card-body
-        %p.mb-5= t('.blurb')
-        .message
-          .message-body.is-size-4.is-family-monospace.is-force-wrapped
-            = key
+  %dialog.api-key-modal.modal{open: true}
+    .modal-box
+      %form{method: 'dialog'}
+        %button.btn.btn-circle.btn-ghost.btn-sm.absolute.top-2.right-2{aria: {label: t('actions.close')}}= icon 'close'
+      %h3.text-lg.font-bold= t('.title')
+      %p.my-4= t('.blurb')
+      %code.api-key.block.rounded-box.bg-base-200.p-4.font-mono.text-xl.break-all= key
+    %form.modal-backdrop{method: 'dialog'}
+      %button= t('actions.close')
