@@ -365,6 +365,11 @@ GEM
       net-pop
       net-smtp
     marcel (1.2.1)
+    markdown-rails (2.2.0)
+      actionview (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      railties (>= 6.0.0)
+      redcarpet (>= 3.0.0)
     matrix (0.4.3)
     meta-tags (2.24.0)
       actionpack (>= 6.0.0)
@@ -506,6 +511,7 @@ GEM
       prism (>= 1.6.0)
       rbs (>= 4.0.0)
       tsort
+    redcarpet (3.6.1)
     regexp_parser (2.13.0)
     reline (0.7.0)
       io-console (~> 0.5)
@@ -669,6 +675,7 @@ DEPENDENCIES
   inline_svg (~> 1.10)
   jsbundling-rails (~> 1.1)
   listen
+  markdown-rails (~> 2.2)
   meta-tags (~> 2.13)
   mini_magick (~> 5.2)
   ostruct (~> 0.6.1)
