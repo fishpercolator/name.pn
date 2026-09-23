@@ -23,31 +23,27 @@ Variables that can be used to configure the app are:
 
 ### Installation
 
-The development environment is packaged for use on [Tilt](https://tilt.dev/) and currently uses Podman for its container management (although this could easily be changed to Docker in the future).
+The development environment is a [Dev Container](https://containers.dev/). Open this repo in VS Code (with the Dev Containers extension) and choose *Reopen in Container*, or use any other tool that supports Dev Containers. This builds a container with Ruby, Bun, Chromium (for JavaScript tests) and the Heroku CLI, alongside a PostgreSQL container, and runs [`bin/setup`](bin/setup) to install dependencies and prepare the database.
 
-Getting Tilt set up is a little work - there's a script [here](https://github.com/fishpercolator/silverblue-tilt) that should work on any Fedora installation. (For example, if you install Fedora in a virtual machine.)
-
-Once Tilt is running, you should be able to change into your clone of this repo and run:
+Once it's built, start the server and asset watchers from a terminal inside the container:
 
 ```
-tilt up
+bin/dev
 ```
 
-Press space to open the dashboard in your browser and watch all the services build and deploy to your Kubernetes. Once they're up and running, you'll be able to access the web interface at: <http://localhost:3000> and you can run commands on your pod using the included [`bin/tilt-run`](bin/tilt-run) command.
+The web interface is then available at <http://localhost:3000>.
 
 The [`db/seeds.rb`](db/seeds.rb) includes an admin user and the three most common sets of pronouns. Look in that file for the password.
 
 ### Usage and tips
 
-Whenever you edit the Gemfile, `bundle` will run automatically and your server will restart. However, you'll need to copy the lockfiles back to your host machine using the *sync lockfiles* resource. Same goes for adding yarn packages.
+Your working copy is mounted into the container, so lockfiles, migrations, `db/schema.rb` and generated files all land directly on your host.
 
-If you create new DB migrations, you can run them using the action in the dashboard, and you'll need to run the *sync lockfiles* resource to get your `db/schema.rb` back onto the host.
+After pulling changes, run `bin/setup --skip-server` to install new dependencies and run any pending migrations.
 
-You can also completely wipe out the DB and replace it with the contents of `db/seeds.rb` any time by hitting the *Reset database* button.
+You can completely wipe out the DB and replace it with the contents of `db/seeds.rb` at any time with `bin/rails db:seed:replant`.
 
-If you create any files inside the pod, such as with a `rails generate` command, be sure to copy them back to your host using the *sync app files* resource.
-
-If you change the services this repo uses or any environment variables, you'll need to edit the Tilt & Kubernetes configuration, which are in [`Tiltfile`](Tiltfile) and [`k8s/*.yaml`](k8s/).
+Optional secrets such as `BUTTONDOWN_API_KEY` or `DD_API_KEY` can be put in `config/application.yml` (which is gitignored). Default development values for the database and `JWT_SECRET` are set in [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json), and the services are defined in [`.devcontainer/compose.yaml`](.devcontainer/compose.yaml).
 
 ## Deploying to Heroku
 
@@ -175,6 +171,6 @@ the Codeship steps. There's an `.iyarc` file for configuring exceptions.
 
 The app is configured to work with [Datadog](https://www.datadoghq.com/) for tracing/debugging, including correlation of logs and traces.
 
-To get this working in development, you'll need an account (a free plan one will do) and an API key. Set the `DD_API_KEY` environment variable to your key before running `docker-compose up` and the rest should sort itself out.
+To get this working in development, you'll need an account (a free plan one will do) and an API key. Add `DD_API_KEY` to your `config/application.yml` and the rest should sort itself out.
 
 To get it working in Heroku, you'll need to follow the [buildpack](https://docs.datadoghq.com/agent/basic_agent_usage/heroku/) instructions for APM and the [log drain](https://docs.datadoghq.com/logs/guide/collect-heroku-logs/) instructions for logs.
