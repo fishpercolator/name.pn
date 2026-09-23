@@ -1,4 +1,4 @@
-# <%= title 'How to write a phonetic spelling' %>
+# How to write a phonetic spelling
 
 Spelling and pronunciation are not closely linked in English. Without someone teaching you, how would you know the word "**cough**" is pronounced "**COFF**" but the word "**through**" is pronounced "**THROO**"?
 

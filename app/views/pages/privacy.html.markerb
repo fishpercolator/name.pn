@@ -1,4 +1,5 @@
-# <%= title 'Privacy policy' %>
+# Privacy policy
+
 This is the name.pn privacy policy. We want to be clear about how we will use the information you give us and keep it safe.
 
 It tells you how we look after your personal data, like your name or photo, when you visit our website wherever you visit it from. It tells you about your privacy rights and how the law protects you.
@@ -9,17 +10,17 @@ name.pn puts you in control - your name, your rules. The short-URL we create and
 
 name.pn will not ask you for personal information about yourself except where it will be published on your own name.pn page. Apart from a few fields needed to ensure a uniform experience, most data requested is optional and you only need to provide it if you want it to be on your page.
 
-* [1. Important information and who we are](#glossary)
-* [2. The data we collect about you](#what)
-* [3. How is your personal data collected?](#how)
-* [4. How we use your personal data](#usage)
-* [5. Disclosures of your personal data](#disclosures)
-* [6. International transfers](#international)
-* [7. Data security](#security)
-* [8. Data retention](#retention)
-* [9. Your legal rights](#rights)
+* [1. Important information and who we are](#1-important-information-and-who-we-are)
+* [2. The data we collect about you](#2-the-data-we-collect-about-you)
+* [3. How is your personal data collected?](#3-how-is-your-personal-data-collected)
+* [4. How we use your personal data](#4-how-we-use-your-personal-data)
+* [5. Disclosures of your personal data](#5-disclosures-of-your-personal-data)
+* [6. International transfers](#6-international-transfers)
+* [7. Data security](#7-data-security)
+* [8. Data retention](#8-data-retention)
+* [9. Your legal rights](#9-your-legal-rights)
 
-<h2 id="glossary">1. Important information and who we are</h2>
+## 1. Important information and who we are
 
 ### Purpose of this privacy policy
 
@@ -45,7 +46,7 @@ Third parties that may be involved in processing your data are:
 
 name.pn is the controller and responsible for your personal data. We are referred to as name.pn, "we", "us" or "our" in this privacy policy.
 
-If you have any questions about this privacy policy, including any requests to exercise [your legal rights](#rights), please contact us using the details set out below.
+If you have any questions about this privacy policy, including any requests to exercise [your legal rights](#9-your-legal-rights), please contact us using the details set out below.
 
 ### Contact details
 
@@ -69,7 +70,7 @@ It is important that the personal data we hold about you is accurate and current
 
 This website may include links to third-party websites, plug-ins and applications. Clicking on those links or enabling those connections may allow third parties to collect or share data about you. We do not control these third-party websites and are not responsible for their privacy statements. When you leave our website, we encourage you to read the privacy policy of every website you visit.
 
-<h2 id="what">2. The data we collect about you</h2>
+## 2. The data we collect about you
 
 Personal data, or personal information, means any information about an individual from which that person can be identified - like your name or photo. It does not include data where the identity has been removed (anonymous data).
 
@@ -87,7 +88,7 @@ However, if we combine or connect Aggregated Data with your personal data so tha
 
 We do not collect any Special Categories of Personal Data about you (this includes details about your race or ethnicity, religious or philosophical beliefs, sex life, sexual orientation, political opinions, trade union membership, information about your health, and genetic and biometric data). Nor do we collect any information about criminal convictions and offences.
 
-<h2 id="how">3. How is your personal data collected?</h2>
+## 3. How is your personal data collected?
 
 We use different methods to collect data from and about you including:
 
@@ -102,7 +103,7 @@ We use different methods to collect data from and about you including:
     * advertising networks such as Instagram based outside the UK; and
     * search information providers such as Google based outside the UK.
 
-<h2 id="usage">4. How we use your personal data</h2>
+## 4. How we use your personal data
 
 We will only use your personal data as the law allows us to. We make sure we have a clear legal basis. We will use your personal data in the following circumstances:
 
@@ -159,17 +160,17 @@ If we need to use your personal data for an unrelated purpose, we will notify yo
 
 Please note that we may process your personal data without your knowledge or consent, in compliance with the above rules, where this is required or permitted by law.
 
-<h2 id="disclosures">5. Disclosures of your personal data</h2>
+## 5. Disclosures of your personal data
 
 We may share your personal data with the parties set out below for the purposes set out in the table above.
 
-* Internal Third Parties as set out in the [Glossary](#glossary).
-* External Third Parties as set out in the [Glossary](#glossary).
+* Internal Third Parties as set out in the [Glossary](#1-important-information-and-who-we-are).
+* External Third Parties as set out in the [Glossary](#1-important-information-and-who-we-are).
 * Third parties to whom we may choose to sell, transfer or merge parts of our business or our assets. Alternatively, we may seek to acquire other businesses or merge with them. If a change happens to our business, then the new owners may use your personal data in the same way as set out in this privacy policy.
 
 We require all third parties to respect the security of your personal data and to treat it in accordance with the law. We do not allow our third-party service providers to use your personal data for their own purposes and only permit them to process your personal data for specified purposes and in accordance with our instructions.
 
-<h2 id="international">6. International transfers</h2>
+## 6. International transfers
 
 Many of our external third parties are based outside the UK so their processing of your personal data will involve a transfer of data outside the UK
 
@@ -180,7 +181,7 @@ Whenever we transfer your personal data out of the UK, we ensure a similar degre
 
 Please contact us if you want further information on the specific mechanism used by us when transferring your personal data out of the UK.
 
-<h2 id="security">7. Data security</h2>
+## 7. Data security
 
 We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorised way, altered by people other than you or disclosed.
 
@@ -188,7 +189,7 @@ In addition, we limit access to your personal data to those employees, agents, c
 
 We have put in place procedures to deal with any suspected personal data breach and will notify you and any applicable regulator of a breach where we are legally required to do so.
 
-<h2 id="retention">8. Data retention</h2>
+## 8. Data retention
 
 ### How long will you use my personal data for?
 
@@ -198,11 +199,11 @@ We may keep your personal data for a longer period in the event of a complaint o
 
 To determine the appropriate retention period for personal data, we consider the amount, nature and sensitivity of the personal data, the potential risk of harm from unauthorised use or disclosure of your personal data, the purposes for which we process your personal data and whether we can achieve those purposes through other means.
 
-In some circumstances you can ask us to delete your data: see [your legal rights](#rights) below for further information.
+In some circumstances you can ask us to delete your data: see [your legal rights](#9-your-legal-rights) below for further information.
 
 In some circumstances we will anonymise your personal data (so that it can no longer be associated with you) for research or statistical purposes, in which case we may use this information indefinitely without further notice to you.
 
-<h2 id="rights">9. Your legal rights</h2>
+## 9. Your legal rights
 
 You have rights under data protection laws in relation to your personal data. Please click on the links below to find out more about these rights:
 
