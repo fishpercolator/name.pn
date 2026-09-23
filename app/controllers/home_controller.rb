@@ -29,5 +29,6 @@ class HomeController < ApplicationController
   end
 
   def offline
+    render layout: 'tailwind'
   end
 end

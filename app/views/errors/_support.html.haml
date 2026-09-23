@@ -1,8 +1,7 @@
-%p.mt-5.has-text-centered
-  = link_to 'https://github.com/fishpercolator/name.pn/issues', class: 'button is-link is-outlined is-medium' do
-    %span.icon= icon 'bug'
-    %span= t('.report_a_bug')
-%p.has-text-centered
-  = link_to 'mailto:support@name.pn', class: 'button is-link is-outlined is-medium' do
-    %span.icon= icon 'email'
-    %span support@name.pn
+.not-prose.mt-8.flex.flex-col.items-center.gap-3
+  = link_to 'https://github.com/fishpercolator/name.pn/issues', class: 'btn btn-secondary btn-outline sm:btn-lg' do
+    = icon 'bug'
+    = t('.report_a_bug')
+  = link_to 'mailto:support@name.pn', class: 'btn btn-secondary btn-outline sm:btn-lg' do
+    = icon 'email'
+    support@name.pn

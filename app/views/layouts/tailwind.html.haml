@@ -1,0 +1,12 @@
+!!!
+%html{lang: 'en', data: {theme: 'namepn'}}
+  %head= render 'layouts/head', stylesheet: 'application'
+  %body.flex.min-h-screen.flex-col.bg-base-200
+    %header
+      = render 'layouts/tailwind/navbar'
+      = render 'layouts/tailwind/messages'
+    %main{class: ['flex grow flex-col', content_for(:main_class)]}= yield
+    %footer
+      = render 'layouts/tailwind/footer'
+    = content_for :render_async
+    = content_for :modal

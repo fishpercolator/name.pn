@@ -10,6 +10,7 @@
     "@kollegorna/cocoon-vanilla-js": "^1.0.7",
     "@rails/activestorage": "^8.1.301",
     "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.20",
     "@uppy/core": "^5.2.0",
     "@uppy/dashboard": "^5.1.1",
     "@uppy/image-editor": "^4.2.0",
@@ -18,6 +19,7 @@
     "animate.css": "^4.1.1",
     "bulma": "^1.0.4",
     "bulma-o-steps": "github:octoshrimpy/bulma-o-steps#c21bf10",
+    "daisyui": "^5.7.43",
     "esbuild": "~0.28.2",
     "extendable-media-recorder": "^9.2.40",
     "extendable-media-recorder-wav-encoder": "^7.0.140",
@@ -36,7 +38,7 @@
     "defaults"
   ],
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.bulma.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --style=compressed && tailwindcss -i ./app/assets/stylesheets/active_admin.css -o ./app/assets/builds/active_admin.css --minify",
+    "build:css": "sass ./app/assets/stylesheets/application.bulma.scss:./app/assets/builds/bulma.css --no-source-map --load-path=node_modules --style=compressed && tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify && tailwindcss -i ./app/assets/stylesheets/active_admin.css -o ./app/assets/builds/active_admin.css --minify",
     "build": "bun bun.config.js",
     "check-types": "tsc --project tsconfig.json --noEmit"
   },
