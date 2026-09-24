@@ -11,6 +11,6 @@
         - if user.ipa.present?
           %span.profile-card__ipa.font-ipa.text-xl.font-normal{class: 'text-base-content/50'} /#{user.ipa}/
         - if user.pronunciation.attached?
-          = render 'player', data: {player_url_value: url_for(user.pronunciation)}
+          = render Components::UI::Player.new(url_for(user.pronunciation))
       .profile-card__hint.text-base.text-muted= t(".hints.phonetic", name: user.pronunciation_of_name, value: user.phonetic)
     = see_all

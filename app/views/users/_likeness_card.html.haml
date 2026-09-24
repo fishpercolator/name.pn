@@ -3,7 +3,6 @@
     %header.flex.items-center.justify-between.bg-accent.px-4.py-3.text-accent-content
       %h2.profile-card__title.text-2xl.font-bold= t('.what_i_look_like')
       = section_link 'likeness'
-    .card-body.items-center
-      = link_to url_for(@user.likeness), class: 'cursor-zoom-in', data: {controller: 'lightbox'}, title: t('.expand') do
-        = image_tag @user.likeness.variant(resize_to_limit: [300, 300]), alt: t('.alt_text', name: @user.full_name), class: 'rounded-full'
+    .card-body
+      = render Components::UI::Likeness.new(@user.likeness, name: @user.full_name)
     = see_all

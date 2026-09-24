@@ -1,7 +1,0 @@
-= render layout: 'card', locals: {id: 'pronouns', step: :pronouns, colour: 'bg-pronouns', title: t('.title'), blurb: t('profile.pronouns.blurb')&.first} do
-  - if current_user.pronounless_style?
-    %p.font-bold= t(current_user.pronounless_style, scope: 'pronounless_styles')
-  - elsif current_user.pronoun_sets.any?
-    = render 'pronoun_sets/table', pronoun_sets: current_user.pronoun_sets, user: current_user
-  - else
-    %p= you_must

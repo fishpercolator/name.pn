@@ -12,7 +12,7 @@
         %span{class: 'in-[.is-active]:hidden in-[.is-waiting]:hidden'}= t('.record')
         %span.hidden{class: 'in-[.is-waiting]:inline'}= t('.please_wait')
         %span.hidden{class: 'in-[.is-active]:inline'}= t('.recording')
-      = render 'users/player', data: {recorder_target: 'player', player_url_value: (url_for(f.object.pronunciation) if f.object.pronunciation.attached? && !f.object.errors[:pronunciation].any?)}, button_class: 'btn-success btn-lg'
+      = render Components::UI::Player.new((url_for(f.object.pronunciation) if f.object.pronunciation.attached? && !f.object.errors[:pronunciation].any?), variant: :success, size: :lg, data: {recorder_target: 'player'})
       %button.btn.btn-secondary.btn-lg{type: 'button', disabled: true, data: {recorder_target: 'delete', action: 'recorder#delete'}}
         = icon 'delete'
         = t('.delete_audio')

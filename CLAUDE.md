@@ -55,6 +55,7 @@ Kit components are pure UI. They get their data through the constructor, and nev
 The suite is deliberately slim.
 
 - Spinach features are the end-to-end safety net. Keep the BEM-style hook classes they rely on (`.site-navbar`, `.dashboard-card__edit`, `.page-title`…) on whichever component renders those elements.
+- Phlex emits no whitespace between tags, so rack_test sees adjacent elements' text run together. Match text across elements with `\s*`, as `have_card` in `features/steps/dashboard.rb` does.
 - Add specs only for behaviour that is ours and not obvious. Don't re-test Rails, Phlex, Tailwind, daisyUI or the browser, and don't write specs for plain markup.
 
 Run `bundle exec rspec` and `bin/spinach`. Build assets with `bun run build:css && bun run build`.
