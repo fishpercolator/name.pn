@@ -14,9 +14,9 @@ name.pn was created to give each person **a short URL** that you can put in your
 It's free and always will be (although we might add some cool additional paid features in the future for businesses). It's still early in development but it works and it's ready to use now.
 
 <% unless user_signed_in? %>
-<div class="not-prose flex justify-center">
-  <%= link_to 'Sign up for your free name.pn page', new_user_registration_path, class: 'btn btn-secondary btn-outline h-auto py-2 sm:btn-lg' %>
-</div>
+<%= render Components::UI::ActionLinks.new do |actions|
+  actions.link(new_user_registration_path) { 'Sign up for your free name.pn page' }
+end %>
 <% end %>
 
 ## Working in the open
@@ -25,21 +25,17 @@ name.pn is an open source product and we are working in the open.
 
 We welcome contributions to our roadmap, including bug reports, feature requests and even code changes! Follow the links below for more information.
 
-<div class="not-prose flex flex-col items-center gap-3">
-<% {
-  'bug' => ['Report a bug or make a feature request', 'https://github.com/fishpercolator/name.pn/issues'],
-  'map' => ["See what's coming up next on our roadmap", 'https://github.com/orgs/fishpercolator/projects/1'],
-  'wrench-outline' => ['Read about how you can contribute to name.pn', 'https://github.com/fishpercolator/name.pn/blob/main/CONTRIBUTING.md'],
-  'github' => ['Browse our source code on GitHub', 'https://github.com/fishpercolator/name.pn'],
-}.each do |icon_name, (text, url)| %>
-  <%= link_to url, class: 'btn btn-secondary btn-outline h-auto py-2 sm:btn-lg' do %><%= icon icon_name %> <%= text %><% end %>
-<% end %>
-</div>
+<%= render Components::UI::ActionLinks.new do |actions|
+  actions.link('https://github.com/fishpercolator/name.pn/issues', icon: 'bug') { 'Report a bug or make a feature request' }
+  actions.link('https://github.com/orgs/fishpercolator/projects/1', icon: 'map') { "See what's coming up next on our roadmap" }
+  actions.link('https://github.com/fishpercolator/name.pn/blob/main/CONTRIBUTING.md', icon: 'wrench-outline') { 'Read about how you can contribute to name.pn' }
+  actions.link('https://github.com/fishpercolator/name.pn', icon: 'github') { 'Browse our source code on GitHub' }
+end %>
 
 ## Get in touch
 
 If you'd like to report an issue or feature request, please use [our issues board](https://github.com/fishpercolator/name.pn/issues). But to get in touch for any other reason, our email address is below.
 
-<div class="not-prose flex justify-center">
-  <%= link_to 'mailto:support@name.pn', class: 'btn btn-secondary btn-outline h-auto py-2 sm:btn-lg' do %><%= icon 'email' %> support@name.pn<% end %>
-</div>
+<%= render Components::UI::ActionLinks.new do |actions|
+  actions.link('mailto:support@name.pn', icon: 'email') { 'support@name.pn' }
+end %>
