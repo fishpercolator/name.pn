@@ -8,11 +8,12 @@ class Components::Daisy::Button < Components::Base
     square: 'btn-square', circle: 'btn-circle'
   }.freeze
 
-  def initialize(href: nil, method: nil, variant: nil, outline: false, size: nil, shape: nil, icon: nil, **attributes)
+  def initialize(href: nil, method: nil, variant: nil, outline: false, size: nil, shape: nil, icon: nil, trailing_icon: nil, **attributes)
     @href = href
     @method = method
     @modifiers = [variant, (:outline if outline), size, shape].compact
     @icon = icon
+    @trailing_icon = trailing_icon
     @attributes = attributes
   end
 
@@ -31,6 +32,7 @@ class Components::Daisy::Button < Components::Base
   def label(&)
     Icon(@icon) if @icon
     render(&)
+    Icon(@trailing_icon) if @trailing_icon
   end
 
   def attributes = mix({ class: classes }, @attributes)

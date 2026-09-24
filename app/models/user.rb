@@ -54,6 +54,11 @@ class User < ApplicationRecord
     # This is safe because pronunciation_of is an enum and rejects invalid values
     public_send(pronunciation_of)
   end
+
+  # The distinct names a user could choose to pronounce, as [name, pronunciation_of] pairs
+  def pronunciation_of_options
+    self.class.pronunciation_ofs.keys.map { [public_send(it), it] }.reject { it.first.blank? }.uniq(&:first)
+  end
   
   # To be able to freely move around the profile, you must have entered a full
   # name and a personal name

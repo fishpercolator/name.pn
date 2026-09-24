@@ -1,8 +1,9 @@
 class Components::UI::SectionCard < Components::Base
   ACTION = 'section-card__action h-auto flex-1 rounded-none border-0 py-3 font-normal text-secondary not-first:border-s not-first:border-base-300'.freeze
 
-  def initialize(title, footer: {}, **attributes)
+  def initialize(title, heading: :h2, footer: {}, **attributes)
     @title = title
+    @heading = heading
     @footer = footer
     @attributes = attributes
     @actions = []
@@ -41,7 +42,7 @@ class Components::UI::SectionCard < Components::Base
 
   def title_bar
     header(class: ['flex items-center justify-between gap-2 px-4 py-3 shadow-sm', title_bar_class]) do
-      h2(class: 'text-xl font-bold') { @title }
+      public_send(@heading, class: 'text-xl font-bold') { @title }
       tool_button(**@tool) if @tool
     end
   end

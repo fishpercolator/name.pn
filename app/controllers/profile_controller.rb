@@ -49,13 +49,13 @@ class ProfileController < ApplicationController
     end
   end
   
-  # Users must complete the first step to continue
-  def stuck_on_first_step?
-    (@user.full_name.blank? || @user.personal_name.blank?)
-  end
-  helper_method :stuck_on_first_step?
-  
   private
+
+  def render_step(step, options = {}, params = {})
+    return super if step.nil? || step.to_s == Wicked::FINISH_STEP
+
+    render_plex_view(options.merge(action: step))
+  end
   
   def set_user
     @user = current_user

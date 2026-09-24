@@ -1,6 +1,10 @@
 class Components::Daisy::Fieldset < Components::Base
+  def initialize(**attributes)
+    @attributes = attributes
+  end
+
   def view_template(&)
-    fieldset(class: 'fieldset text-base', &)
+    fieldset(**mix({ class: 'fieldset text-base' }, @attributes), &)
   end
 
   def legend(text, for:)

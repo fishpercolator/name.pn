@@ -7,5 +7,5 @@ class Components::Daisy::Field < Components::Base
 
   private
 
-  def error? = @builder.object&.errors&.include?(@attribute)
+  def error? = @builder.object.try(:errors)&.include?(@attribute)
 end
