@@ -5,7 +5,7 @@
     %header
       = render 'layouts/tailwind/navbar'
       = render 'layouts/tailwind/messages'
-    %main{class: ['flex grow flex-col', content_for(:main_class)]}= yield
+    %main{class: ['flex grow flex-col', content_for(:main_class)]}= content_for?(:content) ? yield(:content) : yield
     %footer
       = render 'layouts/tailwind/footer'
     = content_for :render_async
