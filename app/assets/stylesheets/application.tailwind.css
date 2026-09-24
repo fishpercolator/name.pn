@@ -39,15 +39,15 @@
   --font-handwriting: 'Patrick Hand', cursive;
   --font-ipa: 'Voces', sans-serif;
 
-  /* One colour per section of a profile: the red, the accent teal, and a
-     blue-leaning teal */
-  --color-personal-name: oklch(57% 0.207 22.57);
-  --color-pronouns: oklch(53.7% 0.079 202.57);
-  --color-url: oklch(60% 0.05 232.57);
-  --color-pronunciation: oklch(57% 0.207 22.57);
-  --color-variants: oklch(53.7% 0.079 202.57);
-  --color-likeness: oklch(60% 0.05 232.57);
-  --color-links: oklch(57% 0.207 22.57);
+  /* A pale tint per section of a profile, for card backgrounds: the red, the
+     accent teal, and a blue-leaning teal */
+  --color-personal-name: oklch(57% 0.207 22.57 / 10%);
+  --color-pronouns: oklch(53.7% 0.079 202.57 / 10%);
+  --color-url: oklch(60% 0.05 232.57 / 10%);
+  --color-pronunciation: oklch(57% 0.207 22.57 / 10%);
+  --color-variants: oklch(53.7% 0.079 202.57 / 10%);
+  --color-likeness: oklch(60% 0.05 232.57 / 10%);
+  --color-links: oklch(57% 0.207 22.57 / 10%);
 }
 
 @import "animate.css";
@@ -71,6 +71,11 @@
    centring the lightbox image with text-align */
 .lum-img {
   display: inline-block;
+}
+
+/* Secondary text: hints, blurbs and "Not set" */
+@utility text-muted {
+  color: color-mix(in oklab, var(--color-base-content) 70%, transparent);
 }
 
 .turbo-progress-bar {

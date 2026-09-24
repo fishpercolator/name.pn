@@ -68,7 +68,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I should be on the dashboard' do
-    expect(page).to have_css('h1', text: 'Your name dashboard')
+    expect(page).to have_css('.page-title', text: 'Your name dashboard')
   end
 
   step 'my profile should be completed successfully' do
@@ -125,7 +125,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I click the edit button in the pronouns box' do
-    within '.card#pronouns' do
+    within '.dashboard-card#pronouns' do
       click_on 'Edit'
     end
   end
@@ -184,7 +184,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click the edit button in the links box' do
-    within '.card#links' do
+    within '.dashboard-card#links' do
       click_on 'Edit'
     end
   end
@@ -201,7 +201,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click the edit button in the pronunciation box' do
-    within '.card#pronunciation' do
+    within '.dashboard-card#pronunciation' do
       click_on 'Edit'
     end
   end
@@ -241,7 +241,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I should see the dashboard' do
-    expect(page).to have_css('.title', text: 'Your name dashboard')
+    expect(page).to have_css('.page-title', text: 'Your name dashboard')
   end
 
   step 'I go to the profile editor' do
@@ -281,7 +281,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click the edit button in the variants box' do
-    within '.card#variants' do
+    within '.dashboard-card#variants' do
       click_on 'Edit'
     end
   end
@@ -298,7 +298,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click the edit button in the URL box' do
-    within '.card#url' do
+    within '.dashboard-card#url' do
       click_on 'Edit', match: :first
     end
   end
@@ -313,7 +313,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click the edit button in the likeness box' do
-    within '.card#likeness' do
+    within '.dashboard-card#likeness' do
       click_on 'Edit', match: :first
     end
   end

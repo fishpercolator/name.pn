@@ -1,23 +1,15 @@
-%section.section
-  .container
-    %h1.title= title t('.title')
-    .content.is-size-5.has-text-grey
-      %p= t('.page_description1')
-      %p= t('.page_description2')
-%section.section
-  .container
-    .fixed-grid.has-1-cols.has-2-cols-tablet
-      .grid
-        .cell.is-col-span-2-tablet= render 'url_card'
-        .cell.is-fullheight
-          .fixed-grid.has-1-cols.is-fullheight
-            .grid.is-fullheight
-              = render 'name_card'
-              = render 'pronouns_card'
-              = render 'pronunciation_card'
-        .cell.is-fullheight
-          .fixed-grid.has-1-cols.is-fullheight
-            .grid.is-fullheight
-              = render 'name_variants_card'
-              = render 'likeness_card'
-              = render 'links_card'
+.container.mx-auto.px-4.py-12
+  %h1.page-title.text-4xl.font-bold= title t('.title')
+  .mt-6.space-y-4.text-xl.text-muted
+    %p= t('.page_description1')
+    %p= t('.page_description2')
+  .mt-12.grid.gap-6{class: 'md:grid-cols-2'}
+    = render 'url_card'
+    .flex.flex-col.gap-6{class: '[&>*]:grow'}
+      = render 'name_card'
+      = render 'pronouns_card'
+      = render 'pronunciation_card'
+    .flex.flex-col.gap-6{class: '[&>*]:grow'}
+      = render 'name_variants_card'
+      = render 'likeness_card'
+      = render 'links_card'
