@@ -16,23 +16,26 @@ If it's available upstream, don't reinvent the wheel. Prefer a gem, a daisyUI cl
 
 Views live in `app/views` under the `Views` namespace. Components live in `app/components` under `Components`. Both inherit from `Components::Base`.
 
-There are three tiers of component:
+There are four tiers of component:
 
 | Tier | Namespace | What goes there |
 |------|-----------|-----------------|
 | daisyUI kit | `Components::Daisy` | One thin class per daisyUI primitive (`Button`, `Menu`, `Navbar`…) |
-| UI kit | `Components::UI` | name.pn's own design elements (`Icon`, `SiteNavbar`, `CloseButton`…) |
-| Feature | `Components::<Area>` | One-offs belonging to a single area. Rendered explicitly with `render`, not kits |
+| UI kit | `Components::UI` | name.pn's own design elements (`Icon`, `Brand`, `CloseButton`…) |
+| Shared | `Components::Shared` | Pieces used across areas that wire app state into the kits (`SiteNavbar`, `SiteHead`…) |
+| Feature | `Components::<Area>` | One-offs belonging to a single area |
 
-Both kits are included in `Components::Base`, so their components are called like methods: `Button(variant: :primary) { t('.save') }`.
+Only the two kits extend `Phlex::Kit`. They're included in `Components::Base`, so their components are called like methods: `Button(variant: :primary) { t('.save') }`. Shared and feature components are rendered explicitly: `render Components::Shared::SiteFooter.new`.
+
+Kit components are pure UI. They get their data through the constructor, and never read routes, `current_user`, `flash` or the environment themselves. That wiring belongs in shared components, feature components or views.
 
 ### Phlex idioms
 
-- **Builders.** Slots are methods that take a block, and are yielded to the caller: `Navbar { |n| n.brand { logo } }`. Use `vanish(&)` to collect the slots, then render them in a fixed order.
+- **Builders.** Slots are methods that take a block, and are yielded to the caller: `Navbar { |n| n.brand { logo } }`. Use `vanish(&)` only when the slots must render in a different order from the one they were called in, or need manipulating before they render.
 - **`grab`** for keyword arguments that are Ruby keywords (`class:`).
 - **`mix`** to merge caller attributes into our defaults. Accept `**attributes` and pass them through.
 - **`render?`** for components that sometimes render nothing (`FlashMessages`, `Analytics`).
-- **Variants** map to daisyUI modifiers through frozen hashes of literal class names. Tailwind scans `.rb` files, so never build class names by interpolation.
+- **Variants** map straight to daisyUI modifiers: `variant: :primary` becomes `btn-primary`. Tailwind only generates classes it finds in the source, so every interpolated class must be safelisted with `@source inline(...)` in `application.tailwind.css`.
 - Rails helpers come in through `Phlex::Rails::Helpers::*` modules. Register other helpers with `register_output_helper` or `register_value_helper`.
 
 ### Layouts and rendering
@@ -45,7 +48,7 @@ Both kits are included in `Components::Base`, so their components are called lik
 ### i18n
 
 - Views use lazy keys. `Views::Home::UserHome` looks up `t('.title')` at `home.user_home.title`.
-- Components use `components.<kit>.<name>`, for example `components.ui.site_navbar.about`.
+- Components use `components.<tier>.<name>`, for example `components.shared.site_navbar.about`.
 
 ## Tests
 

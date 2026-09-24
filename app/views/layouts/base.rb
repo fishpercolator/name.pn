@@ -1,12 +1,12 @@
 class Views::Layouts::Base < Views::Base
   include Phlex::Rails::Layout
 
-  private
+  protected
 
   def document(body_class, &)
     doctype
     html(lang: 'en') do
-      head { SiteHead() }
+      head { render Components::Shared::SiteHead.new }
       body(class: body_class, &)
     end
   end

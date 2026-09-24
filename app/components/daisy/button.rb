@@ -1,24 +1,10 @@
 class Components::Daisy::Button < Components::Base
   include Phlex::Rails::Helpers::ButtonTo
 
-  VARIANTS = {
-    neutral: nil,
-    primary: 'btn-primary',
-    secondary: 'btn-secondary',
-    success: 'btn-success',
-    danger: 'btn-error',
-    ghost: 'btn-ghost'
-  }.freeze
-  SIZES = { xs: 'btn-xs', sm: 'btn-sm', md: nil, lg: 'btn-lg', xl: 'btn-xl' }.freeze
-  SHAPES = { nil => nil, square: 'btn-square', circle: 'btn-circle' }.freeze
-
-  def initialize(href: nil, method: nil, variant: :neutral, outline: false, size: :md, shape: nil, icon: nil, **attributes)
+  def initialize(href: nil, method: nil, variant: nil, outline: false, size: nil, shape: nil, icon: nil, **attributes)
     @href = href
     @method = method
-    @variant = variant
-    @outline = outline
-    @size = size
-    @shape = shape
+    @modifiers = [variant, ('outline' if outline), size, shape]
     @icon = icon
     @attributes = attributes
   end
@@ -42,7 +28,5 @@ class Components::Daisy::Button < Components::Base
 
   def attributes = mix({ class: classes }, @attributes)
 
-  def classes
-    ['btn', VARIANTS.fetch(@variant), ('btn-outline' if @outline), SIZES.fetch(@size), SHAPES.fetch(@shape)]
-  end
+  def classes = ['btn', *@modifiers.compact.map { "btn-#{it}" }]
 end

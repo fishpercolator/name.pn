@@ -1,19 +1,19 @@
 class Components::UI::FlashMessages < Components::Base
-  include Phlex::Rails::Helpers::Flash
-
   TONES = { 'notice' => 'bg-info/20', 'alert' => 'bg-error/20' }.freeze
 
-  def render? = messages.any?
+  def initialize(messages)
+    @messages = messages.slice(*TONES.keys)
+  end
+
+  def render? = @messages.any?
 
   def view_template
     section(id: 'messages', data: { controller: 'messages' }) do
-      messages.each { |type, text| message(type, text) }
+      @messages.each { |type, text| message(type, text) }
     end
   end
 
   private
-
-  def messages = flash.to_hash.slice(*TONES.keys)
 
   def message(type, text)
     div(class: TONES.fetch(type), role: 'alert') do

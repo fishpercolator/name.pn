@@ -3,7 +3,7 @@ en:
     daisy:
       navbar:
         menu: Menu
-    ui:
+    shared:
       site_navbar:
         label: main navigation
         admin: Admin

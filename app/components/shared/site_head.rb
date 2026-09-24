@@ -1,4 +1,4 @@
-class Components::UI::SiteHead < Components::Base
+class Components::Shared::SiteHead < Components::Base
   include Phlex::Rails::Helpers::CSRFMetaTags
   include Phlex::Rails::Helpers::CSPMetaTag
   include Phlex::Rails::Helpers::FaviconLinkTag
@@ -13,7 +13,7 @@ class Components::UI::SiteHead < Components::Base
     csp_meta_tag
     icons
     assets
-    Analytics()
+    analytics
   end
 
   private
@@ -26,6 +26,10 @@ class Components::UI::SiteHead < Components::Base
       'theme-color' => '#071f21',
       'view-transition': 'same-origin'
     }
+  end
+
+  def analytics
+    render Components::Shared::Analytics.new(tracking_id: Figaro.env.GA_ID, user_id: current_user&.id)
   end
 
   def icons
