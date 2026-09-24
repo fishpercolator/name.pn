@@ -1,8 +1,0 @@
-- if @user.likeness.attached?
-  %article.profile-card.group.card.mt-6.overflow-hidden.bg-base-100.shadow-md#likeness{data: {public_profile_target: 'card'}}
-    %header.flex.items-center.justify-between.bg-accent.px-4.py-3.text-accent-content
-      %h2.profile-card__title.text-2xl.font-bold= t('.what_i_look_like')
-      = section_link 'likeness'
-    .card-body
-      = render Components::UI::Likeness.new(@user.likeness, name: @user.full_name)
-    = see_all

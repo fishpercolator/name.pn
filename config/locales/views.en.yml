@@ -36,6 +36,54 @@ en:
         copied: Copied!
         you_must_complete: You must complete the highlighted parts before you can preview your page
         or_with_pronouns: 'or, if you prefer a URL containing your pronouns:'
+    users:
+      card:
+        link_to_this_section: Link to just this section
+        see_all: "See my full profile"
+      name_badge:
+        hello: Hello
+        my_name_is: my name is
+        my_pronouns_are: my pronouns are
+      pronunciation_card:
+        title: How to pronounce my name
+        heading: "'%{name}' is pronounced"
+        hint: This is how I pronounce my own name when speaking English.
+      name_details_card:
+        title: How to use my name
+        headings:
+          full_name: My full name
+          personal_name: Personal name
+          formal_name: Formal name
+          email_name: Email name
+          envelope_name: On an envelope
+          variants:
+            like_html: I also like to be called
+            ok_html: I don't mind being called
+            sometimes_html: You might hear me being called
+            dislike_html: I <b>don't like</b> to be called
+        hints:
+          full_name: If you're adding me to a list of names, please use this name.
+          personal_name: This is the name I want to be addressed by during a conversation.
+          formal_name: I use this name in formal contexts. For example, a letter addressed to me might start 'Dear %{value}'.
+          email_name: Please use this name when addressing me at the start of an email. For example, 'Dear %{value}'.
+          envelope_name: Please use this name when adding my name to an address in a formal context. For example, on an envelope.
+          variants:
+            like: It's always OK to use these nicknames or variants of my name wherever you use my personal name.
+            ok: If you use these variants of my name I won't mind, but they're not names I enjoy being called.
+            sometimes: There are some circumstances in which you might hear people using these variants of my personal name. Please don't use them except in those circumstances.
+            dislike: Please don't use these variants of my name.
+      likeness_card:
+        title: What I look like
+      pronouns_card:
+        title: How to use my pronouns
+        hint: To speak about a person in English, you don't need to know their gender but you do need to know which pronouns to use. This information can't be determined from a person's name or what they look like, so we include it on everyone's page.
+        pronounless_blurbs:
+          none_html: '<b>Note about "None"</b>: I do not have pronouns. I always use my name wherever other people might use a pronoun.'
+          unknown_html: '<b>Note about "Unknown"</b>: I have not yet worked out what my pronouns are or should be. Please use my name instead of pronouns for the time being.'
+          any_html: '<b>Note about "Any"</b>: I do not mind what pronouns are used for me. Below are random examples of pronouns you could use for me.'
+      links_card:
+        title: More about me
+        hint: 'These external links have been provided by %{name} and are not endorsed by name.pn.'
     shared:
       site_navbar:
         label: main navigation
@@ -161,54 +209,6 @@ en:
       description: "Hello! My name is %{name}. My pronouns are %{pronouns}."
       hello_my_name_is: "Hello! My name is %{name}"
       my_pronouns_are: "My pronouns are %{pronouns}"
-      link_to_this_section: Link to just this section
-      see_all: "See my full profile"
-    name_and_pronoun_card:
-      hello: Hello
-      my_name_is: my name is
-      my_pronouns_are: my pronouns are
-    pronunciation_card:
-      how_to_pronounce_my_name: How to pronounce my name
-      headings:
-        phonetic: "'%{name}' is pronounced"
-      hints:
-        phonetic: This is how I pronounce my own name when speaking English.
-    name_details_card:
-      how_to_use_my_name: How to use my name
-      headings:
-        full_name: My full name
-        personal_name: Personal name
-        formal_name: Formal name
-        email_name: Email name
-        envelope_name: On an envelope
-        variants:
-          like_html: I also like to be called
-          ok_html: I don't mind being called
-          sometimes_html: You might hear me being called
-          dislike_html: I <b>don't like</b> to be called
-      hints:
-        full_name: If you're adding me to a list of names, please use this name.
-        personal_name: This is the name I want to be addressed by during a conversation.
-        formal_name: I use this name in formal contexts. For example, a letter addressed to me might start 'Dear %{value}'.
-        email_name: Please use this name when addressing me at the start of an email. For example, 'Dear %{value}'.
-        envelope_name: Please use this name when adding my name to an address in a formal context. For example, on an envelope.
-        variants:
-          like: It's always OK to use these nicknames or variants of my name wherever you use my personal name.
-          ok: If you use these variants of my name I won't mind, but they're not names I enjoy being called.
-          sometimes: There are some circumstances in which you might hear people using these variants of my personal name. Please don't use them except in those circumstances.
-          dislike: Please don't use these variants of my name.
-    likeness_card:
-      what_i_look_like: What I look like
-    pronouns_card:
-      how_to_use_my_pronouns: How to use my pronouns
-      pronoun_hint: To speak about a person in English, you don't need to know their gender but you do need to know which pronouns to use. This information can't be determined from a person's name or what they look like, so we include it on everyone's page.
-      pronounless_blurbs:
-        none_html: '<b>Note about "None"</b>: I do not have pronouns. I always use my name wherever other people might use a pronoun.'
-        unknown_html: '<b>Note about "Unknown"</b>: I have not yet worked out what my pronouns are or should be. Please use my name instead of pronouns for the time being.'
-        any_html: '<b>Note about "Any"</b>: I do not mind what pronouns are used for me. Below are random examples of pronouns you could use for me.'
-    links_card:
-      more_about_me: More about me
-      links_hint: 'These external links have been provided by %{name} and are not endorsed by name.pn.'
   clients:
     client:
       confirm_delete: Are you sure you want to delete this API key? All clients using this key will lose access.

@@ -1,6 +1,6 @@
 class Components::UI::BulletList < Components::Base
   def view_template(&)
-    ul(class: 'list-disc leading-7', &)
+    ul(class: 'list-inside list-[square]', &)
   end
 
   def item(&) = li(&)

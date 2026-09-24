@@ -1,8 +1,9 @@
 class Components::UI::SectionCard < Components::Base
   ACTION = 'section-card__action h-auto flex-1 rounded-none border-0 py-3 font-normal text-secondary not-first:border-s not-first:border-base-300'.freeze
 
-  def initialize(title, **attributes)
+  def initialize(title, footer: {}, **attributes)
     @title = title
+    @footer = footer
     @attributes = attributes
     @actions = []
   end
@@ -12,7 +13,7 @@ class Components::UI::SectionCard < Components::Base
     Card(**@attributes) do
       div(class: ['flex grow flex-col', body_class]) do
         title_bar
-        div(class: 'card-body grow gap-4 [&_p]:grow-0', &@content)
+        div(class: ['card-body grow gap-4 [&_p]:grow-0', content_class], &@content)
       end
       action_bar if @actions.any?
     end
@@ -32,11 +33,15 @@ class Components::UI::SectionCard < Components::Base
 
   def body_class = nil
 
+  def title_bar_class = nil
+
+  def content_class = nil
+
   private
 
   def title_bar
-    header(class: 'flex items-center justify-between gap-2 px-4 py-2 shadow-sm') do
-      h2(class: 'font-bold') { @title }
+    header(class: ['flex items-center justify-between gap-2 px-4 py-3 shadow-sm', title_bar_class]) do
+      h2(class: 'text-xl font-bold') { @title }
       tool_button(**@tool) if @tool
     end
   end
@@ -48,8 +53,10 @@ class Components::UI::SectionCard < Components::Base
   end
 
   def action_bar
-    footer(class: 'flex border-t border-base-300 bg-base-100') do
-      @actions.each { |attributes, label| Button(variant: :ghost, **mix({ class: ACTION }, attributes), &label) }
+    footer(**mix({ class: 'border-t border-base-300 bg-base-100' }, @footer)) do
+      div(class: 'flex') do
+        @actions.each { |attributes, label| Button(variant: :ghost, **mix({ class: ACTION }, attributes), &label) }
+      end
     end
   end
 end
