@@ -7,7 +7,7 @@ module HomeHelper
   end
   
   def not_set
-    content_tag(:span, t('home.user_home.not_set'), class: 'italic text-base-content/70')
+    content_tag(:span, t('home.user_home.not_set'), class: 'italic text-muted')
   end
   
 end

@@ -1,4 +1,4 @@
-- item = 'btn btn-ghost h-auto flex-1 rounded-none border-0 py-3 font-normal text-secondary not-first:border-s not-first:border-base-300'
+- item = 'dashboard-card__action btn btn-ghost h-auto flex-1 rounded-none border-0 py-3 font-normal text-secondary not-first:border-s not-first:border-base-300'
 - footer = capture do
   = link_to profile_path(:slug), class: item do
     = icon 'pencil'
@@ -22,14 +22,14 @@
       = icon 'clipboard-outline'
       = t('home.url_card.copy_to_clipboard')
 %div{class: 'md:col-span-2', data: {controller: 'url', url_copied_class: 'copy-button--copied'}}
-  = render layout: 'card', locals: {id: 'url', step: :slug, colour: 'bg-url/10', title: t('home.url_card.title'), footer: footer} do
+  = render layout: 'card', locals: {id: 'url', step: :slug, colour: 'bg-url', title: t('home.url_card.title'), footer: footer} do
     %p.break-words.text-center.text-2xl
       - if current_user.slug.present?
         %b{data: {url_target: 'url'}}= user_url(current_user, only_path: false)
       - else
         = you_must
     - if current_user.pronoun_sets.any?
-      %div.text-center{class: "text-base-content/70"}
+      .text-center.text-muted
         %p
           %i= t('home.url_card.or_with_pronouns')
         - current_user.pronoun_sets.each do |ps|

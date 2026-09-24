@@ -1,5 +1,5 @@
-= render layout: 'card', locals: {id: 'pronunciation', step: :pronunciation, colour: 'bg-pronunciation/10', title: t('.title'), blurb: t('profile.pronunciation.blurb')} do
-  %dl.prose.max-w-none{class: 'prose-dd:mt-1 prose-ul:my-0 prose-li:my-0'}
+= render layout: 'card', locals: {id: 'pronunciation', step: :pronunciation, colour: 'bg-pronunciation', title: t('.title'), blurb: t('profile.pronunciation.blurb')} do
+  %dl{class: 'leading-7 [&>dt]:mt-5 [&>dt]:font-bold [&>dt:first-child]:mt-0 [&>dd]:mt-1 [&>dd]:ms-6'}
     %dt= t('home.pronunciation_card.name_is_pronounced', name: current_user.pronunciation_of_name)
     %dd= current_user.phonetic? ? current_user.phonetic : not_set
     %dt= t('home.pronunciation_card.ipa', name: current_user.pronunciation_of_name)
@@ -11,6 +11,6 @@
     %dt= t('home.pronunciation_card.audio_clip', name: current_user.pronunciation_of_name)
     %dd
       - if current_user.pronunciation.attached?
-        .not-prose= render 'users/player', data: {player_url_value: url_for(current_user.pronunciation)}, button_class: 'btn-secondary'
+        = render 'users/player', data: {player_url_value: url_for(current_user.pronunciation)}, button_class: 'btn-secondary'
       - else
         = not_set

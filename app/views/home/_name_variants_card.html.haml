@@ -1,5 +1,5 @@
-= render layout: 'card', locals: {id: 'variants', step: :variants, colour: 'bg-variants/10', title: t('.title'), blurb: t('profile.variants.blurb')} do
-  %dl.prose.max-w-none{class: 'prose-dd:mt-1 prose-ul:my-0 prose-li:my-0'}
+= render layout: 'card', locals: {id: 'variants', step: :variants, colour: 'bg-variants', title: t('.title'), blurb: t('profile.variants.blurb')} do
+  %dl{class: 'leading-7 [&>dt]:mt-5 [&>dt]:font-bold [&>dt:first-child]:mt-0 [&>dd]:mt-1 [&>dd]:ms-6'}
     %dt= User.human_attribute_name(:envelope_name)
     %dd= current_user.envelope_name? ? current_user.envelope_name : not_set
     %dt= User.human_attribute_name(:formal_name)
@@ -9,6 +9,6 @@
     - current_user.alternate_names.grouped_by_category.each do |category, ans|
       %dt= t(category, scope: 'alternate_name_categories')
       %dd
-        %ul.ps-0
+        %ul.list-disc
           - ans.each do |an|
-            %li.ps-0= an.name
+            %li= an.name

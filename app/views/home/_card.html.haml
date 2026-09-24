@@ -1,13 +1,13 @@
--# Layout for a dashboard card. The colour is a literal class so Tailwind can see it.
-%article.card.overflow-hidden.bg-base-100.shadow-md{id: id}
+-# Layout for a dashboard card. The colour is a literal bg-* class so Tailwind can see it.
+%article.dashboard-card.card.overflow-hidden.bg-base-100.shadow-md{id: id}
   .flex.grow.flex-col{class: colour}
-    %header.flex.items-center.justify-between.gap-2.px-4.py-2.shadow-sm
+    %header.dashboard-card__header.flex.items-center.justify-between.gap-2.px-4.py-2.shadow-sm
       %h2.font-bold= title
-      = link_to profile_path(step), class: 'btn btn-square btn-ghost btn-sm text-secondary', title: t('actions.edit') do
+      = link_to profile_path(step), class: 'dashboard-card__edit btn btn-square btn-ghost btn-sm text-secondary', title: t('actions.edit') do
         = icon 'pencil', class: 'size-5 fill-current'
     .card-body.grow.gap-4{class: '[&_p]:grow-0'}
       - if local_assigns[:blurb]
-        %p{class: "text-base-content/70"}= blurb
+        %p.text-muted= blurb
       = yield
   - if local_assigns[:footer]
-    %footer.flex.border-t.border-base-300.bg-base-100= footer
+    %footer.dashboard-card__actions.flex.border-t.border-base-300.bg-base-100= footer

@@ -6,19 +6,19 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
   end
 
   step 'I should see cards displaying every aspect of my name' do
-    expect(page).to have_css('article', text: 'Personal name Audrey Full name Audrey Horne')
-    expect(page).to have_css('article', text: "Envelope name Ms A. H. Horne Formal name Ms Horne Email name Audrey Name variants that you like\nHester Prynne Scarlett\nName variants that you don\'t like\nAud")
-    expect(page).to have_css('article', text: 'Audrey Horne is pronounced AWD-ree HORN')
-    expect(page).to have_css('article', text: 'Pronouns: she/her Audrey is a great cook. She is really good at cooking.')
-    expect(page).to have_css('article', text: 'What you look like')
-    expect(page).to have_css('#likeness img')
-    expect(page).to have_css('article', text: 'Your personal links')
-    expect(page).to have_css('article', text: 'LinkedIn Twitter')
+    expect(page).to have_css('.dashboard-card', text: 'Personal name Audrey Full name Audrey Horne')
+    expect(page).to have_css('.dashboard-card', text: "Envelope name Ms A. H. Horne Formal name Ms Horne Email name Audrey Name variants that you like\nHester Prynne Scarlett\nName variants that you don\'t like\nAud")
+    expect(page).to have_css('.dashboard-card', text: 'Audrey Horne is pronounced AWD-ree HORN')
+    expect(page).to have_css('.dashboard-card', text: 'Pronouns: she/her Audrey is a great cook. She is really good at cooking.')
+    expect(page).to have_css('.dashboard-card', text: 'What you look like')
+    expect(page).to have_css('.dashboard-card#likeness img')
+    expect(page).to have_css('.dashboard-card', text: 'Your personal links')
+    expect(page).to have_css('.dashboard-card', text: 'LinkedIn Twitter')
   end
   
   step 'I should see edit buttons for each section' do
-    expect(page).to have_css('article header a[title="Edit"]', count: 7)
-    expect(page).to have_css('a', exact_text: 'Edit', count: 1)
+    expect(page).to have_css('.dashboard-card__edit', count: 7)
+    expect(page).to have_css('.dashboard-card__action', text: 'Edit', count: 1)
   end
 
   step 'I should see no warnings about sharing my URL' do
@@ -34,12 +34,12 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
   end
 
   step 'I should see enabled buttons to view and copy my URL' do
-    expect(page).to have_link('View')
-    expect(page).to have_button('Copy', disabled: false)
+    expect(page).to have_css('.dashboard-card__action:not([disabled])', text: 'View')
+    expect(page).to have_css('.dashboard-card__action:not([disabled])', text: 'Copy')
   end
 
   step 'I should see cards with indications that things are not set' do
-    expect(page).to have_css('article', text: 'Envelope name Not set Formal name Not set')
+    expect(page).to have_css('.dashboard-card', text: 'Envelope name Not set Formal name Not set')
   end
 
   step 'I should see warnings about sharing my URL' do
@@ -47,8 +47,8 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
   end
 
   step 'I should see disabled buttons to view and copy my URL' do
-    expect(page).to have_button('View', disabled: true)
-    expect(page).to have_button('Copy', disabled: true)
+    expect(page).to have_css('.dashboard-card__action[disabled]', text: 'View')
+    expect(page).to have_css('.dashboard-card__action[disabled]', text: 'Copy')
   end
 
   step 'I have set my name and slug but not my pronouns' do
