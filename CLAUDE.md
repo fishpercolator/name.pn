@@ -42,7 +42,7 @@ Kit components are pure UI. They get their data through the constructor, and nev
 
 ### Layouts and rendering
 
-- Layouts are Phlex classes in `Views::Layouts`, set with `layout -> { Views::Layouts::X }`. They wrap Phlex views, any remaining HAML views, and the Markdown pages alike.
+- Layouts are Phlex classes in `Views::Layouts`, set with `layout -> { Views::Layouts::X }`. They wrap Phlex views and the Markdown pages alike. Only the mailer layouts are ERB.
 - Views reach the layout only through `content_for` and meta-tags.
 - Phlexible's `ImplicitRender` renders `Views::<ControllerPath>::<Action>` when an action doesn't render.
 - Content pages are Markdown under `app/views/pages`, served by `PagesController` (high_voltage).
