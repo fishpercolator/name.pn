@@ -3,7 +3,7 @@
     %button.btn.btn-success.btn-lg{type: 'button', data: {action: 'likeness-uploader#start'}}
       = icon 'file-upload-outline'
       = t('.upload_button')
-    = f.button :button, value: 'delete_likeness', class: 'btn-error btn-lg', disabled: !f.object.likeness.attached?, data: {likeness_uploader_target: 'delete'} do
+    = f.button :button, value: 'delete_likeness', class: 'btn-danger btn-lg', disabled: !f.object.likeness.attached?, data: {likeness_uploader_target: 'delete'} do
       = icon 'delete'
       = t('.delete_button')
   %div{class: '[&_img]:rounded-full', data: {likeness_uploader_target: 'preview'}}

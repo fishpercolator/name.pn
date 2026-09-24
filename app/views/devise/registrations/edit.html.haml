@@ -13,7 +13,7 @@
   %section
     = turbo_frame_tag [current_user, "mailing_list"], src: users_mailing_list_path
   %section
-    %h2.font-bold{class: 'text-[2rem]'}= t('.api_keys')
+    %h2.text-2xl.font-bold= t('.api_keys')
     %p.mt-2.mb-4.text-xl{class: '[&_a]:link'}= t('.api_keys_blurb_html', href: link_to(t('.api'), rswag_ui_path, data: {turbo: false}))
     .card.bg-base-100.shadow-md
       .overflow-x-auto

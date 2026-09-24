@@ -73,6 +73,14 @@
   display: inline-block;
 }
 
+/* Destructive actions. daisyUI has no danger role, so this uses the error
+   colour the same way btn-error does. */
+@utility btn-danger {
+  --btn-color: var(--color-error);
+  --btn-fg: var(--color-error-content);
+  --btn-soft-bg: initial;
+}
+
 /* Secondary text: hints, blurbs and "Not set" */
 @utility text-muted {
   color: color-mix(in oklab, var(--color-base-content) 70%, transparent);

@@ -5,7 +5,7 @@
       - if current_user.subscribed_to_mailing_list?
         %p= raw t('.currently_subscribed')
         .mt-4
-          = button_to t('.unsubscribe'), users_mailing_list_unsubscribe_path, class: 'btn btn-error'
+          = button_to t('.unsubscribe'), users_mailing_list_unsubscribe_path, class: 'btn btn-danger'
       - else
         %p= raw t('.currently_unsubscribed')
         .mt-4

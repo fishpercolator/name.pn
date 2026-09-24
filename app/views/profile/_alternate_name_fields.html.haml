@@ -2,6 +2,6 @@
   = f.input :name
   = f.input :category, as: :select, collection: AlternateName.categories.keys.map {|c| [t(c, scope: 'alternate_name_form_categories'), c]}, include_blank: false
   .mt-2.flex.justify-end
-    = link_to_remove_association f, class: 'btn btn-error' do
+    = link_to_remove_association f, class: 'btn btn-danger' do
       = icon 'delete'
       = t('.remove_alternate_name')
