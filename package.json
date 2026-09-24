@@ -17,15 +17,12 @@
     "@uppy/webcam": "^5.1.0",
     "@uppy/xhr-upload": "^5.2.0",
     "animate.css": "^4.1.1",
-    "bulma": "^1.0.4",
-    "bulma-o-steps": "github:octoshrimpy/bulma-o-steps#c21bf10",
     "daisyui": "^5.7.43",
     "esbuild": "~0.28.2",
     "extendable-media-recorder": "^9.2.40",
     "extendable-media-recorder-wav-encoder": "^7.0.140",
     "fitty": "^2.4.2",
     "luminous-lightbox": "^2.4.0",
-    "sass": "^1.105.0",
     "sortablejs": "^1.15.7",
     "tailwindcss": "^4.3.3"
   },
@@ -38,7 +35,7 @@
     "defaults"
   ],
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.bulma.scss:./app/assets/builds/bulma.css --no-source-map --load-path=node_modules --style=compressed && tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify && tailwindcss -i ./app/assets/stylesheets/active_admin.css -o ./app/assets/builds/active_admin.css --minify",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify && tailwindcss -i ./app/assets/stylesheets/active_admin.css -o ./app/assets/builds/active_admin.css --minify",
     "build": "bun bun.config.js",
     "check-types": "tsc --project tsconfig.json --noEmit"
   },
