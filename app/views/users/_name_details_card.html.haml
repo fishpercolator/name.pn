@@ -1,19 +1,19 @@
-.card.profile-card.mt-6#name-details{data: {public_profile_target: 'card'}}
-  .card-header.profile-card__header
-    .card-header-title= t('.how_to_use_my_name')
+%article.profile-card.group.card.mt-6.overflow-hidden.bg-base-100.shadow-md#name-details{data: {public_profile_target: 'card'}}
+  %header.flex.items-center.justify-between.bg-accent.px-4.py-3.text-accent-content
+    %h2.profile-card__title.text-2xl.font-bold= t('.how_to_use_my_name')
     = section_link 'name-details'
-  .card-content
+  .card-body.gap-0.text-2xl
     - %i[full_name personal_name envelope_name formal_name email_name].each do |att|
       - val = user.public_send(att)
       - if val.present?
-        %h2.profile-card__heading= t(".headings.#{att}", name: user.full_name, value: val)
-        .profile-card__name= val
-        .profile-card__hint= t(".hints.#{att}", name: user.full_name, value: val)
+        %h3.profile-card__heading.mt-8.text-accent{class: 'first:mt-0'}= t(".headings.#{att}", name: user.full_name, value: val)
+        .profile-card__name.font-bold= val
+        .profile-card__hint.text-base.text-muted= t(".hints.#{att}", name: user.full_name, value: val)
     - user.alternate_names.grouped_by_category.each do |category, ans|
-      %h2.profile-card__heading=t (".headings.variants.#{category}_html")
-      .profile-card__name
-        %ul
+      %h3.profile-card__heading.mt-8.text-accent{class: 'first:mt-0'}= t(".headings.variants.#{category}_html")
+      .profile-card__name.font-bold
+        %ul{class: 'list-inside list-[square]'}
           - ans.each do |an|
             %li= an.name
-      .profile-card__hint= t(".hints.variants.#{category}")
+      .profile-card__hint.text-base.text-muted= t(".hints.variants.#{category}")
   = see_all

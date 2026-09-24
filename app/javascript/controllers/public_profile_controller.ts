@@ -29,16 +29,16 @@ export default class extends Controller {
   protected showCard(card: HTMLDivElement): void {
     this.cardTargets.forEach(x => {
       if (x === card) {
-        x.classList.remove('is-hidden')
+        x.classList.remove('hidden')
         x.classList.add('is-shown-alone')
       } else {
-        x.classList.add('is-hidden')
+        x.classList.add('hidden')
         x.classList.remove('is-shown-alone')
       }
     })
   }
   // Show all cards
   protected showAllCards(): void {
-    this.cardTargets.forEach(x => x.classList.remove('is-hidden', 'is-shown-alone'))
+    this.cardTargets.forEach(x => x.classList.remove('hidden', 'is-shown-alone'))
   }
 }
