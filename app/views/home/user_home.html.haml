@@ -3,7 +3,7 @@
   .mt-6.space-y-4.text-xl.text-muted
     %p= t('.page_description1')
     %p= t('.page_description2')
-  .mt-12.grid.gap-6{class: 'md:grid-cols-2'}
+  .mt-12.grid.grid-cols-1.gap-6{class: 'md:grid-cols-2'}
     = render 'url_card'
     .flex.flex-col.gap-6{class: '[&>*]:grow'}
       = render 'name_card'
