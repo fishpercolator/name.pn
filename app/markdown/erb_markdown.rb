@@ -8,6 +8,6 @@ class ErbMarkdown < ApplicationMarkdown
     # Read more about this render call at https://guides.rubyonrails.org/layouts_and_rendering.html
     # The text format stops annotate_rendered_view_with_filenames wrapping the
     # output in HTML comments, which would stop the first line parsing as Markdown.
-    render inline: html, handler: :erb, formats: [:text]
+    super(render(inline: html, handler: :erb, formats: [:text]))
   end
 end
