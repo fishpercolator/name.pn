@@ -29,13 +29,13 @@ class Components::UI::SectionCard < Components::Base
   end
 
   def tool(href, icon:, label:, **attributes)
-    @tool = -> { Button(href:, variant: :ghost, shape: :square, size: :sm, title: label, aria: { label: }, **attributes) { Icon(icon, class: 'size-5 fill-current') } }
+    @tool = { href:, icon:, label:, **attributes }
   end
 
   def content(&block) = @content = block
 
-  def action(**attributes, &block)
-    @actions << -> { Button(variant: :ghost, **mix({ class: ACTION }, attributes), &block) }
+  def action(**attributes, &label)
+    @actions << [attributes, label]
   end
 
   private
@@ -43,11 +43,19 @@ class Components::UI::SectionCard < Components::Base
   def title_bar
     header(class: 'flex items-center justify-between gap-2 px-4 py-2 shadow-sm') do
       h2(class: 'font-bold') { @title }
-      @tool&.call
+      tool_button(**@tool) if @tool
+    end
+  end
+
+  def tool_button(href:, icon:, label:, **attributes)
+    Button(href:, variant: :ghost, shape: :square, size: :sm, title: label, aria: { label: }, **attributes) do
+      Icon(icon, class: 'size-5 fill-current')
     end
   end
 
   def action_bar
-    footer(class: 'flex border-t border-base-300 bg-base-100') { @actions.each(&:call) }
+    footer(class: 'flex border-t border-base-300 bg-base-100') do
+      @actions.each { |attributes, label| Button(variant: :ghost, **mix({ class: ACTION }, attributes), &label) }
+    end
   end
 end
