@@ -17,5 +17,6 @@ class ErrorsController < ApplicationController
     request.format = :html
   end
 
+  # Gaffe::Errors sets @rescue_response to the exception's rescue response, e.g. :not_found
   def error_view = "Views::Errors::#{@rescue_response.to_s.camelize}".safe_constantize || Views::Errors::InternalServerError
 end

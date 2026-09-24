@@ -15,7 +15,7 @@ class Views::Errors::Page < Views::Base
   def support_links
     ActionLinks do |actions|
       actions.link(ISSUES, icon: 'bug') { t('errors.support.report_a_bug') }
-      actions.link("mailto:#{SUPPORT}", icon: 'email') { SUPPORT }
+      actions.email_link(SUPPORT)
     end
   end
 end

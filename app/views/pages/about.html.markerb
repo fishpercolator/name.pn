@@ -37,5 +37,5 @@ end %>
 If you'd like to report an issue or feature request, please use [our issues board](https://github.com/fishpercolator/name.pn/issues). But to get in touch for any other reason, our email address is below.
 
 <%= render Components::UI::ActionLinks.new do |actions|
-  actions.link('mailto:support@name.pn', icon: 'email') { 'support@name.pn' }
+  actions.email_link('support@name.pn')
 end %>

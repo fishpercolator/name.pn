@@ -10,4 +10,6 @@ class Components::UI::ActionLinks < Components::Base
   def link(href, icon: nil, &)
     Button(href:, icon:, variant: :secondary, outline: true, class: 'h-auto py-2 sm:btn-lg', &)
   end
+
+  def email_link(address) = link("mailto:#{address}", icon: 'email') { address }
 end
