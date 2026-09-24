@@ -1,11 +1,11 @@
-class Components::Users::PronunciationCard < Components::Users::Card
+class Components::PublicProfile::PronunciationSection < Components::PublicProfile::Section
   include Phlex::Rails::Helpers::URLFor
 
   def render? = @user.phonetic? || @user.ipa? || @user.pronunciation.attached?
 
   protected
 
-  def section = 'pronunciation'
+  def section_name = 'pronunciation'
 
   def content
     detail(t('.heading', name: @user.pronunciation_of_name), hint: t('.hint')) do

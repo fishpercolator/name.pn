@@ -1,4 +1,4 @@
-class Components::Users::Card < Components::Base
+class Components::PublicProfile::Section < Components::Base
   SEE_ALL = 'profile-card__see-all hidden group-[.is-shown-alone]:block'.freeze
 
   def initialize(user)
@@ -6,10 +6,10 @@ class Components::Users::Card < Components::Base
   end
 
   def view_template
-    ProfileCard(t('.title'), id: section, class: 'profile-card group mt-6', footer: { class: SEE_ALL }, data: { public_profile_target: 'card' }) do |card|
-      card.tool("##{section}", icon: 'link', label: t('components.users.card.link_to_this_section'), class: 'text-accent-content')
+    ProfileCard(t('.title'), id: section_name, class: 'profile-card group mt-6', footer: { class: SEE_ALL }, data: { public_profile_target: 'card' }) do |card|
+      card.tool("##{section_name}", icon: 'link', label: t('components.public_profile.section.link_to_this_section'), class: 'text-accent-content')
       card.content { div { content } }
-      card.action(href: '#') { t('components.users.card.see_all') }
+      card.action(href: '#') { t('components.public_profile.section.see_all') }
     end
   end
 

@@ -1,4 +1,4 @@
-class Components::Users::PronounsCard < Components::Users::Card
+class Components::PublicProfile::PronounsSection < Components::PublicProfile::Section
   def initialize(user, pronoun_sets)
     super(user)
     @pronoun_sets = pronoun_sets
@@ -6,7 +6,7 @@ class Components::Users::PronounsCard < Components::Users::Card
 
   protected
 
-  def section = 'pronouns'
+  def section_name = 'pronouns'
 
   def content
     Hint(class: 'profile-card__hint') { t('.hint') }

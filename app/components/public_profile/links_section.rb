@@ -1,9 +1,9 @@
-class Components::Users::LinksCard < Components::Users::Card
+class Components::PublicProfile::LinksSection < Components::PublicProfile::Section
   def render? = links.any?
 
   protected
 
-  def section = 'links'
+  def section_name = 'links'
 
   def content
     Hint(class: 'profile-card__hint') { t('.hint', name: @user.personal_name) }

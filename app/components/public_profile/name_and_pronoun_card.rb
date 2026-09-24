@@ -1,4 +1,4 @@
-class Components::Users::NameAndPronounCard < Components::Base
+class Components::PublicProfile::NameAndPronounCard < Components::Base
   def initialize(user, pronoun_sets)
     @user = user
     @pronoun_sets = pronoun_sets

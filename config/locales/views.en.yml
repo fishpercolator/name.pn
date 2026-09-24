@@ -36,8 +36,8 @@ en:
         copied: Copied!
         you_must_complete: You must complete the highlighted parts before you can preview your page
         or_with_pronouns: 'or, if you prefer a URL containing your pronouns:'
-    users:
-      card:
+    public_profile:
+      section:
         link_to_this_section: Link to just this section
         see_all: "See my full profile"
       name_and_pronoun_card:
@@ -48,11 +48,11 @@ en:
           none: None
           unknown: Unknown
           any: Any
-      pronunciation_card:
+      pronunciation_section:
         title: How to pronounce my name
         heading: "'%{name}' is pronounced"
         hint: This is how I pronounce my own name when speaking English.
-      name_details_card:
+      name_details_section:
         title: How to use my name
         headings:
           full_name: My full name
@@ -76,16 +76,16 @@ en:
             ok: If you use these variants of my name I won't mind, but they're not names I enjoy being called.
             sometimes: There are some circumstances in which you might hear people using these variants of my personal name. Please don't use them except in those circumstances.
             dislike: Please don't use these variants of my name.
-      likeness_card:
+      likeness_section:
         title: What I look like
-      pronouns_card:
+      pronouns_section:
         title: How to use my pronouns
         hint: To speak about a person in English, you don't need to know their gender but you do need to know which pronouns to use. This information can't be determined from a person's name or what they look like, so we include it on everyone's page.
         pronounless_blurbs:
           none_html: '<b>Note about "None"</b>: I do not have pronouns. I always use my name wherever other people might use a pronoun.'
           unknown_html: '<b>Note about "Unknown"</b>: I have not yet worked out what my pronouns are or should be. Please use my name instead of pronouns for the time being.'
           any_html: '<b>Note about "Any"</b>: I do not mind what pronouns are used for me. Below are random examples of pronouns you could use for me.'
-      links_card:
+      links_section:
         title: More about me
         hint: 'These external links have been provided by %{name} and are not endorsed by name.pn.'
     shared:

@@ -1,9 +1,9 @@
-class Components::Users::NameDetailsCard < Components::Users::Card
+class Components::PublicProfile::NameDetailsSection < Components::PublicProfile::Section
   NAMES = %i[full_name personal_name envelope_name formal_name email_name].freeze
 
   protected
 
-  def section = 'name-details'
+  def section_name = 'name-details'
 
   def content
     names.each { |name, value| detail(t(".headings.#{name}"), hint: t(".hints.#{name}", value:)) { value } }

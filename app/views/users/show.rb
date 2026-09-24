@@ -4,7 +4,7 @@ class Views::Users::Show < Views::Base
   def view_template
     Container(data: { controller: 'public-profile', action: 'hashchange@window->public-profile#hashChange' }) do
       div(class: 'mx-auto md:w-1/2') do
-        render Components::Users::NameAndPronounCard.new(@user, @pronoun_sets)
+        render Components::PublicProfile::NameAndPronounCard.new(@user, @pronoun_sets)
         cards
       end
     end
@@ -14,10 +14,10 @@ class Views::Users::Show < Views::Base
   private
 
   def cards
-    render Components::Users::PronunciationCard.new(@user)
-    render Components::Users::NameDetailsCard.new(@user)
-    render Components::Users::LikenessCard.new(@user)
-    render Components::Users::PronounsCard.new(@user, @pronoun_sets)
-    render Components::Users::LinksCard.new(@user)
+    render Components::PublicProfile::PronunciationSection.new(@user)
+    render Components::PublicProfile::NameDetailsSection.new(@user)
+    render Components::PublicProfile::LikenessSection.new(@user)
+    render Components::PublicProfile::PronounsSection.new(@user, @pronoun_sets)
+    render Components::PublicProfile::LinksSection.new(@user)
   end
 end
