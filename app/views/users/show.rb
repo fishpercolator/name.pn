@@ -2,7 +2,7 @@ class Views::Users::Show < Views::Base
   controller_variable :user, :pronoun_sets
 
   def view_template
-    section(class: 'container mx-auto px-4 py-12', data: { controller: 'public-profile', action: 'hashchange@window->public-profile#hashChange' }) do
+    Container(data: { controller: 'public-profile', action: 'hashchange@window->public-profile#hashChange' }) do
       div(class: 'mx-auto md:w-1/2') do
         render Components::Users::NameBadge.new(@user, @pronoun_sets)
         cards
