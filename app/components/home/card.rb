@@ -4,7 +4,7 @@ class Components::Home::Card < Components::Base
   end
 
   def view_template
-    SectionCard(t('.title'), tone: section, id: section.to_s.dasherize, class: 'dashboard-card') do |card|
+    DashboardCard(t('.title'), tone: section, id: section.to_s.dasherize, class: 'dashboard-card') do |card|
       card.tool(profile_path(step), icon: 'pencil', label: t('actions.edit'), class: 'dashboard-card__edit text-secondary')
       card.content do
         Blurb(blurb) if blurb

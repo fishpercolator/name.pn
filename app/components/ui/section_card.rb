@@ -1,18 +1,8 @@
 class Components::UI::SectionCard < Components::Base
-  TONES = {
-    url: 'bg-url',
-    personal_name: 'bg-personal-name',
-    pronouns: 'bg-pronouns',
-    pronunciation: 'bg-pronunciation',
-    variants: 'bg-variants',
-    likeness: 'bg-likeness',
-    links: 'bg-links'
-  }.freeze
   ACTION = 'section-card__action h-auto flex-1 rounded-none border-0 py-3 font-normal text-secondary not-first:border-s not-first:border-base-300'.freeze
 
-  def initialize(title, tone: nil, **attributes)
+  def initialize(title, **attributes)
     @title = title
-    @tone = tone
     @attributes = attributes
     @actions = []
   end
@@ -20,7 +10,7 @@ class Components::UI::SectionCard < Components::Base
   def view_template(&)
     vanish(&)
     Card(**@attributes) do
-      div(class: ['flex grow flex-col', TONES[@tone]]) do
+      div(class: ['flex grow flex-col', body_class]) do
         title_bar
         div(class: 'card-body grow gap-4 [&_p]:grow-0', &@content)
       end
@@ -37,6 +27,10 @@ class Components::UI::SectionCard < Components::Base
   def action(**attributes, &label)
     @actions << [attributes, label]
   end
+
+  protected
+
+  def body_class = nil
 
   private
 
