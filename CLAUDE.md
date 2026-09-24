@@ -46,6 +46,22 @@ Kit components are pure UI. They get their data through the constructor, and nev
 - Phlexible's `ImplicitRender` renders `Views::<ControllerPath>::<Action>` when an action doesn't render.
 - Content pages are Markdown under `app/views/pages`, served by `PagesController` (high_voltage).
 
+### Forms
+
+`Form(model:, url:, …)` takes `form_with`'s arguments, calls it, and yields itself. Views never see the Rails builder:
+
+```ruby
+Form(model: resource, scope: :user, url: user_session_path) do |form|
+  form.field :email
+  form.checkbox :remember_me
+  form.submit t('.submit')
+end
+```
+
+- `field` renders a daisyUI fieldset with its label, input, error and hint. The input type is inferred from the attribute name, or given with `as:`.
+- Labels, hints and placeholders come from `helpers.label|hint|placeholder.<model>.<attribute>`, and labels fall back to `human_attribute_name`. Pass `label:` or `hint:` only for copy that belongs to one page.
+- `input` renders a bare input, for layouts without a fieldset.
+
 ### i18n
 
 - Views use lazy keys. `Views::Home::UserHome` looks up `t('.title')` at `home.user_home.title`.

@@ -7,12 +7,12 @@ class MailingListController < ApplicationController
   
   def unsubscribe
     current_user.unsubscribe_from_mailing_list!
-    render :show
+    render Views::MailingList::Show.new
   end
   
   def subscribe
     current_user.subscribe_to_mailing_list!
-    render :show
+    render Views::MailingList::Show.new
   end
   
 end

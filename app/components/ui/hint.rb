@@ -4,6 +4,6 @@ class Components::UI::Hint < Components::Base
   end
 
   def view_template(&)
-    div(**mix({ class: 'text-base text-muted' }, @attributes), &)
+    div(**mix({ class: 'text-muted [&_a]:link' }, @attributes), &)
   end
 end

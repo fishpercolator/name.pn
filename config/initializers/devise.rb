@@ -305,6 +305,8 @@ Devise.setup do |config|
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
 end
+Devise.responder.prepend Phlexible::Rails::Responder
+
 # Use the same mailer layout as the main mailer
 Rails.application.config.to_prepare do
   Devise::Mailer.layout "mailer"
