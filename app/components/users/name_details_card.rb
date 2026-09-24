@@ -16,7 +16,7 @@ class Components::Users::NameDetailsCard < Components::Users::Card
 
   def variants(category, names)
     detail(t(".headings.variants.#{category}_html"), hint: t(".hints.variants.#{category}")) do
-      BulletList { |bullets| names.each { |name| bullets.item { name.name } } }
+      BulletList(markers: :inside) { |bullets| names.each { |name| bullets.item { name.name } } }
     end
   end
 end
