@@ -53,6 +53,8 @@ gem 'markdown-rails', '~> 2.2'
 gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 5.2'
 gem 'ostruct', '~> 0.6.1' # dependency of gaffe
+gem 'phlex-rails', '~> 2.4'
+gem 'phlexible', '~> 3.5'
 gem 'pundit', '~> 2.1'
 gem 'rails_semantic_logger', '~> 4.6'
 gem 'rswag-api', '~> 2.4'

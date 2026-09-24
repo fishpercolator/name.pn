@@ -423,6 +423,18 @@ GEM
     pg (1.6.3-x86_64-darwin)
     pg (1.6.3-x86_64-linux)
     pg (1.6.3-x86_64-linux-musl)
+    phlex (2.4.1)
+      refract (~> 1.0)
+      zeitwerk (~> 2.7)
+    phlex-rails (2.4.0)
+      phlex (~> 2.4.0)
+      railties (>= 7.1, < 9)
+      zeitwerk (~> 2.7)
+    phlexible (3.5.0)
+      phlex (>= 1.10.0, < 3.0.0)
+      phlex-rails (>= 1.2.0, < 3.0.0)
+      rails (>= 7.2.0, < 9.0.0)
+      zeitwerk (>= 2.7, < 3.0)
     pp (0.6.4)
       prettyprint
     prettyprint (0.2.0)
@@ -512,6 +524,9 @@ GEM
       rbs (>= 4.0.0)
       tsort
     redcarpet (3.6.1)
+    refract (1.1.0)
+      prism
+      zeitwerk
     regexp_parser (2.13.0)
     reline (0.7.0)
       io-console (~> 0.5)
@@ -680,6 +695,8 @@ DEPENDENCIES
   mini_magick (~> 5.2)
   ostruct (~> 0.6.1)
   pg (>= 0.18, < 2.0)
+  phlex-rails (~> 2.4)
+  phlexible (~> 3.5)
   pry-rails
   pry-rescue
   puma (~> 8.0)
