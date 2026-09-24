@@ -1,7 +1,7 @@
-class Components::Home::VariantsCard < Components::Home::Card
+class Components::Dashboard::VariantsSection < Components::Dashboard::Section
   protected
 
-  def section = :variants
+  def section_name = :variants
 
   def content
     DetailList(@user) do |list|

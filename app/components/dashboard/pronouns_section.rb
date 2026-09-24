@@ -1,7 +1,7 @@
-class Components::Home::PronounsCard < Components::Home::Card
+class Components::Dashboard::PronounsSection < Components::Dashboard::Section
   protected
 
-  def section = :pronouns
+  def section_name = :pronouns
 
   def blurb = super.first
 

@@ -1,9 +1,9 @@
-class Components::Home::PronunciationCard < Components::Home::Card
+class Components::Dashboard::PronunciationSection < Components::Dashboard::Section
   include Phlex::Rails::Helpers::URLFor
 
   protected
 
-  def section = :pronunciation
+  def section_name = :pronunciation
 
   def content
     DetailList(@user) do |list|

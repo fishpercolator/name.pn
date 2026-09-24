@@ -1,7 +1,7 @@
-class Components::Home::NameCard < Components::Home::Card
+class Components::Dashboard::NameSection < Components::Dashboard::Section
   protected
 
-  def section = :personal_name
+  def section_name = :personal_name
 
   def content
     DetailList(@user) do |list|

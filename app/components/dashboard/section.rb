@@ -1,10 +1,10 @@
-class Components::Home::Card < Components::Base
+class Components::Dashboard::Section < Components::Base
   def initialize(user)
     @user = user
   end
 
   def view_template
-    DashboardCard(t('.title'), tone: section, id: section.to_s.dasherize, class: 'dashboard-card') do |card|
+    DashboardCard(t('.title'), tone: section_name, id: section_name.to_s.dasherize, class: 'dashboard-card') do |card|
       card.tool(profile_path(step), icon: 'pencil', label: t('actions.edit'), class: 'dashboard-card__edit text-secondary')
       card.content do
         Blurb(blurb) if blurb
@@ -16,7 +16,7 @@ class Components::Home::Card < Components::Base
 
   protected
 
-  def step = section
+  def step = section_name
 
   def blurb = t("profile.#{step}.blurb")
 

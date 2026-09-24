@@ -15,9 +15,9 @@ class Views::Home::UserHome < Views::Base
 
   def cards
     div(class: 'mt-12 grid grid-cols-1 gap-6 md:grid-cols-2') do
-      card Components::Home::UrlCard
-      column Components::Home::NameCard, Components::Home::PronounsCard, Components::Home::PronunciationCard
-      column Components::Home::VariantsCard, Components::Home::LikenessCard, Components::Home::LinksCard
+      card Components::Dashboard::UrlSection
+      column Components::Dashboard::NameSection, Components::Dashboard::PronounsSection, Components::Dashboard::PronunciationSection
+      column Components::Dashboard::VariantsSection, Components::Dashboard::LikenessSection, Components::Dashboard::LinksSection
     end
   end
 

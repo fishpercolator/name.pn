@@ -24,11 +24,11 @@ There are four tiers of component:
 | daisyUI kit | `Components::Daisy` | One thin class per daisyUI primitive (`Button`, `Menu`, `Navbar`…) |
 | UI kit | `Components::UI` | name.pn's own design elements (`Icon`, `Brand`, `CloseButton`…) |
 | Shared | `Components::Shared` | Pieces used across areas that wire app state into the kits (`SiteNavbar`, `SiteHead`…) |
-| Feature | `Components::<Area>` | One-offs belonging to a single area |
+| Page | `Components::<Page>` | Pieces of a single page, e.g. `Components::Dashboard::NameSection` |
 
-Only the two kits extend `Phlex::Kit`. They're included in `Components::Base`, so their components are called like methods: `Button(variant: :primary) { t('.save') }`. Shared and feature components are rendered explicitly: `render Components::Shared::SiteFooter.new`.
+Only the two kits extend `Phlex::Kit`. They're included in `Components::Base`, so their components are called like methods: `Button(variant: :primary) { t('.save') }`. Shared and page components are rendered explicitly: `render Components::Shared::SiteFooter.new`.
 
-Kit components are pure UI. They get their data through the constructor, and never read routes, `current_user`, `flash` or the environment themselves. That wiring belongs in shared components, feature components or views.
+Kit components are pure UI. They get their data through the constructor, and never read routes, `current_user`, `flash` or the environment themselves. That wiring belongs in shared components, page components or views.
 
 ### Phlex idioms
 

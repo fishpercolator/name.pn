@@ -12,24 +12,24 @@ en:
         expand: View larger image
       player:
         listen: Listen
-    home:
-      name_card:
+    dashboard:
+      name_section:
         title: Your name
-      variants_card:
+      variants_section:
         title: Variants of your name
-      pronunciation_card:
+      pronunciation_section:
         title: How to pronounce your name
         name_is_pronounced: '%{name} is pronounced'
         ipa: 'IPA pronunciation of %{name}'
         audio_clip: Audio clip of '%{name}'
-      pronouns_card:
+      pronouns_section:
         title: Your pronouns
         header: 'Pronouns: %{pronoun}'
-      likeness_card:
+      likeness_section:
         title: What you look like
-      links_card:
+      links_section:
         title: Your personal links
-      url_card:
+      url_section:
         title: Your unique URL
         view_your_page: View
         copy_to_clipboard: Copy

@@ -1,11 +1,11 @@
-class Components::Home::UrlCard < Components::Home::Card
+class Components::Dashboard::UrlSection < Components::Dashboard::Section
   def view_template
     div(class: 'md:col-span-2', data: { controller: 'url', url_copied_class: 'swap-active' }) { super }
   end
 
   protected
 
-  def section = :url
+  def section_name = :url
 
   def step = :slug
 

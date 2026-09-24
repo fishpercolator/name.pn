@@ -1,7 +1,7 @@
-class Components::Home::LinksCard < Components::Home::Card
+class Components::Dashboard::LinksSection < Components::Dashboard::Section
   protected
 
-  def section = :links
+  def section_name = :links
 
   def content
     links.any? ? link_list : MissingValue()
