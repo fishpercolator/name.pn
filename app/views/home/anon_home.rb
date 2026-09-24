@@ -34,7 +34,7 @@ class Views::Home::AnonHome < Views::Base
   end
 
   def features
-    section(class: 'container mx-auto px-4 py-12') do
+    Container do
       div(class: 'grid gap-6 md:grid-cols-3') do
         FEATURES.each { feature(**it) }
       end
@@ -54,7 +54,7 @@ class Views::Home::AnonHome < Views::Base
   end
 
   def sign_up
-    section(class: 'container mx-auto space-y-5 px-4 py-12 text-center') do
+    Container(class: 'space-y-5 text-center') do
       p { Button(href: new_user_registration_path, variant: :secondary, size: :xl) { t('.sign_up_free') } }
       p(class: 'text-muted') { t('.warning') }
       p { Link(page_path('about')) { t('.learn_more') } }
