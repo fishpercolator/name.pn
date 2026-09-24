@@ -4,7 +4,7 @@ class Views::Users::Show < Views::Base
   def view_template
     Container(data: { controller: 'public-profile', action: 'hashchange@window->public-profile#hashChange' }) do
       div(class: 'mx-auto md:w-1/2') do
-        render Components::Users::NameBadge.new(@user, @pronoun_sets)
+        render Components::Users::NameAndPronounCard.new(@user, @pronoun_sets)
         cards
       end
     end

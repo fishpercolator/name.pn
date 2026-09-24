@@ -1,4 +1,4 @@
-class Components::Users::NameBadge < Components::Base
+class Components::Users::NameAndPronounCard < Components::Base
   def initialize(user, pronoun_sets)
     @user = user
     @pronoun_sets = pronoun_sets
@@ -33,6 +33,6 @@ class Components::Users::NameBadge < Components::Base
   end
 
   def pronoun_labels
-    @user.pronounless_style? ? [@user.pronounless_style.humanize] : @pronoun_sets.map { it.to_s(@user) }
+    @user.pronounless_style? ? [t(".pronounless.#{@user.pronounless_style}")] : @pronoun_sets.map { it.to_s(@user) }
   end
 end
