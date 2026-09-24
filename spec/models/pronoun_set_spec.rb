@@ -54,12 +54,4 @@ RSpec.describe PronounSet, type: :model do
     end
   end
 
-  describe '#examples' do
-    let(:user) { build :user, personal_name: '<i>Audrey</i>' }
-    subject { build(:pronoun_set).examples(user) }
-
-    it 'escapes the name inside the example markup' do
-      expect(subject.first).to include('<b>&lt;i&gt;Audrey&lt;/i&gt;</b>')
-    end
-  end
 end

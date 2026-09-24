@@ -1,12 +1,12 @@
 class Components::Home::NameCard < Components::Home::Card
-  private
+  protected
 
   def section = :personal_name
 
   def content
-    DetailList do |list|
-      attribute(list, :personal_name, required: true)
-      attribute(list, :full_name, required: true)
+    DetailList(@user) do |list|
+      list.attribute :personal_name, required: true
+      list.attribute :full_name, required: true
     end
   end
 end

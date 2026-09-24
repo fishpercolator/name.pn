@@ -1,5 +1,5 @@
 class Components::Home::PronounsCard < Components::Home::Card
-  private
+  protected
 
   def section = :pronouns
 
@@ -15,14 +15,18 @@ class Components::Home::PronounsCard < Components::Home::Card
     end
   end
 
+  private
+
   def pronoun_sets = @user.pronoun_sets
 
   def examples_table
     Table do
       thead { tr { pronoun_sets.each { |set| th { t('.header', pronoun: set.to_s(@user)) } } } }
-      tbody { example_rows.each { |row| tr { row.each { |example| td { example } } } } }
+      tbody { PronounSet::EXAMPLES.each { example_row(it) } }
     end
   end
 
-  def example_rows = pronoun_sets.map { it.examples(@user) }.transpose
+  def example_row(inflection)
+    tr { pronoun_sets.each { |set| td { PronounExample(set, @user, inflection) } } }
+  end
 end

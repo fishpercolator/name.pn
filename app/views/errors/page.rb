@@ -4,7 +4,7 @@ class Views::Errors::Page < Views::Base
 
   def view_template
     Prose do
-      h1 { page_title(t('.title')) }
+      PageTitle(t('.title'))
       p { t('.blurb') }
       support_links
     end

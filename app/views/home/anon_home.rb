@@ -1,11 +1,11 @@
 class Views::Home::AnonHome < Views::Base
   include Phlex::Rails::Helpers::ImageTag
 
-  FEATURES = {
-    'sticker-check-outline' => %w[get_your_name_right name_right_blurb],
-    'bullhorn' => %w[pronunciation pronunciation_blurb],
-    'gender-male-female' => %w[pronouns pronouns_blurb]
-  }.freeze
+  FEATURES = [
+    { icon: 'sticker-check-outline', title: 'get_your_name_right', blurb: 'name_right_blurb' },
+    { icon: 'bullhorn', title: 'pronunciation', blurb: 'pronunciation_blurb' },
+    { icon: 'gender-male-female', title: 'pronouns', blurb: 'pronouns_blurb' }
+  ].freeze
 
   def view_template
     hero
@@ -36,18 +36,18 @@ class Views::Home::AnonHome < Views::Base
   def features
     section(class: 'container mx-auto px-4 py-12') do
       div(class: 'grid gap-6 md:grid-cols-3') do
-        FEATURES.each { |icon, (title, blurb)| feature(icon, t(".#{title}"), t(".#{blurb}")) }
+        FEATURES.each { feature(**it) }
       end
     end
   end
 
-  def feature(icon, title, blurb)
+  def feature(icon:, title:, blurb:)
     Card do
       div(class: 'card-body flex-row gap-4') do
         Icon(icon, class: 'size-12 shrink-0 fill-current')
         div do
-          h3(class: 'card-title') { title }
-          p(class: 'mt-4') { blurb }
+          h3(class: 'card-title') { t(".#{title}") }
+          p(class: 'mt-4') { t(".#{blurb}") }
         end
       end
     end

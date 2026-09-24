@@ -5,7 +5,7 @@ class Views::Home::UserHome < Views::Base
 
   def view_template
     div(class: 'container mx-auto px-4 py-12') do
-      PageTitle { page_title(t('.title')) }
+      PageTitle(t('.title'))
       Blurb(t('.page_description1'), t('.page_description2'), class: 'mt-6 text-xl')
       cards
     end

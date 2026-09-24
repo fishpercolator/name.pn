@@ -10,6 +10,7 @@ If it's available upstream, don't reinvent the wheel. Prefer a gem, a daisyUI cl
 
 - DRY and beautiful above all. Break code into tiny, well-named methods wherever the code can't carry its meaning alone.
 - Few comments. Wanting to write one is a smell: extract a method or rename something instead.
+- Methods that subclasses override (template-method hooks such as `section`, `content` or `fields`) are `protected`, so the class hierarchy is visible. Helpers private to one class stay `private`.
 - Aim for design consistency, not parity with the old UI. When two things look different for no reason, reuse one component for both.
 
 ## Views and components

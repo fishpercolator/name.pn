@@ -1,11 +1,9 @@
 class Components::Home::UrlCard < Components::Home::Card
-  ACTION = 'dashboard-card__action h-auto flex-1 rounded-none border-0 py-3 font-normal text-secondary not-first:border-s not-first:border-base-300'.freeze
-
   def view_template
-    div(class: 'md:col-span-2', data: { controller: 'url', url_copied_class: 'copy-button--copied' }) { super }
+    div(class: 'md:col-span-2', data: { controller: 'url', url_copied_class: 'swap-active' }) { super }
   end
 
-  private
+  protected
 
   def section = :url
 
@@ -18,6 +16,14 @@ class Components::Home::UrlCard < Components::Home::Card
     pronoun_urls if @user.pronoun_sets.any?
   end
 
+  def actions(card)
+    edit_action(card)
+    view_action(card)
+    copy_action(card)
+  end
+
+  private
+
   def url = @user.slug.present? ? b(data: { url_target: 'url' }) { user_url(@user) } : MissingValue(required: true)
 
   def pronoun_urls
@@ -27,33 +33,33 @@ class Components::Home::UrlCard < Components::Home::Card
     end
   end
 
-  def actions
-    Button(href: profile_path(step), icon: 'pencil', variant: :ghost, class: ACTION) { t('actions.edit') }
-    view_action
-    copy_action
+  def shareable? = @user.profile_complete?
+
+  def edit_action(card) = card.action(href: profile_path(step), icon: 'pencil') { t('actions.edit') }
+
+  def view_action(card)
+    return unavailable_action(card, 'open-in-new') { t('.view_your_page') } unless shareable?
+
+    card.action(href: user_url(@user), target: '_blank', icon: 'open-in-new') { t('.view_your_page') }
   end
 
-  def view_action
-    return unavailable_action('open-in-new') { t('.view_your_page') } unless @user.profile_complete?
+  def copy_action(card)
+    return unavailable_action(card, 'clipboard-outline') { t('.copy_to_clipboard') } unless shareable?
 
-    Button(href: user_url(@user), target: '_blank', icon: 'open-in-new', variant: :ghost, class: ACTION) { t('.view_your_page') }
-  end
-
-  def copy_action
-    return unavailable_action('clipboard-outline') { t('.copy_to_clipboard') } unless @user.profile_complete?
-
-    Button(id: 'copyButton', variant: :ghost, class: ['group', ACTION], data: { url_target: 'copyButton', action: 'url#copy' }) do
-      span(class: 'contents group-[.copy-button--copied]:hidden') { labelled('clipboard-outline', t('.copy_to_clipboard')) }
-      span(class: 'hidden group-[.copy-button--copied]:contents') { labelled('clipboard-check-outline', t('.copied')) }
+    card.action(id: 'copyButton', data: { url_target: 'copyButton', action: 'url#copy' }) do
+      Swap do |swap|
+        swap.off { copy_state('clipboard-outline', t('.copy_to_clipboard')) }
+        swap.on { copy_state('clipboard-check-outline', t('.copied')) }
+      end
     end
   end
 
-  def unavailable_action(icon, &)
-    Button(icon:, variant: :ghost, class: ACTION, disabled: true, title: t('.you_must_complete'), &)
-  end
-
-  def labelled(icon, text)
+  def copy_state(icon, text)
     Icon(icon)
     plain text
+  end
+
+  def unavailable_action(card, icon, &)
+    card.action(icon:, disabled: true, title: t('.you_must_complete'), &)
   end
 end

@@ -1,17 +1,19 @@
 class Components::Home::PronunciationCard < Components::Home::Card
   include Phlex::Rails::Helpers::URLFor
 
-  private
+  protected
 
   def section = :pronunciation
 
   def content
-    DetailList do |list|
-      list.item(t('.name_is_pronounced', name:)) { value(:phonetic) }
+    DetailList(@user) do |list|
+      list.attribute :phonetic, label: t('.name_is_pronounced', name:)
       list.item(t('.ipa', name:)) { ipa }
       list.item(t('.audio_clip', name:)) { audio }
     end
   end
+
+  private
 
   def name = @user.pronunciation_of_name
 

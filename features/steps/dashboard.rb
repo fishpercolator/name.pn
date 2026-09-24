@@ -18,7 +18,7 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
   
   step 'I should see edit buttons for each section' do
     expect(page).to have_css('.dashboard-card__edit', count: 7)
-    expect(page).to have_css('.dashboard-card__action', text: 'Edit', count: 1)
+    expect(page).to have_css('.section-card__action', text: 'Edit', count: 1)
   end
 
   step 'I should see no warnings about sharing my URL' do
@@ -34,8 +34,8 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
   end
 
   step 'I should see enabled buttons to view and copy my URL' do
-    expect(page).to have_css('.dashboard-card__action:not([disabled])', text: 'View')
-    expect(page).to have_css('.dashboard-card__action:not([disabled])', text: 'Copy')
+    expect(page).to have_css('.section-card__action:not([disabled])', text: 'View')
+    expect(page).to have_css('.section-card__action:not([disabled])', text: 'Copy')
   end
 
   step 'I should see cards with indications that things are not set' do
@@ -47,8 +47,8 @@ class Spinach::Features::Dashboard < Spinach::FeatureSteps
   end
 
   step 'I should see disabled buttons to view and copy my URL' do
-    expect(page).to have_css('.dashboard-card__action[disabled]', text: 'View')
-    expect(page).to have_css('.dashboard-card__action[disabled]', text: 'Copy')
+    expect(page).to have_css('.section-card__action[disabled]', text: 'View')
+    expect(page).to have_css('.section-card__action[disabled]', text: 'Copy')
   end
 
   step 'I have set my name and slug but not my pronouns' do

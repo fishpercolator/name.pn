@@ -23,8 +23,13 @@ class PronounSet < ApplicationRecord
     end
   end
 
-  def examples(user)
-    EXAMPLES.map { example(it, user) }
+  def example_values(inflection, user)
+    pronoun = inflection == :name ? user.personal_name : public_send(inflection)
+    {
+      pronoun:, pronoun_initial: pronoun.capitalize,
+      nominative:, nominative_initial: nominative.capitalize,
+      copula:, personal_name: user.personal_name
+    }
   end
 
   # Return a special pronoun set for a user who only wants to use their name
@@ -40,18 +45,4 @@ class PronounSet < ApplicationRecord
     )
   end
 
-  private
-
-  def example(inflection, user)
-    pronoun = inflection == :name ? user.personal_name : public_send(inflection)
-    I18n.t(inflection, scope: "pronoun_examples.#{user.pronoun_example}", **interpolations(pronoun, user)).html_safe
-  end
-
-  def interpolations(pronoun, user)
-    {
-      pronoun:, pronoun_initial: pronoun.capitalize,
-      nominative:, nominative_initial: nominative.capitalize,
-      copula:, personal_name: user.personal_name
-    }.transform_values { ERB::Util.h(it) }
-  end
 end

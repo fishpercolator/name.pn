@@ -1,5 +1,5 @@
 class Components::Home::LikenessCard < Components::Home::Card
-  private
+  protected
 
   def section = :likeness
 
