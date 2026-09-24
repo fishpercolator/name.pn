@@ -46,7 +46,7 @@ class Spinach::Features::SignIn < Spinach::FeatureSteps
   end
 
   step 'I click to close the message' do
-    find('#messages .delete').click
+    find('#messages .messages__close').click
   end
 
   step 'I should not see a message telling me I have signed in' do

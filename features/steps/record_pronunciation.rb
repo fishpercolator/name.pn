@@ -18,7 +18,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'I should see the permission button' do
-    expect(page).to have_css('.button', text: 'Give permission for microphone')
+    expect(page).to have_css('.recorder__prompt', text: 'Give permission for microphone')
   end
 
   step 'I have revoked permission to record audio' do
@@ -26,7 +26,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'I should see an error message' do
-    expect(page).to have_css('.notification.is-danger', text: 'It looks like you\'ve blocked name.pn')
+    expect(page).to have_css('.recorder__denied', text: 'It looks like you\'ve blocked name.pn')
   end
 
   step 'I visit the profile editing page for pronunciation' do
@@ -116,7 +116,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'I should see an error requiring me to make a shorter recording' do
-    expect(page).to have_css('.help.is-danger', text: 'That file is too large (2.05 MB);')
+    expect(page).to have_css('.error', text: 'That file is too large (2.05 MB);')
   end
   
   step 'my recording should not be saved in storage' do
@@ -127,13 +127,13 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   step 'I should see the upload form and delete checkbox' do
     expect(page).to have_content('Upload your audio file')
     expect(page).to have_css('input[type=file]')
-    expect(page).to have_css('label.checkbox', text: 'or check this box to delete the current audio')
+    expect(page).to have_css('label.boolean-label', text: 'or check this box to delete the current audio')
   end
 
   step 'I should not see the upload form and delete checkbox' do
     expect(page).not_to have_content('Upload your audio file')
     expect(page).not_to have_css('input[type=file]')
-    expect(page).not_to have_css('label.checkbox', text: 'or check this box to delete the current audio')
+    expect(page).not_to have_css('label.boolean-label', text: 'or check this box to delete the current audio')
   end
 
 end

@@ -1,14 +1,8 @@
 - if flash[:notice] || flash[:alert]
   %section#messages{data: {controller: 'messages'}}
-    - if flash[:notice]
-      .has-background-info-soft
-        .container
-          .notification.is-info.has-background-info-soft.has-text-info-soft-invert.is-radiusless
-            %button.delete{data: {action: 'messages#close'}}
-            = flash[:notice]
-    - if flash[:alert]
-      .has-background-danger-soft
-        .container
-          .notification.is-danger.has-background-danger-soft.has-text-danger-soft-invert.is-radiusless
-            %button.delete{data: {action: 'messages#close'}}
-            = flash[:alert]
+    - {notice: 'bg-info/20', alert: 'bg-error/20'}.each do |type, colour|
+      - if flash[type]
+        %div{class: colour, role: 'alert'}
+          .container.mx-auto.flex.items-center.justify-between.gap-4.px-4.py-5
+            %span= flash[type]
+            %button.messages__close.btn.btn-circle.btn-xs.border-0.text-base-100{type: 'button', class: 'bg-base-content/40 hover:bg-base-content/60', aria: {label: t('actions.close')}, data: {action: 'messages#close'}}= icon 'close', class: 'size-4 fill-current'

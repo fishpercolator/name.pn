@@ -2,8 +2,6 @@ class HomeController < ApplicationController
   protect_from_forgery except: :service_worker
   skip_after_action :verify_policy_scoped
   skip_after_action :verify_authorized
-
-  layout 'tailwind'
   
   def index
     if user_signed_in?

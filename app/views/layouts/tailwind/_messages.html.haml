@@ -1,8 +1,0 @@
-- if flash[:notice] || flash[:alert]
-  %section#messages{data: {controller: 'messages'}}
-    - {notice: 'bg-info/20', alert: 'bg-error/20'}.each do |type, colour|
-      - if flash[type]
-        %div{class: colour, role: 'alert'}
-          .container.mx-auto.flex.items-center.justify-between.gap-4.px-4.py-5
-            %span= flash[type]
-            %button.btn.btn-circle.btn-xs.border-0.text-base-100{type: 'button', class: 'bg-base-content/40 hover:bg-base-content/60', aria: {label: t('actions.close')}, data: {action: 'messages#close'}}= icon 'close', class: 'size-4 fill-current'

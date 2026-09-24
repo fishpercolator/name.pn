@@ -25,7 +25,7 @@ class Spinach::Features::ApiKeys < Spinach::FeatureSteps
   end
 
   step 'I should be back on the account page' do
-    expect(page).to have_css('.title', text: 'My account')
+    expect(page).to have_css('.page-title', text: 'My account')
   end
 
   step 'I should see a message saying my API key has been deleted' do
@@ -45,7 +45,7 @@ class Spinach::Features::ApiKeys < Spinach::FeatureSteps
   end
 
   step 'I should see a dialog with a JWT for me to copy' do
-    expect(page).to have_css('.modal')
-    expect(page).to have_css('.message-body', text: /^ey/)
+    expect(page).to have_css('.api-key-modal[open]')
+    expect(page).to have_css('.api-key', text: /^ey/)
   end
 end

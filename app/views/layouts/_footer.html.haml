@@ -1,20 +1,24 @@
-%nav.navbar{role: 'navigation', aria: {label: t('.label')}}
-  .container
-    .navbar-menu.is-active
-      .navbar-start
-        = link_to page_path('terms'), class: 'navbar-item' do
-          %span.icon= icon 'file-sign'
-          %span= t('.terms')
-        = link_to page_path('privacy'), class: 'navbar-item' do
-          %span.icon= icon 'shield-account'
-          %span= t('.privacy')
-      .navbar-end
-        = link_to 'https://github.com/fishpercolator/name.pn', class: 'navbar-item' do
-          %span.icon= icon 'github'
-          %span= t('.github')
-        = link_to 'https://github.com/orgs/fishpercolator/projects/1', class: 'navbar-item' do
-          %span.icon= icon 'map'
-          %span= t('.roadmap')
-        = link_to rswag_ui_path, class: 'navbar-item', data: {turbolinks: false} do
-          %span.icon= icon 'cogs'
-          %span= t('.api')
+%nav.bg-base-100{role: 'navigation', aria: {label: t('.label')}}
+  .container.mx-auto{class: 'md:flex md:justify-between'}
+    %ul{class: 'menu text-base md:menu-horizontal'}
+      %li
+        = link_to page_path('terms') do
+          = icon 'file-sign'
+          = t('.terms')
+      %li
+        = link_to page_path('privacy') do
+          = icon 'shield-account'
+          = t('.privacy')
+    %ul{class: 'menu text-base md:menu-horizontal'}
+      %li
+        = link_to 'https://github.com/fishpercolator/name.pn' do
+          = icon 'github'
+          = t('.github')
+      %li
+        = link_to 'https://github.com/orgs/fishpercolator/projects/1' do
+          = icon 'map'
+          = t('.roadmap')
+      %li
+        = link_to rswag_ui_path, data: {turbo: false} do
+          = icon 'cogs'
+          = t('.api')

@@ -1,13 +1,11 @@
-- content_for(:main_class) { 'is-justify-content-center' }
-%section.section
-  .container
-    .columns
-      .column.is-three-fifths.is-offset-one-fifth
-        %h1.title= title t('.title')
-        .box
-          = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-            = f.input :email
-            = f.input :password
-            = f.input :remember_me, as: :boolean
-            = f.button :submit, t('.submit'), class: 'is-link'
-        = render "devise/shared/links"
+- content_for(:main_class) { 'justify-center' }
+%section.mx-auto.w-full.max-w-xl.px-4.py-12
+  %h1.mb-6.text-4xl.font-bold= title t('.title')
+  .card.bg-base-100.shadow-md
+    .card-body
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = f.input :email
+        = f.input :password
+        = f.input :remember_me, as: :boolean
+        = f.button :submit, t('.submit'), class: 'btn-secondary mt-4'
+  = render "devise/shared/links"

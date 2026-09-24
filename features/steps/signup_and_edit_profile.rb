@@ -225,11 +225,11 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I should be redirected back to the first page of the profile editor' do
-    expect(page).to have_css('.box.profile-form#personal-name')
+    expect(page).to have_css('.profile-form#personal-name')
   end
 
   step 'I should not see links to the other sections' do
-    expect(page).not_to have_css('a.steps-marker[href]')
+    expect(page).not_to have_css('.profile-steps__link')
   end
 
   step 'I should not see a save and exit button' do
@@ -249,7 +249,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I should see links to the other sections' do
-    expect(page).to have_css('a.steps-marker[href]')
+    expect(page).to have_css('.profile-steps__link')
   end
 
   step 'I should see a save and exit button' do
@@ -342,8 +342,8 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click to go to the variants page' do
-    within find('.steps-segment', text: 'Variants of your name') do
-      find('a.steps-marker').click
+    within find('.profile-steps__step', text: 'Variants of your name') do
+      find('.profile-steps__link').click
     end
   end
 
@@ -371,7 +371,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I type 2 into the they/them position box' do
-    within find('.checkbox', text: 'they/them') do
+    within find('.profile-pronouns__option', text: 'they/them') do
       find('input[type=number]').fill_in with: '2'
     end
   end
@@ -381,7 +381,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I type 1 into the she/her position box' do
-    within find('.checkbox', text: 'she/her') do
+    within find('.profile-pronouns__option', text: 'she/her') do
       find('input[type=number]').fill_in with: '1'
     end
   end
@@ -399,16 +399,16 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I should see pronoun checkboxes but no position boxes' do
-    expect(page).to have_css('.checkbox', text: 'they/them')
+    expect(page).to have_css('.profile-pronouns__option', text: 'they/them')
     expect(page).not_to have_css('input[type=number]')
   end
 
   step 'I drag she/her to the top position' do
-    top = first('.checkbox')
-    tt = find('.checkbox', text: 'she/her')
+    top = first('.profile-pronouns__option')
+    tt = find('.profile-pronouns__option', text: 'she/her')
     # https://github.com/rubycdp/cuprite/issues/178#issuecomment-1714133280
     tt.drag_to(top, steps: 10)
-    expect(first('.checkbox')).to have_content('she/her')
+    expect(first('.profile-pronouns__option')).to have_content('she/her')
   end
 
   step 'I cancel from the image editor' do

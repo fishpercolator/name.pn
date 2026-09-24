@@ -1,17 +1,15 @@
 = simple_form_for @user, url: wizard_path, method: :patch do |f|
   = render 'header', f: f
-  %section.section.is-collapsed
-    .container
-      .columns.is-centered
-        .column.is-half
-          .box.profile-form.has-background-links-light#links
-            %h1.title= title t('.title')
-            %p.mb-3.has-text-grey= t('.blurb')
-            #links
-              = f.simple_fields_for :links do |link|
-                = render 'link_fields', f: link
-              .links
-                = link_to_add_association f, :links, class: 'button is-success' do
-                  %span.icon= icon 'plus-box'
-                  %span= t('.add_link')
-            = render 'buttons', f: f
+  %section.container.mx-auto.px-4.py-8
+    .profile-form.card.mx-auto.overflow-hidden.bg-base-100.shadow-md#links{class: 'md:w-1/2'}
+      .card-body{class: 'bg-links'}
+        %h1.text-3xl.font-bold= title t('.title')
+        %p.text-muted= t('.blurb')
+        #links.space-y-3
+          = f.simple_fields_for :links do |link|
+            = render 'link_fields', f: link
+          .links
+            = link_to_add_association f, :links, class: 'btn btn-success' do
+              = icon 'plus-box'
+              = t('.add_link')
+        = render 'buttons', f: f
