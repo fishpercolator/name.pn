@@ -1,8 +1,5 @@
-%section.section
-  .container
-    .columns
-      .column.is-three-fifths.is-offset-one-fifth
-        %h1.title= title t('.title')
-        .content.mt-5.is-size-5
-          %p= t('.blurb')
-          = render 'support'
+%section.container.mx-auto.px-4.py-12
+  .prose.prose-xl.mx-auto
+    %h1= title t('.title')
+    %p= t('.blurb')
+    = render 'support'

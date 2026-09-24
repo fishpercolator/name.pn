@@ -20,6 +20,8 @@ Capybara.register_driver :cuprite do |app|
     browser_options: {
       'disable-gpu' => nil,
       'no-sandbox'  => nil,
+      # Fail external font requests immediately so page loads never wait on them
+      'host-resolver-rules' => 'MAP fonts.googleapis.com 127.0.0.1',
     }
   }
 end

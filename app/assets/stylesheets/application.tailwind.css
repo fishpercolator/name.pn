@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Raleway:wght@400;700&family=Voces&display=swap');
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+/* daisyUI's light theme, derived from the brand red. The teal is the red's
+   complement (hue + 180°) at a third of its chroma, at the lightness where
+   text on white reaches 7:1. Everything else is the red or the teal at
+   another lightness and chroma. */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: oklch(57% 0.207 22.57);
+  --color-primary-content: #fff;
+  --color-secondary: oklch(45.7% 0.069 202.57);
+  --color-secondary-content: #fff;
+  --color-accent: oklch(53.7% 0.079 202.57);
+  --color-accent-content: #fff;
+  --color-neutral: oklch(22% 0.03 202.57);
+  --color-neutral-content: #fff;
+  --color-info: oklch(59.7% 0.089 202.57);
+  --color-info-content: #fff;
+  --color-success: oklch(53.7% 0.099 167.57);
+  --color-success-content: #fff;
+  --color-warning: oklch(50% 0.115 62.57);
+  --color-warning-content: #fff;
+  --color-error: oklch(50% 0.19 22.57);
+  --color-error-content: #fff;
+  --color-base-200: oklch(97.5% 0.006 202.57);
+  --color-base-300: oklch(91% 0.014 202.57);
+  --color-base-content: oklch(27% 0.02 202.57);
+}
+
+@theme {
+  --font-sans: 'Raleway', sans-serif;
+  --font-handwriting: 'Patrick Hand', cursive;
+  --font-ipa: 'Voces', sans-serif;
+
+  /* One colour per section of a profile: the red, the accent teal, and a
+     blue-leaning teal */
+  --color-personal-name: oklch(57% 0.207 22.57);
+  --color-pronouns: oklch(53.7% 0.079 202.57);
+  --color-url: oklch(60% 0.05 232.57);
+  --color-pronunciation: oklch(57% 0.207 22.57);
+  --color-variants: oklch(53.7% 0.079 202.57);
+  --color-likeness: oklch(60% 0.05 232.57);
+  --color-links: oklch(57% 0.207 22.57);
+}
+
+@import "animate.css";
+@import "@uppy/core/css/style.css";
+@import "@uppy/dashboard/css/style.css";
+@import "@uppy/image-editor/css/style.css";
+@import "@uppy/webcam/css/style.css";
+@import "luminous-lightbox/dist/luminous-basic.css";
+
+/* daisyUI sizes its default components at 14px, but name.pn has always
+   used 16px (Bulma's default) for readability. These are the variables daisyUI
+   reads before falling back to its defaults, so size modifiers still work. */
+:root {
+  --fontsize: 1rem;
+  --card-fs: 1rem;
+  --cardtitle-fs: 1.25rem;
+  --font-size: 1rem;
+}
+
+/* Tailwind's preflight makes images block-level, which stops luminous
+   centring the lightbox image with text-align */
+.lum-img {
+  display: inline-block;
+}
+
+.turbo-progress-bar {
+  background: var(--color-primary);
+}
