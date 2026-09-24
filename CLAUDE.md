@@ -35,7 +35,7 @@ Kit components are pure UI. They get their data through the constructor, and nev
 - **`grab`** for keyword arguments that are Ruby keywords (`class:`).
 - **`mix`** to merge caller attributes into our defaults. Accept `**attributes` and pass them through.
 - **`render?`** for components that sometimes render nothing (`FlashMessages`, `Analytics`).
-- **Variants** map straight to daisyUI modifiers: `variant: :primary` becomes `btn-primary`. Tailwind only generates classes it finds in the source, so every interpolated class must be safelisted with `@source inline(...)` in `application.tailwind.css`.
+- **Variants** map to daisyUI modifiers through a frozen hash of literal class names. Tailwind only generates classes it finds in the source, so never build class names by interpolation.
 - Rails helpers come in through `Phlex::Rails::Helpers::*` modules. Register other helpers with `register_output_helper` or `register_value_helper`.
 
 ### Layouts and rendering

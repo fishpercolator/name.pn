@@ -6,8 +6,6 @@
   themes: light --default;
 }
 
-@source inline("btn-{neutral,primary,secondary,accent,info,success,warning,error,danger,ghost,link,outline,soft,dash,xs,sm,md,lg,xl,square,circle,wide,block}");
-
 /* daisyUI's light theme, derived from the brand red. The teal is the red's
    complement (hue + 180°) at a third of its chroma, at the lightness where
    text on white reaches 7:1. Everything else is the red or the teal at

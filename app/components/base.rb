@@ -6,11 +6,4 @@ class Components::Base < Phlex::HTML
 
   register_value_helper :current_user
   register_value_helper :user_signed_in?
-
-  if Rails.env.development?
-    def before_template
-      comment { "Before #{self.class.name}" }
-      super
-    end
-  end
 end
