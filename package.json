@@ -2,12 +2,14 @@
   "name": "name_pn",
   "private": true,
   "license": "AGPL-3.0-or-later",
+  "type": "module",
   "dependencies": {
-    "@activeadmin/activeadmin": "4.0.0-beta15",
+    "@activeadmin/activeadmin": "4.0.0-beta23",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo": "^8.0.23",
     "@kollegorna/cocoon-vanilla-js": "^1.0.7",
     "@rails/activestorage": "^8.1.301",
+    "@tailwindcss/cli": "^4.3.3",
     "@uppy/core": "^5.2.0",
     "@uppy/dashboard": "^5.1.1",
     "@uppy/image-editor": "^4.2.0",
@@ -23,7 +25,7 @@
     "luminous-lightbox": "^2.4.0",
     "sass": "^1.105.0",
     "sortablejs": "^1.15.7",
-    "tailwindcss": "^3.4.19"
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@types/sortablejs": "^1.15.9",
@@ -34,7 +36,7 @@
     "defaults"
   ],
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.bulma.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --style=compressed && tailwindcss -i ./app/assets/stylesheets/active_admin.css -o ./app/assets/builds/active_admin.css --minify -c tailwind-active_admin.config.js",
+    "build:css": "sass ./app/assets/stylesheets/application.bulma.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --style=compressed && tailwindcss -i ./app/assets/stylesheets/active_admin.css -o ./app/assets/builds/active_admin.css --minify",
     "build": "bun bun.config.js",
     "check-types": "tsc --project tsconfig.json --noEmit"
   },
