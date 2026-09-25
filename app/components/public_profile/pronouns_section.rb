@@ -9,7 +9,7 @@ class Components::PublicProfile::PronounsSection < Components::PublicProfile::Se
   def section_name = 'pronouns'
 
   def content
-    Hint(class: 'profile-card__hint text-base') { t('.hint') }
+    Hint(class: 'profile-card__hint') { t('.hint') }
     pronounless_note if @user.pronounless_style?
     @pronoun_sets.each { pronoun_set(it) }
   end

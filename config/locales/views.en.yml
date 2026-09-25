@@ -4,8 +4,6 @@ en:
       navbar:
         menu: Menu
     ui:
-      form:
-        problems: 'Please review the problems below:'
       missing_value:
         required: You must set this before you can share your page
         not_set: Not set
@@ -90,12 +88,11 @@ en:
       links_section:
         title: More about me
         hint: 'These external links have been provided by %{name} and are not endorsed by name.pn.'
-    clients:
-      table:
+    account:
+      api_keys:
         confirm_delete: Are you sure you want to delete this API key? All clients using this key will lose access.
         create: Create key
-        placeholder: A name for your records
-      key_modal:
+      new_key_modal:
         title: Your new API key
         blurb: Be sure to copy this key before closing this box. After closing the box there will be no way to retrieve this key.
     shared:

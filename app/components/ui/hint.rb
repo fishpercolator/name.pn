@@ -1,9 +1,12 @@
 class Components::UI::Hint < Components::Base
-  def initialize(**attributes)
+  SIZES = { sm: 'text-sm', base: 'text-base' }.freeze
+
+  def initialize(size: :base, **attributes)
+    @size = size
     @attributes = attributes
   end
 
   def view_template(&)
-    div(**mix({ class: 'text-muted [&_a]:link' }, @attributes), &)
+    div(**mix({ class: ['text-muted [&_a]:link', SIZES.fetch(@size)] }, @attributes), &)
   end
 end

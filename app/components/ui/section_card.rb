@@ -10,10 +10,10 @@ class Components::UI::SectionCard < Components::Base
 
   def view_template(&)
     vanish(&)
-    Card(**@attributes) do
+    Card(**@attributes) do |card|
       div(class: ['flex grow flex-col', body_class]) do
         title_bar
-        div(class: ['card-body grow gap-4 [&_p]:grow-0', content_class], &@content)
+        card.body(class: ['grow gap-4 [&_p]:grow-0', content_class], &@content)
       end
       action_bar if @actions.any?
     end

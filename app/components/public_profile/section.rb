@@ -22,6 +22,6 @@ class Components::PublicProfile::Section < Components::Base
   def detail(label, hint:, &)
     heading(label, class: 'mt-8 first:mt-0')
     div(class: 'font-bold', &)
-    Hint(class: 'profile-card__hint text-base') { hint }
+    Hint(class: 'profile-card__hint') { hint }
   end
 end

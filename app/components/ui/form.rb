@@ -1,3 +1,5 @@
+# Our stand-in for simple_form: it wraps form_with and renders each field as
+# a daisyUI fieldset with its label, error and hint.
 class Components::UI::Form < Components::Base
   include Phlex::Rails::Helpers::FormWith
 
@@ -40,16 +42,12 @@ class Components::UI::Form < Components::Base
     Button(type: :submit, variant:, **attributes) { text }
   end
 
-  def error_notification
-    Alert(tone: :warning, class: 'mb-4') { t('.problems') } if @builder.object.errors.any?
-  end
-
   private
 
   def feedback(attribute, hint)
     FieldError(@builder.object.errors[attribute].first)
     hint ||= hint_text(attribute)
-    Hint(class: 'hint text-sm') { hint } if hint
+    Hint(size: :sm, class: 'hint') { hint } if hint
   end
 
   def input_type(attribute)

@@ -42,8 +42,8 @@ class Views::Home::AnonHome < Views::Base
   end
 
   def feature(icon:, title:, blurb:)
-    Card do
-      div(class: 'card-body flex-row gap-4') do
+    Card do |card|
+      card.body(class: 'flex-row gap-4') do
         Icon(icon, class: 'size-12 shrink-0 fill-current')
         div do
           h3(class: 'card-title') { t(".#{title}") }

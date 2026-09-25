@@ -6,4 +6,8 @@ class Components::Daisy::Card < Components::Base
   def view_template(&)
     article(**mix({ class: 'card overflow-hidden bg-base-100 shadow-md' }, @attributes), &)
   end
+
+  def body(**attributes, &)
+    div(**mix({ class: 'card-body' }, attributes), &)
+  end
 end

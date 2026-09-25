@@ -1,4 +1,4 @@
-class Components::Clients::KeyModal < Components::Base
+class Components::Account::NewKeyModal < Components::Base
   def initialize(key)
     @key = key
   end

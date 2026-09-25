@@ -5,6 +5,14 @@ class Components::Daisy::Input < Components::Daisy::Field
   end
 
   def view_template
-    raw @builder.public_send(:"#{@type}_field", @attribute, **mix({ class: ['input w-full', ('input-error' if error?)] }, @attributes))
+    raw field(**mix({ class: ['input w-full', ('input-error' if error?)] }, @attributes))
+  end
+
+  private
+
+  def field(**)
+    return @builder.password_field(@attribute, **) if @type == :password
+
+    @builder.text_field(@attribute, type: @type, **)
   end
 end

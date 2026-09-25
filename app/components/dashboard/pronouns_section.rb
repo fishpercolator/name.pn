@@ -20,13 +20,11 @@ class Components::Dashboard::PronounsSection < Components::Dashboard::Section
   def pronoun_sets = @user.pronoun_sets
 
   def examples_table
-    Table do
-      thead { tr { pronoun_sets.each { |set| th { t('.header', pronoun: set.to_s(@user)) } } } }
-      tbody { PronounSet::EXAMPLES.each { example_row(it) } }
+    Table do |table|
+      table.headings(*pronoun_sets.map { t('.header', pronoun: it.to_s(@user)) })
+      PronounSet::EXAMPLES.each do |inflection|
+        table.row { pronoun_sets.each { |set| table.cell { PronounExample(set, @user, inflection) } } }
+      end
     end
-  end
-
-  def example_row(inflection)
-    tr { pronoun_sets.each { |set| td { PronounExample(set, @user, inflection) } } }
   end
 end
