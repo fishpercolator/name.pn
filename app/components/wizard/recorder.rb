@@ -1,4 +1,4 @@
-class Components::Profile::Recorder < Components::Base
+class Components::Wizard::Recorder < Components::Base
   include Phlex::Rails::Helpers::URLFor
 
   NO_JS = 'recorder__nojs in-[.recorder--granted]:hidden in-[.recorder--prompt]:hidden in-[.recorder--denied]:hidden'.freeze

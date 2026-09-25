@@ -95,7 +95,10 @@ en:
       new_key_modal:
         title: Your new API key
         blurb: Be sure to copy this key before closing this box. After closing the box there will be no way to retrieve this key.
-    profile:
+    wizard:
+      pronoun_option:
+        example_html: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
+        position_hint: Set this to a position number to reorder your pronouns (1 is the top)
       recorder:
         prompt: Give permission for microphone
         prompt_hint: We've detected that you haven't yet given name.pn permission to access your microphone. Please click the button and say "Allow" when your browser asks you. We will only use your microphone when you are making recordings for your profile. If you do not want to give us permission, this feature is optional and you can skip it.
@@ -192,8 +195,6 @@ en:
         - Most people will need to select only one item below. Please choose the pronouns that feel most natural for talking about you.
         - The option to select multiple pronouns is available for people who use multiple pronouns. If you select multiple pronouns, you can also drag-and-drop them into the order you'd like them to be displayed on your profile.
       get_in_touch: If you don't see your pronouns here, please get in touch.
-      pronoun_set_hint_html: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
-      position_hint: Set this to a position number to reorder your pronouns (1 is the top)
     likeness:
       title: What you look like
       blurb: To help people "put a face to the name", you have the option to add a picture of your face.

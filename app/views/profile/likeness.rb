@@ -1,7 +1,5 @@
 class Views::Profile::Likeness < Views::Profile::Step
-  protected
-
-  def fields(form)
-    render Components::Profile::LikenessUploader.new(form)
+  def view_template
+    wizard_step { render Components::Wizard::LikenessUploader.new(@user) }
   end
 end
