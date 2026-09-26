@@ -45,6 +45,7 @@ class Views::Profile::Step < Views::Base
     end
   end
 
+  # Until the first step is complete, users can't visit the other steps or leave the wizard
   def navigable? = @user.basic_names_complete?
 
   def navigation

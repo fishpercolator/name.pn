@@ -3,7 +3,7 @@ class Views::Profile::Pronunciation < Views::Profile::Step
 
   def view_template
     wizard_step(controller: 'pronunciation-form') do |form|
-      form.field :pronunciation_of, as: :select, choices: @user.pronunciation_of_options, data: { action: 'pronunciation-form#changeChoice' }
+      form.select :pronunciation_of, choices: @user.pronunciation_of_options, data: { action: 'pronunciation-form#changeChoice' }
       form.field :phonetic, label: t('.phonetic_html', name: chosen_name)
       Fieldset do
         span(class: 'fieldset-legend block') { t('.record_html', name: chosen_name) }

@@ -6,12 +6,18 @@ class Components::Daisy::Input < Components::Daisy::Field
   end
 
   def view_template
-    @prefix ? prefixed_input : raw(field(**mix({ class: classes }, @attributes)))
+    if @prefix
+      prefixed_input
+    else
+      input_field
+    end
   end
 
   private
 
   def classes = ['input', ('input-error' if error?)]
+
+  def input_field = field(**mix({ class: classes }, @attributes))
 
   def field(**) = @builder.public_send(field_method, @attribute, **)
 
@@ -25,7 +31,7 @@ class Components::Daisy::Input < Components::Daisy::Field
   def prefixed_input
     label(**mix({ class: [*classes, 'gap-0'] }, @attributes.slice(:class))) do
       span { @prefix }
-      raw field(**@attributes.except(:class))
+      field(**@attributes.except(:class))
     end
   end
 end

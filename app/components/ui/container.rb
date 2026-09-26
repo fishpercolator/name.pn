@@ -4,7 +4,7 @@ class Components::UI::Container < Components::Base
   end
 
   def view_template(&)
-    public_send(element, **mix({ class: ['mx-auto px-4 py-12', width] }, @attributes), &)
+    tag(element, **mix({ class: ['mx-auto px-4 py-12', width] }, @attributes), &)
   end
 
   protected

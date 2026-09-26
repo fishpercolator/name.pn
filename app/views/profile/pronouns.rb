@@ -10,9 +10,9 @@ class Views::Profile::Pronouns < Views::Profile::Step
         end
       end
       Blurb(t('.get_in_touch'), class: 'my-3')
-      form.field :pronounless_style, as: :select, choices: choices(User.pronounless_styles.keys, scope: 'pronounless_styles'), include_blank: t('pronounless_styles.na'), data: { pronoun_form_target: 'pronounless', action: 'pronoun-form#changePronounless' }
-      form.field :pronoun_style, as: :select, choices: choices(User.pronoun_styles.keys, scope: 'pronoun_styles')
-      form.field :pronoun_example, as: :select, choices: choices(User.pronoun_examples.keys, scope: 'pronoun_example_headings')
+      form.select :pronounless_style, choices: choices(User.pronounless_styles.keys, scope: 'pronounless_styles'), include_blank: t('pronounless_styles.na'), data: { pronoun_form_target: 'pronounless', action: 'pronoun-form#changePronounless' }
+      form.select :pronoun_style, choices: choices(User.pronoun_styles.keys, scope: 'pronoun_styles')
+      form.select :pronoun_example, choices: choices(User.pronoun_examples.keys, scope: 'pronoun_example_headings')
     end
   end
 end

@@ -6,6 +6,6 @@ class Components::Daisy::Select < Components::Daisy::Field
   end
 
   def view_template
-    raw @builder.select(@attribute, @choices, { include_blank: @include_blank }, mix({ class: ['select', ('select-error' if error?)] }, @attributes))
+    @builder.select(@attribute, @choices, { include_blank: @include_blank }, mix({ class: ['select', ('select-error' if error?)] }, @attributes))
   end
 end

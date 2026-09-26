@@ -12,21 +12,25 @@ class Components::UI::Form < Components::Base
     return yield(self) if @builder
 
     form_with(**@options) do |builder|
-      @builder = builder.unwrap
+      @builder = builder
       yield self
     end
   end
 
-  def field(attribute, as: nil, label: nil, hint: nil, fieldset: {}, **attributes)
-    Fieldset(**fieldset) do |set|
-      set.legend(label || label_text(attribute), for: id_for(attribute))
+  def field(attribute, as: nil, label: nil, hint: nil, fieldset_attributes: {}, **attributes)
+    labelled(attribute, label:, hint:, **fieldset_attributes) do
       input(attribute, as: as || input_type(attribute), **mix({ class: 'w-full' }, attributes))
-      feedback(attribute, hint)
     end
   end
 
-  def checkbox(attribute, label: nil, hint: nil, fieldset: {}, **attributes)
-    Fieldset(**fieldset) do
+  def select(attribute, choices:, include_blank: false, label: nil, hint: nil, fieldset_attributes: {}, **attributes)
+    labelled(attribute, label:, hint:, **fieldset_attributes) do
+      Select(@builder, attribute, choices:, include_blank:, **mix({ class: 'w-full' }, attributes))
+    end
+  end
+
+  def checkbox(attribute, label: nil, hint: nil, fieldset_attributes: {}, **attributes)
+    Fieldset(**fieldset_attributes) do
       label(for: id_for(attribute), class: 'cursor-pointer [&_a]:link') do
         input(attribute, as: :checkbox, **attributes)
         span { label || label_text(attribute) }
@@ -38,13 +42,12 @@ class Components::UI::Form < Components::Base
   def input(attribute, as: :text, **attributes)
     case as
     when :checkbox then Checkbox(@builder, attribute, **attributes)
-    when :select then Select(@builder, attribute, **attributes)
     when :file then FileInput(@builder, attribute, **attributes)
     else Input(@builder, attribute, type: as, placeholder: placeholder_text(attribute), **attributes)
     end
   end
 
-  def hidden(attribute) = raw(@builder.hidden_field(attribute))
+  def hidden(attribute) = @builder.hidden_field(attribute)
 
   def error(attribute) = FieldError(errors_on(attribute).first)
 
@@ -57,7 +60,7 @@ class Components::UI::Form < Components::Base
   def object = @builder.object
 
   def fields_for(association, record = nil, **options, &row)
-    raw @builder.fields_for(association, record, options) { |builder| capture { Form(builder:, &row) }.html_safe }
+    @builder.fields_for(association, record, options) { |builder| capture { Form(builder:, &row) }.html_safe }
   end
 
   def nested(association, add:, &row)
@@ -76,6 +79,14 @@ class Components::UI::Form < Components::Base
   end
 
   private
+
+  def labelled(attribute, label:, hint:, **attributes)
+    Fieldset(**attributes) do |set|
+      set.legend(label || label_text(attribute), for: id_for(attribute))
+      yield
+      feedback(attribute, hint)
+    end
+  end
 
   def nested_row(row)
     div(class: 'nested-form-wrapper rounded-box border border-base-300 bg-base-100 p-4', data: { new_record: row.object.new_record? }) do

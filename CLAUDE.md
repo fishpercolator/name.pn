@@ -61,6 +61,7 @@ end
 
 - `field` renders a daisyUI fieldset with its label, input, error and hint. The input type is inferred from the attribute name, or given with `as:`.
 - Labels, hints and placeholders come from `helpers.label|hint|placeholder.<model>.<attribute>`, and labels fall back to `human_attribute_name`. Pass `label:` or `hint:` only for copy that belongs to one page.
+- `select(attribute, choices:)` renders a select in the same kind of fieldset.
 - `input` renders a bare input, for layouts without a fieldset.
 - Don't pass a form into helper methods. A page helper that owns the form yields it to an inline block, the way `form_with` does: `form_card(url: …) { |form| … }` on the Devise pages, `wizard_step { |form| … }` in the profile wizard.
 
