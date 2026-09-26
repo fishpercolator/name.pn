@@ -1,4 +1,0 @@
-.profile-card__pronoun.mt-8
-  %h3.profile-card__heading.text-accent= pronoun_set.to_s(user)
-  - PronounSet::EXAMPLES.each do |inflection|
-    %p.mt-3.text-xl= render Components::UI::PronounExample.new(pronoun_set, user, inflection)

@@ -31,7 +31,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should not see a pronunciation guide' do
-    expect(page).not_to have_css('.profile-card__title', text: 'How to pronounce my name')
+    expect(page).not_to have_css('.profile-card h2', text: 'How to pronounce my name')
     expect(page).not_to have_content('is pronounced')
   end
 
@@ -44,7 +44,7 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
   end
 
   step 'I should see a pronunciation guide' do
-    expect(page).to have_css('.profile-card__title', text: 'How to pronounce my name')
+    expect(page).to have_css('.profile-card h2', text: 'How to pronounce my name')
     expect(page).to have_content("'Audrey Horne' is pronounced\nAWD-ree HORN")
     expect(page).to have_css('.profile-card__ipa', text: '/ˈɔːdri hɔːn/')
   end
@@ -120,12 +120,12 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
 
   step 'I should see a box with links in alphabetical order' do
     links = find('.profile-card', text: 'More about me')
-    expect(links).to have_content("LinkedIn Twitter")
+    expect(links).to have_content(/LinkedIn\s*Twitter/)
     expect(links).to have_css('a[href="https://twitter.com/ahorne"]', text: 'Twitter')
   end
   
   step 'I should see sections for each of the completed types of alternate name' do
-    expect(page).to have_content("I also like to be called\nHester Prynne Scarlett")
+    expect(page).to have_content(/I also like to be called\s*Hester Prynne\s*Scarlett/)
     # and check it's a bullet list
     expect(page).to have_css('ul li', text: /\AHester Prynne\Z/)
     expect(page).to have_content("I don't like to be called\nAud")
