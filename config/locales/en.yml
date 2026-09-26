@@ -8,7 +8,6 @@ en:
     delete: Delete
     close: Close
   errors:
-    not_admin: Please sign is as an admin user
     not_authorized: Sorry - you are not permitted to do that
     messages:
       file_size_not_less_than: That file is too large (%{file_size}); please try uploading something less than %{max}.

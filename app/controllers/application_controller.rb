@@ -9,21 +9,13 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  def authenticate_admin!
-    if !current_user&.role_admin?
-      sign_out
-      flash.alert = t('errors.not_admin')
-      redirect_to new_user_session_path
-    end
-  end
-
   protected
 
   def framework_controller?
     devise_controller? || kind_of?(ActiveAdmin::BaseController) || kind_of?(HighVoltage::StaticPage)
   end
   
-  def user_not_authorized
+  def user_not_authorized(_exception = nil)
     flash[:alert] = t('errors.not_authorized')
     redirect_to(request.referrer || root_path)
   end

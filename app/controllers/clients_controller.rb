@@ -6,8 +6,11 @@ class ClientsController < ApplicationController
     @client = Client.new(user: current_user)
     authorize @client
     @client.assign_attributes(permitted_attributes @client)
-    @client.save!
-    flash[:new_key] = @client.generate_token
+    if @client.save
+      flash[:new_key] = @client.generate_token
+    else
+      flash[:alert] = @client.errors.full_messages.to_sentence
+    end
     redirect_to edit_user_registration_path
   end
   

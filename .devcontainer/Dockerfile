@@ -2,10 +2,10 @@
 ARG RUBY_VERSION=4.0.7
 FROM ghcr.io/rails/devcontainer/images/ruby:$RUBY_VERSION
 
-# Chromium for Cuprite-driven @javascript features
+# Chromium for Cuprite-driven @javascript features, ImageMagick for name badges
 USER root
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y chromium && \
+    apt-get install --no-install-recommends -y chromium imagemagick && \
     rm -rf /var/lib/apt/lists/*
 USER vscode
 
