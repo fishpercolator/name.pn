@@ -40,15 +40,7 @@ class ProfileController < ApplicationController
       end
     end
   end
-    
-  def process_resource!(resource, options = {})
-    if !resource&.valid?
-      @skip_to = nil
-    else
-      super
-    end
-  end
-  
+
   private
 
   def render_step(step, options = {}, params = {})
