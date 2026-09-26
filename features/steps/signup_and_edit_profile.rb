@@ -108,6 +108,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
 
   step 'I click to save and exit' do
     click_button 'Save and exit'
+    expect(page).to have_current_path(root_path)
   end
 
   step 'my profile should be partially completed' do
