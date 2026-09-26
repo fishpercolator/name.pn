@@ -15,7 +15,7 @@ Capybara.register_driver :cuprite do |app|
   log = File.open('log/cuprite.log', 'w')
   Capybara::Cuprite::Driver.new app, {
     logger: log,
-    process_timeout: 20,
+    process_timeout: 60,
     window_size: [1280, 900],
     browser_options: {
       'disable-gpu' => nil,

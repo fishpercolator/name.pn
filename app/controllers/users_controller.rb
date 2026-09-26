@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout -> { Views::Layouts::Profile }
+
   before_action :pronoun_sets_from_url
   
   def show
@@ -19,7 +21,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html do
         set_meta_tags(profile_meta_tags)
-        render layout: 'user_profile'
       end
       format.png do
         send_data(@user.profile_image.read, filename: 'hello.png', type: 'image/png', disposition: 'inline')

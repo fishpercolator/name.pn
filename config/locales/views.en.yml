@@ -1,17 +1,20 @@
 en:
-  layouts:
-    navbar:
-      label: main navigation
-      admin: Admin
-      home: Home
-      about: About
-    footer:
-      label: footer navigation
-      terms: Terms of use
-      privacy: Privacy policy
-      github: GitHub
-      roadmap: Public roadmap
-      api: API
+  components:
+    daisy:
+      navbar:
+        menu: Menu
+    shared:
+      site_navbar:
+        label: main navigation
+        admin: Admin
+        about: About
+      site_footer:
+        label: footer navigation
+        terms: Terms of use
+        privacy: Privacy policy
+        github: GitHub
+        roadmap: Public roadmap
+        api: API
   errors:
     not_found:
       title: Page not found
