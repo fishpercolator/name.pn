@@ -4,6 +4,8 @@ class PronounSet < ApplicationRecord
 
   scope :random, -> { reorder(Arel.sql 'RANDOM()') }
   
+  EXAMPLES = %i[name nominative oblique possessive_determiner possessive reflexive].freeze
+
   attr_accessor :name_only
 
   has_many :user_pronoun_sets
@@ -19,6 +21,15 @@ class PronounSet < ApplicationRecord
     else
       "#{nominative}/#{oblique}"
     end
+  end
+
+  def example_values(inflection, user)
+    pronoun = inflection == :name ? user.personal_name : public_send(inflection)
+    {
+      pronoun:, pronoun_initial: pronoun.capitalize,
+      nominative:, nominative_initial: nominative.capitalize,
+      copula:, personal_name: user.personal_name
+    }
   end
 
   # Return a special pronoun set for a user who only wants to use their name

@@ -10,6 +10,7 @@ If it's available upstream, don't reinvent the wheel. Prefer a gem, a daisyUI cl
 
 - DRY and beautiful above all. Break code into tiny, well-named methods wherever the code can't carry its meaning alone.
 - Few comments. Wanting to write one is a smell: extract a method or rename something instead.
+- Methods that subclasses override (template-method hooks such as `section`, `content` or `fields`) are `protected`, so the class hierarchy is visible. Helpers private to one class stay `private`.
 - Aim for design consistency, not parity with the old UI. When two things look different for no reason, reuse one component for both.
 
 ## Views and components
@@ -23,11 +24,11 @@ There are four tiers of component:
 | daisyUI kit | `Components::Daisy` | One thin class per daisyUI primitive (`Button`, `Menu`, `Navbar`…) |
 | UI kit | `Components::UI` | name.pn's own design elements (`Icon`, `Brand`, `CloseButton`…) |
 | Shared | `Components::Shared` | Pieces used across areas that wire app state into the kits (`SiteNavbar`, `SiteHead`…) |
-| Feature | `Components::<Area>` | One-offs belonging to a single area |
+| Page | `Components::<Page>` | Pieces of a single page, e.g. `Components::Dashboard::NameSection` |
 
-Only the two kits extend `Phlex::Kit`. They're included in `Components::Base`, so their components are called like methods: `Button(variant: :primary) { t('.save') }`. Shared and feature components are rendered explicitly: `render Components::Shared::SiteFooter.new`.
+Only the two kits extend `Phlex::Kit`. They're included in `Components::Base`, so their components are called like methods: `Button(variant: :primary) { t('.save') }`. Shared and page components are rendered explicitly: `render Components::Shared::SiteFooter.new`.
 
-Kit components are pure UI. They get their data through the constructor, and never read routes, `current_user`, `flash` or the environment themselves. That wiring belongs in shared components, feature components or views.
+Kit components are pure UI. They get their data through the constructor, and never read routes, `current_user`, `flash` or the environment themselves. That wiring belongs in shared components, page components or views.
 
 ### Phlex idioms
 
@@ -55,6 +56,7 @@ Kit components are pure UI. They get their data through the constructor, and nev
 The suite is deliberately slim.
 
 - Spinach features are the end-to-end safety net. Keep the BEM-style hook classes they rely on (`.site-navbar`, `.dashboard-card__edit`, `.page-title`…) on whichever component renders those elements.
+- Phlex emits no whitespace between tags, so rack_test sees adjacent elements' text run together. Match text across elements with `\s*`, as `have_card` in `features/steps/dashboard.rb` does.
 - Add specs only for behaviour that is ours and not obvious. Don't re-test Rails, Phlex, Tailwind, daisyUI or the browser, and don't write specs for plain markup.
 
 Run `bundle exec rspec` and `bin/spinach`. Build assets with `bun run build:css && bun run build`.

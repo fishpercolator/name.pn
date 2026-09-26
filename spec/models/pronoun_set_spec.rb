@@ -53,5 +53,5 @@ RSpec.describe PronounSet, type: :model do
       expect(subject.copula).to eq('is')
     end
   end
-  
+
 end

@@ -6,11 +6,8 @@ class ApplicationMarkdown < MarkdownRails::Renderer::Rails
     [:tables, :with_toc_data]
   end
 
-  # Use the page's first "# " heading as its title, as other views do with
-  # the `title` helper
+  # Render the page's first "# " heading as its PageTitle, like other views
   def preprocess(markdown)
-    heading = markdown[/^# (.+)$/, 1]
-    view_context.title(heading.strip) if heading
-    markdown
+    markdown.sub(/^# (.+)$/) { view_context.render(Components::UI::PageTitle.new($1.strip)) }
   end
 end

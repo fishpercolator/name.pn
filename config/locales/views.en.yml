@@ -3,6 +3,39 @@ en:
     daisy:
       navbar:
         menu: Menu
+    ui:
+      missing_value:
+        required: You must set this before you can share your page
+        not_set: Not set
+      likeness:
+        alt: A picture of %{name}
+        expand: View larger image
+      player:
+        listen: Listen
+    dashboard:
+      name_section:
+        title: Your name
+      variants_section:
+        title: Variants of your name
+      pronunciation_section:
+        title: How to pronounce your name
+        name_is_pronounced: '%{name} is pronounced'
+        ipa: 'IPA pronunciation of %{name}'
+        audio_clip: Audio clip of '%{name}'
+      pronouns_section:
+        title: Your pronouns
+        header: 'Pronouns: %{pronoun}'
+      likeness_section:
+        title: What you look like
+      links_section:
+        title: Your personal links
+      url_section:
+        title: Your unique URL
+        view_your_page: View
+        copy_to_clipboard: Copy
+        copied: Copied!
+        you_must_complete: You must complete the highlighted parts before you can preview your page
+        or_with_pronouns: 'or, if you prefer a URL containing your pronouns:'
     shared:
       site_navbar:
         label: main navigation
@@ -47,30 +80,6 @@ en:
       title: Your name dashboard
       page_description1: Here you can create a page that describes the different ways you would like to be addressed in English.
       page_description2: Once you're happy with the page, you can share it with people and put it in your email signature so that everyone knows.
-      you_must: You must set this before you can share your page
-      not_set: Not set
-    name_card:
-      title: Your name
-    name_variants_card:
-      title: Variants of your name
-    pronunciation_card:
-      title: How to pronounce your name
-      name_is_pronounced: '%{name} is pronounced'
-      ipa: 'IPA pronunciation of %{name}'
-      audio_clip: Audio clip of '%{name}'
-    pronouns_card:
-      title: Your pronouns
-    likeness_card:
-      title: What you look like
-    links_card:
-      title: Your personal links  
-    url_card:
-      title: Your unique URL
-      view_your_page: View
-      copy_to_clipboard: Copy
-      copied: Copied!
-      you_must_complete: You must complete the highlighted parts before you can preview your page
-      or_with_pronouns: 'or, if you prefer a URL containing your pronouns:'
   mailing_list:
     show:
       title: Mailing list preference
@@ -146,9 +155,6 @@ en:
     likeness_uploader:
       upload_button: Set image
       delete_button: Delete
-  pronoun_sets:
-    table:
-      header: 'Pronouns: %{pronoun}'
   users:
     show:
       blurb: Find out more about name.pn and get your own free page
@@ -193,8 +199,6 @@ en:
           dislike: Please don't use these variants of my name.
     likeness_card:
       what_i_look_like: What I look like
-      alt_text: A picture of %{name}
-      expand: View larger image
     pronouns_card:
       how_to_use_my_pronouns: How to use my pronouns
       pronoun_hint: To speak about a person in English, you don't need to know their gender but you do need to know which pronouns to use. This information can't be determined from a person's name or what they look like, so we include it on everyone's page.
@@ -205,8 +209,6 @@ en:
     links_card:
       more_about_me: More about me
       links_hint: 'These external links have been provided by %{name} and are not endorsed by name.pn.'
-    player:
-      listen: Listen
   clients:
     client:
       confirm_delete: Are you sure you want to delete this API key? All clients using this key will lose access.
