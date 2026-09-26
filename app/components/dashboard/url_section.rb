@@ -29,7 +29,9 @@ class Components::Dashboard::UrlSection < Components::Dashboard::Section
   def pronoun_urls
     div(class: 'text-center text-muted') do
       p { i { t('.or_with_pronouns') } }
-      @user.pronoun_sets.each { |set| p(class: 'break-words') { user_url(@user, nominative: set.nominative, oblique: set.oblique) } }
+      @user.pronoun_sets.each do |set|
+        p(class: 'break-words') { user_url(@user, nominative: set.nominative, oblique: set.oblique) }
+      end
     end
   end
 

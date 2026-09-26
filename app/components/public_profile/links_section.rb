@@ -7,7 +7,9 @@ class Components::PublicProfile::LinksSection < Components::PublicProfile::Secti
 
   def content
     Hint(class: 'profile-card__hint') { t('.hint', name: @user.personal_name) }
-    BulletList(markers: :inside) { |bullets| links.each { |link| bullets.item { Link(link.url, rel: 'me nofollow') { link.title } } } }
+    BulletList(markers: :inside) do |bullets|
+      links.each { |link| bullets.item { Link(link.url, rel: 'me nofollow') { link.title } } }
+    end
   end
 
   private

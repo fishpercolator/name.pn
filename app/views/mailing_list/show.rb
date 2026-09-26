@@ -21,6 +21,8 @@ class Views::MailingList::Show < Views::Base
   private
 
   def toggle(path, variant, &)
-    div(class: 'mt-4') { Button(href: path, method: :post, variant:, &) }
+    div(class: 'mt-4') do
+      Button(href: path, method: :post, variant:, &)
+    end
   end
 end

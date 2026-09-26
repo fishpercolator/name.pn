@@ -10,7 +10,9 @@ class Components::Shared::SiteNavbar < Components::Base
   private
 
   def site_links
-    Menu { |menu| menu.item(page_path('about')) { t('.about') } }
+    Menu do |menu|
+      menu.item(page_path('about')) { t('.about') }
+    end
   end
 
   def account_links = user_signed_in? ? member_links : visitor_links

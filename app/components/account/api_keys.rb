@@ -7,8 +7,7 @@ class Components::Account::ApiKeys < Components::Base
   end
 
   def view_template
-    Table do |table|
-      table.headings Client.human_attribute_name(:name), Client.human_attribute_name(:created_at), nil
+    Table(headings: [Client.human_attribute_name(:name), Client.human_attribute_name(:created_at), nil]) do |table|
       @clients.each do |client|
         table.row(class: 'api-client') do
           table.cell { client.name }

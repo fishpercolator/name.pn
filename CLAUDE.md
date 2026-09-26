@@ -32,6 +32,7 @@ Kit components are pure UI. They get their data through the constructor, and nev
 
 ### Phlex idioms
 
+- **Code follows the shape of the page.** Use `do…end` for boxes (cards, forms, lists, wrappers) and `{}` for lines (headings, text, a single inline element), even when a box would fit on one line. It's a rule of thumb, not a law.
 - **Builders.** Slots are methods that take a block, and are yielded to the caller: `Navbar { |n| n.brand { logo } }`. Use `vanish(&)` only when the slots must render in a different order from the one they were called in, or need manipulating before they render.
 - **`grab`** for keyword arguments that are Ruby keywords (`class:`).
 - **`mix`** to merge caller attributes into our defaults. Accept `**attributes` and pass them through.

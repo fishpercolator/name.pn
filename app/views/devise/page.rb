@@ -14,12 +14,18 @@ class Views::Devise::Page < Views::Base
     NarrowContainer do
       PageTitle(t('.title'), class: 'mb-6')
       yield
-      ul(class: 'mt-5 space-y-1') { links.each { |name| li { auth_link(name) } } }
+      ul(class: 'mt-5 space-y-1') do
+        links.each { |name| li { auth_link(name) } }
+      end
     end
   end
 
   def form_card(**options, &)
-    Card { |card| card.body { Form(model: resource, scope: resource_name, **options, &) } }
+    Card do |card|
+      card.body do
+        Form(model: resource, scope: resource_name, **options, &)
+      end
+    end
   end
 
   def auth_link(name)
