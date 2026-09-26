@@ -36,7 +36,6 @@ gem 'active_storage_validations', '~> 3.0'
 gem 'acts_as_list', '~> 1.0'
 gem 'amazing_print', '~> 2.0'
 gem 'blueprinter', '~> 1.0'
-gem 'cocoon', '~> 1.2'
 gem 'datadog', '~> 2.38', require: 'datadog/auto_instrument'
 gem 'devise', '~> 5.0'
 gem 'devise-jwt', '~> 0.13.0'
@@ -44,7 +43,6 @@ gem 'figaro', '~> 1.2'
 gem 'friendly_id', '~> 5.3'
 gem 'gaffe', '~> 1.2'
 gem 'gibbon', '~> 3.4', '>= 3.4.3'
-gem 'haml', '~> 7.2'
 gem 'high_voltage', '~> 5.0'
 gem 'image_processing', '~> 1.11'
 gem "importmap-rails", "~> 2.1"
@@ -59,7 +57,6 @@ gem 'pundit', '~> 2.1'
 gem 'rails_semantic_logger', '~> 4.6'
 gem 'rswag-api', '~> 2.4'
 gem 'rswag-ui', '~> 2.4'
-gem 'simple_form', '~> 5.0'
 gem 'spicy-proton', '~> 2.1'
 gem 'wicked', '~> 2.0'
 
@@ -88,7 +85,6 @@ group :development do
   gem 'listen'
   gem 'better_errors'
   gem 'foreman'
-  gem 'haml-rails'
 end
 
 group :test do
