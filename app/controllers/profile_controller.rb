@@ -33,9 +33,9 @@ class ProfileController < ApplicationController
       @user.pronunciation.attach(pronunciation[:data])
     end
     respond_to do |format|
-      format.html { render_wizard @user }
+      format.html { render_wizard @user, context: :profile }
       format.json do
-        @user.save! 
+        @user.save!(context: :profile)
         render json: {url: @user.likeness.attached? ? url_for(@user.likeness.variant(resize_to_limit: [300,300])) : nil} 
       end
     end
