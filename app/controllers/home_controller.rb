@@ -23,9 +23,11 @@ class HomeController < ApplicationController
       view_context.asset_path('favicon.ico'),
       view_context.asset_path('logo.svg'),
     ]
+    render layout: false
   end
 
   def manifest
+    render layout: false
   end
 
   def offline
