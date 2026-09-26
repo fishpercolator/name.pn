@@ -127,7 +127,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   step 'I should see the upload form and delete checkbox' do
     expect(page).to have_content('Upload your audio file')
     expect(page).to have_css('input[type=file]')
-    expect(page).to have_css('label.boolean-label', text: 'or check this box to delete the current audio')
+    expect(page).to have_css('label', text: 'or check this box to delete the current audio')
   end
 
   step 'I should not see the upload form and delete checkbox' do

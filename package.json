@@ -9,6 +9,7 @@
     "@hotwired/turbo": "^8.0.23",
     "@kollegorna/cocoon-vanilla-js": "^1.0.7",
     "@rails/activestorage": "^8.1.301",
+    "@stimulus-components/rails-nested-form": "^5.0.0",
     "@tailwindcss/cli": "^4.3.3",
     "@tailwindcss/typography": "^0.5.20",
     "@uppy/core": "^5.2.0",

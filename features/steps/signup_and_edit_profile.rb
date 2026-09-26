@@ -161,9 +161,9 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click twice to add a link' do
-    click_link 'Add a link'
+    click_on 'Add a link'
     expect(page).to have_css('label', text: 'Title', count: 1)
-    click_link 'Add a link'
+    click_on 'Add a link'
     expect(page).to have_css('label', text: 'Title', count: 2)
   end
 
@@ -191,7 +191,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
 
   step 'I click to delete the first link' do
     within all('.link-fields')[0] do
-      click_link 'Remove'
+      click_on 'Remove'
     end
   end
 
@@ -229,7 +229,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I should not see links to the other sections' do
-    expect(page).not_to have_css('.profile-steps__link')
+    expect(page).not_to have_css('.profile-steps a')
   end
 
   step 'I should not see a save and exit button' do
@@ -249,7 +249,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
 
   step 'I should see links to the other sections' do
-    expect(page).to have_css('.profile-steps__link')
+    expect(page).to have_css('.profile-steps a')
   end
 
   step 'I should see a save and exit button' do
@@ -257,9 +257,9 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click twice to add alternate names' do
-    click_link 'Add alternate name'
+    click_on 'Add alternate name'
     expect(page).to have_css('label', text: 'Category', count: 1)
-    click_link 'Add alternate name'
+    click_on 'Add alternate name'
     expect(page).to have_css('label', text: 'Category', count: 2)
   end
 
@@ -288,7 +288,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
 
   step 'I click to delete the first alternate name' do
     within all('.alternate_name-fields')[0] do
-      click_link 'Remove'
+      click_on 'Remove'
     end
   end
 
@@ -342,9 +342,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
   end
   
   step 'I click to go to the variants page' do
-    within find('.profile-steps__step', text: 'Variants of your name') do
-      find('.profile-steps__link').click
-    end
+    find('.profile-steps a', text: 'Variants of your name').click
   end
 
   step 'I select the pronounless style "none"' do

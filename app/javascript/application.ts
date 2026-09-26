@@ -1,9 +1,6 @@
 // Start Turbo
 import "@hotwired/turbo";
 
-// Cocoon
-import "@kollegorna/cocoon-vanilla-js";
-
 // Serviceworker
 if (navigator.serviceWorker) {
   navigator.serviceWorker.register("/serviceworker.js", { scope: "/" })

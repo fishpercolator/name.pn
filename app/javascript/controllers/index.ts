@@ -1,4 +1,5 @@
 import { application } from "./application"
+import RailsNestedForm from "@stimulus-components/rails-nested-form"
 
 import LightboxController from "./lightbox_controller"
 import LikenessUploaderController from "./likeness_uploader_controller"
@@ -14,6 +15,7 @@ import UrlController from "./url_controller"
 application.register("lightbox", LightboxController)
 application.register("likeness-uploader", LikenessUploaderController)
 application.register("messages", MessagesController)
+application.register("nested-form", RailsNestedForm)
 application.register("napc", NapcController)
 application.register("player", PlayerController)
 application.register("pronoun-form", PronounFormController)

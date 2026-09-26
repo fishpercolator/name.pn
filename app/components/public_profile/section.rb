@@ -6,7 +6,7 @@ class Components::PublicProfile::Section < Components::Base
   end
 
   def view_template
-    ProfileCard(t('.title'), id: section_name, class: 'profile-card group mt-6', footer: { class: SEE_ALL }, data: { public_profile_target: 'card' }) do |card|
+    ProfileCard(t('.title'), id: section_name, class: 'profile-card group mt-6', footer_attributes: { class: SEE_ALL }, data: { public_profile_target: 'card' }) do |card|
       card.tool("##{section_name}", icon: 'link', label: t('components.public_profile.section.link_to_this_section'), class: 'text-accent-content')
       card.content do
         div { content }

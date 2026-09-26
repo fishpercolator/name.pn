@@ -10,7 +10,7 @@ If it's available upstream, don't reinvent the wheel. Prefer a gem, a daisyUI cl
 
 - DRY and beautiful above all. Break code into tiny, well-named methods wherever the code can't carry its meaning alone.
 - Few comments. Wanting to write one is a smell: extract a method or rename something instead.
-- Methods that subclasses override (template-method hooks such as `section`, `content` or `fields`) are `protected`, so the class hierarchy is visible. Helpers private to one class stay `private`.
+- Methods that subclasses override (template-method hooks such as `section_name` or `content`) are `protected`, so the class hierarchy is visible. Helpers private to one class stay `private`.
 - Aim for design consistency, not parity with the old UI. When two things look different for no reason, reuse one component for both.
 
 ## Views and components
@@ -61,7 +61,9 @@ end
 
 - `field` renders a daisyUI fieldset with its label, input, error and hint. The input type is inferred from the attribute name, or given with `as:`.
 - Labels, hints and placeholders come from `helpers.label|hint|placeholder.<model>.<attribute>`, and labels fall back to `human_attribute_name`. Pass `label:` or `hint:` only for copy that belongs to one page.
+- `select(attribute, choices:)` renders a select in the same kind of fieldset.
 - `input` renders a bare input, for layouts without a fieldset.
+- Don't pass a form into helper methods. A page helper that owns the form yields it to an inline block, the way `form_with` does: `form_card(url: …) { |form| … }` on the Devise pages, `wizard_step { |form| … }` in the profile wizard.
 
 ### i18n
 

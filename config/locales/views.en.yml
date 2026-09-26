@@ -95,6 +95,23 @@ en:
       new_key_modal:
         title: Your new API key
         blurb: Be sure to copy this key before closing this box. After closing the box there will be no way to retrieve this key.
+    wizard:
+      pronoun_option:
+        example_html: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
+        position_hint: Set this to a position number to reorder your pronouns (1 is the top)
+      recorder:
+        prompt: Give permission for microphone
+        prompt_hint: We've detected that you haven't yet given name.pn permission to access your microphone. Please click the button and say "Allow" when your browser asks you. We will only use your microphone when you are making recordings for your profile. If you do not want to give us permission, this feature is optional and you can skip it.
+        record: Hold to record
+        please_wait: Please wait...
+        recording: Recording
+        delete: Delete audio
+        hint: If you like, you can record audio of yourself saying your name here. Hold the Record button while you're speaking and release it when you're done. You can preview the sound with the Play buton until you're happy with it or delete the sound if you want to proceed without it.
+        denied: It looks like you've blocked name.pn from accessing your microphone. If you'd like to use this feature, please find your browser microphone settings and allow name.pn.
+        unavailable: It looks like recording audio is not currently available in your browser. Please try using the latest version of Google Chrome, Mozilla Firefox or Microsoft Edge.
+      likeness_uploader:
+        upload: Set image
+        delete: Delete
     shared:
       site_navbar:
         label: main navigation
@@ -148,10 +165,13 @@ en:
       unsubscribe: Unsubscribe
       please_wait: Please wait...
   profile:
-    show:
-      title: Edit my profile
-      you_must_complete: You must complete this section before you can share your page.
-      optional_section: This section is optional; you can leave it blank.
+    step:
+      required: You must complete this section before you can share your page.
+      optional: This section is optional; you can leave it blank.
+      previous: Go back
+      next: Next step
+      finish: Finish my profile
+      save_and_exit: Save and exit
     personal_name:
       title: Your name
       blurb: This section refers to the most common names you use for yourself when communicating with English speakers.
@@ -161,13 +181,13 @@ en:
       alternate_names: Alternate names
       alternate_names_blurb: Here you can add nicknames and other (e.g. shortened) versions of your name, and say whether you like or dislike people using them.
       add_alternate_name: Add alternate name
-    alternate_name_fields:
-      remove_alternate_name: Remove
+      remove: Remove
     pronunciation:
       title: Pronunciation
       blurb: This section is concerned with how you would like English speakers to say your name out loud.
-      record: Record yourself saying '%{name}'
-    pronouns: 
+      phonetic_html: "Phonetic spelling of '%{name}'"
+      record_html: "Record yourself saying '%{name}'"
+    pronouns:
       title: Your pronouns
       blurb: 
         - To address you properly in English, people don't need to know your gender, but they do need to know your personal pronouns.
@@ -182,11 +202,7 @@ en:
       title: Your personal links
       blurb: Because you might be using your 'one link' on social media to link to this page, here you can provide a handful of onward links for people who want to know more about you.
       add_link: Add a link
-    link_fields:
-      remove_link: Remove
-    user_pronoun_set_fields:
-      pronoun_set_hint: "Example: <b>%{name}</b> is a great cook. Watch <b>%{oblique}</b> make sushi and you'll see how good <b>%{nominative}</b> %{copula}!"
-      position_hint: Set this to a position number to reorder your pronouns (1 is the top)
+      remove: Remove
     slug:
       title: Your URL
       blurb: 'Last important thing: you need to pick a URL for your public profile.'
@@ -194,26 +210,6 @@ en:
       optional_blurb: There's lots more you can add to fill out your name.pn profile, but if you like you can stop here and start using your page right away. You will be able to come back here any time to add more details.
       save_and_exit: Click here to save and exit
       or_continue: or if you'd like to continue to the next sections now, go ahead and click 'Next step' below. All the following sections are optional and you can skip any you don't want to fill out.
-    buttons:
-      previous: Go back
-      next: Next step
-      finish: Finish my profile
-    header:
-      save_and_exit: Save and exit
-    recorder:
-      prompt: Give permission for microphone
-      prompt_hint: We've detected that you haven't yet given name.pn permission to access your microphone. Please click the button and say "Allow" when your browser asks you. We will only use your microphone when you are making recordings for your profile. If you do not want to give us permission, this feature is optional and you can skip it.
-      record: Hold to record
-      please_wait: Please wait...
-      recording: Recording
-      play: Play
-      delete_audio: Delete audio
-      hint: If you like, you can record audio of yourself saying your name here. Hold the Record button while you're speaking and release it when you're done. You can preview the sound with the Play buton until you're happy with it or delete the sound if you want to proceed without it.
-      recorder_denied: It looks like you've blocked name.pn from accessing your microphone. If you'd like to use this feature, please find your browser microphone settings and allow name.pn.
-      recorder_unavailable: It looks like recording audio is not currently available in your browser. Please try using the latest version of Google Chrome, Mozilla Firefox or Microsoft Edge.
-    likeness_uploader:
-      upload_button: Set image
-      delete_button: Delete
   users:
     show:
       blurb: Find out more about name.pn and get your own free page
