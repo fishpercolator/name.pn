@@ -11,7 +11,9 @@ class Components::Wizard::LikenessUploader < Components::Base
         Button(variant: :success, size: :lg, icon: 'file-upload-outline', data: { action: 'likeness-uploader#start' }) { t('.upload') }
         Button(type: :submit, name: 'button', value: 'delete_likeness', variant: :danger, size: :lg, icon: 'delete', disabled: !likeness.attached?, data: { likeness_uploader_target: 'delete' }) { t('.delete') }
       end
-      div(class: '[&_img]:rounded-full', data: { likeness_uploader_target: 'preview' }) { preview if likeness.attached? }
+      div(class: '[&_img]:rounded-full', data: { likeness_uploader_target: 'preview' }) do
+        preview if likeness.attached?
+      end
     end
   end
 

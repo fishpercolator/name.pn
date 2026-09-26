@@ -18,7 +18,9 @@ class Views::Profile::Step < Views::Base
         DashboardCard(t('.title'), heading: :h1, tone: section_name, id: section_name.to_s.dasherize, class: 'profile-form mx-auto md:w-1/2') do |card|
           card.content do
             Blurb(*Array(t('.blurb')), t(required ? 'profile.step.required' : 'profile.step.optional'))
-            div(class: 'space-y-2', data: { controller: }) { yield form }
+            div(class: 'space-y-2', data: { controller: }) do
+              yield form
+            end
             navigation
           end
         end
@@ -28,7 +30,9 @@ class Views::Profile::Step < Views::Base
 
   def progress
     section(class: 'container mx-auto flex items-start gap-4 px-4 pt-8') do
-      div(class: 'grow overflow-x-auto') { steps }
+      div(class: 'grow overflow-x-auto') do
+        steps
+      end
       save_and_exit_button(class: 'shrink-0') { t('profile.step.save_and_exit') } if navigable?
     end
   end
