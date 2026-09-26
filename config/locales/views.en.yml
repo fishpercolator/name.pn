@@ -25,6 +25,8 @@ en:
     support:
       report_a_bug: Report a bug on our issues board
   home:
+    offline:
+      title: Offline
     anon_home:
       title:
         namedot: name.
