@@ -2,6 +2,15 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   
+  describe 'names' do
+    let(:user) { create :user }
+
+    it 'are only required by the profile wizard' do
+      expect(user).to be_valid
+      expect(user.valid?(:profile)).to be false
+    end
+  end
+
   describe '#pronoun_sets_with_preference' do
     before do
       create :pronoun_set, :they

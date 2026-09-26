@@ -24,7 +24,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
            
-  validates :personal_name, :full_name, presence: true, unless: :new_record?
+  validates :personal_name, :full_name, presence: true, on: :profile
   validates :terms, acceptance: true, on: :create
   
   has_one_base64_attached :pronunciation
