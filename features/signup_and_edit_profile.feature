@@ -126,6 +126,7 @@ Scenario: Complete profile editing
   And both my alternate names should be added correctly
   And my likeness should be cropped
 
+@javascript
 Scenario: My slug is already taken
   Given I am signed out
   And an Audrey Horne profile already exists
