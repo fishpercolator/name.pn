@@ -8,7 +8,9 @@ class Views::Users::Show < Views::Base
         cards
       end
     end
-    div(class: 'p-4 text-center') { a(href: root_path, class: 'link text-base-200') { t('.blurb') } }
+    div(class: 'p-4 text-center') do
+      a(href: root_path, class: 'link text-base-200') { t('.blurb') }
+    end
   end
 
   private

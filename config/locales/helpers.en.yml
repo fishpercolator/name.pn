@@ -1,0 +1,11 @@
+en:
+  helpers:
+    label:
+      user:
+        subscribe_to_mailing_list: Sign up for occasional update emails
+    hint:
+      user:
+        subscribe_to_mailing_list: The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.
+    placeholder:
+      client:
+        name: A name for your records

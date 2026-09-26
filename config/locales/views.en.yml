@@ -88,6 +88,13 @@ en:
       links_section:
         title: More about me
         hint: 'These external links have been provided by %{name} and are not endorsed by name.pn.'
+    account:
+      api_keys:
+        confirm_delete: Are you sure you want to delete this API key? All clients using this key will lose access.
+        create: Create key
+      new_key_modal:
+        title: Your new API key
+        blurb: Be sure to copy this key before closing this box. After closing the box there will be no way to retrieve this key.
     shared:
       site_navbar:
         label: main navigation
@@ -135,8 +142,8 @@ en:
   mailing_list:
     show:
       title: Mailing list preference
-      currently_subscribed: '<b>Subscribed:</b> You are currently subscribed to our mailing list for news about new features. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.'
-      currently_unsubscribed: '<b>Not subscribed:</b> You are currently not subscribed to our mailing list. The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.'
+      currently_subscribed_html: '<b>Subscribed:</b> You are currently subscribed to our mailing list for news about new features. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.'
+      currently_unsubscribed_html: '<b>Not subscribed:</b> You are currently not subscribed to our mailing list. The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.'
       subscribe: Subscribe to mailing list
       unsubscribe: Unsubscribe
       please_wait: Please wait...
@@ -214,10 +221,5 @@ en:
       hello_my_name_is: "Hello! My name is %{name}"
       my_pronouns_are: "My pronouns are %{pronouns}"
   clients:
-    client:
-      confirm_delete: Are you sure you want to delete this API key? All clients using this key will lose access.
     destroy:
       destroyed: That API key has been successfully deleted.
-    key_modal:
-      title: Your new API key
-      blurb: Be sure to copy this key before closing this box. After closing the box there will be no way to retrieve this key.

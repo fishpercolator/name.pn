@@ -23,7 +23,9 @@ class Components::PublicProfile::PronounsSection < Components::PublicProfile::Se
   def pronoun_set(set)
     div(class: 'profile-card__pronoun mt-8') do
       heading(set.to_s(@user))
-      PronounSet::EXAMPLES.each { |inflection| p(class: 'mt-3 text-xl') { PronounExample(set, @user, inflection) } }
+      PronounSet::EXAMPLES.each do |inflection|
+        p(class: 'mt-3 text-xl') { PronounExample(set, @user, inflection) }
+      end
     end
   end
 end

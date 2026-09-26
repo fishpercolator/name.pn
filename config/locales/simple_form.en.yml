@@ -19,12 +19,9 @@ en:
         phonetic: "Phonetic spelling of '%{name}'"
         ipa: "Advanced: IPA spelling"
         slug: Your personal URL
-        subscribe_to_mailing_list: 'Sign up for occasional update emails'
         pronunciation:
           data: Upload your audio file
           delete: or check this box to delete the current audio (if any)
-        edit:
-          password: New password
     hints:
       user:
         full_name: This is the name you would typically use to represent yourself on a list of names. For example, "Abby Yates". Don't include middle names or initials here unless you normally use them when identifying yourself.
@@ -39,7 +36,6 @@ en:
         pronoun_style: How many pronouns would you like displayed in the short version of your pronouns?
         pronoun_example: We'll use this activity as a reference to show people how to use your pronouns. Pick the one that best fits your personality.
         pronounless_style: Some people do not use pronouns, or are genuinely happy to have any pronouns used for them. If this is you, please select from these options instead of selecting pronouns above.
-        subscribe_to_mailing_list: The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.
         links:
           title: What this is a link to, e.g. 'Twitter'.
           url: Make sure you include the 'https' part.

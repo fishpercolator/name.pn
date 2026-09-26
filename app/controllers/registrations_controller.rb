@@ -1,6 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
   before_action :setup_clients, only: %w[edit update]
+
+  def edit
+    render_plex_view(action: :edit)
+  end
   
   protected
   
@@ -11,6 +15,8 @@ class RegistrationsController < Devise::RegistrationsController
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit :sign_up, keys: %i[terms subscribe_to_mailing_list]
   end
+
+  def phlex_view_path(action) = "views/devise/registrations/#{action}"
 
   def setup_clients
     @clients = policy_scope(resource.clients)

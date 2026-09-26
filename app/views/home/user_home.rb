@@ -22,7 +22,9 @@ class Views::Home::UserHome < Views::Base
   end
 
   def column(*cards)
-    div(class: 'flex flex-col gap-6 [&>*]:grow') { cards.each { card(it) } }
+    div(class: 'flex flex-col gap-6 [&>*]:grow') do
+      cards.each { card(it) }
+    end
   end
 
   def card(type) = render type.new(@user)

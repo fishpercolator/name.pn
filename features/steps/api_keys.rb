@@ -13,7 +13,7 @@ class Spinach::Features::ApiKeys < Spinach::FeatureSteps
 
   step 'I should see my 3 API keys and their ages' do
     expect(page).to have_css('tr.api-client', count: 3)
-    expect(page).to have_content("two 2 days ago")
+    expect(page).to have_css("tr.api-client", text: /two\s*2 days ago/)
   end
 
   step 'I click to delete the first key & confirm the action' do

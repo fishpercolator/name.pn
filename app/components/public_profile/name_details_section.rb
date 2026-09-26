@@ -16,7 +16,9 @@ class Components::PublicProfile::NameDetailsSection < Components::PublicProfile:
 
   def variants(category, names)
     detail(t(".headings.variants.#{category}_html"), hint: t(".hints.variants.#{category}")) do
-      BulletList(markers: :inside) { |bullets| names.each { |name| bullets.item { name.name } } }
+      BulletList(markers: :inside) do |bullets|
+        names.each { |name| bullets.item { name.name } }
+      end
     end
   end
 end
