@@ -9,14 +9,6 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  def authenticate_admin!
-    if !current_user&.role_admin?
-      sign_out
-      flash.alert = t('errors.not_admin')
-      redirect_to new_user_session_path
-    end
-  end
-
   protected
 
   def framework_controller?
