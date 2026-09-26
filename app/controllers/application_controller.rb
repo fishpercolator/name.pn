@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     devise_controller? || kind_of?(ActiveAdmin::BaseController) || kind_of?(HighVoltage::StaticPage)
   end
   
-  def user_not_authorized
+  def user_not_authorized(_exception = nil)
     flash[:alert] = t('errors.not_authorized')
     redirect_to(request.referrer || root_path)
   end
