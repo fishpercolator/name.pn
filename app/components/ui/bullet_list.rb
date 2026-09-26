@@ -1,5 +1,5 @@
 class Components::UI::BulletList < Components::Base
-  MARKERS = { outside: 'list-outside', inside: 'list-inside' }.freeze
+  MARKERS = { outside: 'list-outside', indented: 'list-outside ms-6', inside: 'list-inside' }.freeze
 
   def initialize(markers: :outside)
     @markers = markers
