@@ -46,7 +46,7 @@ RSpec.configure do |config|
         
         ### Terms of use
         
-        Use of the name.pn API is subject to the [name.pn terms and conditions 
+        Use of the name.pn API is subject to the [name.pn terms and conditions
         of use](/pages/terms), including the prohibited uses in Section 4.
         
         Use of this API is provided with no guarantees. Please be considerate in
