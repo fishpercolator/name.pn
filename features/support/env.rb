@@ -40,13 +40,6 @@ Spinach.hooks.before_scenario do
   Rails.application.load_seed
 end
 
-# Render error pages the way production does, instead of raising
-SHOW_EXCEPTIONS = Rails.application.env_config.slice('action_dispatch.show_exceptions', 'action_dispatch.show_detailed_exceptions')
-Spinach.hooks.on_tag('show_exceptions') do
-  Rails.application.env_config.merge!('action_dispatch.show_exceptions' => :all, 'action_dispatch.show_detailed_exceptions' => false)
-end
-Spinach.hooks.after_scenario { Rails.application.env_config.merge!(SHOW_EXCEPTIONS) }
-
 Spinach.hooks.after_run do
   FileUtils.rm_rf(Rails.root + 'tmp/storage')
 end
