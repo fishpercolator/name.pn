@@ -1,5 +1,5 @@
 class Components::UI::BulletList < Components::Base
-  MARKERS = { outside: 'list-outside', inside: 'list-inside' }.freeze
+  MARKERS = { outside: "list-outside", inside: "list-inside" }.freeze
 
   def initialize(markers: :outside, **attributes)
     @markers = markers
@@ -7,7 +7,7 @@ class Components::UI::BulletList < Components::Base
   end
 
   def view_template(&)
-    ul(**mix({ class: ['list-[square]', MARKERS.fetch(@markers)] }, @attributes), &)
+    ul(**mix({ class: [ "list-[square]", MARKERS.fetch(@markers) ] }, @attributes), &)
   end
 
   def item(&) = li(&)

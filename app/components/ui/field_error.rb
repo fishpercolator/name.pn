@@ -6,6 +6,6 @@ class Components::UI::FieldError < Components::Base
   def render? = @message.present?
 
   def view_template
-    p(class: 'error text-sm text-error') { @message }
+    p(class: "error text-sm text-error") { @message }
   end
 end

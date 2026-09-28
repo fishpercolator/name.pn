@@ -4,7 +4,7 @@ class Components::Daisy::Menu < Components::Base
   end
 
   def view_template(&)
-    ul(**mix({ class: 'menu text-base md:menu-horizontal' }, @attributes), &)
+    ul(**mix({ class: "menu text-base md:menu-horizontal" }, @attributes), &)
   end
 
   def item(href, icon: nil, **attributes, &)

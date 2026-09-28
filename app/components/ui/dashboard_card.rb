@@ -1,12 +1,12 @@
 class Components::UI::DashboardCard < Components::UI::SectionCard
   TONES = {
-    url: 'bg-url',
-    personal_name: 'bg-personal-name',
-    pronouns: 'bg-pronouns',
-    pronunciation: 'bg-pronunciation',
-    variants: 'bg-variants',
-    likeness: 'bg-likeness',
-    links: 'bg-links'
+    url: "bg-url",
+    personal_name: "bg-personal-name",
+    pronouns: "bg-pronouns",
+    pronunciation: "bg-pronunciation",
+    variants: "bg-variants",
+    likeness: "bg-likeness",
+    links: "bg-links"
   }.freeze
 
   def initialize(title, tone:, **attributes)

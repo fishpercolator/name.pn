@@ -1,5 +1,5 @@
-require 'activeadmin'
-require 'active_admin/sortable_table/handle_column'
+require "activeadmin"
+require "active_admin/sortable_table/handle_column"
 
 # Slimmed from no-longer-maintained https://github.com/bolshakov/activeadmin_sortable_table/blob/master/lib/active_admin/sortable_table.rb (MIT license)
 module ActiveAdmin

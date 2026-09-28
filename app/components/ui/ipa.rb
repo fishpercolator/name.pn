@@ -5,6 +5,6 @@ class Components::UI::Ipa < Components::Base
   end
 
   def view_template
-    span(**mix({ class: 'font-ipa' }, @attributes)) { "/#{@transcription}/" }
+    span(**mix({ class: "font-ipa" }, @attributes)) { "/#{@transcription}/" }
   end
 end

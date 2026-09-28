@@ -7,8 +7,8 @@ class Components::Daisy::Table < Components::Base
 
   def view_template(&)
     vanish(&)
-    div(class: 'overflow-x-auto rounded-box border border-base-300 bg-base-100') do
-      table(**mix({ class: 'table table-zebra text-base [&_th]:text-base [&_th]:text-base-content' }, @attributes)) do
+    div(class: "overflow-x-auto rounded-box border border-base-300 bg-base-100") do
+      table(**mix({ class: "table table-zebra text-base [&_th]:text-base [&_th]:text-base-content" }, @attributes)) do
         heading_row if @headings.any?
         data_rows if @rows.any?
       end
@@ -16,7 +16,7 @@ class Components::Daisy::Table < Components::Base
   end
 
   def row(**attributes, &cells)
-    @rows << [attributes, cells]
+    @rows << [ attributes, cells ]
   end
 
   def cell(&) = td(&)

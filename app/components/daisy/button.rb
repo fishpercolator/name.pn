@@ -2,16 +2,16 @@ class Components::Daisy::Button < Components::Base
   include Phlex::Rails::Helpers::ButtonTo
 
   MODIFIERS = {
-    primary: 'btn-primary', secondary: 'btn-secondary', success: 'btn-success', danger: 'btn-danger', ghost: 'btn-ghost',
-    outline: 'btn-outline',
-    xs: 'btn-xs', sm: 'btn-sm', lg: 'btn-lg', xl: 'btn-xl',
-    square: 'btn-square', circle: 'btn-circle'
+    primary: "btn-primary", secondary: "btn-secondary", success: "btn-success", danger: "btn-danger", ghost: "btn-ghost",
+    outline: "btn-outline",
+    xs: "btn-xs", sm: "btn-sm", lg: "btn-lg", xl: "btn-xl",
+    square: "btn-square", circle: "btn-circle"
   }.freeze
 
   def initialize(href: nil, method: nil, variant: nil, outline: false, size: nil, shape: nil, icon: nil, trailing_icon: nil, **attributes)
     @href = href
     @method = method
-    @modifiers = [variant, (:outline if outline), size, shape].compact
+    @modifiers = [ variant, (:outline if outline), size, shape ].compact
     @icon = icon
     @trailing_icon = trailing_icon
     @attributes = attributes
@@ -37,5 +37,5 @@ class Components::Daisy::Button < Components::Base
 
   def attributes = mix({ class: classes }, @attributes)
 
-  def classes = ['btn', *@modifiers.map { MODIFIERS.fetch(it) }]
+  def classes = [ "btn", *@modifiers.map { MODIFIERS.fetch(it) } ]
 end

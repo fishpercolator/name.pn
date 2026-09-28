@@ -1,5 +1,4 @@
 ActiveAdmin.register Client do
-
   config.filters = false
 
   index do

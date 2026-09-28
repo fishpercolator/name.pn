@@ -1,6 +1,6 @@
 class Components::Dashboard::UrlSection < Components::Dashboard::Section
   def view_template
-    div(class: 'md:col-span-2', data: { controller: 'url', url_copied_class: 'swap-active' }) { super }
+    div(class: "md:col-span-2", data: { controller: "url", url_copied_class: "swap-active" }) { super }
   end
 
   protected
@@ -12,7 +12,7 @@ class Components::Dashboard::UrlSection < Components::Dashboard::Section
   def blurb = nil
 
   def content
-    p(class: 'break-words text-center text-2xl') { url }
+    p(class: "break-words text-center text-2xl") { url }
     pronoun_urls if @user.pronoun_sets.any?
   end
 
@@ -24,34 +24,34 @@ class Components::Dashboard::UrlSection < Components::Dashboard::Section
 
   private
 
-  def url = @user.slug.present? ? b(data: { url_target: 'url' }) { user_url(@user) } : MissingValue(required: true)
+  def url = @user.slug.present? ? b(data: { url_target: "url" }) { user_url(@user) } : MissingValue(required: true)
 
   def pronoun_urls
-    div(class: 'text-center text-muted') do
-      p { i { t('.or_with_pronouns') } }
+    div(class: "text-center text-muted") do
+      p { i { t(".or_with_pronouns") } }
       @user.pronoun_sets.each do |set|
-        p(class: 'break-words') { user_url(@user, nominative: set.nominative, oblique: set.oblique) }
+        p(class: "break-words") { user_url(@user, nominative: set.nominative, oblique: set.oblique) }
       end
     end
   end
 
   def shareable? = @user.profile_complete?
 
-  def edit_action(card) = card.action(href: profile_path(step), icon: 'pencil') { t('actions.edit') }
+  def edit_action(card) = card.action(href: profile_path(step), icon: "pencil") { t("actions.edit") }
 
   def view_action(card)
-    return unavailable_action(card, 'open-in-new') { t('.view_your_page') } unless shareable?
+    return unavailable_action(card, "open-in-new") { t(".view_your_page") } unless shareable?
 
-    card.action(href: user_url(@user), target: '_blank', icon: 'open-in-new') { t('.view_your_page') }
+    card.action(href: user_url(@user), target: "_blank", icon: "open-in-new") { t(".view_your_page") }
   end
 
   def copy_action(card)
-    return unavailable_action(card, 'clipboard-outline') { t('.copy_to_clipboard') } unless shareable?
+    return unavailable_action(card, "clipboard-outline") { t(".copy_to_clipboard") } unless shareable?
 
-    card.action(id: 'copyButton', data: { action: 'url#copy' }) do
-      Swap(effect: :flip, data: { url_target: 'swap' }) do |swap|
-        swap.off { copy_state('clipboard-outline', t('.copy_to_clipboard')) }
-        swap.on { copy_state('clipboard-check-outline', t('.copied')) }
+    card.action(id: "copyButton", data: { action: "url#copy" }) do
+      Swap(effect: :flip, data: { url_target: "swap" }) do |swap|
+        swap.off { copy_state("clipboard-outline", t(".copy_to_clipboard")) }
+        swap.on { copy_state("clipboard-check-outline", t(".copied")) }
       end
     end
   end
@@ -62,6 +62,6 @@ class Components::Dashboard::UrlSection < Components::Dashboard::Section
   end
 
   def unavailable_action(card, icon, &)
-    card.action(icon:, disabled: true, title: t('.you_must_complete'), &)
+    card.action(icon:, disabled: true, title: t(".you_must_complete"), &)
   end
 end

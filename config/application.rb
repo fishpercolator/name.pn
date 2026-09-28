@@ -35,12 +35,12 @@ module NamePn
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.1
-    
-    config.x.fb_app_id = '301537654370477'
-    config.x.twitter_app_id = '@namedotpn'
+
+    config.x.fb_app_id = "301537654370477"
+    config.x.twitter_app_id = "@namedotpn"
     # Hex equivalents of daisyUI's neutral and base-200 in application.tailwind.css
-    config.x.pwa.theme_color = '#071f21'
-    config.x.pwa.background_color = '#f2f8f8'
+    config.x.pwa.theme_color = "#071f21"
+    config.x.pwa.background_color = "#f2f8f8"
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.

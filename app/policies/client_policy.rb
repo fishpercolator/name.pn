@@ -4,16 +4,16 @@ class ClientPolicy < ApplicationPolicy
       scope.where(user: user)
     end
   end
-  
+
   def create?
     record.user == user
   end
-  
+
   def destroy?
     create?
   end
-  
+
   def permitted_attributes
-    [:name]
+    [ :name ]
   end
 end

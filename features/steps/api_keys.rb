@@ -2,75 +2,75 @@ class Spinach::Features::ApiKeys < Spinach::FeatureSteps
   include CommonSteps::Auth
   include CommonSteps::Account
 
-  step 'I have 3 API keys created' do
-    create :client, name: 'one', user: test_user, created_at: 3.days.ago
-    create :client, name: 'two', user: test_user, created_at: 2.days.ago
-    create :client, name: 'three', user: test_user, created_at: 1.day.ago
+  step "I have 3 API keys created" do
+    create :client, name: "one", user: test_user, created_at: 3.days.ago
+    create :client, name: "two", user: test_user, created_at: 2.days.ago
+    create :client, name: "three", user: test_user, created_at: 1.day.ago
   end
 
-  step 'I should see my 3 API keys and their ages' do
-    expect(page).to have_css('tr.api-client', count: 3)
+  step "I should see my 3 API keys and their ages" do
+    expect(page).to have_css("tr.api-client", count: 3)
     expect(page).to have_css("tr.api-client", text: /two\s*2 days ago/)
   end
 
-  step 'I click to delete the first key & confirm the action' do
-    within(first('tr.api-client')) do
+  step "I click to delete the first key & confirm the action" do
+    within(first("tr.api-client")) do
       accept_confirm do
-        click_button 'Delete'
+        click_button "Delete"
       end
     end
   end
 
-  step 'I should be back on the account page' do
-    expect(page).to have_css('.page-title', text: 'My account')
+  step "I should be back on the account page" do
+    expect(page).to have_css(".page-title", text: "My account")
   end
 
-  step 'I should see a message saying my API key has been deleted' do
-    expect(page).to have_content('That API key has been successfully deleted.')
+  step "I should see a message saying my API key has been deleted" do
+    expect(page).to have_content("That API key has been successfully deleted.")
   end
 
-  step 'I should see my remaining 2 API keys' do
-    expect(page).to have_css('tr.api-client', count: 2)
+  step "I should see my remaining 2 API keys" do
+    expect(page).to have_css("tr.api-client", count: 2)
   end
 
-  step 'I fill in a new key name' do
-    fill_in id: 'client_name', with: 'bookhouse'
+  step "I fill in a new key name" do
+    fill_in id: "client_name", with: "bookhouse"
   end
 
-  step 'I click to create it' do
-    click_button 'Create key'
+  step "I click to create it" do
+    click_button "Create key"
   end
 
-  step 'I should see a dialog with a JWT for me to copy' do
-    expect(page).to have_css('.api-key-modal[open]')
-    expect(page).to have_css('.api-key', text: /^ey/)
+  step "I should see a dialog with a JWT for me to copy" do
+    expect(page).to have_css(".api-key-modal[open]")
+    expect(page).to have_css(".api-key", text: /^ey/)
   end
 
-  step 'I click to create a key without filling in its name' do
-    click_button 'Create key'
+  step "I click to create a key without filling in its name" do
+    click_button "Create key"
   end
 
-  step 'I should see a message saying the key needs a name' do
-    expect(page).to have_content('Name can\'t be blank')
+  step "I should see a message saying the key needs a name" do
+    expect(page).to have_content("Name can't be blank")
   end
 
-  step 'I should have no API keys' do
+  step "I should have no API keys" do
     expect(test_user.clients).to be_empty
   end
 
-  step 'another user has an API key' do
+  step "another user has an API key" do
     @other_client = create :client
   end
 
-  step 'I try to delete that user\'s API key' do
+  step "I try to delete that user's API key" do
     page.driver.submit :delete, client_path(@other_client), {}
   end
 
-  step 'I should see a message saying I\'m not permitted' do
-    expect(page).to have_content('Sorry - you are not permitted to do that')
+  step "I should see a message saying I'm not permitted" do
+    expect(page).to have_content("Sorry - you are not permitted to do that")
   end
 
-  step 'that user\'s API key should still exist' do
+  step "that user's API key should still exist" do
     expect(Client.exists?(@other_client.id)).to be true
   end
 end

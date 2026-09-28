@@ -2,8 +2,8 @@ class PronounSet < ApplicationRecord
   acts_as_list
   default_scope -> { order(position: :asc) }
 
-  scope :random, -> { reorder(Arel.sql 'RANDOM()') }
-  
+  scope :random, -> { reorder(Arel.sql "RANDOM()") }
+
   EXAMPLES = %i[name nominative oblique possessive_determiner possessive reflexive].freeze
 
   attr_accessor :name_only
@@ -11,9 +11,9 @@ class PronounSet < ApplicationRecord
   has_many :user_pronoun_sets
   has_many :users, through: :user_pronoun_sets
 
-  def to_s(user=nil)
+  def to_s(user = nil)
     if name_only
-      I18n.t('please_use_my_name')
+      I18n.t("please_use_my_name")
     elsif user&.pronoun_style_three?
       "#{nominative}/#{oblique}/#{possessive}"
     elsif nominative == oblique
@@ -41,8 +41,7 @@ class PronounSet < ApplicationRecord
       possessive_determiner: "#{user.personal_name}'s",
       possessive: "#{user.personal_name}'s",
       reflexive: "#{user.personal_name}",
-      copula: 'is'
+      copula: "is"
     )
   end
-
 end

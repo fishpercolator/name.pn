@@ -3,7 +3,7 @@ class Views::Layouts::Offline < Views::Base
 
   def view_template(&)
     doctype
-    html(lang: 'en') do
+    html(lang: "en") do
       head do
         display_meta_tags
         style { stylesheet }

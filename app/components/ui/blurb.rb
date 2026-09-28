@@ -5,7 +5,7 @@ class Components::UI::Blurb < Components::Base
   end
 
   def view_template
-    div(**mix({ class: 'space-y-4 text-muted' }, @attributes)) do
+    div(**mix({ class: "space-y-4 text-muted" }, @attributes)) do
       @paragraphs.each { |paragraph| p { paragraph } }
     end
   end

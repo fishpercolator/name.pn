@@ -17,18 +17,18 @@ class Components::Shared::SiteHead < Components::Base
   private
 
   def analytics
-    render Components::Shared::Analytics.new(tracking_id: ENV['GA_ID'], user_id: current_user&.id)
+    render Components::Shared::Analytics.new(tracking_id: ENV["GA_ID"], user_id: current_user&.id)
   end
 
   def icons
     favicon_link_tag
-    favicon_link_tag('apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png')
-    link(rel: 'manifest', href: pwa_manifest_path(format: :json))
+    favicon_link_tag("apple-touch-icon.png", rel: "apple-touch-icon", type: "image/png")
+    link(rel: "manifest", href: pwa_manifest_path(format: :json))
   end
 
   def assets
-    javascript_include_tag('application', type: 'module', defer: true, data: { turbo_track: 'reload' })
-    link(rel: 'preconnect', href: 'https://fonts.googleapis.com', crossorigin: true)
-    stylesheet_link_tag('application', media: 'all')
+    javascript_include_tag("application", type: "module", defer: true, data: { turbo_track: "reload" })
+    link(rel: "preconnect", href: "https://fonts.googleapis.com", crossorigin: true)
+    stylesheet_link_tag("application", media: "all")
   end
 end

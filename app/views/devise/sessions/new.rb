@@ -5,7 +5,7 @@ class Views::Devise::Sessions::New < Views::Devise::Page
         form.field :email
         form.field :password
         form.checkbox :remember_me
-        form.submit t('.submit'), class: 'mt-4'
+        form.submit t(".submit"), class: "mt-4"
       end
     end
   end

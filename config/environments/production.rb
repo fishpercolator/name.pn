@@ -91,7 +91,7 @@ Rails.application.configure do
   config.rails_semantic_logger.add_file_appender = false
   config.colorize_logging = false
   config.semantic_logger.add_appender(io: $stdout, level: config.log_level, formatter: :json)
-  
+
   # Use SES in production
   config.action_mailer.delivery_method = :ses
 end
