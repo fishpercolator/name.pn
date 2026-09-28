@@ -101,6 +101,10 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
     find('#user_pronunciation_data', visible: false).set(file_fixture 'pronunciation.wav')
   end
 
+  step 'I check the box to delete my recording' do
+    check 'user_pronunciation_delete'
+  end
+
   step 'I click to go to the next step' do
     click_button 'Next step'
   end

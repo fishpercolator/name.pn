@@ -142,6 +142,24 @@ Scenario: My slug is already taken
   Then I should still be on the slug-editing page
   And I should see a message telling me there was a conflict
   And I should see a suggested alternative name prefilled
+
+@javascript
+Scenario: Validation errors show with JavaScript on
+  Given I am signed out
+  And an Audrey Horne profile already exists
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I select to accept the terms
+  And I submit the form
+  And I fill in my personal name details
+  And I go to the next stage
+  And I select my pronouns as she/her
+  And I go to the next stage
+  And I fill in audrey-horne as a slug
+  And I click the save button in the optional blurb
+  Then I should still be on the slug-editing page
+  And I should see a message telling me there was a conflict
+  And I should see a suggested alternative name prefilled
   
 Scenario: Save and exit early
   Given I am signed out
@@ -213,6 +231,14 @@ Scenario: Likeness is too large
   And I click to add an image
   And I attach a likeness that is too large
   Then I should see an error that the file is too large
+
+Scenario: Delete likeness
+  Given I am signed in as a user with a complete profile
+  When I visit the dashboard
+  And I click the edit button in the likeness box
+  And I click to delete my likeness
+  Then I should still be on the likeness page
+  And my profile should have no likeness
 
 @javascript
 Scenario: Cancel likeness upload from cropper

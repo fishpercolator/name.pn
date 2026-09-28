@@ -108,6 +108,7 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
 
   step 'I click to save and exit' do
     click_button 'Save and exit'
+    expect(page).to have_current_path(root_path)
   end
 
   step 'my profile should be partially completed' do
@@ -411,6 +412,18 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
 
   step 'I cancel from the image editor' do
     find('#uppy-DashboardContent-panel--editor .uppy-DashboardContent-back', text: 'Cancel').click
+  end
+
+  step 'I click to delete my likeness' do
+    click_button 'Delete'
+  end
+
+  step 'I should still be on the likeness page' do
+    expect(page).to have_css('h1', text: 'What you look like')
+  end
+
+  step 'my profile should have no likeness' do
+    expect(test_user.reload.likeness).not_to be_attached
   end
 
   step 'I should be back on the likeness upload dashboard' do
