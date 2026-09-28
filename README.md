@@ -16,7 +16,6 @@ Variables that can be used to configure the app are:
 * **EMAIL_FROM**: The name and email address that will be used for 'From' in emails sent by this platform. Make sure the DKIM & SPF settings are correct for this domain with respect to your email sending service (e.g. SendGrid; see below).
 * **AWS_ACCESS_KEY_ID** / **AWS_SECRET_ACCESS_KEY** / **AWS_REGION** / **S3_BUCKET**: Creds for a user who has SES access to send mail and S3 permission to read/write the given bucket.
 * **GA_ID**: Google Analytics ID
-* **BUTTONDOWN_API_KEY**: If set, enables the Buttondown mailing list integration on the user's settings page and allows them to opt in when creating an account.
 * **TURNSTILE_SITE_KEY** / **TURNSTILE_SECRET_KEY**: Keys for a [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) widget in Managed mode, which guards the sign-up form. Required in production; development uses Cloudflare's always-pass test keys.
 * **JWT_SECRET**: A secret (e.g. generated with `rails secret`) used in signing of JWT keys used with the name.pn public API.
 
@@ -44,7 +43,7 @@ After pulling changes, run `bin/setup --skip-server` to install new dependencies
 
 You can completely wipe out the DB and replace it with the contents of `db/seeds.rb` at any time with `bin/rails db:seed:replant`.
 
-Optional secrets such as `BUTTONDOWN_API_KEY` or `DD_API_KEY` can be put in `.env` (which is gitignored). Default development values for the database and `JWT_SECRET` are set in [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json), and the services are defined in [`.devcontainer/compose.yaml`](.devcontainer/compose.yaml).
+Optional secrets such as `DD_API_KEY` can be put in `.env` (which is gitignored). Default development values for the database and `JWT_SECRET` are set in [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json), and the services are defined in [`.devcontainer/compose.yaml`](.devcontainer/compose.yaml).
 
 ## Deploying to Heroku
 

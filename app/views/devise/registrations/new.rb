@@ -15,11 +15,6 @@ class Views::Devise::Registrations::New < Views::Devise::Page
           end
         end
         Card do |card|
-          card.body do
-            form.checkbox :subscribe_to_mailing_list, checked: true
-          end
-        end
-        Card do |card|
           card.body(class: "[&_a]:link") do
             p { t(".privacy_notice_html", url: page_path("privacy")) }
           end

@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit :sign_up, keys: %i[terms subscribe_to_mailing_list]
+    devise_parameter_sanitizer.permit :sign_up, keys: %i[terms]
   end
 
   def phlex_view_path(action) = "views/devise/registrations/#{action}"

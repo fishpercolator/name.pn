@@ -154,14 +154,6 @@ en:
       title: Your name dashboard
       page_description1: Here you can create a page that describes the different ways you would like to be addressed in English.
       page_description2: Once you're happy with the page, you can share it with people and put it in your email signature so that everyone knows.
-  mailing_list:
-    show:
-      title: Mailing list preference
-      currently_subscribed_html: '<b>Subscribed:</b> You are currently subscribed to our mailing list for news about new features. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.'
-      currently_unsubscribed_html: '<b>Not subscribed:</b> You are currently not subscribed to our mailing list. The name.pn mailing list puts the spotlight on new features and news about the product. Emails will be a few times a year and you can unsubscribe at any time without losing access to the product.'
-      subscribe: Subscribe to mailing list
-      unsubscribe: Unsubscribe
-      please_wait: Please wait...
   offline:
     show:
       title: You're offline

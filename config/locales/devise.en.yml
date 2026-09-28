@@ -64,7 +64,7 @@ en:
         password: Choose a password
         password_help: "(%{min} characters minimum)"
         submit: Submit
-        privacy_notice_html: '<b>Privacy note</b>: name.pn is a service for sharing your personal information with other people. Please provide only information you are comfortable with sharing publicly. Your email address is never shared outside of our organisation. We send anonymized usage data to third parties for analytics purposes but we will never sell your data. Apart from the optional mailing list above, your email address is only used to send you emails you have requested, such as for resetting your password. For more information, read our full <a href="%{url}">privacy policy</a>.'
+        privacy_notice_html: '<b>Privacy note</b>: name.pn is a service for sharing your personal information with other people. Please provide only information you are comfortable with sharing publicly. Your email address is never shared outside of our organisation. We send anonymized usage data to third parties for analytics purposes but we will never sell your data. Your email address is only used to send you emails you have requested, such as for resetting your password. For more information, read our full <a href="%{url}">privacy policy</a>.'
         terms_label_html: 'I have read and agree to <a href="%{url}">the terms of use</a>.'
       edit:
         title: My account
