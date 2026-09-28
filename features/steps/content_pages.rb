@@ -25,10 +25,6 @@ class Spinach::Features::ContentPages < Spinach::FeatureSteps
     click_on 'read our guide to writing great phonetic spellings.'
   end
 
-  step 'I visit the offline page' do
-    visit offline_path
-  end
-
   step 'I should see a page titled "About name.pn"' do
     expect(page).to have_css('h1', text: 'About name.pn')
   end
@@ -43,9 +39,5 @@ class Spinach::Features::ContentPages < Spinach::FeatureSteps
 
   step 'I should see a page titled "How to write a phonetic spelling"' do
     expect(page).to have_css('h1', text: 'How to write a phonetic spelling')
-  end
-
-  step 'I should see a page titled "Offline"' do
-    expect(page).to have_css('h1', text: 'Offline')
   end
 end

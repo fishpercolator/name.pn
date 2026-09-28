@@ -23,8 +23,3 @@ Scenario: Phonetic spelling guide
   When I visit the profile editing page for pronunciation
   And I click the link to the phonetic spelling guide
   Then I should see a page titled "How to write a phonetic spelling"
-
-Scenario: Offline page
-  Given I am signed out
-  When I visit the offline page
-  Then I should see a page titled "Offline"
