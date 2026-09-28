@@ -7,4 +7,5 @@ class Components::Base < Phlex::HTML
   register_value_helper :current_user
   register_value_helper :user_signed_in?
   register_value_helper :set_meta_tags
+  register_output_helper :display_meta_tags
 end

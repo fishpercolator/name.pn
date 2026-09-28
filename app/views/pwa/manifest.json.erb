@@ -2,8 +2,8 @@
   name: t("product_name"),
   short_name: t("product_name"),
   start_url: "/",
-  theme_color: "#2e333d",
-  background_color: "#f3f4f6",
+  theme_color: Rails.configuration.x.pwa.theme_color,
+  background_color: Rails.configuration.x.pwa.background_color,
   display: "browser",
   orientation: "portrait",
   icons: [128, 144, 152, 192, 512].map {|s| {

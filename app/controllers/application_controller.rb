@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: :index, unless: :framework_controller?
   after_action :verify_policy_scoped, only: :index, unless: :framework_controller?
 
+  before_action :set_default_meta_tags
+
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protected
@@ -26,6 +28,16 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_default_meta_tags
+    set_meta_tags(
+      site: t('product_name'),
+      reverse: true,
+      viewport: 'width=device-width, initial-scale=1.0',
+      'theme-color' => Rails.configuration.x.pwa.theme_color,
+      'view-transition': 'same-origin'
+    )
+  end
 
   def phlex_view_path(action) = "views/#{controller_path}/#{action}"
 end

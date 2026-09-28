@@ -134,8 +134,6 @@ en:
     support:
       report_a_bug: Report a bug on our issues board
   home:
-    offline:
-      title: Offline
     anon_home:
       title:
         namedot: name.
@@ -164,6 +162,10 @@ en:
       subscribe: Subscribe to mailing list
       unsubscribe: Unsubscribe
       please_wait: Please wait...
+  offline:
+    show:
+      title: You're offline
+      blurb: "%{product} can't reach the internet right now. Check your connection and try again."
   profile:
     step:
       required: You must complete this section before you can share your page.
