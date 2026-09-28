@@ -25,3 +25,18 @@ Scenario: Create API key
   And I click to create it
   Then I should be back on the account page
   And I should see a dialog with a JWT for me to copy
+
+Scenario: Create API key without a name
+  Given I am signed in
+  When I visit the account page
+  And I click to create a key without filling in its name
+  Then I should be back on the account page
+  And I should see a message saying the key needs a name
+  And I should have no API keys
+
+Scenario: Delete another user's API key
+  Given I am signed in
+  And another user has an API key
+  When I try to delete that user's API key
+  Then I should see a message saying I'm not permitted
+  And that user's API key should still exist
