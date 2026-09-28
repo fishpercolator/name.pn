@@ -72,4 +72,7 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.before(:each, :show_exceptions) { ErrorPages.render_like_production }
+  config.after(:each, :show_exceptions) { ErrorPages.restore }
 end

@@ -31,7 +31,6 @@ gem 'devise', '~> 5.0'
 gem 'devise-jwt', '~> 0.13.0'
 gem 'figaro', '~> 1.2'
 gem 'friendly_id', '~> 5.3'
-gem 'gaffe', '~> 1.2'
 gem 'gibbon', '~> 3.4', '>= 3.4.3'
 gem 'high_voltage', '~> 5.0'
 gem 'image_processing', '~> 1.11'
@@ -40,7 +39,7 @@ gem "inline_svg", "~> 1.10"
 gem 'markdown-rails', '~> 2.2'
 gem 'meta-tags', '~> 2.13'
 gem 'mini_magick', '~> 5.2'
-gem 'ostruct', '~> 0.6.1' # dependency of gaffe
+gem 'ostruct', '~> 0.6.1' # required by rswag-ui, which doesn't declare it
 gem 'phlex-rails', '~> 2.4'
 gem 'phlexible', '~> 3.5'
 gem 'pundit', '~> 2.1'
