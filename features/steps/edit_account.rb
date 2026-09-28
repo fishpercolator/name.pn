@@ -6,7 +6,7 @@ class Spinach::Features::EditAccount < Spinach::FeatureSteps
   end
 
   step 'I change my email address' do
-    fill_in 'Your email address', with: 'audrey@greatnorthern.com'
+    fill_in 'Your email address', with: 'audrey@greatnorthern.example.com'
   end
 
   step 'I choose a new password' do
@@ -31,7 +31,7 @@ class Spinach::Features::EditAccount < Spinach::FeatureSteps
   end
 
   step 'my email address should have changed' do
-    expect(User.find_by(email: 'audrey@greatnorthern.com')).to be_present
+    expect(User.find_by(email: 'audrey@greatnorthern.example.com')).to be_present
   end
 
   step 'my password should have changed' do
