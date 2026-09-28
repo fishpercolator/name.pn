@@ -34,7 +34,7 @@ module NamePn
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 8.0
+    config.load_defaults 8.1
     
     config.x.fb_app_id = '301537654370477'
     config.x.twitter_app_id = '@namedotpn'
