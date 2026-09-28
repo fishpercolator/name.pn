@@ -1,9 +1,6 @@
 class Spinach::Features::EditAccount < Spinach::FeatureSteps
   include CommonSteps::Auth
-
-  step 'I visit the account page' do
-    visit edit_user_registration_path
-  end
+  include CommonSteps::Account
 
   step 'I change my email address' do
     fill_in 'Your email address', with: 'audrey@greatnorthern.example.com'

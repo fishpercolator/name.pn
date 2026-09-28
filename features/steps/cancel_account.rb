@@ -1,9 +1,6 @@
 class Spinach::Features::CancelAccount < Spinach::FeatureSteps
   include CommonSteps::Auth
-
-  step 'I visit the account page' do
-    visit edit_user_registration_path
-  end
+  include CommonSteps::Account
 
   step 'I click to cancel my account and confirm the action' do
     accept_confirm { click_on 'Cancel your account' }

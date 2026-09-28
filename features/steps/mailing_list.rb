@@ -1,5 +1,6 @@
 class Spinach::Features::MailingList < Spinach::FeatureSteps
   include CommonSteps::Auth
+  include CommonSteps::Account
 
   step 'I am not subscribed to the mailing list' do
     use_buttondown MockButtondown.new
@@ -7,10 +8,6 @@ class Spinach::Features::MailingList < Spinach::FeatureSteps
 
   step 'I am subscribed to the mailing list' do
     use_buttondown MockButtondown.new(test_user.email => {})
-  end
-
-  step 'I visit the account page' do
-    visit edit_user_registration_path
   end
 
   step 'I click to subscribe to the mailing list' do
