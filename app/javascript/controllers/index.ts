@@ -10,7 +10,6 @@ import PronounFormController from "./pronoun_form_controller"
 import PronunciationFormController from "./pronunciation_form_controller"
 import PublicProfileController from "./public_profile_controller"
 import RecorderController from "./recorder_controller"
-import TurnstileController from "./turnstile_controller"
 import UrlController from "./url_controller"
 
 application.register("lightbox", LightboxController)
@@ -23,5 +22,4 @@ application.register("pronoun-form", PronounFormController)
 application.register("pronunciation-form", PronunciationFormController)
 application.register("public-profile", PublicProfileController)
 application.register("recorder", RecorderController)
-application.register("turnstile", TurnstileController)
 application.register("url", UrlController)

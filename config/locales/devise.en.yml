@@ -49,7 +49,7 @@ en:
         submit: Change my password
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
-      human_check_failed: "Sorry, we couldn't confirm you're a human. Please try again."
+      human_check_failed_html: "Sorry, we couldn't confirm you're a human. Please try again. If the problem persists, please <a href=\"%{url}\">get in touch</a>."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."

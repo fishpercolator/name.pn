@@ -30,7 +30,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def reject_as_bot
-    set_flash_message! :alert, :human_check_failed
+    set_flash_message! :alert, :human_check_failed_html, url: page_path("about", anchor: "get-in-touch")
     redirect_to new_user_registration_path
   end
 end
