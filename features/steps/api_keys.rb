@@ -48,4 +48,32 @@ class Spinach::Features::ApiKeys < Spinach::FeatureSteps
     expect(page).to have_css('.api-key-modal[open]')
     expect(page).to have_css('.api-key', text: /^ey/)
   end
+
+  step 'I click to create a key without filling in its name' do
+    click_button 'Create key'
+  end
+
+  step 'I should see a message saying the key needs a name' do
+    expect(page).to have_content('Name can\'t be blank')
+  end
+
+  step 'I should have no API keys' do
+    expect(test_user.clients).to be_empty
+  end
+
+  step 'another user has an API key' do
+    @other_client = create :client
+  end
+
+  step 'I try to delete that user\'s API key' do
+    page.driver.submit :delete, client_path(@other_client), {}
+  end
+
+  step 'I should see a message saying I\'m not permitted' do
+    expect(page).to have_content('Sorry - you are not permitted to do that')
+  end
+
+  step 'that user\'s API key should still exist' do
+    expect(Client.exists?(@other_client.id)).to be true
+  end
 end
