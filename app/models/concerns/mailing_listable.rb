@@ -10,6 +10,7 @@ module MailingListable
     attr_accessor :subscribe_to_mailing_list
     after_create :subscribe_to_mailing_list!, if: :subscribe_to_mailing_list
     after_update :subscribe_to_mailing_list!, if: :mailing_list_data_changed?
+    after_destroy_commit :unsubscribe_from_mailing_list!
 
     def subscribed_to_mailing_list?
       MailingListable.buttondown&.subscribed?(email_was || email)

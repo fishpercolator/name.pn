@@ -37,6 +37,15 @@ Scenario: Cannot proceed without accepting terms
   Then I should see an error saying the terms must be accepted
   And my user should not be created
 
+Scenario: Bots that fill the honeypot are not signed up
+  Given I am signed out
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I select to accept the terms
+  And I fill in the honeypot field
+  And I submit the form
+  Then my user should not be created
+
 Scenario: Save and exit after basic profile
   Given I am signed out
   When I visit the sign up page

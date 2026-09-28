@@ -17,6 +17,7 @@ Variables that can be used to configure the app are:
 * **AWS_ACCESS_KEY_ID** / **AWS_SECRET_ACCESS_KEY** / **AWS_REGION** / **S3_BUCKET**: Creds for a user who has SES access to send mail and S3 permission to read/write the given bucket.
 * **GA_ID**: Google Analytics ID
 * **BUTTONDOWN_API_KEY**: If set, enables the Buttondown mailing list integration on the user's settings page and allows them to opt in when creating an account.
+* **TURNSTILE_SITE_KEY** / **TURNSTILE_SECRET_KEY**: Keys for a [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) widget in Managed mode, which guards the sign-up form. Required in production; development uses Cloudflare's always-pass test keys.
 * **JWT_SECRET**: A secret (e.g. generated with `rails secret`) used in signing of JWT keys used with the name.pn public API.
 
 ## name.pn Development environment
@@ -78,6 +79,21 @@ git push heroku main
 ```
 
 Or you can set up automatic deploys through the Heroku dashboard. If you're using GitHub & Codeship you can integrate this with your Codeship CI, so the new version is only deployed if the tests pass.
+
+### Purging abandoned accounts
+
+`rails users:purge_abandoned` deletes accounts that never got past the first step of the profile wizard within 30 days of signing up, which are almost always bots. Check what it would delete first:
+
+```sh
+heroku run DRY_RUN=1 rails users:purge_abandoned
+```
+
+Then run it daily with [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler):
+
+```sh
+heroku addons:create scheduler:standard
+heroku addons:open scheduler # add a daily job: rails users:purge_abandoned
+```
 
 ## GitHub Actions CI
 

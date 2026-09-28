@@ -19,6 +19,10 @@ class Spinach::Features::SignupAndEditProfile < Spinach::FeatureSteps
     expect(page).to have_content("must be accepted")
   end
 
+  step "I fill in the honeypot field" do
+    fill_in "user[website]", with: "https://spam.example.com"
+  end
+
   step "my user should not be created" do
     expect(User.count).to eq(0)
   end
