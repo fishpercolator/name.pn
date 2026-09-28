@@ -63,6 +63,7 @@ group :development, :test do
   gem 'rswag-specs', '~> 2.4'
   gem 'brakeman', '~> 8.0', require: false
   gem 'bundler-audit'
+  gem 'rubocop-rails-omakase', require: false
   gem 'spinach-rails'
   gem 'spinach'
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'

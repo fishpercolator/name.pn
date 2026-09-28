@@ -1,0 +1,17 @@
+name: lint
+run-name: ${{ github.actor }} is linting the code
+on: [push]
+permissions:
+  contents: read
+jobs:
+  rubocop:
+    name: Ruby (rubocop)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run rubocop
+        run: bin/rubocop -f github
