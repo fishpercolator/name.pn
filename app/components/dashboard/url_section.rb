@@ -48,8 +48,8 @@ class Components::Dashboard::UrlSection < Components::Dashboard::Section
   def copy_action(card)
     return unavailable_action(card, 'clipboard-outline') { t('.copy_to_clipboard') } unless shareable?
 
-    card.action(id: 'copyButton', data: { url_target: 'copyButton', action: 'url#copy' }) do
-      Swap do |swap|
+    card.action(id: 'copyButton', data: { action: 'url#copy' }) do
+      Swap(effect: :flip, data: { url_target: 'swap' }) do |swap|
         swap.off { copy_state('clipboard-outline', t('.copy_to_clipboard')) }
         swap.on { copy_state('clipboard-check-outline', t('.copied')) }
       end

@@ -50,7 +50,6 @@
   --color-links: oklch(57% 0.207 22.57 / 10%);
 }
 
-@import "animate.css";
 @import "@uppy/core/css/style.css";
 @import "@uppy/dashboard/css/style.css";
 @import "@uppy/image-editor/css/style.css";
