@@ -9,7 +9,6 @@ gem 'rails', '~> 8.0'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 8.0'
-# Sprockets is still used for image assets, for now
 gem 'sprockets-rails', '~> 3.5'
 # Turbo Rails components
 gem 'turbo-rails', '~> 2.0'
@@ -17,15 +16,6 @@ gem 'turbo-rails', '~> 2.0'
 # Transpile JavaScript/CSS
 gem 'cssbundling-rails', '~> 1.1'
 gem 'jsbundling-rails', '~> 1.1'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-# gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.7'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -75,8 +65,7 @@ group :development, :test do
   gem 'bundler-audit'
   gem 'spinach-rails'
   gem 'spinach'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :windows]
+  gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
 end
 
 group :development do
@@ -88,7 +77,7 @@ group :development do
 end
 
 group :test do
-  gem 'database_cleaner'
+  gem 'database_cleaner-active_record'
   gem 'cuprite'
   gem 'capybara-screenshot'
   gem 'rspec-collection_matchers'
@@ -102,5 +91,4 @@ group :production do
   gem 'aws-sdk-rails', '~> 5.1'
   gem 'aws-actionmailer-ses', '~> 1.0'
   gem 'aws-sdk-s3', '~> 1.183'
-  gem 'rails_12factor', '~> 0.0.3'
 end

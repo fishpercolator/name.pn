@@ -152,8 +152,6 @@ GEM
     bundler-audit (0.9.3)
       bundler (>= 1.2.0)
       thor (~> 1.0)
-    byebug (13.0.0)
-      reline (>= 0.6.0)
     capybara (3.40.0)
       addressable
       matrix
@@ -183,8 +181,6 @@ GEM
     cuprite (0.18)
       capybara (~> 3.0)
       ferrum (~> 0.18.0)
-    database_cleaner (2.1.0)
-      database_cleaner-active_record (>= 2, < 3)
     database_cleaner-active_record (2.2.2)
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0)
@@ -198,6 +194,9 @@ GEM
       msgpack
     datadog-ruby_core_source (3.5.5)
     date (3.5.1)
+    debug (1.11.1)
+      irb (~> 1.10)
+      reline (>= 0.3.8)
     debug_inspector (1.2.0)
     devise (5.0.4)
       bcrypt (~> 3.0)
@@ -477,15 +476,10 @@ GEM
     rails-html-sanitizer (1.7.1)
       loofah (~> 2.25, >= 2.25.2)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
-    rails_12factor (0.0.3)
-      rails_serve_static_assets
-      rails_stdout_logging
     rails_semantic_logger (4.20.0)
       rack
       railties (>= 5.1)
       semantic_logger (~> 4.16)
-    rails_serve_static_assets (0.0.5)
-    rails_stdout_logging (0.0.5)
     railties (8.1.3.1)
       actionpack (= 8.1.3.1)
       activesupport (= 8.1.3.1)
@@ -649,12 +643,12 @@ DEPENDENCIES
   blueprinter (~> 1.0)
   bootsnap (>= 1.4.2)
   bundler-audit
-  byebug
   capybara-screenshot
   cssbundling-rails (~> 1.1)
   cuprite
-  database_cleaner
+  database_cleaner-active_record
   datadog (~> 2.38)
+  debug
   devise (~> 5.0)
   devise-jwt (~> 0.13.0)
   email_spec
@@ -684,7 +678,6 @@ DEPENDENCIES
   pundit (~> 2.1)
   pundit-matchers
   rails (~> 8.0)
-  rails_12factor (~> 0.0.3)
   rails_semantic_logger (~> 4.6)
   rspec
   rspec-collection_matchers
