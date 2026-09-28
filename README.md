@@ -6,7 +6,7 @@ This app follows the [Twelve-Factor](https://12factor.net/) specification, and t
 
 ## Configuration
 
-The app is configured using environment variables. On Heroku these can be configured using the `heroku:config` command, and on your development environment they can be added to `config/application.yml` as described in the [Figaro](https://github.com/laserlemon/figaro) documentation.
+The app is configured using environment variables. On Heroku these can be configured using the `heroku:config` command, and in development they can be added to a `.env` file, which [dotenv](https://github.com/bkeepers/dotenv) loads.
 
 Variables that can be used to configure the app are:
 
@@ -43,7 +43,7 @@ After pulling changes, run `bin/setup --skip-server` to install new dependencies
 
 You can completely wipe out the DB and replace it with the contents of `db/seeds.rb` at any time with `bin/rails db:seed:replant`.
 
-Optional secrets such as `BUTTONDOWN_API_KEY` or `DD_API_KEY` can be put in `config/application.yml` (which is gitignored). Default development values for the database and `JWT_SECRET` are set in [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json), and the services are defined in [`.devcontainer/compose.yaml`](.devcontainer/compose.yaml).
+Optional secrets such as `BUTTONDOWN_API_KEY` or `DD_API_KEY` can be put in `.env` (which is gitignored). Default development values for the database and `JWT_SECRET` are set in [`.devcontainer/devcontainer.json`](.devcontainer/devcontainer.json), and the services are defined in [`.devcontainer/compose.yaml`](.devcontainer/compose.yaml).
 
 ## Deploying to Heroku
 
@@ -175,6 +175,6 @@ the Codeship steps. There's an `.iyarc` file for configuring exceptions.
 
 The app is configured to work with [Datadog](https://www.datadoghq.com/) for tracing/debugging, including correlation of logs and traces.
 
-To get this working in development, you'll need an account (a free plan one will do) and an API key. Add `DD_API_KEY` to your `config/application.yml` and the rest should sort itself out.
+To get this working in development, you'll need an account (a free plan one will do) and an API key. Add `DD_API_KEY` to your `.env` and the rest should sort itself out.
 
 To get it working in Heroku, you'll need to follow the [buildpack](https://docs.datadoghq.com/agent/basic_agent_usage/heroku/) instructions for APM and the [log drain](https://docs.datadoghq.com/logs/guide/collect-heroku-logs/) instructions for logs.

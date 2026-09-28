@@ -297,7 +297,7 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
   config.jwt do |jwt|
-    jwt.secret = Figaro.env.jwt_secret!
+    jwt.secret = ENV.fetch('JWT_SECRET')
     jwt.expiration_time = 100.years
   end
 
