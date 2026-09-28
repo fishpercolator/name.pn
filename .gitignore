@@ -30,7 +30,7 @@
 yarn-debug.log*
 .yarn-integrity
 /vendor/bundle
-/config/application.yml
+/.env*
 
 /app/assets/builds/*
 !/app/assets/builds/.keep

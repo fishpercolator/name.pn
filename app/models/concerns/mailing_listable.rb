@@ -2,11 +2,7 @@ module MailingListable
   extend ActiveSupport::Concern
 
   def self.buttondown
-    if Figaro.env.BUTTONDOWN_API_KEY?
-      @buttondown = Buttondown.new(Figaro.env.BUTTONDOWN_API_KEY)
-    else
-      nil
-    end
+    ENV['BUTTONDOWN_API_KEY'].presence&.then { Buttondown.new(it) }
   end
   
   included do

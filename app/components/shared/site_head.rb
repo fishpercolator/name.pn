@@ -17,7 +17,7 @@ class Components::Shared::SiteHead < Components::Base
   private
 
   def analytics
-    render Components::Shared::Analytics.new(tracking_id: Figaro.env.GA_ID, user_id: current_user&.id)
+    render Components::Shared::Analytics.new(tracking_id: ENV['GA_ID'], user_id: current_user&.id)
   end
 
   def icons

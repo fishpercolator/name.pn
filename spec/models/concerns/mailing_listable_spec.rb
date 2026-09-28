@@ -7,7 +7,7 @@ RSpec.describe MailingListable do
   shared_context 'without a Buttondown API key' do
     before do
       allow(MailingListable).to receive(:buttondown).and_call_original
-      allow(Figaro.env).to receive(:BUTTONDOWN_API_KEY?).and_return(false)
+      ENV.delete('BUTTONDOWN_API_KEY')
     end
   end
 
