@@ -1,25 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe MailingListable do
-  let(:buttondown) { instance_double(Buttondown, subscribe!: nil) }
+  let(:buttondown) { MockButtondown.new }
   before { allow(MailingListable).to receive(:buttondown).and_return(buttondown) }
+
+  shared_context 'without a Buttondown API key' do
+    before do
+      allow(MailingListable).to receive(:buttondown).and_call_original
+      allow(Figaro.env).to receive(:BUTTONDOWN_API_KEY?).and_return(false)
+    end
+  end
 
   describe 'signing up' do
     it 'subscribes users who ask to be' do
-      user = create :user, subscribe_to_mailing_list: true
-      expect(buttondown).to have_received(:subscribe!).with(user.email, {})
+      create :user, email: 'audrey@example.com', subscribe_to_mailing_list: true
+      expect(buttondown.subscribers).to eq('audrey@example.com' => {})
     end
 
     it 'leaves everyone else alone' do
       create :user
-      expect(buttondown).not_to have_received(:subscribe!)
+      expect(buttondown.subscribers).to be_empty
     end
 
     context 'without a Buttondown API key' do
-      let(:buttondown) { nil }
+      include_context 'without a Buttondown API key'
 
-      it 'still creates the user' do
-        expect { create :user, subscribe_to_mailing_list: true }.to change(User, :count).by(1)
+      it 'never contacts Buttondown' do
+        create :user, subscribe_to_mailing_list: true
+        expect(a_request(:any, /buttondown/)).not_to have_been_made
       end
     end
   end
@@ -28,42 +36,38 @@ RSpec.describe MailingListable do
     let!(:user) { create :user, :basic_profile, email: 'audrey@example.com' }
 
     context 'who is subscribed' do
-      before { allow(buttondown).to receive(:subscribed?).and_return(true) }
+      let(:buttondown) { MockButtondown.new('audrey@example.com' => {}) }
 
-      it 'sends a changed email along with the old one' do
+      it 'moves their subscription to a changed email' do
         user.update!(email: 'audrey@greatnorthern.example.com')
-        expect(buttondown).to have_received(:subscribed?).with('audrey@example.com')
-        expect(buttondown).to have_received(:subscribe!)
-          .with('audrey@greatnorthern.example.com', {'full_name' => 'Audrey Horne', 'email_was' => 'audrey@example.com'})
+        expect(buttondown.subscribers).to eq('audrey@greatnorthern.example.com' => {'full_name' => 'Audrey Horne'})
       end
 
       it 'sends a changed name' do
         user.update!(formal_name: 'Ms Horne')
-        expect(buttondown).to have_received(:subscribe!)
-          .with('audrey@example.com', {'full_name' => 'Audrey Horne', 'formal_name' => 'Ms Horne'})
+        expect(buttondown.subscribers).to eq('audrey@example.com' => {'full_name' => 'Audrey Horne', 'formal_name' => 'Ms Horne'})
       end
 
       it 'ignores changes Buttondown doesn\'t store' do
         user.update!(phonetic: 'AWD-ree')
-        expect(buttondown).not_to have_received(:subscribe!)
+        expect(buttondown.subscribers).to eq('audrey@example.com' => {})
       end
     end
 
     context 'who isn\'t subscribed' do
-      before { allow(buttondown).to receive(:subscribed?).and_return(false) }
-
       it 'leaves them alone' do
         user.update!(full_name: 'Audrey Briggs')
-        expect(buttondown).not_to have_received(:subscribe!)
+        expect(buttondown.subscribers).to be_empty
       end
     end
 
     context 'without a Buttondown API key' do
-      let(:buttondown) { nil }
+      include_context 'without a Buttondown API key'
 
-      it 'still saves the change' do
+      it 'never contacts Buttondown' do
         user.update!(email: 'audrey@greatnorthern.example.com')
-        expect(user.reload.email).to eq('audrey@greatnorthern.example.com')
+        user.unsubscribe_from_mailing_list!
+        expect(a_request(:any, /buttondown/)).not_to have_been_made
       end
     end
   end

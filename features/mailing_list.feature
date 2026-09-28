@@ -6,7 +6,8 @@ Scenario: Subscribe
   And I am not subscribed to the mailing list
   When I visit the account page
   And I click to subscribe to the mailing list
-  Then I should see that I am subscribed
+  Then I should be subscribed to the mailing list
+  And I should see that I am subscribed
 
 @javascript
 Scenario: Unsubscribe
@@ -14,4 +15,5 @@ Scenario: Unsubscribe
   And I am subscribed to the mailing list
   When I visit the account page
   And I click to unsubscribe from the mailing list
-  Then I should see that I am not subscribed
+  Then I should not be subscribed to the mailing list
+  And I should see that I am not subscribed
