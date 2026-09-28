@@ -5,7 +5,7 @@ class Views::Layouts::Offline < Views::Base
     doctype
     html(lang: 'en') do
       head do
-        render Components::Shared::SiteMeta.new
+        display_meta_tags
         style { stylesheet }
       end
       body { main(&) }

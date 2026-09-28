@@ -6,7 +6,7 @@ class Components::Shared::SiteHead < Components::Base
   include Phlex::Rails::Helpers::StyleSheetLinkTag
 
   def view_template
-    render Components::Shared::SiteMeta.new
+    display_meta_tags
     csrf_meta_tags
     csp_meta_tag
     icons
