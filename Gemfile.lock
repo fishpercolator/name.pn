@@ -676,7 +676,6 @@ DEPENDENCIES
   active_storage_validations (~> 3.0)
   activeadmin (= 4.0.0.beta23)
   acts_as_list (~> 1.0)
-  addressable (~> 2.8)
   amazing_print (~> 2.0)
   aws-actionmailer-ses (~> 1.0)
   aws-sdk-rails (~> 5.1)
@@ -698,7 +697,6 @@ DEPENDENCIES
   dotenv-rails (~> 3.2)
   email_spec
   factory_bot_rails
-  faraday (~> 2.7)
   foreman
   friendly_id (~> 5.3)
   gibbon (~> 3.4, >= 3.4.3)

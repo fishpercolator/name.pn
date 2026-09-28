@@ -9,9 +9,9 @@ RSpec.describe Components::UI::Form do
   end
 
   it "takes labels and hints from the helpers translations" do
-    form = Capybara.string(render_form(User.new) { it.checkbox :subscribe_to_mailing_list })
-    expect(form).to have_field(I18n.t("helpers.label.user.subscribe_to_mailing_list"))
-    expect(form).to have_text(I18n.t("helpers.hint.user.subscribe_to_mailing_list"))
+    form = Capybara.string(render_form(User.new) { it.field :full_name })
+    expect(form).to have_field(I18n.t("helpers.label.user.full_name"))
+    expect(form).to have_text(I18n.t("helpers.hint.user.full_name"))
   end
 
   describe "nested rows" do

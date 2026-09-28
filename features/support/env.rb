@@ -7,7 +7,6 @@ require "capybara-screenshot/spinach"
 require "spinach/rspec/mocks"
 require "capybara/cuprite"
 require "./spec/support/fixtures"
-require "./spec/support/mock_buttondown"
 
 DatabaseCleaner.strategy = :truncation
 Spinach.hooks.before_scenario { DatabaseCleaner.clean }

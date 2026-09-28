@@ -50,10 +50,6 @@ gem "rswag-ui", "~> 2.4"
 gem "spicy-proton", "~> 2.1"
 gem "wicked", "~> 2.0"
 
-# gems for buttondown - eventually move this to its own gem
-gem "faraday", "~> 2.7"
-gem "addressable", "~> 2.8"
-
 group :development, :test do
   gem "dotenv-rails", "~> 3.2"
   gem "factory_bot_rails"
