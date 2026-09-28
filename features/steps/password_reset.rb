@@ -31,8 +31,8 @@ class Spinach::Features::PasswordReset < Spinach::FeatureSteps
     expect(current_email).to have_link('Change my password')
   end
 
-  step 'replies to it should go to the sender' do
-    expect(current_email.reply_to || current_email.from).to eq(['changeme@example.com'])
+  step "replies to it should go to the sender" do
+    expect(current_email.reply_to || current_email.from).to eq([ "changeme@example.com" ])
   end
 
   step 'I follow the link in the email I was sent' do
