@@ -15,7 +15,7 @@ class Spinach::Features::Offline < Spinach::FeatureSteps
   end
 
   step 'I should see the offline page' do
-    expect(page).to have_css('h1', text: 'Offline')
+    expect(page).to have_css('h1', text: "You're offline")
   end
 
   private

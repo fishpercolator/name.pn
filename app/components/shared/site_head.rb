@@ -23,7 +23,7 @@ class Components::Shared::SiteHead < Components::Base
       site: t('product_name'),
       reverse: true,
       viewport: 'width=device-width, initial-scale=1.0',
-      'theme-color' => '#071f21',
+      'theme-color' => Rails.configuration.x.pwa.theme_color,
       'view-transition': 'same-origin'
     }
   end
@@ -35,7 +35,7 @@ class Components::Shared::SiteHead < Components::Base
   def icons
     favicon_link_tag
     favicon_link_tag('apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png')
-    link(rel: 'manifest', href: manifest_path(format: :json))
+    link(rel: 'manifest', href: pwa_manifest_path(format: :json))
   end
 
   def assets
