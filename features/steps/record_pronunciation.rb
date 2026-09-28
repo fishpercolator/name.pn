@@ -102,7 +102,7 @@ class Spinach::Features::RecordPronunciation < Spinach::FeatureSteps
   end
 
   step 'I check the box to delete my recording' do
-    check 'or check this box to delete the current audio (if any)'
+    check 'user_pronunciation_delete'
   end
 
   step 'I click to go to the next step' do
