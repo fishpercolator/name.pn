@@ -84,4 +84,4 @@ Run `bundle exec rspec` and `bin/spinach`. Build assets with `bun run build:css 
 
 ## Pull requests
 
-Make stacked PRs, one area each, each one reviewable on its own. Every branch in a stack must pass the suite.
+Make stacked PRs, one area each, each one reviewable on its own. Every branch in a stack must pass `bin/ci`.
