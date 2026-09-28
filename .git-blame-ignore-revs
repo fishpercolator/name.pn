@@ -1,0 +1,5 @@
+# Commits that only restyle code, skipped by git blame and GitHub's blame view.
+# bin/setup points git at this file with: git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# Autocorrect to the omakase style (#153)
+02ca3d67fce1d61aa827ba2cff589cd6b22e1f41

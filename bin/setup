@@ -23,6 +23,9 @@ FileUtils.chdir APP_ROOT do
   #   FileUtils.cp "config/database.yml.sample", "config/database.yml"
   # end
 
+  puts "\n== Configuring git =="
+  system! "git config blame.ignoreRevsFile .git-blame-ignore-revs"
+
   puts "\n== Preparing database =="
   system! "bin/rails db:prepare"
 
