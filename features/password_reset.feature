@@ -8,6 +8,7 @@ Scenario: Request a password reset
   And I ask for reset instructions for my email address
   Then I should see a message saying the instructions are on their way
   And I should be sent an email with a link to reset my password
+  And replies to it should go to the sender
 
 Scenario: Reset a forgotten password
   Given I am signed out
