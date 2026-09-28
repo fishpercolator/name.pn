@@ -9,7 +9,7 @@ gem 'rails', '~> 8.0'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 8.0'
-gem 'sprockets-rails', '~> 3.5'
+gem 'propshaft', '~> 1.3'
 # Turbo Rails components
 gem 'turbo-rails', '~> 2.0'
 

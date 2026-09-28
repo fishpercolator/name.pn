@@ -5,3 +5,6 @@ Rails.application.config.assets.version = "1.0"
 
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
+
+# Tailwind's inputs; it writes its output to app/assets/builds
+Rails.application.config.assets.excluded_paths << Rails.root.join("app/assets/stylesheets")
