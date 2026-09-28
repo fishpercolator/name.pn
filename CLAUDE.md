@@ -74,6 +74,8 @@ end
 
 The suite is deliberately slim.
 
+- Test anything a user does or sees in the browser with a Spinach feature. RSpec is for models, libraries, policies and the API, not for UI request specs.
+- Hardcode the strings a test expects. Looking them up with `I18n.t` lets a test check the code against itself.
 - Spinach features are the end-to-end safety net. Keep the BEM-style hook classes they rely on (`.site-navbar`, `.dashboard-card__edit`, `.page-title`…) on whichever component renders those elements.
 - Phlex emits no whitespace between tags, so rack_test sees adjacent elements' text run together. Match text across elements with `\s*`, as `have_card` in `features/steps/dashboard.rb` does.
 - Add specs only for behaviour that is ours and not obvious. Don't re-test Rails, Phlex, Tailwind, daisyUI or the browser, and don't write specs for plain markup.
