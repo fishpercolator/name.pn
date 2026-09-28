@@ -126,8 +126,25 @@ Scenario: Complete profile editing
   And both my alternate names should be added correctly
   And my likeness should be cropped
 
-@javascript
 Scenario: My slug is already taken
+  Given I am signed out
+  And an Audrey Horne profile already exists
+  When I visit the sign up page
+  And I fill in my email address and a password
+  And I select to accept the terms
+  And I submit the form
+  And I fill in my personal name details
+  And I go to the next stage
+  And I select my pronouns as she/her
+  And I go to the next stage
+  And I fill in audrey-horne as a slug
+  And I click the save button in the optional blurb
+  Then I should still be on the slug-editing page
+  And I should see a message telling me there was a conflict
+  And I should see a suggested alternative name prefilled
+
+@javascript
+Scenario: Validation errors show with JavaScript on
   Given I am signed out
   And an Audrey Horne profile already exists
   When I visit the sign up page
