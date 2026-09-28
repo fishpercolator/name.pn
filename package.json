@@ -16,7 +16,6 @@
     "@uppy/image-editor": "^4.2.0",
     "@uppy/webcam": "^5.1.0",
     "@uppy/xhr-upload": "^5.2.0",
-    "animate.css": "^4.1.1",
     "daisyui": "^5.7.43",
     "esbuild": "~0.28.2",
     "extendable-media-recorder": "^9.2.40",
