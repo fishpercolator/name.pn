@@ -26,6 +26,7 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "@types/cloudflare-turnstile": "^0.2.2",
     "@types/sortablejs": "^1.15.9",
     "typescript": "^6.0.3"
   },

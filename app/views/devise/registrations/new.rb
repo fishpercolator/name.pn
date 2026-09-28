@@ -1,4 +1,6 @@
 class Views::Devise::Registrations::New < Views::Devise::Page
+  register_output_helper :cloudflare_turnstile
+
   def view_template
     page(links: %i[log_in]) do
       Form(model: resource, scope: resource_name, url: user_registration_path, class: "space-y-5") do |form|
@@ -7,6 +9,7 @@ class Views::Devise::Registrations::New < Views::Devise::Page
             form.field :email, label: t(".email"), hint: t(".email_hint"), autofocus: true
             form.field :password, label: t(".password")
             form.field :password_confirmation
+            form.honeypot :website
           end
         end
         Card do |card|
@@ -20,6 +23,7 @@ class Views::Devise::Registrations::New < Views::Devise::Page
           end
         end
         form.checkbox :terms, label: t(".terms_label_html", url: page_path("terms"))
+        cloudflare_turnstile(action: "sign_up", data: { controller: "turnstile" })
         form.submit t(".submit")
       end
     end

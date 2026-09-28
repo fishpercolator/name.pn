@@ -40,6 +40,7 @@ Third parties that may be involved in processing your data are:
 * [Amazon Web Services](https://aws.amazon.com/): If you upload images or audio, they are stored here.
 * [Buttondown](https://buttondown.email/): We use your email address and name preferences to send you occasional emails, if you have opted in.
 * [Google Analytics](https://analytics.google.com/): We use this to understand more about who is visiting our site.
+* [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/): When you sign up, Turnstile checks your browser to make sure you are a human and not an automated bot.
 * [Datadog](https://www.datadoghq.com/): We send technical data about the functioning of the application to Datadog in order to predict and diagnose issues with the site.
 
 ### Controller
@@ -100,6 +101,7 @@ We use different methods to collect data from and about you including:
     * give us feedback or contact us.
 * Automated technologies or interactions. As you interact with our website, we will automatically collect Technical Data about your equipment, browsing actions and patterns. We collect this personal data by using cookies, server logs and other similar technologies. Technical Data from the following parties:
     * analytics providers such as Google based outside the UK;
+    * security providers such as Cloudflare based outside the UK, to protect our sign-up form from bots;
     * advertising networks such as Instagram based outside the UK; and
     * search information providers such as Google based outside the UK.
 

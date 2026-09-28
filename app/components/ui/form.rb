@@ -49,6 +49,8 @@ class Components::UI::Form < Components::Base
 
   def hidden(attribute) = @builder.hidden_field(attribute)
 
+  def honeypot(name) = @builder.invisible_captcha(name)
+
   def error(attribute) = FieldError(errors_on(attribute).first)
 
   def submit(text, variant: :secondary, **attributes)
