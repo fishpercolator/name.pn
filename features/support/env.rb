@@ -1,7 +1,7 @@
 ENV['RAILS_ENV'] = 'test'
 require './config/environment'
 
-require 'database_cleaner'
+require 'database_cleaner/active_record'
 require 'email_spec/spinach'
 require 'capybara-screenshot/spinach'
 require 'spinach/rspec/mocks'

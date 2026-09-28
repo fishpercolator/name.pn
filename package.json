@@ -38,6 +38,5 @@
     "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify && tailwindcss -i ./app/assets/stylesheets/active_admin.css -o ./app/assets/builds/active_admin.css --minify",
     "build": "bun bun.config.js",
     "check-types": "tsc --project tsconfig.json --noEmit"
-  },
-  "packageManager": "yarn@4.13.0"
+  }
 }
