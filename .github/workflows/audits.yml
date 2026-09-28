@@ -8,19 +8,29 @@ jobs:
     name: Ruby (bundle audit)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '4.0.7'
           bundler-cache: true
       - name: Run bundle audit
-        run: bundle exec bundle-audit check --update
+        run: bin/bundler-audit check --update
+  brakeman:
+    name: Ruby (brakeman)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run brakeman
+        run: bin/brakeman --no-pager
   js:
     name: JS (bun audit)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install Bun
         uses: oven-sh/setup-bun@v2
       - name: Install bun dependencies

@@ -61,6 +61,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec'
   gem 'rswag-specs', '~> 2.4'
+  gem 'brakeman', '~> 8.0', require: false
   gem 'bundler-audit'
   gem 'spinach-rails'
   gem 'spinach'

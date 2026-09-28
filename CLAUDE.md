@@ -80,7 +80,7 @@ The suite is deliberately slim.
 - Phlex emits no whitespace between tags, so rack_test sees adjacent elements' text run together. Match text across elements with `\s*`, as `have_card` in `features/steps/dashboard.rb` does.
 - Add specs only for behaviour that is ours and not obvious. Don't re-test Rails, Phlex, Tailwind, daisyUI or the browser, and don't write specs for plain markup.
 
-Run `bundle exec rspec` and `bin/spinach`. Build assets with `bun run build:css && bun run build`.
+Run `bundle exec rspec` and `bin/spinach`. Build assets with `bun run build:css && bun run build`. `bin/ci` runs everything CI does: the audits, Brakeman, the type check, the asset build and both suites.
 
 ## Pull requests
 
