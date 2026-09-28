@@ -71,4 +71,13 @@ RSpec.describe MailingListable do
       end
     end
   end
+
+  describe "deleting a user" do
+    let(:buttondown) { MockButtondown.new("audrey@example.com" => {}) }
+
+    it "unsubscribes them" do
+      create(:user, email: "audrey@example.com").destroy!
+      expect(buttondown.subscribers).to be_empty
+    end
+  end
 end

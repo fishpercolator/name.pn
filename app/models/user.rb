@@ -4,7 +4,7 @@ class User < ApplicationRecord
   include MailingListable
   include ActiveStorageSupport::SupportForBase64
 
-  has_many :user_pronoun_sets
+  has_many :user_pronoun_sets, dependent: :destroy
   has_many :pronoun_sets, -> { reorder('user_pronoun_sets.position': :asc) }, through: :user_pronoun_sets
   has_many :links, dependent: :destroy
   has_many :alternate_names, dependent: :destroy
@@ -78,6 +78,10 @@ class User < ApplicationRecord
   scope :profile_complete, -> { basic_names_complete.has_pronouns.where.not(slug: "") }
 
   scope :created_since, ->(time) { where(User.arel_table[:created_at].gteq(time)) }
+
+  ABANDONED_AFTER = 30.days
+
+  scope :abandoned, -> { role_user.where.not(id: basic_names_complete).where(created_at: ...ABANDONED_AFTER.ago) }
 
   def pronoun_sets_with_preference
     case pronounless_style&.to_sym

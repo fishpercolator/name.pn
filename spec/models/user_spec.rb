@@ -117,6 +117,20 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe ".abandoned" do
+    before do
+      create :user, email: "nameless@example.com", created_at: 31.days.ago
+      create :user, email: "half-named@example.com", full_name: "Josie Packard", created_at: 31.days.ago
+      create :user, email: "new@example.com", created_at: 29.days.ago
+      create :user, :basic_profile, email: "named@example.com", created_at: 31.days.ago
+      create :user, email: "admin@example.com", role: :admin, created_at: 31.days.ago
+    end
+
+    it "returns users who never named themselves in their first month, except admins" do
+      expect(User.abandoned.pluck(:email)).to contain_exactly("nameless@example.com", "half-named@example.com")
+    end
+  end
+
   describe "#pronunciation_of_options" do
     context "complete user" do
       let(:user) { create :user, full_name: "Dale Cooper", personal_name: "Dale", formal_name: "Agent Cooper", envelope_name: "Agt. Cooper" }

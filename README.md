@@ -80,6 +80,21 @@ git push heroku main
 
 Or you can set up automatic deploys through the Heroku dashboard. If you're using GitHub & Codeship you can integrate this with your Codeship CI, so the new version is only deployed if the tests pass.
 
+### Purging abandoned accounts
+
+`rails users:purge_abandoned` deletes accounts that never got past the first step of the profile wizard within 30 days of signing up, which are almost always bots. Check what it would delete first:
+
+```sh
+heroku run DRY_RUN=1 rails users:purge_abandoned
+```
+
+Then run it daily with [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler):
+
+```sh
+heroku addons:create scheduler:standard
+heroku addons:open scheduler # add a daily job: rails users:purge_abandoned
+```
+
 ## GitHub Actions CI
 
 The app is configured for continuous integration using [GitHub Actions](https://github.com/features/actions). There are two workflows:
