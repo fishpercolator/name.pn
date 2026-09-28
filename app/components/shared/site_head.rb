@@ -5,10 +5,8 @@ class Components::Shared::SiteHead < Components::Base
   include Phlex::Rails::Helpers::JavaScriptIncludeTag
   include Phlex::Rails::Helpers::StyleSheetLinkTag
 
-  register_output_helper :display_meta_tags
-
   def view_template
-    display_meta_tags(meta_tags)
+    render Components::Shared::SiteMeta.new
     csrf_meta_tags
     csp_meta_tag
     icons
@@ -17,16 +15,6 @@ class Components::Shared::SiteHead < Components::Base
   end
 
   private
-
-  def meta_tags
-    {
-      site: t('product_name'),
-      reverse: true,
-      viewport: 'width=device-width, initial-scale=1.0',
-      'theme-color' => Rails.configuration.x.pwa.theme_color,
-      'view-transition': 'same-origin'
-    }
-  end
 
   def analytics
     render Components::Shared::Analytics.new(tracking_id: Figaro.env.GA_ID, user_id: current_user&.id)
