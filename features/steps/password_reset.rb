@@ -14,12 +14,14 @@ class Spinach::Features::PasswordReset < Spinach::FeatureSteps
   end
 
   step 'I ask for reset instructions for my email address' do
-    ask_for_reset_instructions
+    fill_in 'Your email address', with: test_user.email
+    click_button 'Send me password reset instructions'
   end
 
   step 'I have requested a lost password email' do
-    visit new_user_password_path
-    ask_for_reset_instructions
+    i_visit_the_sign_in_page
+    i_click_the_link_for_a_lost_password
+    i_ask_for_reset_instructions_for_my_email_address
   end
 
   step 'I should see a message saying the instructions are on their way' do
@@ -48,12 +50,5 @@ class Spinach::Features::PasswordReset < Spinach::FeatureSteps
 
   step 'I should be able to use my new password' do
     expect(test_user.reload.valid_password?('wr4pped1nplast1c')).to be true
-  end
-
-  private
-
-  def ask_for_reset_instructions
-    fill_in 'Your email address', with: test_user.email
-    click_button 'Send me password reset instructions'
   end
 end
