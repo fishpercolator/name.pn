@@ -1,95 +1,95 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '4.0.7'
+ruby "4.0.7"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 8.0'
+gem "rails", "~> 8.0"
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+gem "pg", ">= 0.18", "< 2.0"
 # Use Puma as the app server
-gem 'puma', '~> 8.0'
-gem 'propshaft', '~> 1.3'
+gem "puma", "~> 8.0"
+gem "propshaft", "~> 1.3"
 # Turbo Rails components
-gem 'turbo-rails', '~> 2.0'
+gem "turbo-rails", "~> 2.0"
 
 # Transpile JavaScript/CSS
-gem 'cssbundling-rails', '~> 1.1'
-gem 'jsbundling-rails', '~> 1.1'
+gem "cssbundling-rails", "~> 1.1"
+gem "jsbundling-rails", "~> 1.1"
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem "bootsnap", ">= 1.4.2", require: false
 
-gem 'activeadmin', '4.0.0.beta23'
-gem 'active_storage_base64', '~> 3.0'
-gem 'active_storage_validations', '~> 3.0'
-gem 'acts_as_list', '~> 1.0'
-gem 'amazing_print', '~> 2.0'
-gem 'blueprinter', '~> 1.0'
-gem 'datadog', '~> 2.38', require: 'datadog/auto_instrument'
-gem 'devise', '~> 5.0'
-gem 'devise-jwt', '~> 0.13.0'
-gem 'friendly_id', '~> 5.3'
-gem 'gibbon', '~> 3.4', '>= 3.4.3'
-gem 'high_voltage', '~> 5.0'
-gem 'image_processing', '~> 1.11'
+gem "activeadmin", "4.0.0.beta23"
+gem "active_storage_base64", "~> 3.0"
+gem "active_storage_validations", "~> 3.0"
+gem "acts_as_list", "~> 1.0"
+gem "amazing_print", "~> 2.0"
+gem "blueprinter", "~> 1.0"
+gem "datadog", "~> 2.38", require: "datadog/auto_instrument"
+gem "devise", "~> 5.0"
+gem "devise-jwt", "~> 0.13.0"
+gem "friendly_id", "~> 5.3"
+gem "gibbon", "~> 3.4", ">= 3.4.3"
+gem "high_voltage", "~> 5.0"
+gem "image_processing", "~> 1.11"
 gem "importmap-rails", "~> 2.1"
 gem "inline_svg", "~> 1.10"
-gem 'markdown-rails', '~> 2.2'
-gem 'meta-tags', '~> 2.13'
-gem 'mini_magick', '~> 5.2'
-gem 'ostruct', '~> 0.6.1' # required by rswag-ui, which doesn't declare it
-gem 'phlex-rails', '~> 2.4'
-gem 'phlexible', '~> 3.5'
-gem 'pundit', '~> 2.1'
-gem 'rails_semantic_logger', '~> 4.6'
-gem 'rswag-api', '~> 2.4'
-gem 'rswag-ui', '~> 2.4'
-gem 'spicy-proton', '~> 2.1'
-gem 'wicked', '~> 2.0'
+gem "markdown-rails", "~> 2.2"
+gem "meta-tags", "~> 2.13"
+gem "mini_magick", "~> 5.2"
+gem "ostruct", "~> 0.6.1" # required by rswag-ui, which doesn't declare it
+gem "phlex-rails", "~> 2.4"
+gem "phlexible", "~> 3.5"
+gem "pundit", "~> 2.1"
+gem "rails_semantic_logger", "~> 4.6"
+gem "rswag-api", "~> 2.4"
+gem "rswag-ui", "~> 2.4"
+gem "spicy-proton", "~> 2.1"
+gem "wicked", "~> 2.0"
 
 # gems for buttondown - eventually move this to its own gem
-gem 'faraday', '~> 2.7'
-gem 'addressable', '~> 2.8'
+gem "faraday", "~> 2.7"
+gem "addressable", "~> 2.8"
 
 group :development, :test do
-  gem 'dotenv-rails', '~> 3.2'
-  gem 'factory_bot_rails'
-  gem 'pry-rails'
-  gem 'pry-rescue'
-  gem 'binding_of_caller'
-  gem 'rspec-rails'
-  gem 'rspec'
-  gem 'rswag-specs', '~> 2.4'
-  gem 'brakeman', '~> 8.0', require: false
-  gem 'bundler-audit'
-  gem 'rubocop-rails-omakase', require: false
-  gem 'spinach-rails'
-  gem 'spinach'
-  gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
+  gem "dotenv-rails", "~> 3.2"
+  gem "factory_bot_rails"
+  gem "pry-rails"
+  gem "pry-rescue"
+  gem "binding_of_caller"
+  gem "rspec-rails"
+  gem "rspec"
+  gem "rswag-specs", "~> 2.4"
+  gem "brakeman", "~> 8.0", require: false
+  gem "bundler-audit"
+  gem "rubocop-rails-omakase", require: false
+  gem "spinach-rails"
+  gem "spinach"
+  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen'
-  gem 'better_errors'
-  gem 'foreman'
+  gem "web-console", ">= 3.3.0"
+  gem "listen"
+  gem "better_errors"
+  gem "foreman"
 end
 
 group :test do
-  gem 'database_cleaner-active_record'
-  gem 'cuprite'
-  gem 'capybara-screenshot'
-  gem 'rspec-collection_matchers'
-  gem 'pundit-matchers'
-  gem 'timecop'
-  gem 'email_spec'
-  gem 'webmock'
+  gem "database_cleaner-active_record"
+  gem "cuprite"
+  gem "capybara-screenshot"
+  gem "rspec-collection_matchers"
+  gem "pundit-matchers"
+  gem "timecop"
+  gem "email_spec"
+  gem "webmock"
 end
 
 group :production do
-  gem 'aws-sdk-rails', '~> 5.1'
-  gem 'aws-actionmailer-ses', '~> 1.0'
-  gem 'aws-sdk-s3', '~> 1.183'
+  gem "aws-sdk-rails", "~> 5.1"
+  gem "aws-actionmailer-ses", "~> 1.0"
+  gem "aws-sdk-s3", "~> 1.183"
 end

@@ -3,7 +3,7 @@ class Views::Devise::Passwords::New < Views::Devise::Page
     page(links: %i[log_in sign_up]) do
       form_card(url: user_password_path) do |form|
         form.field :email
-        form.submit t('.submit'), class: 'mt-4'
+        form.submit t(".submit"), class: "mt-4"
       end
     end
   end

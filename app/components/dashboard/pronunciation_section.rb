@@ -7,9 +7,9 @@ class Components::Dashboard::PronunciationSection < Components::Dashboard::Secti
 
   def content
     DetailList(@user) do |list|
-      list.attribute :phonetic, label: t('.name_is_pronounced', name:)
-      list.item(t('.ipa', name:)) { ipa }
-      list.item(t('.audio_clip', name:)) { audio }
+      list.attribute :phonetic, label: t(".name_is_pronounced", name:)
+      list.item(t(".ipa", name:)) { ipa }
+      list.item(t(".audio_clip", name:)) { audio }
     end
   end
 

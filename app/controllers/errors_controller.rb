@@ -10,9 +10,9 @@ class ErrorsController < ApplicationController
   def show
     render error_view.new, status: status_code
   end
-  
+
   private
-  
+
   def format_html
     request.format = :html
   end

@@ -7,7 +7,7 @@ class Components::Dashboard::PronounsSection < Components::Dashboard::Section
 
   def content
     if @user.pronounless_style?
-      p(class: 'font-bold') { t(@user.pronounless_style, scope: 'pronounless_styles') }
+      p(class: "font-bold") { t(@user.pronounless_style, scope: "pronounless_styles") }
     elsif pronoun_sets.any?
       examples_table
     else
@@ -20,7 +20,7 @@ class Components::Dashboard::PronounsSection < Components::Dashboard::Section
   def pronoun_sets = @user.pronoun_sets
 
   def examples_table
-    Table(headings: pronoun_sets.map { t('.header', pronoun: it.to_s(@user)) }) do |table|
+    Table(headings: pronoun_sets.map { t(".header", pronoun: it.to_s(@user)) }) do |table|
       PronounSet::EXAMPLES.each do |inflection|
         table.row do
           pronoun_sets.each { |set| table.cell { PronounExample(set, @user, inflection) } }

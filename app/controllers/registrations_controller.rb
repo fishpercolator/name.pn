@@ -5,13 +5,13 @@ class RegistrationsController < Devise::RegistrationsController
   def edit
     render_plex_view(action: :edit)
   end
-  
+
   protected
-  
+
   def after_sign_up_path_for(resource)
     profile_index_path
   end
-  
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit :sign_up, keys: %i[terms subscribe_to_mailing_list]
   end

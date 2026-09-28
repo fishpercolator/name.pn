@@ -12,9 +12,9 @@ class Views::Devise::Page < Views::Base
 
   def page(links:, &)
     NarrowContainer do
-      PageTitle(t('.title'), class: 'mb-6')
+      PageTitle(t(".title"), class: "mb-6")
       yield
-      ul(class: 'mt-5 space-y-1') do
+      ul(class: "mt-5 space-y-1") do
         links.each { |name| li { auth_link(name) } }
       end
     end

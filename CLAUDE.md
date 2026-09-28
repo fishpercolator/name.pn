@@ -26,7 +26,7 @@ There are four tiers of component:
 | Shared | `Components::Shared` | Pieces used across areas that wire app state into the kits (`SiteNavbar`, `SiteHead`…) |
 | Page | `Components::<Page>` | Pieces of a single page, e.g. `Components::Dashboard::NameSection` |
 
-Only the two kits extend `Phlex::Kit`. They're included in `Components::Base`, so their components are called like methods: `Button(variant: :primary) { t('.save') }`. Shared and page components are rendered explicitly: `render Components::Shared::SiteFooter.new`.
+Only the two kits extend `Phlex::Kit`. They're included in `Components::Base`, so their components are called like methods: `Button(variant: :primary) { t(".save") }`. Shared and page components are rendered explicitly: `render Components::Shared::SiteFooter.new`.
 
 Kit components are pure UI. They get their data through the constructor, and never read routes, `current_user`, `flash` or the environment themselves. That wiring belongs in shared components, page components or views.
 
@@ -55,7 +55,7 @@ Kit components are pure UI. They get their data through the constructor, and nev
 Form(model: resource, scope: :user, url: user_session_path) do |form|
   form.field :email
   form.checkbox :remember_me
-  form.submit t('.submit')
+  form.submit t(".submit")
 end
 ```
 
@@ -67,7 +67,7 @@ end
 
 ### i18n
 
-- Views use lazy keys. `Views::Home::UserHome` looks up `t('.title')` at `home.user_home.title`.
+- Views use lazy keys. `Views::Home::UserHome` looks up `t(".title")` at `home.user_home.title`.
 - Components use `components.<tier>.<name>`, for example `components.shared.site_navbar.about`.
 
 ## Tests

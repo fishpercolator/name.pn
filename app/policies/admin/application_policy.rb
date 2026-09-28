@@ -9,7 +9,7 @@ class Admin::ApplicationPolicy < ApplicationPolicy
       end
     end
   end
-  
+
   def index?
     show?
   end

@@ -15,7 +15,7 @@ class Components::Daisy::Input < Components::Daisy::Field
 
   private
 
-  def classes = ['input', ('input-error' if error?)]
+  def classes = [ "input", ("input-error" if error?) ]
 
   def input_field = field(**mix({ class: classes }, @attributes))
 
@@ -29,7 +29,7 @@ class Components::Daisy::Input < Components::Daisy::Field
   end
 
   def prefixed_input
-    label(**mix({ class: [*classes, 'gap-0'] }, @attributes.slice(:class))) do
+    label(**mix({ class: [ *classes, "gap-0" ] }, @attributes.slice(:class))) do
       span { @prefix }
       field(**@attributes.except(:class))
     end

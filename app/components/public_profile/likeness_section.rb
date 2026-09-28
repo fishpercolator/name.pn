@@ -3,7 +3,7 @@ class Components::PublicProfile::LikenessSection < Components::PublicProfile::Se
 
   protected
 
-  def section_name = 'likeness'
+  def section_name = "likeness"
 
   def content = Likeness(@user.likeness, name: @user.full_name)
 end

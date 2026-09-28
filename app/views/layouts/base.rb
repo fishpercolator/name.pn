@@ -5,7 +5,7 @@ class Views::Layouts::Base < Views::Base
 
   def document(body_class, &)
     doctype
-    html(lang: 'en') do
+    html(lang: "en") do
       head { render Components::Shared::SiteHead.new }
       body(class: body_class, &)
     end

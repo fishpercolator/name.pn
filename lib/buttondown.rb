@@ -1,14 +1,13 @@
-require 'faraday'
-require 'addressable'
+require "faraday"
+require "addressable"
 
 class Buttondown
-
   attr_reader :conn, :key
 
   def initialize(key)
     @key = key
-    @conn = Faraday.new(url: 'https://api.buttondown.email') do |f|
-      f.request :authorization, 'Token', key
+    @conn = Faraday.new(url: "https://api.buttondown.email") do |f|
+      f.request :authorization, "Token", key
       f.request :json
       f.response :json
       f.response :raise_error
@@ -18,7 +17,7 @@ class Buttondown
   # Note: Assumes all subscribers are 'regular' and not 'premium' and other paid subscription
   # statuses
   def subscribed?(email)
-    subscriber(email)&.dig('subscriber_type') == 'regular'
+    subscriber(email)&.dig("subscriber_type") == "regular"
   end
 
   def unsubscribe!(email)
@@ -28,17 +27,17 @@ class Buttondown
   end
 
   # Subscribe or edit a subscription - if the email address has changed, add :email_was to metadata
-  def subscribe!(email, metadata={})
+  def subscribe!(email, metadata = {})
     email_was = metadata.delete(:email_was) || email
     if s = subscriber(email_was)
-      update = {subscriber_type: 'regular', metadata: metadata}
+      update = { subscriber_type: "regular", metadata: metadata }
       if email != email_was
         # Only update the email if it's changed
         update[:email] = email
       end
       conn.patch(subscriber_url(s["id"]), update)
     else
-      conn.post("/v1/subscribers", {email: email, subscriber_type: 'regular', metadata: metadata})
+      conn.post("/v1/subscribers", { email: email, subscriber_type: "regular", metadata: metadata })
     end
   end
 
@@ -57,5 +56,4 @@ class Buttondown
   def subscriber_url(id_or_email)
     Addressable::Template.new("/v1/subscribers/{id}").expand(id: id_or_email)
   end
-
 end

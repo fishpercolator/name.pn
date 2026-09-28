@@ -9,7 +9,7 @@ class Components::Shared::Analytics < Components::Base
   def view_template
     script(async: true, src: "https://www.googletagmanager.com/gtag/js?id=#{@tracking_id}")
     script { raw safe(setup) }
-    script(type: 'module') { raw safe(track_turbo_visits) }
+    script(type: "module") { raw safe(track_turbo_visits) }
   end
 
   private

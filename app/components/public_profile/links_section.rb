@@ -3,12 +3,12 @@ class Components::PublicProfile::LinksSection < Components::PublicProfile::Secti
 
   protected
 
-  def section_name = 'links'
+  def section_name = "links"
 
   def content
-    Hint(class: 'profile-card__hint') { t('.hint', name: @user.personal_name) }
+    Hint(class: "profile-card__hint") { t(".hint", name: @user.personal_name) }
     BulletList(markers: :inside) do |bullets|
-      links.each { |link| bullets.item { Link(link.url, rel: 'me nofollow') { link.title } } }
+      links.each { |link| bullets.item { Link(link.url, rel: "me nofollow") { link.title } } }
     end
   end
 

@@ -3,5 +3,5 @@ class Components::UI::Prose < Components::UI::Container
 
   def element = :article
 
-  def width = 'prose prose-xl w-full prose-a:text-secondary prose-table:block prose-table:overflow-x-auto prose-table:text-[1em]'
+  def width = "prose prose-xl w-full prose-a:text-secondary prose-table:block prose-table:overflow-x-auto prose-table:text-[1em]"
 end

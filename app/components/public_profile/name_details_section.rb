@@ -3,7 +3,7 @@ class Components::PublicProfile::NameDetailsSection < Components::PublicProfile:
 
   protected
 
-  def section_name = 'name-details'
+  def section_name = "name-details"
 
   def content
     names.each { |name, value| detail(t(".headings.#{name}"), hint: t(".hints.#{name}", value:)) { value } }

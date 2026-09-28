@@ -2,10 +2,10 @@ module ActiveAdmin
   module SortableTable
     module HandleColumn
       def handle_column
-        column '' do |resource|
-          content_tag(:span, '&#9776;'.html_safe, class: 'sortable-handle',
+        column "" do |resource|
+          content_tag(:span, "&#9776;".html_safe, class: "sortable-handle",
             data: {
-              sort_url: url_for([:sort, :admin, resource]),
+              sort_url: url_for([ :sort, :admin, resource ]),
               position: resource.public_send(resource.position_column)
             }
           )

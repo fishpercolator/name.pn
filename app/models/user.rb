@@ -3,37 +3,37 @@ class User < ApplicationRecord
   include UserImage
   include MailingListable
   include ActiveStorageSupport::SupportForBase64
-  
+
   has_many :user_pronoun_sets
   has_many :pronoun_sets, -> { reorder('user_pronoun_sets.position': :asc) }, through: :user_pronoun_sets
   has_many :links, dependent: :destroy
   has_many :alternate_names, dependent: :destroy
   has_many :clients, dependent: :destroy
-  
+
   enum :role, %w[user admin].index_by(&:to_sym), prefix: true
-  
+
   enum :pronoun_example, %w[boardgaming cooking dancing reading running tv].index_by(&:to_sym), prefix: true, default: :cooking
-  
+
   enum :pronunciation_of, %w[full_name personal_name formal_name envelope_name].index_by(&:to_sym), prefix: true, default: :full_name
-  
+
   enum :pronoun_style, %w[two three].index_by(&:to_sym), prefix: true
   enum :pronounless_style, %w[none unknown any].index_by(&:to_sym), prefix: true
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-           
+
   validates :personal_name, :full_name, presence: true, on: :profile
   validates :terms, acceptance: true, on: :create
-  
+
   has_one_base64_attached :pronunciation
   has_one_attached :likeness
-  
+
   accepts_nested_attributes_for :links, allow_destroy: true
   accepts_nested_attributes_for :alternate_names, allow_destroy: true
   accepts_nested_attributes_for :user_pronoun_sets, allow_destroy: true
-  
+
   validates :likeness, size: { less_than: 1.megabyte }
   validates :pronunciation, size: { less_than: 2.megabytes }
 
@@ -48,7 +48,7 @@ class User < ApplicationRecord
   def to_s
     full_name.present? ? full_name : email
   end
-  
+
   # Which name is the pronunciation of?
   def pronunciation_of_name
     # This is safe because pronunciation_of is an enum and rejects invalid values
@@ -57,17 +57,17 @@ class User < ApplicationRecord
 
   # The distinct names a user could choose to pronounce, as [name, pronunciation_of] pairs
   def pronunciation_of_options
-    self.class.pronunciation_ofs.keys.map { [public_send(it), it] }.reject { it.first.blank? }.uniq(&:first)
+    self.class.pronunciation_ofs.keys.map { [ public_send(it), it ] }.reject { it.first.blank? }.uniq(&:first)
   end
-  
+
   # To be able to freely move around the profile, you must have entered a full
   # name and a personal name
   def basic_names_complete?
     full_name.present? && personal_name.present?
   end
 
-  scope :basic_names_complete, -> { where.not(full_name: '').where.not(personal_name: '') }
-  
+  scope :basic_names_complete, -> { where.not(full_name: "").where.not(personal_name: "") }
+
   # To have a complete profile you must have entered a full name,
   # a personal name and at least one pronoun or declared yourself pronounless
   def profile_complete?
@@ -75,14 +75,14 @@ class User < ApplicationRecord
   end
 
   scope :has_pronouns, -> { left_outer_joins(:pronoun_sets).where.not('pronoun_sets.id': nil, pronounless_style: nil).distinct }
-  scope :profile_complete, -> { basic_names_complete.has_pronouns.where.not(slug: '') }
+  scope :profile_complete, -> { basic_names_complete.has_pronouns.where.not(slug: "") }
 
   scope :created_since, ->(time) { where(User.arel_table[:created_at].gteq(time)) }
 
   def pronoun_sets_with_preference
     case pronounless_style&.to_sym
     when :none, :unknown
-      [PronounSet.name_only(self)]
+      [ PronounSet.name_only(self) ]
     when :any
       PronounSet.random.limit(3)
     else

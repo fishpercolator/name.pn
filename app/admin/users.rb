@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :role, :password, :full_name, :personal_name, :formal_name, :envelope_name, :phonetic, :noindex, :pronoun_set_ids => []
+  permit_params :email, :role, :password, :full_name, :personal_name, :formal_name, :envelope_name, :phonetic, :noindex, pronoun_set_ids: []
 
   controller do
     def find_resource
@@ -10,13 +10,13 @@ ActiveAdmin.register User do
   index do
     selectable_column
     id_column
-    column(:slug) do |u| 
+    column(:slug) do |u|
       if u.profile_complete?
         link_to(u.slug, user_url(u))
       elsif u.slug.present?
         u.slug
       else
-        '-'
+        "-"
       end
     end
     column :email
@@ -29,8 +29,8 @@ ActiveAdmin.register User do
 
   scope :all, default: true
   scope :profile_complete
-  scope("Has Audio") {|s| s.where.associated(:pronunciation_attachment)}
-  scope("Has Likeness") {|s| s.where.associated(:likeness_attachment)}
+  scope("Has Audio") { |s| s.where.associated(:pronunciation_attachment) }
+  scope("Has Likeness") { |s| s.where.associated(:likeness_attachment) }
 
   filter :email
   filter :role
@@ -62,7 +62,7 @@ ActiveAdmin.register User do
       row :id
       row :email
       row :terms
-      row(:slug) {|u| u.slug.present? ? link_to(u.slug, user_url(u)) : '-'}
+      row(:slug) { |u| u.slug.present? ? link_to(u.slug, user_url(u)) : "-" }
       row :noindex
       row :role
       row :full_name
@@ -74,7 +74,7 @@ ActiveAdmin.register User do
       row :pronoun_sets
       row :pronoun_style
       row :pronounless_style
-      row(:likeness) {|u| u.likeness.attached? ? image_tag(u.likeness.variant(resize_to_limit: [300,300])) : '-'}
+      row(:likeness) { |u| u.likeness.attached? ? image_tag(u.likeness.variant(resize_to_limit: [ 300, 300 ])) : "-" }
       row :links
       row :clients
       row :created_at

@@ -1,6 +1,6 @@
 ActiveAdmin.register AlternateName do
   permit_params :user_id, :name, :category
-  
+
   index do
     selectable_column
     id_column
@@ -9,7 +9,7 @@ ActiveAdmin.register AlternateName do
     column :category
     actions
   end
-  
+
   show do
     attributes_table do
       row :id
@@ -20,7 +20,7 @@ ActiveAdmin.register AlternateName do
       row :updated_at
     end
   end
-  
+
   form do |f|
     f.inputs do
       f.input :user

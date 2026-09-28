@@ -12,8 +12,8 @@ class Components::Dashboard::LinksSection < Components::Dashboard::Section
   def links = @user.links.order(:title)
 
   def link_list
-    BulletList(class: 'ms-6') do |bullets|
-      links.each { |link| bullets.item { Link(link.url, rel: 'noopener') { link.title } } }
+    BulletList(class: "ms-6") do |bullets|
+      links.each { |link| bullets.item { Link(link.url, rel: "noopener") { link.title } } }
     end
   end
 end

@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   skip_after_action :verify_policy_scoped
   skip_after_action :verify_authorized
-  
+
   def index
     if user_signed_in?
       # Refuse to show the dashboard to people who haven't completed step 1

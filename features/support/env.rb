@@ -1,28 +1,28 @@
-ENV['RAILS_ENV'] = 'test'
-require './config/environment'
+ENV["RAILS_ENV"] = "test"
+require "./config/environment"
 
-require 'database_cleaner/active_record'
-require 'email_spec/spinach'
-require 'capybara-screenshot/spinach'
-require 'spinach/rspec/mocks'
-require 'capybara/cuprite'
-require './spec/support/fixtures'
-require './spec/support/mock_buttondown'
+require "database_cleaner/active_record"
+require "email_spec/spinach"
+require "capybara-screenshot/spinach"
+require "spinach/rspec/mocks"
+require "capybara/cuprite"
+require "./spec/support/fixtures"
+require "./spec/support/mock_buttondown"
 
 DatabaseCleaner.strategy = :truncation
 Spinach.hooks.before_scenario { DatabaseCleaner.clean }
 
 Capybara.register_driver :cuprite do |app|
-  log = File.open('log/cuprite.log', 'w')
+  log = File.open("log/cuprite.log", "w")
   Capybara::Cuprite::Driver.new app, {
     logger: log,
     process_timeout: 60,
-    window_size: [1280, 900],
+    window_size: [ 1280, 900 ],
     browser_options: {
-      'disable-gpu' => nil,
-      'no-sandbox'  => nil,
+      "disable-gpu" => nil,
+      "no-sandbox"  => nil,
       # Fail external font requests immediately so page loads never wait on them
-      'host-resolver-rules' => 'MAP fonts.googleapis.com 127.0.0.1',
+      "host-resolver-rules" => "MAP fonts.googleapis.com 127.0.0.1"
     }
   }
 end
@@ -41,5 +41,5 @@ Spinach.hooks.before_scenario do
 end
 
 Spinach.hooks.after_run do
-  FileUtils.rm_rf(Rails.root + 'tmp/storage')
+  FileUtils.rm_rf(Rails.root + "tmp/storage")
 end

@@ -1,7 +1,7 @@
 module ErrorPages
   PRODUCTION_SETTINGS = {
-    'action_dispatch.show_exceptions' => :all,
-    'action_dispatch.show_detailed_exceptions' => false
+    "action_dispatch.show_exceptions" => :all,
+    "action_dispatch.show_detailed_exceptions" => false
   }.freeze
 
   class << self

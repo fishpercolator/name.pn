@@ -4,6 +4,6 @@ class Components::UI::SectionHeading < Components::Base
   end
 
   def view_template(&)
-    h2(**mix({ class: 'text-2xl font-bold' }, @attributes), &)
+    h2(**mix({ class: "text-2xl font-bold" }, @attributes), &)
   end
 end

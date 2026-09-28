@@ -1,26 +1,26 @@
 class ProfileController < ApplicationController
   include Wicked::Wizard
-  
+
   before_action :authenticate_user!
   before_action :set_user
-  
+
   # The index is only used for redirecting in Wicked
   skip_after_action :verify_policy_scoped
-  
+
   steps *%i[personal_name pronouns slug pronunciation variants likeness links]
-  
+
   # Wicked methods needed in views
   helper_method :next_step, :previous_step
 
   def show
     render_wizard
   end
-  
+
   def update
-    if params[:button] == 'finish'
+    if params[:button] == "finish"
       @next_step = Wicked::FINISH_STEP
     end
-    if params[:button] == 'delete_likeness'
+    if params[:button] == "delete_likeness"
       @next_step = step
       @user.likeness.purge
     end
@@ -36,7 +36,7 @@ class ProfileController < ApplicationController
       format.html { render_wizard @user, context: :profile }
       format.json do
         @user.save!(context: :profile)
-        render json: {url: @user.likeness.attached? ? url_for(@user.likeness.variant(resize_to_limit: [300,300])) : nil} 
+        render json: { url: @user.likeness.attached? ? url_for(@user.likeness.variant(resize_to_limit: [ 300, 300 ])) : nil }
       end
     end
   end
@@ -48,17 +48,16 @@ class ProfileController < ApplicationController
 
     render_plex_view(options.merge(action: step))
   end
-  
+
   def set_user
     @user = current_user
     authorize @user, :update?
 
     # Get the set of pronoun_sets the user hasn't selected and render them as user_pronoun_sets
-    @additional_ups = PronounSet.where.not(id: @user.pronoun_sets).map {|ps| UserPronounSet.new(pronoun_set: ps, user: @user)}
+    @additional_ups = PronounSet.where.not(id: @user.pronoun_sets).map { |ps| UserPronounSet.new(pronoun_set: ps, user: @user) }
   end
 
   def pronunciation
     params.dig(:user, :pronunciation) || {}
   end
-  
 end

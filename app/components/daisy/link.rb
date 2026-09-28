@@ -5,6 +5,6 @@ class Components::Daisy::Link < Components::Base
   end
 
   def view_template(&)
-    a(href: @href, **mix({ class: 'link link-secondary' }, @attributes), &)
+    a(href: @href, **mix({ class: "link link-secondary" }, @attributes), &)
   end
 end
