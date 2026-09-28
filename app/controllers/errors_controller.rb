@@ -1,6 +1,6 @@
 class ErrorsController < ApplicationController
-  include Gaffe::Errors
-  
+  include ExceptionStatus
+
   before_action :format_html
 
   skip_after_action :verify_authorized
@@ -8,7 +8,7 @@ class ErrorsController < ApplicationController
   layout -> { Views::Layouts::Application }
 
   def show
-    render error_view.new, status: @status_code
+    render error_view.new, status: status_code
   end
   
   private
@@ -17,6 +17,5 @@ class ErrorsController < ApplicationController
     request.format = :html
   end
 
-  # Gaffe::Errors sets @rescue_response to the exception's rescue response, e.g. :not_found
-  def error_view = "Views::Errors::#{@rescue_response.to_s.camelize}".safe_constantize || Views::Errors::InternalServerError
+  def error_view = "Views::Errors::#{status_name.to_s.camelize}".safe_constantize || Views::Errors::InternalServerError
 end
