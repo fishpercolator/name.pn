@@ -91,6 +91,18 @@ Scenario: Profile with multiple pronouns (URL containing one pronoun)
   Then I should see only "she/her" in their name card
   And I should see a usage guide for one set of pronouns
 
+Scenario: Profile with unknown pronouns in the URL
+  Given I am signed out
+  And a user exists with a basic profile
+  When I visit the path that is that user's slug with "xe/xem" on the end
+  Then I should see a 'hello' card with the user's personal name and pronouns
+
+Scenario: Social media previews
+  Given I am signed out
+  And a user exists with a basic profile
+  When I visit the path that is that user's slug
+  Then the page should have social media tags that show the user's name badge
+
 Scenario: Alternative pronoun examples
   Given I am signed out
   And a user exists with a basic profile

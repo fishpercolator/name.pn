@@ -215,6 +215,14 @@ Scenario: Likeness is too large
   And I attach a likeness that is too large
   Then I should see an error that the file is too large
 
+Scenario: Delete likeness
+  Given I am signed in as a user with a complete profile
+  When I visit the dashboard
+  And I click the edit button in the likeness box
+  And I click to delete my likeness
+  Then I should still be on the likeness page
+  And my profile should have no likeness
+
 @javascript
 Scenario: Cancel likeness upload from cropper
   Given I am signed in as a user with a complete profile

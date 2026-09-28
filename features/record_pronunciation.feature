@@ -34,6 +34,15 @@ Scenario: Recorder not available
   And I should see a message telling me to use a different browser
   And I should see the upload form and delete checkbox
 
+Scenario: Delete recording (no JavaScript)
+  Given I am signed in
+  And my user has audio recorded already
+  And I am not using a browser without the ability to record audio
+  When I visit the profile editing page for pronunciation
+  And I check the box to delete my recording
+  And I click to go to the next step
+  Then my recording should not be saved in storage
+
 @javascript
 Scenario: Permission not given
   Given I am signed in

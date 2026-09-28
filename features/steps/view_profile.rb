@@ -109,6 +109,15 @@ class Spinach::Features::ViewProfile < Spinach::FeatureSteps
     visit "/audrey-horne/she/her"
   end
 
+  step 'I visit the path that is that user\'s slug with "xe/xem" on the end' do
+    visit '/audrey-horne/xe/xem'
+  end
+
+  step 'the page should have social media tags that show the user\'s name badge' do
+    expect(page).to have_css('meta[property="og:title"][content="Hello! My name is Audrey Horne"]', visible: false)
+    expect(page).to have_css('meta[property="og:image"][content="http://www.example.com/audrey-horne.png"]', visible: false)
+  end
+
   step 'I should see only "she/her" in their name card' do
     expect(page).to have_css('.napc', text: 'she/her')
     expect(page).not_to have_css('.napc', text: 'they/them')
