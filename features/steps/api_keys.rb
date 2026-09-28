@@ -1,14 +1,11 @@
 class Spinach::Features::ApiKeys < Spinach::FeatureSteps
   include CommonSteps::Auth
+  include CommonSteps::Account
 
   step 'I have 3 API keys created' do
     create :client, name: 'one', user: test_user, created_at: 3.days.ago
     create :client, name: 'two', user: test_user, created_at: 2.days.ago
     create :client, name: 'three', user: test_user, created_at: 1.day.ago
-  end
-
-  step 'I visit the account page' do
-    visit edit_user_registration_path
   end
 
   step 'I should see my 3 API keys and their ages' do
