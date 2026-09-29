@@ -24,6 +24,8 @@ class Buttondown
     if s = subscriber(email)
       conn.delete(subscriber_url(s["id"]))
     end
+  rescue Faraday::ResourceNotFound
+    nil # they're already gone, which is what we wanted
   end
 
   # Subscribe or edit a subscription - if the email address has changed, add :email_was to metadata
