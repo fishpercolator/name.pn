@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include UserSlug
   include UserImage
+  include MailingListable
   include ActiveStorageSupport::SupportForBase64
 
   has_many :user_pronoun_sets, dependent: :destroy
