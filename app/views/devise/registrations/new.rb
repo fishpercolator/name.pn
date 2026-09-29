@@ -26,7 +26,7 @@ class Views::Devise::Registrations::New < Views::Devise::Page
         end
         form.checkbox :terms, label: t(".terms_label_html", url: page_path("terms"))
         cloudflare_turnstile_script_tag
-        cloudflare_turnstile(action: "sign_up")
+        cloudflare_turnstile(action: "sign_up", class: "cf-turnstile min-h-[65px] leading-0")
         form.submit t(".submit")
       end
     end
