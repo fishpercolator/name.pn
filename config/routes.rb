@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   }
   devise_for :clients, skip: :all
 
+  get "users/mailing_list", to: "mailing_list#show"
+  post "users/mailing_list/subscribe", to: "mailing_list#subscribe"
+  post "users/mailing_list/unsubscribe", to: "mailing_list#unsubscribe"
   get "/pages/*id" => "pages#show", as: :page, format: false
 
   resources :profile

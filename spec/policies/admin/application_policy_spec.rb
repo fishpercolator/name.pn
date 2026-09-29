@@ -23,7 +23,7 @@ RSpec.describe Admin::ApplicationPolicy, type: :policy do
   end
 
   context "being an admin user" do
-    let(:user) { create :user, role: :admin }
+    let(:user) { create :user, :admin }
     it { is_expected.to permit_actions(%i[index create show update destroy]) }
     it { expect(resolved_scope).to include(record) }
   end

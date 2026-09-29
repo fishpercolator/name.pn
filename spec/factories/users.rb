@@ -7,6 +7,9 @@ FactoryBot.define do
     trait :test do
       email { "testuser@example.com" }
     end
+    trait :admin do
+      role { :admin }
+    end
     trait :basic_profile do
       full_name { "Audrey Horne" }
       personal_name { "Audrey" }

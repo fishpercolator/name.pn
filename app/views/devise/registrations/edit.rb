@@ -1,11 +1,13 @@
 class Views::Devise::Registrations::Edit < Views::Devise::Page
   include Phlex::Rails::Helpers::ContentFor
+  include Phlex::Rails::Helpers::TurboFrameTag
 
   controller_variable :clients, :new_client, :new_key
 
   def view_template
     NarrowContainer(class: "space-y-12") do
       section { account }
+      section { turbo_frame_tag([ current_user, "mailing_list" ], src: users_mailing_list_path) }
       section { api_keys }
       section { cancel_link }
     end

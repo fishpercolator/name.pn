@@ -123,7 +123,7 @@ RSpec.describe User, type: :model do
       create :user, email: "half-named@example.com", full_name: "Josie Packard", created_at: 31.days.ago
       create :user, email: "new@example.com", created_at: 29.days.ago
       create :user, :basic_profile, email: "named@example.com", created_at: 31.days.ago
-      create :user, email: "admin@example.com", role: :admin, created_at: 31.days.ago
+      create :user, :admin, email: "admin@example.com", created_at: 31.days.ago
     end
 
     it "returns users who never named themselves in their first month, except admins" do
