@@ -24,8 +24,8 @@ class Buttondown
     if s = subscriber(email)
       conn.delete(subscriber_url(s["id"]))
     end
-  rescue Faraday::ResourceNotFound
-    nil # they're already gone, which is what we wanted
+  rescue Faraday::ResourceNotFound => error
+    raise unless subscriber_not_found?(error)
   end
 
   # Subscribe or edit a subscription - if the email address has changed, add :email_was to metadata
@@ -53,6 +53,12 @@ class Buttondown
     conn.get(subscriber_url id_or_email).body
   rescue Faraday::ResourceNotFound
     nil # return nil if there is a 404 and raise all other kinds of exceptions
+  end
+
+  def subscriber_not_found?(error)
+    JSON.parse(error.response_body.to_s, symbolize_names: true) in { code: "subscriber_not_found" }
+  rescue JSON::ParserError
+    false
   end
 
   def subscriber_url(id_or_email)
