@@ -4,7 +4,7 @@ class Spinach::Features::Admin < Spinach::FeatureSteps
   SECTIONS = [ "Users", "Pronoun Sets", "Links", "Alternate Names", "Clients" ].freeze
 
   step "I am signed in as an admin with an API key" do
-    admin = create :user, :test, :full_profile, role: :admin
+    admin = create :user, :test, :full_profile, :admin
     create :client, user: admin
     sign_in_as admin
   end

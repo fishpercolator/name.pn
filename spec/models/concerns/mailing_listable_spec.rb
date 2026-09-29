@@ -76,7 +76,7 @@ RSpec.describe MailingListable do
 
   describe "when Buttondown fails" do
     let(:buttondown) { Buttondown.new("xxxyyy") }
-    let!(:admin) { create :user, role: :admin, email: "gordon@example.com" }
+    let!(:admin) { create :user, :admin, email: "gordon@example.com" }
 
     context "by rejecting the email" do
       before do
@@ -90,9 +90,9 @@ RSpec.describe MailingListable do
 
       it "emails the admins" do
         perform_enqueued_jobs { create :user, email: "audrey@example.com", subscribe_to_mailing_list: true }
-        mail = ActionMailer::Base.deliveries.last
-        expect(mail.to).to eq([ "gordon@example.com" ])
-        expect(mail.body.to_s).to include("audrey@example.com").and include("Invalid email")
+        open_email "gordon@example.com"
+        expect(current_email).to have_body_text("audrey@example.com")
+        expect(current_email).to have_body_text("Invalid email")
       end
     end
 
