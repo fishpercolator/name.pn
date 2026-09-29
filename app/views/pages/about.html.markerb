@@ -11,7 +11,7 @@ These days we do a lot of our communicating electronically. We can see a person'
 
 name.pn was created to give each person **a short URL** that you can put in your email signature and your social profiles that gives people all the information they need to address you correctly, including a chance to hear you pronouncing your name in your own voice.
 
-It's free and always will be (although we might add some cool additional paid features in the future for businesses). It's been working solidly since 2021 and is actively maintained and new features arrive occasionally.
+It's free and always will be (although we might add some cool additional paid features in the future for businesses). It's been working solidly since 2021 and is actively maintained; new features arrive occasionally.
 
 <% unless user_signed_in? %>
 <%= render Components::UI::ActionLinks.new do |actions|
