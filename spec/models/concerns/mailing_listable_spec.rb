@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.describe MailingListable do
+  include ActiveJob::TestHelper
+
   let(:buttondown) { MockButtondown.new }
   before { allow(MailingListable).to receive(:buttondown).and_return(buttondown) }
 
@@ -68,6 +70,41 @@ RSpec.describe MailingListable do
         user.update!(email: "audrey@greatnorthern.example.com")
         user.unsubscribe_from_mailing_list!
         expect(a_request(:any, /buttondown/)).not_to have_been_made
+      end
+    end
+  end
+
+  describe "when Buttondown fails" do
+    let(:buttondown) { Buttondown.new("xxxyyy") }
+    let!(:admin) { create :user, role: :admin, email: "gordon@example.com" }
+
+    context "by rejecting the email" do
+      before do
+        stub_request(:get, %r{api.buttondown.email/v1/subscribers/}).to_return(status: 404)
+        stub_request(:post, "https://api.buttondown.email/v1/subscribers").to_return(status: 400, body: "Invalid email")
+      end
+
+      it "still signs the user up" do
+        expect { create :user, subscribe_to_mailing_list: true }.to change(User, :count).by(1)
+      end
+
+      it "emails the admins" do
+        perform_enqueued_jobs { create :user, email: "audrey@example.com", subscribe_to_mailing_list: true }
+        mail = ActionMailer::Base.deliveries.last
+        expect(mail.to).to eq([ "gordon@example.com" ])
+        expect(mail.body.to_s).to include("audrey@example.com").and include("Invalid email")
+      end
+    end
+
+    context "by being unavailable" do
+      before { stub_request(:any, /buttondown/).to_timeout }
+
+      it "treats the user as unsubscribed" do
+        expect(create(:user).subscribed_to_mailing_list?).to be_nil
+      end
+
+      it "still lets them leave" do
+        expect { create(:user).destroy! }.to have_enqueued_mail(AdminMailer, :buttondown_failed)
       end
     end
   end

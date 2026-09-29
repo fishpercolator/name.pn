@@ -6,7 +6,7 @@ class Buttondown
 
   def initialize(key)
     @key = key
-    @conn = Faraday.new(url: "https://api.buttondown.email") do |f|
+    @conn = Faraday.new(url: "https://api.buttondown.email", request: { open_timeout: 5, timeout: 10 }) do |f|
       f.request :authorization, "Token", key
       f.request :json
       f.response :json

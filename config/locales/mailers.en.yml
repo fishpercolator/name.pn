@@ -1,0 +1,8 @@
+en:
+  admin_mailer:
+    buttondown_failed:
+      subject: Buttondown couldn't update the mailing list
+      body: |
+        Buttondown returned an error while updating the mailing list for %{email}, so their subscription may be out of date.
+
+        %{error}

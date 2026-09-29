@@ -13,15 +13,15 @@ module MailingListable
     after_destroy_commit :unsubscribe_from_mailing_list!
 
     def subscribed_to_mailing_list?
-      MailingListable.buttondown&.subscribed?(email_was || email)
+      mailing_list { it.subscribed?(email_was || email) }
     end
 
     def subscribe_to_mailing_list!
-      MailingListable.buttondown&.subscribe!(email, mailing_list_data)
+      mailing_list { it.subscribe!(email, mailing_list_data) }
     end
 
     def unsubscribe_from_mailing_list!
-      MailingListable.buttondown&.unsubscribe!(email)
+      mailing_list { it.unsubscribe!(email) }
     end
 
     # Get the user's email at the last save if it is not the current email
@@ -31,12 +31,29 @@ module MailingListable
 
     private
 
+    def mailing_list
+      MailingListable.buttondown&.then { yield it }
+    rescue Faraday::Error => error
+      report_mailing_list_failure(error)
+      nil
+    end
+
+    def report_mailing_list_failure(error)
+      AdminMailer.with(email:, error: failure_details(error)).buttondown_failed.deliver_later
+    end
+
+    def failure_details(error) = [ error.message, error.response_body ].compact.join("\n")
+
     def mailing_list_data
       slice(:full_name, :formal_name, :email_name, :email_was).reject { |_, v| v.blank? }
     end
 
     def mailing_list_data_changed?
-      subscribed_to_mailing_list? && (saved_change_to_email? || saved_change_to_full_name? || saved_change_to_formal_name? || saved_change_to_email_name?)
+      saved_change_to_mailing_list_data? && subscribed_to_mailing_list?
+    end
+
+    def saved_change_to_mailing_list_data?
+      %w[email full_name formal_name email_name].any? { saved_change_to_attribute?(it) }
     end
   end
 end
