@@ -101,7 +101,7 @@ RSpec.describe Buttondown do
     end
     it "succeeds if Buttondown has already deleted them" do
       stub_request(:delete, "https://api.buttondown.email:443/v1/subscribers/d3322a90-4add-4118-bb08-d9b81211ccb1")
-        .to_return(status: 404, body: { code: "subscriber_not_found" }.to_json)
+        .to_return(status: 404, body: { code: "subscriber_not_found" }.to_json, headers: { content_type: "application/json" })
       expect { subject.unsubscribe! "dale@example.com" }.not_to raise_error
     end
     it "raises any other 404" do
