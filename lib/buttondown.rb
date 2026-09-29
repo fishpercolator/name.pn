@@ -9,8 +9,8 @@ class Buttondown
     @conn = Faraday.new(url: "https://api.buttondown.email", request: { open_timeout: 5, timeout: 10 }) do |f|
       f.request :authorization, "Token", key
       f.request :json
-      f.response :json
       f.response :raise_error
+      f.response :json
     end
   end
 
@@ -24,6 +24,8 @@ class Buttondown
     if s = subscriber(email)
       conn.delete(subscriber_url(s["id"]))
     end
+  rescue Faraday::ResourceNotFound => error
+    raise unless error.response_body.try(:dig, "code") == "subscriber_not_found"
   end
 
   # Subscribe or edit a subscription - if the email address has changed, add :email_was to metadata
