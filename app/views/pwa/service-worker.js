@@ -1,5 +1,6 @@
 const CACHE_NAME = "name.pn-offline-v1"
 const OFFLINE_URL = "/offline"
+const NETWORK_TIMEOUT = 10_000
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -20,5 +21,5 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.mode !== "navigate") return
 
-  event.respondWith(fetch(event.request).catch(() => caches.match(OFFLINE_URL)))
+  event.respondWith(fetch(event.request, { signal: AbortSignal.timeout(NETWORK_TIMEOUT) }).catch(() => caches.match(OFFLINE_URL)))
 })
