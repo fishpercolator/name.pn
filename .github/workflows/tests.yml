@@ -29,7 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Install libvips and ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y libvips imagemagick
+        timeout-minutes: 5
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libvips imagemagick
       - name: Install Ruby & gem dependencies
         uses: ruby/setup-ruby@v1
         with:
