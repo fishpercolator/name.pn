@@ -29,6 +29,10 @@
     "@types/sortablejs": "^1.15.9",
     "typescript": "^6.0.3"
   },
+  "overrides": {
+    "@parcel/watcher": "^2.6.0",
+    "postcss-selector-parser": "^7.1.7"
+  },
   "version": "0.1.0",
   "browserslist": [
     "defaults"
