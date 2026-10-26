@@ -88,9 +88,10 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   $stdout.sync = true
-  config.rails_semantic_logger.add_file_appender = false
   config.colorize_logging = false
-  config.semantic_logger.add_appender(io: $stdout, level: config.log_level, formatter: :json)
+  config.rails_semantic_logger.appenders do |appenders|
+    appenders.add(io: $stdout, level: config.log_level, formatter: :json)
+  end
 
   # Use SES in production
   config.action_mailer.delivery_method = :ses
