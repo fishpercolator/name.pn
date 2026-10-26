@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "4.0.7"
+ruby "4.0.9"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 8.0"
@@ -22,17 +22,16 @@ gem "bootsnap", ">= 1.4.2", require: false
 
 gem "activeadmin", "4.0.0.beta23"
 gem "active_storage_base64", "~> 3.0"
-gem "active_storage_validations", "~> 3.0"
+gem "active_storage_validations", "~> 4.1"
 gem "acts_as_list", "~> 1.0"
-gem "amazing_print", "~> 2.0"
+gem "amazing_print", "~> 3.0"
 gem "blueprinter", "~> 1.0"
 gem "datadog", "~> 2.38", require: "datadog/auto_instrument"
 gem "devise", "~> 5.0"
 gem "devise-jwt", "~> 0.13.0"
 gem "friendly_id", "~> 5.3"
-gem "gibbon", "~> 3.4", ">= 3.4.3"
 gem "high_voltage", "~> 5.0"
-gem "image_processing", "~> 1.11"
+gem "image_processing", "~> 2.2"
 gem "importmap-rails", "~> 2.1"
 gem "inline_svg", "~> 1.10"
 gem "invisible_captcha", "~> 2.3"
@@ -44,9 +43,10 @@ gem "phlex-rails", "~> 2.4"
 gem "phlexible", "~> 3.5"
 gem "pundit", "~> 2.1"
 gem "rails_cloudflare_turnstile", "~> 0.5.1"
-gem "rails_semantic_logger", "~> 4.6"
+gem "rails_semantic_logger", "~> 5.2"
 gem "rswag-api", "~> 2.4"
 gem "rswag-ui", "~> 2.4"
+gem "ruby-vips", "~> 2.3"
 gem "spicy-proton", "~> 2.1"
 gem "wicked", "~> 2.0"
 
