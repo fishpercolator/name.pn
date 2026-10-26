@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@types/sortablejs": "^1.15.9",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "overrides": {
     "@parcel/watcher": "^2.6.0",
