@@ -8,6 +8,10 @@ services:
 
     volumes:
     - ..:/workspaces/name.pn:cached
+    - bun-cache:/home/vscode/.bun/install/cache
+    - gems:/home/vscode/.gems
+    - gh:/home/vscode/.config/gh
+    - claude:/home/vscode/.claude
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
@@ -28,3 +32,11 @@ services:
 
 volumes:
   postgres-data:
+  bun-cache:
+    name: fishpercolator-bun-cache
+  gems:
+    name: fishpercolator-gems
+  gh:
+    name: fishpercolator-gh
+  claude:
+    name: fishpercolator-claude
