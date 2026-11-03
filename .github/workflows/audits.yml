@@ -35,5 +35,8 @@ jobs:
         uses: oven-sh/setup-bun@v2
       - name: Install bun dependencies
         run: bun install --frozen-lockfile
+      # deepmerge's prototype-poisoning advisory has no fixed release. It's only installed as a
+      # dependency of a rollup plugin (via ActiveAdmin's flowbite-datepicker), and nothing here runs
+      # rollup. Drop the ignore once a fixed deepmerge is released.
       - name: Run bun audit
-        run: bun audit
+        run: bun audit --ignore=GHSA-gcqx-w48m-w2h4
