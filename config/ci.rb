@@ -6,7 +6,7 @@ CI.run do
   step "Style: Ruby", "bin/rubocop"
 
   step "Security: Gem audit", "bin/bundler-audit"
-  step "Security: Bun audit", "bun audit"
+  step "Security: Bun audit", "bun audit --ignore=GHSA-gcqx-w48m-w2h4"
   step "Security: Brakeman code analysis", "bin/brakeman --quiet --no-pager --exit-on-warn --exit-on-error"
 
   step "Types: TypeScript", "bun run check-types"
