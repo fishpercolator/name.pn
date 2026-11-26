@@ -5,6 +5,11 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
+    # While no devcontainer-rails image exists for .ruby-version's Ruby, pin mise to the image's own
+    # Ruby, or mise tries to install .ruby-version's in every new shell and fails, leaving no Ruby.
+    # Remove it once the Dockerfile's RUBY_VERSION catches up.
+    environment:
+      MISE_RUBY_VERSION: "4.0.9"
 
     volumes:
     - ..:/workspaces/name.pn:cached
