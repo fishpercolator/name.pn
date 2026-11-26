@@ -298,7 +298,7 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   config.jwt do |jwt|
     jwt.secret = ENV.fetch("JWT_SECRET")
-    jwt.expiration_time = 100.years
+    jwt.expiration_time = 100.years.to_i
   end
 
   # Turbo integration as described in https://github.com/heartcombo/devise/blob/v4.9.0/CHANGELOG.md
