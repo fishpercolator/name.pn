@@ -1,9 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Heroku runs the Ruby in Gemfile.lock (4.0.10). This is loose only so the devcontainer can stay on
-# 4.0.9 until devcontainer-rails:4.0.10 is published. Pin it back to 4.0.10 then.
-ruby "~> 4.0.9"
+ruby file: ".ruby-version"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 8.0"
