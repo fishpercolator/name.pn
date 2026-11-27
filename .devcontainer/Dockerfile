@@ -1,5 +1,5 @@
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
-ARG RUBY_VERSION=4.0.9
+ARG RUBY_VERSION=4.0.10
 FROM ghcr.io/fishpercolator/devcontainer-rails:$RUBY_VERSION
 
 # ImageMagick for name badges
